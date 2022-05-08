@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+input,textarea,button{
+    border: none;
+    outline: none;
+}
+a{
+    text-decoration: none;
+}
+ul,li{
+ margin: 0;
+ padding: 0;
+}
+.text-nowrap{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
