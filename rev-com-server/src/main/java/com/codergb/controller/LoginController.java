@@ -1,18 +1,14 @@
 package com.codergb.controller;
 
-import com.codergb.annotation.ResponseCode;
 import com.codergb.bean.User;
 import com.codergb.constant.ErrorType;
-import com.codergb.constant.Host;
 import com.codergb.constant.ResponseMessage;
-import com.codergb.exception.ExceptionHandle;
 import com.codergb.service.UserService;
 import com.codergb.utils.EmptyJudge;
 import com.codergb.utils.ResponseType;
 import com.codergb.utils.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

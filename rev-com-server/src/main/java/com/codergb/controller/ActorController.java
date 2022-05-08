@@ -1,0 +1,53 @@
+package com.codergb.controller;
+
+import com.codergb.annotation.LoginAuth;
+import com.codergb.bean.Actor;
+import com.codergb.constant.ResponseMessage;
+import com.codergb.service.ActorService;
+import com.codergb.utils.EmptyJudge;
+import com.codergb.utils.ResponseType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
+
+@RestController
+@RequestMapping("/actor")
+public class ActorController {
+
+  @Autowired
+  ActorService actorService;
+
+  @LoginAuth
+  @PostMapping("/")
+  public ResponseType<Object> createActor(@RequestBody Actor actor){
+    if(new EmptyJudge().judgeEmpty(actor.getName())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员名称不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(actor.getForeignName())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员外文名不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(actor.getAlias())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员别名不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(actor.getConstellation())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员星座不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(actor.getBirth())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员生日不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(actor.getBirthPlace())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员出生地不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(actor.getFamily())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员家庭成员不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(actor.getDescription())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员简介不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(actor.getProfession())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员职业不能为空",null);
+    }else{
+      Long id=new Date().getTime();
+      actor.setId(id.toString());
+      actorService.createActor(actor);
+      return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), null);
+    }
+  }
+}

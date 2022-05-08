@@ -21,20 +21,30 @@ public class InterceptorController implements HandlerInterceptor {
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
     if(!(handler instanceof HandlerMethod)){
+      System.out.println("哈哈哈");
       return true;
     }
     HandlerMethod handlerMethod=(HandlerMethod)handler;
     LoginAuth isExists=handlerMethod.getMethodAnnotation(LoginAuth.class);
     if(isExists!=null){
+      System.out.println("盒盒盒");
       String token=request.getHeader("Authorization");
       try{
         token=token.replace("Bearer ","");
         Token tokenUtis=new Token();
-        Claims claims=tokenUtis.parseToken(token);
-        System.out.println(claims);
-        request.setAttribute("userId",claims.get("userId"));
-        request.setAttribute("userName",claims.get("userName"));
-        return true;
+        if(token.equals("")){
+          response.setStatus(HttpStatus.UNAUTHORIZED.value());
+          response.setCharacterEncoding("UTF-8");
+          ResponseType<Object> res=new ResponseType<Object>(HttpStatus.UNAUTHORIZED.value(), ErrorType.UNAUTHORIZATION.getErrorMsg(), null);
+          response.getWriter().write(JSON.toJSONString(res));
+          return false;
+        }else{
+          Claims claims=tokenUtis.parseToken(token);
+          System.out.println(claims);
+          request.setAttribute("userId",claims.get("userId"));
+          request.setAttribute("userName",claims.get("userName"));
+          return true;
+        }
       }catch (MalformedJwtException e){
         System.out.println("hhh");
         response.setStatus(HttpStatus.UNAUTHORIZED.value());

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.ActorMapper">
+  <insert id="createActor">
+    insert into actor(id,name,foreignName,alias,constellation,birth,birthPlace,family,description,profession)
+    values(#{id},#{name},#{foreignName},#{alias},#{constellation},#{birth},#{birthPlace},#{family},#{description},#{profession})
+  </insert>
+</mapper>

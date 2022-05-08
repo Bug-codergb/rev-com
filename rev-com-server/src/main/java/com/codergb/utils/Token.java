@@ -20,7 +20,7 @@ public class Token {
 
     return token;
   }
-  public Claims parseToken(String token){
+  public Claims parseToken(String token) throws Exception{
     Claims claims=Jwts.parser().setSigningKey(privateKey).parseClaimsJws(token).getBody();
     return claims;
   }
