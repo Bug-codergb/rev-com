@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
 const login = () => import("../views/login/Login.vue")
 const home = () => import("../views/home/Home.vue")
+const movie = () => import("../views/movie/Movie.vue")
+const director = () => import("../views/movie/childCpn/director/Director.vue")
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -14,7 +16,19 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/Home",
     name: "home",
-    component: home
+    component: home,
+    children: [
+      {
+        path: "Movie/video",
+        name: "movie",
+        component: movie
+      },
+      {
+        path: "Movie/director",
+        name: "director",
+        component: director
+      }
+    ]
   }
 ]
 

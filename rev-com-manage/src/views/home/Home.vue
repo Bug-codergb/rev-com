@@ -8,15 +8,17 @@
         <el-header>
           <nav-header @changeFold="changeFold" />
         </el-header>
-        <el-main>Main</el-main>
+        <el-main>
+          <router-view class="home-router-view" />
+        </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script lang="ts">
-import NavList from "@/components/content/navList/NavList"
-import NavHeader from "@/components/content/NavHeader/NavHeader"
+import NavList from "@/components/content/navList/NavList.vue"
+import NavHeader from "@/components/content/navHeader/NavHeader.vue"
 import { ref } from "vue"
 export default {
   name: "Home",
@@ -57,6 +59,13 @@ export default {
     color: #333;
     text-align: center;
     background-color: #f0f2f5;
+  }
+  .home-router-view {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    overflow-y: scroll;
   }
 }
 </style>

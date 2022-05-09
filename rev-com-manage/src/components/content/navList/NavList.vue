@@ -14,11 +14,11 @@
       <template v-for="item in menu" :key="item.name">
         <el-sub-menu :index="item.index">
           <template #title>
-            <el-icon><box /></el-icon>
+            <el-icon><film /></el-icon>
             <span>{{ item.name }}</span>
           </template>
           <template v-for="it in item.children" :key="it.name">
-            <el-menu-item :index="`${it.index}`">
+            <el-menu-item :index="`${it.index}`" @click="navRouter(it.path)">
               {{ it.name }}
             </el-menu-item>
           </template>
@@ -29,12 +29,13 @@
 </template>
 
 <script lang="ts">
+import { useRouter } from "vue-router"
 import { menu } from "@/constant/menu"
-import { Box } from "@element-plus/icons-vue"
+import { Film } from "@element-plus/icons-vue"
 export default {
   name: "NavList",
   components: {
-    Box
+    Film
   },
   props: {
     collapse: {
@@ -43,8 +44,15 @@ export default {
     }
   },
   setup() {
+    const router = useRouter()
+    const navRouter = (path: string) => {
+      router.push({
+        path: path
+      })
+    }
     return {
-      menu
+      menu,
+      navRouter
     }
   }
 }
@@ -86,7 +94,7 @@ export default {
     }
   }*/
 
-  ::v-deep .el-submenu__title {
+  /deep/ .el-submenu__title {
     background-color: #001529 !important;
   }
 

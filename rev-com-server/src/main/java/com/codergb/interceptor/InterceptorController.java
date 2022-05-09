@@ -30,15 +30,16 @@ public class InterceptorController implements HandlerInterceptor {
       System.out.println("盒盒盒");
       String token=request.getHeader("Authorization");
       try{
-        token=token.replace("Bearer ","");
-        Token tokenUtis=new Token();
-        if(token.equals("")){
+        if(token==null || token.equals("")){
           response.setStatus(HttpStatus.UNAUTHORIZED.value());
           response.setCharacterEncoding("UTF-8");
+          response.setContentType("application/json;charset=utf-8");
           ResponseType<Object> res=new ResponseType<Object>(HttpStatus.UNAUTHORIZED.value(), ErrorType.UNAUTHORIZATION.getErrorMsg(), null);
           response.getWriter().write(JSON.toJSONString(res));
           return false;
         }else{
+          token=token.replace("Bearer ","");
+          Token tokenUtis=new Token();
           Claims claims=tokenUtis.parseToken(token);
           System.out.println(claims);
           request.setAttribute("userId",claims.get("userId"));

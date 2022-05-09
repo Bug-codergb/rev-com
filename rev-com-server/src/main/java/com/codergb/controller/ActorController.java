@@ -1,7 +1,7 @@
 package com.codergb.controller;
 
 import com.codergb.annotation.LoginAuth;
-import com.codergb.bean.Actor;
+import com.codergb.bean.movie.Actor;
 import com.codergb.constant.ResponseMessage;
 import com.codergb.service.ActorService;
 import com.codergb.utils.EmptyJudge;
@@ -41,8 +41,6 @@ public class ActorController {
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员家庭成员不能为空",null);
     }else if(new EmptyJudge().judgeEmpty(actor.getDescription())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员简介不能为空",null);
-    }else if(new EmptyJudge().judgeEmpty(actor.getProfession())){
-      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员职业不能为空",null);
     }else{
       Long id=new Date().getTime();
       actor.setId(id.toString());

@@ -6,4 +6,7 @@
   <typeAliases>
     <package name="com.codergb.bean"/>
   </typeAliases>
+  <plugins>
+    <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+  </plugins>
 </configuration>

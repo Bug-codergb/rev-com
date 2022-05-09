@@ -1,5 +1,6 @@
-package com.codergb.bean;
+package com.codergb.bean.movie;
 
+import com.codergb.bean.FileInfo;
 import lombok.*;
 
 import java.util.Date;
@@ -9,17 +10,14 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode(callSuper = true)
-public class Actor extends FileInfo{
+public class Screenwriter extends FileInfo {
   private String id;
   private String name;
   private String avatarUrl;
-  private String foreignName;
   private String alias;
-  private String constellation;
-  private String profession;
-  private Date birth;
+  private String gender;
   private String birthPlace;
-  private String family;
+
   private String description;
   private Date createTime;
   private Date updateTime;

@@ -1,6 +1,6 @@
 package com.codergb.service;
 
-import com.codergb.bean.Actor;
+import com.codergb.bean.movie.Actor;
 import com.codergb.mapper.ActorMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

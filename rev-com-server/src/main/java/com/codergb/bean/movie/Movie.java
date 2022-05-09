@@ -1,5 +1,8 @@
-package com.codergb.bean;
+package com.codergb.bean.movie;
 
+import com.codergb.bean.FileInfo;
+import com.codergb.bean.movie.Director;
+import com.codergb.bean.movie.Screenwriter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Movie  extends FileInfo{
+public class Movie  extends FileInfo {
   private String id;
   private String name;
   private List<Director> director;

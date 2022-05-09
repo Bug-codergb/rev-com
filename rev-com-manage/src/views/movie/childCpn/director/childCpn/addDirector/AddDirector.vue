@@ -1,0 +1,104 @@
+<template>
+  <div class="add-director">
+    <el-form
+      ref="ruleFormRef"
+      :model="director"
+      :rules="rules"
+      label-width="80px"
+      class="demo-ruleForm"
+    >
+      <el-form-item label="名称" prop="name">
+        <el-input v-model="director.name" placeholder="请输入导演名称" />
+      </el-form-item>
+      <el-form-item label="别名" prop="alias">
+        <el-input v-model="director.alias" placeholder="请输入导演名称" />
+      </el-form-item>
+      <el-form-item label="性别" prop="gender">
+        <el-radio-group v-model="director.gender">
+          <el-radio label="0">男</el-radio>
+          <el-radio label="1">女</el-radio>
+        </el-radio-group>
+      </el-form-item>
+
+      <el-form-item label="出生地" prop="birthPlace">
+        <el-input v-model="director.birthPlace" placeholder="请输入导演名称" />
+      </el-form-item>
+
+      <el-form-item label="简介" prop="description">
+        <el-input
+          type="textarea"
+          placeholder="请输入导演名称"
+          v-model="director.description"
+          :autosize="{ minRows: 4, maxRows: 6 }"
+        />
+      </el-form-item>
+    </el-form>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, reactive, ref } from "vue"
+import type { FormInstance, FormRules } from "element-plus"
+export default defineComponent({
+  name: "AddDirector",
+  setup() {
+    const ruleFormRef = ref<FormInstance>()
+    const director = reactive({
+      name: "",
+      alias: "",
+      gender: "0",
+      birthPlace: "",
+      description: ""
+    })
+
+    const rules = reactive<FormRules>({
+      name: [
+        {
+          required: true,
+          message: "请输入导演名称",
+          trigger: "blur"
+        }
+      ],
+      alias: [
+        {
+          required: true,
+          message: "请输入导演其他名称",
+          trigger: "blur"
+        }
+      ],
+      gender: [
+        {
+          required: true,
+          message: "请选择性别",
+          trigger: "change"
+        }
+      ],
+      birthPlace: [
+        {
+          required: true,
+          message: "请输入出生地",
+          trigger: "blur"
+        }
+      ],
+      description: [
+        {
+          required: true,
+          message: "请输入人导演简介",
+          trigger: "blur"
+        }
+      ]
+    })
+    return {
+      director,
+      rules,
+      ruleFormRef
+    }
+  }
+})
+</script>
+
+<style scoped lang="less">
+.add-director {
+  padding: 0 15px;
+}
+</style>

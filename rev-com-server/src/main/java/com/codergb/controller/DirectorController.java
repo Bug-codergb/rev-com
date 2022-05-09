@@ -1,19 +1,19 @@
 package com.codergb.controller;
 
 import com.codergb.annotation.LoginAuth;
-import com.codergb.bean.Director;
+import com.codergb.bean.movie.Director;
+import com.codergb.bean.PageResult;
 import com.codergb.constant.ResponseMessage;
 import com.codergb.service.DirectorService;
 import com.codergb.utils.EmptyJudge;
 import com.codergb.utils.ResponseType;
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/director")
@@ -33,8 +33,6 @@ public class DirectorController {
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "性别不能为空",null);
     }else if(new EmptyJudge().judgeEmpty(director.getBirthPlace())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"出生地不能为空",null );
-    }else if(new EmptyJudge().judgeEmpty(director.getProfession())){
-      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"职业不能为空",null );
     }else if(new EmptyJudge().judgeEmpty(director.getDescription())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"导演简介不能为空",null );
     }else{
@@ -43,5 +41,16 @@ public class DirectorController {
       directorService.createDirector(director);
       return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), null);
     }
+  }
+  @LoginAuth
+  @GetMapping("/all")
+  public ResponseType<PageResult<Director>> getAllDirector(@RequestParam("page") Integer page,
+                                                   @RequestParam("limit") Integer limit){
+    Page<Director> directors=directorService.getAllDirector(page,limit);
+    PageResult pageResult=new PageResult<List<Director>>(directors.getPageNum(),
+                                                         directors.getTotal(),
+                                                         directors.getPages(),
+                                                         directors);
+    return new ResponseType<PageResult<Director>>(HttpStatus.OK.value(),ResponseMessage.SUCCESS.getMESSAGE(),pageResult);
   }
 }
