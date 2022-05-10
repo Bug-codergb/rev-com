@@ -2,7 +2,12 @@
   <div class="director">
     <div class="director-header">
       <div class="director-search">
-        <el-input v-model="name" placeholder="请输入人导演名称" clearable />
+        <el-input
+          v-model="keyword"
+          placeholder="请输入人导演名称"
+          clearable
+          @input="keywordChange"
+        />
       </div>
       <div class="add-director">
         <el-button type="primary" @click="addDirector">添加导演</el-button>
@@ -10,7 +15,20 @@
     </div>
     <div class="director-list">
       <template v-if="directList.list && directList.list.length > 0">
-        <el-table :data="directList.list" :height="480">
+        <el-table :data="directList.list" :height="490">
+          <el-table-column
+            :show-overflow-tooltip="true"
+            prop="name"
+            label="导演头像"
+            width="80"
+          >
+            <template #default="scope">
+              <!--              <img class="director-avatar"  />-->
+              <el-image :src="scope.row.avatarUrl" style="height: 40px">
+                <template #error> </template>
+              </el-image>
+            </template>
+          </el-table-column>
           <el-table-column
             :show-overflow-tooltip="true"
             prop="name"
@@ -87,14 +105,14 @@
         <el-empty description="暂无导演信息" />
       </template>
     </div>
-    <template v-if="total > 10">
+    <template v-if="total > 7">
       <div class="page">
         <el-pagination
           background
           @current-change="pageChange"
           layout="prev, pager, next"
           :total="total"
-          :page-size="10"
+          :page-size="7"
         />
       </div>
     </template>
@@ -124,13 +142,16 @@ import { IPageResult } from "@/types/pageResult"
 import { IDirector } from "@/types/director"
 import AddDirector from "./childCpn/addDirector/AddDirector.vue"
 import { ElMessage } from "element-plus"
+import { setOccupation } from "@/network/occupation"
+import { debounce } from "@/utils/debounce"
+
 export default defineComponent({
   name: "Director",
   components: {
     AddDirector
   },
   setup() {
-    const name = ref("")
+    const keyword = ref<string>("")
     const drawer = ref(false)
     const direction = ref("rtl")
     const addDirectRef = ref<InstanceType<typeof AddDirector>>()
@@ -139,33 +160,47 @@ export default defineComponent({
       list: []
     })
     const total = ref(0)
-    getAllDirector<IResponseType<IPageResult<IDirector[]>>>(1, 10).then(
-      (res) => {
+
+    const getAllDirectorRequest = () => {
+      getAllDirector<IResponseType<IPageResult<IDirector[]>>>(
+        1,
+        7,
+        keyword.value
+      ).then((res) => {
         if (res.status === 200) {
           directList.list = res.data.data
           total.value = res.data.total
         }
-      }
-    )
+      })
+    }
+    getAllDirectorRequest()
     const pageChange = (e: number) => {
-      getAllDirector<IResponseType<IPageResult<IDirector[]>>>(e, 10).then(
-        (res) => {
-          if (res.status === 200) {
-            directList.list = res.data.data
-            total.value = res.data.total
-            console.log(directList)
-          }
+      getAllDirector<IResponseType<IPageResult<IDirector[]>>>(
+        e,
+        7,
+        keyword.value
+      ).then((res) => {
+        if (res.status === 200) {
+          directList.list = res.data.data
+          total.value = res.data.total
         }
-      )
+      })
     }
     const addDirector = () => {
       drawer.value = true
     }
+    const keywordChange = debounce(
+      () => {
+        getAllDirectorRequest()
+      },
+      1000,
+      false
+    )
     const define = () => {
       addDirectRef.value?.ruleFormRef?.validate((e) => {
         if (e) {
           if (addDirectRef.value) {
-            const { name, alias, gender, birthPlace, description } =
+            const { name, alias, gender, birthPlace, description, occupation } =
               addDirectRef.value.director
             addDirectorRequest(
               name,
@@ -179,16 +214,16 @@ export default defineComponent({
                   message: "导演信息添加成功",
                   type: "success"
                 })
-                drawer.value = false
-                getAllDirector<IResponseType<IPageResult<IDirector[]>>>(
-                  1,
-                  10
-                ).then((res) => {
-                  if (res.status === 200) {
-                    directList.list = res.data.data
-                    total.value = res.data.total
+                if (occupation.length !== 0) {
+                  for (let item of occupation) {
+                    setOccupation("dId", data.data.id, item).then(() => {
+                      getAllDirectorRequest()
+                    })
                   }
-                })
+                } else {
+                  getAllDirectorRequest()
+                }
+                drawer.value = false
               }
             })
           }
@@ -200,11 +235,12 @@ export default defineComponent({
       pageChange,
       addDirector,
       total,
-      name,
+      keyword,
       drawer,
       direction,
       define,
-      addDirectRef
+      addDirectRef,
+      keywordChange
     }
   }
 })
@@ -230,6 +266,9 @@ export default defineComponent({
   }
   .director-list {
     padding: 15px 0 0 0;
+    .director-avatar {
+      height: 40px;
+    }
   }
   .page {
     display: flex;

@@ -16,9 +16,15 @@ public class DirectorService {
   public int createDirector(Director director){
     return directorMapper.createDirector(director);
   }
-  public Page<Director> getAllDirector(int page,int limit){
+  public Page<Director> getAllDirector(int page,int limit,String keyword){
     Page<Director> p= PageHelper.startPage(page,limit);
-    List<Director> directors=directorMapper.getAllDirect(page,limit);
+    List<Director> directors=directorMapper.getAllDirect(page,limit,keyword);
     return p;
+  }
+  public int uploadAvatar(Director director){
+    return directorMapper.uploadAvatar(director);
+  }
+  public Director getDirectorById(String id){
+    return directorMapper.getDirectorById(id);
   }
 }

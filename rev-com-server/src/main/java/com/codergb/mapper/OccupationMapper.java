@@ -11,4 +11,6 @@ public interface OccupationMapper {
   public int setOccupation(@Param("key") String key, @Param("id") String id,@Param("oId") String oId);
   //获取所有职业 为导演，演员
   public List<Occupation> getOccupationById(@Param("key") String key,@Param("id") String id);
+  //获取所有职业
+  public List<Occupation> getAllOccupation();
 }

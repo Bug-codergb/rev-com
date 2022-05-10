@@ -18,12 +18,16 @@ import java.util.List;
 public class Movie  extends FileInfo {
   private String id;
   private String name;
-  private List<Director> director;
-  private List<Screenwriter> screenwriter;
+  private List<Director> directors;
+  private List<Screenwriter> screenwriters;
   private String coverUrl;
-  private String area;
+  private List<Area> area;
   private String language;
   private Date releaseTime;
   private Long duration;
   private String alias;
+  private String form;
+  private List<Actor> actors;
+  private List<Category> categories;
+  private String description;
 }

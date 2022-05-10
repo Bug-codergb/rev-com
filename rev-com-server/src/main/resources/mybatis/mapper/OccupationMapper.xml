@@ -15,4 +15,7 @@
              on o.id=oc.oId
     where ${key}=#{id}
   </select>
+  <select id="getAllOccupation" resultType="Occupation">
+    select * from occupation
+  </select>
 </mapper>

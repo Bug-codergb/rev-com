@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.MovieMapper">
+  <insert id="createForm">
+    insert into movie_form (id,name) values(#{id},#{name})
+  </insert>
+  <insert id="createArea">
+    insert into movie_area(id,name) values (#{id},#{name})
+  </insert>
+  <insert id="createCate">
+    insert into movie_cate(id,name) values(#{id},#{name})
+  </insert>
+  <insert id="createTag">
+    insert into movie_tag(id,name) values(#{id},#{name})
+  </insert>
+  <insert id="createMovie">
+    insert into movie(id,name,form,language ,description,releaseTime,duration,alias)
+  </insert>
+</mapper>

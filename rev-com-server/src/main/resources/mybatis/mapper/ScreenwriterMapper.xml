@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.ScreenwriterMapper">
+  <insert id="createScreenwriter">
+    insert into screenwriter(id,name,alias,family,gender,birthPlace,birth,description)
+    values(#{id},#{name},#{alias},#{family},#{gender},#{birthPlace},#{birth},#{description})
+  </insert>
+</mapper>

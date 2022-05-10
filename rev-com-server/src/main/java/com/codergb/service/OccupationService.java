@@ -1,8 +1,11 @@
 package com.codergb.service;
 
+import com.codergb.bean.occupation.Occupation;
 import com.codergb.mapper.OccupationMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class OccupationService {
@@ -12,8 +15,10 @@ public class OccupationService {
   public int createOccupation(String id,String name){
     return occupationMapper.createOccupation(id,name);
   }
-
   public int setOccupation(String key,String id,String oId){
     return occupationMapper.setOccupation(key,id,oId);
+  }
+  public List<Occupation> getAllOccupation(){
+    return occupationMapper.getAllOccupation();
   }
 }

@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.Response;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/occupation")
@@ -41,5 +43,11 @@ public class OccupationController {
       occupationService.setOccupation(key,id,oId);
       return new ResponseType<Object>(HttpStatus.OK.value(),ResponseMessage.SUCCESS.getMESSAGE(), null);
     }
+  }
+  @LoginAuth
+  @GetMapping("/all")
+  public ResponseType<List<Occupation>> getAllOccupation(){
+    List<Occupation> occupations=occupationService.getAllOccupation();
+    return new ResponseType<List<Occupation>>(HttpStatus.OK.value(),ResponseMessage.SUCCESS.getMESSAGE(), occupations);
   }
 }

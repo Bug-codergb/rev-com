@@ -24,6 +24,22 @@
         <el-input v-model="director.birthPlace" placeholder="请输入导演名称" />
       </el-form-item>
 
+      <el-form-item label="职业" prop="occupation">
+        <el-select
+          v-model="director.occupation"
+          multiple
+          :multiple-limit="4"
+          placeholder="请选择职业"
+          style="width: 100%"
+        >
+          <el-option
+            v-for="item in occupation.list"
+            :key="item.id"
+            :label="item.name"
+            :value="item.id"
+          />
+        </el-select>
+      </el-form-item>
       <el-form-item label="简介" prop="description">
         <el-input
           type="textarea"
@@ -37,8 +53,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue"
+import { defineComponent, reactive, ref, onMounted } from "vue"
 import type { FormInstance, FormRules } from "element-plus"
+import { getAllOccupation } from "@/network/occupation"
+import { IResponseType } from "@/types/responseType"
+import { IOccupation } from "@/types/occupation"
 export default defineComponent({
   name: "AddDirector",
   setup() {
@@ -48,9 +67,12 @@ export default defineComponent({
       alias: "",
       gender: "0",
       birthPlace: "",
-      description: ""
+      description: "",
+      occupation: []
     })
-
+    const occupation = reactive<{ list: IOccupation[] }>({
+      list: []
+    })
     const rules = reactive<FormRules>({
       name: [
         {
@@ -88,10 +110,18 @@ export default defineComponent({
         }
       ]
     })
+
+    onMounted(async () => {
+      const data = await getAllOccupation<IResponseType<IOccupation[]>>()
+      if (data.status === 200) {
+        occupation.list = data.data
+      }
+    })
     return {
       director,
       rules,
-      ruleFormRef
+      ruleFormRef,
+      occupation
     }
   }
 })

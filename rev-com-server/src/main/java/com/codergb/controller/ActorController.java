@@ -1,19 +1,20 @@
 package com.codergb.controller;
 
 import com.codergb.annotation.LoginAuth;
+import com.codergb.bean.PageResult;
 import com.codergb.bean.movie.Actor;
 import com.codergb.constant.ResponseMessage;
 import com.codergb.service.ActorService;
 import com.codergb.utils.EmptyJudge;
 import com.codergb.utils.ResponseType;
+import com.github.pagehelper.Page;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/actor")
@@ -47,5 +48,20 @@ public class ActorController {
       actorService.createActor(actor);
       return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), null);
     }
+  }
+  @LoginAuth
+  @GetMapping("/all")
+  public ResponseType<PageResult<List<Actor>>> getAllActor(@RequestParam("page") Integer page,
+                                              @RequestParam("limit") Integer limit,
+                                              @RequestParam(value="keyword",required = false) String keyword ){
+    if(keyword==null){
+      keyword="";
+    }
+    Page<Actor> actors=actorService.getAllActor(page,limit,keyword);
+    PageResult pageResult=new PageResult<List<Actor>>(actors.getPageNum(),
+                                                      actors.getTotal(),
+                                                      actors.getPages(),
+                                                      actors);
+    return new ResponseType<PageResult<List<Actor>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
   }
 }

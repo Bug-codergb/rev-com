@@ -7,13 +7,15 @@ enum directorApi {
 }
 export function getAllDirector<T = IResponseType<any>>(
   page: number,
-  limit: number
+  limit: number,
+  keyword: string
 ) {
   return gbRequest.get<T>({
     url: directorApi.allDirector,
     params: {
       page: page,
-      limit: limit
+      limit: limit,
+      keyword
     }
   })
 }
