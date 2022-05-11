@@ -12,7 +12,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class MovieDTO extends Movie {
   private List<String> directorList;
-  private List<String> screenWriterList;
+  private List<String> screenwriterList;
   private List<String> areaList;
   private List<String> actorList;
   private List<String> cateList;

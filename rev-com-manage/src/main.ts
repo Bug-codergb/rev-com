@@ -11,7 +11,11 @@ const app = createApp(App)
 
 app.directive("format", {
   created(el: HTMLElement, bind: any) {
-    el.innerHTML = formatTime(el.innerText, bind.value)
+    let params: string | number = el.innerText
+    if (!el.innerText.includes("-")) {
+      params = parseInt(params)
+    }
+    el.innerHTML = formatTime(params, bind.value)
   }
 })
 

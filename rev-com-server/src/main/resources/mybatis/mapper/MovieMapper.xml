@@ -17,5 +17,100 @@
   </insert>
   <insert id="createMovie">
     insert into movie(id,name,form,language ,description,releaseTime,duration,alias)
+    values (#{id},#{name},#{form},#{language},#{description},#{releaseTime},#{duration},#{alias})
   </insert>
+  <insert id="setDirectorForMovie">
+    insert into movie_director(mId,dId) values(#{mId},#{dId})
+  </insert>
+  <insert id="setAreaForMovie">
+    insert into movie_area_relate(mId,aId) values (#{mId},#{aId})
+  </insert>
+  <insert id="setScreenwriterForMovie">
+    insert into movie_screenwriter_relate(mId,sId) values(#{mId},#{sId})
+  </insert>
+  <insert id="setActorForMovie">
+    insert into movie_actor(mId,aId) values (#{mId},#{aId})
+  </insert>
+  <insert id="setCateForMovie">
+    insert into movie_cate_relate(mId,cId) values (#{mId},#{cId})
+  </insert>
+
+  <!--获取电影的导演 演员 地区-->
+  <select id="getDirectorByMid" resultType="Director">
+    select * from movie_director as md
+             left join director as d on md.dId=d.id
+    where md.mId=#{mId}
+  </select>
+  <select id="getScreenwriterByMid" resultType="Screenwriter">
+    select * from movie_screenwriter_relate as ms
+             left join screenwriter as s on ms.sId=s.id
+    where ms.mId=#{mId}
+  </select>
+  <select id="getAreaByMid" resultType="Area">
+    select * from movie_area_relate as mar
+             left join movie_area as ma on mar.aId =ma.id
+    where mar.mId=#{mId}
+  </select>
+  <select id="getActorByMid" resultType="Actor">
+    select * from movie_actor as mc
+             left join actor as a on mc.aId=a.id
+    where mc.mId=#{mId}
+  </select>
+  <select id="getCateByMid" resultType="Category">
+    select * from movie_cate_relate as mcr
+             left join movie_cate as mc on mcr.cId=mc.id
+    where mcr.mId=#{mId}
+  </select>
+  <select id="getFormByMid" resultType="Form">
+    select * from movie_form where id=#{id}
+  </select>
+  <resultMap id="movieResultMap" type="Movie">
+    <id property="id" column="id"></id>
+    <result property="name" column="name"></result>
+    <result property="coverUrl" column="coverUrl"></result>
+    <result property="language" column="language"></result>
+    <result property="releaseTime" column="releaseTime"></result>
+    <result property="duration" column="duration"></result>
+    <result property="alias" column="alias"></result>
+    <result property="description" column="description"></result>
+    <association property="form"
+                 javaType="Form"
+                 select="com.codergb.mapper.MovieMapper.getFormByMid"
+                 column="form"></association>
+    <collection property="directors"
+                ofType="Director"
+                select="com.codergb.mapper.MovieMapper.getDirectorByMid"
+                column="id"></collection>
+    <collection property="screenwriters"
+                ofType="Screenwriter"
+                select="com.codergb.mapper.MovieMapper.getScreenwriterByMid"
+                column="id"></collection>
+    <collection property="area"
+                ofType="Area"
+                select="com.codergb.mapper.MovieMapper.getAreaByMid"
+                column="id"></collection>
+    <collection property="actors"
+                ofType="Actor"
+                select="com.codergb.mapper.MovieMapper.getActorByMid"
+                column="id"></collection>
+    <collection property="categories"
+                ofType="Category"
+                select="com.codergb.mapper.MovieMapper.getCateByMid"
+                column="id"></collection>
+  </resultMap>
+  <select id="getAllMovie" resultMap="movieResultMap">
+    select * from movie
+  </select>
+  <!--获取所有地区-->
+  <select id="getAllArea" resultType="Area">
+    select * from movie_area
+  </select>
+  <!--获取所有类型-->
+  <select id="getAllCate" resultType="Category">
+    select * from movie_cate
+  </select>
+  <!--获取所有形式-->
+  <select id="getAllForm" resultType="Form">
+    select * from movie_form
+  </select>
 </mapper>

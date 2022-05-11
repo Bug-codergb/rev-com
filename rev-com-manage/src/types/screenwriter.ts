@@ -1,19 +1,17 @@
 import { IOccupation } from "@/types/occupation"
-import { IFileInfo } from "@/types/FileInfo"
 
-interface IActor extends IFileInfo {
+interface IScreenwriter {
   id: string
   name: string
   avatarUrl: string
-  foreignName: string
   alias: string
-  constellation: string
-  occupations: IOccupation[]
-  birth: string
-  birthPlace: string
   family: string
+  occupations: IOccupation[]
+  gender: string
+  birthPlace: string
+  birth: string
   description: string
   createTime: string
   updateTime: string
 }
-export type { IActor }
+export type { IScreenwriter }

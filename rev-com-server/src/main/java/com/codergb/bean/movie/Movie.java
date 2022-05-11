@@ -26,7 +26,7 @@ public class Movie  extends FileInfo {
   private Date releaseTime;
   private Long duration;
   private String alias;
-  private String form;
+  private Form form;
   private List<Actor> actors;
   private List<Category> categories;
   private String description;

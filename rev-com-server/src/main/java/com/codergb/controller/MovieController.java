@@ -1,17 +1,21 @@
 package com.codergb.controller;
 
 import com.codergb.annotation.LoginAuth;
+import com.codergb.bean.PageResult;
 import com.codergb.bean.movie.*;
 import com.codergb.constant.ResponseMessage;
 import com.codergb.dto.movie.MovieDTO;
 import com.codergb.service.MovieService;
 import com.codergb.utils.EmptyJudge;
 import com.codergb.utils.ResponseType;
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.Response;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/movie")
@@ -74,9 +78,9 @@ public class MovieController {
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "电影名称不能为空",null);
     }else if(new EmptyJudge().judgeEmpty(movie.getDirectorList())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "导演不能为空",null);
-    }else if(new EmptyJudge().judgeEmpty(movie.getScreenWriterList())){
+    }else if(new EmptyJudge().judgeEmpty(movie.getScreenwriterList())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "编剧不能为空",null);
-    }else if(new EmptyJudge().judgeEmpty(movie.getActorList())){
+    }else if(new EmptyJudge().judgeEmpty(movie.getAreaList())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "地区不能为空",null);
     }else if(new EmptyJudge().judgeEmpty(movie.getLanguage())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "语言不能为空",null);
@@ -95,8 +99,56 @@ public class MovieController {
     }else if(new EmptyJudge().judgeEmpty(movie.getDescription())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "电影简介不能为空",null);
     }else{
-      System.out.println(movie.getDirectors());
-      return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), null);
+      Long id=new Date().getTime();
+      movie.setId(id.toString());
+      movieService.createMovie(movie);
+      for(String dId : movie.getDirectorList()){
+        movieService.setDirectorForMovie(id.toString(),dId);
+      }
+      for(String aId :movie.getAreaList()){
+        movieService.setAreaForMovie(id.toString(),aId);
+      }
+      for(String sId :movie.getScreenwriterList()){
+        movieService.setScreenwriterForMovie(id.toString(),sId);
+      }
+      for(String aId:movie.getActorList()){
+        movieService.setActorForMovie(id.toString(),aId);
+      }
+      for(String cId:movie.getCateList()){
+        movieService.setCateForMovie(id.toString(),cId);
+      }
+      return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), movie);
     }
+  }
+  @LoginAuth
+  @GetMapping("/all")
+  public ResponseType<PageResult<List<Movie>>> getAllMovie(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit){
+    Page<Movie> movies=movieService.getAllMovie(page,limit);
+    PageResult pageResult=new PageResult<List<Movie>>(movies.getPageNum(),
+                                                      movies.getTotal(),
+                                                      movies.getPages(),
+                                                      movies);
+    return new ResponseType<PageResult<List<Movie>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
+  }
+  //获取所有地区
+  @LoginAuth
+  @GetMapping("/area/all")
+  public ResponseType<List<Area>> getAllArea(){
+    List<Area> areas=movieService.getAllArea();
+    return new ResponseType<List<Area>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), areas);
+  }
+  //获取所有类型
+  @LoginAuth
+  @GetMapping("/cate/all")
+  public ResponseType<List<Category>> getAllCate(){
+    List<Category> categories=movieService.getAllCate();
+    return new ResponseType<List<Category>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), categories);
+  }
+  //获取所有形式
+  @LoginAuth
+  @GetMapping("/form/all")
+  public ResponseType<List<Form>> getAllForm(){
+    List<Form> forms= movieService.getAllForm();
+    return new ResponseType<List<Form>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(),forms );
   }
 }

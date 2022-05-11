@@ -11,7 +11,7 @@
  Target Server Version : 80022
  File Encoding         : 65001
 
- Date: 10/05/2022 23:19:54
+ Date: 11/05/2022 22:31:34
 */
 
 SET NAMES utf8mb4;
@@ -119,6 +119,8 @@ CREATE TABLE `movie`  (
 -- ----------------------------
 -- Records of movie
 -- ----------------------------
+INSERT INTO `movie` VALUES ('1652237815469', '大话西游', NULL, '1652189378407', '华语', '45', '2022-10-12 00:00:00', 16522378, '花花', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie` VALUES ('1652238044529', '复仇者联盟', NULL, '1652189384380', '华语', '45', '2022-10-12 00:00:00', 150000, '花花', NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for movie_actor
@@ -138,6 +140,10 @@ CREATE TABLE `movie_actor`  (
 -- ----------------------------
 -- Records of movie_actor
 -- ----------------------------
+INSERT INTO `movie_actor` VALUES ('1652237815469', '1652014592779', '2022-05-11 10:56:55', '2022-05-11 10:56:55');
+INSERT INTO `movie_actor` VALUES ('1652237815469', '1652152758674', '2022-05-11 10:56:55', '2022-05-11 10:56:55');
+INSERT INTO `movie_actor` VALUES ('1652238044529', '1652014592779', '2022-05-11 11:00:44', '2022-05-11 11:00:44');
+INSERT INTO `movie_actor` VALUES ('1652238044529', '1652152711455', '2022-05-11 11:00:44', '2022-05-11 11:00:44');
 
 -- ----------------------------
 -- Table structure for movie_area
@@ -186,6 +192,10 @@ CREATE TABLE `movie_area_relate`  (
 -- ----------------------------
 -- Records of movie_area_relate
 -- ----------------------------
+INSERT INTO `movie_area_relate` VALUES ('1652237815469', '1652189767862', '2022-05-11 10:56:55', '2022-05-11 10:56:55');
+INSERT INTO `movie_area_relate` VALUES ('1652237815469', '1652189745734', '2022-05-11 10:56:55', '2022-05-11 10:56:55');
+INSERT INTO `movie_area_relate` VALUES ('1652238044529', '1652189733153', '2022-05-11 11:00:44', '2022-05-11 11:00:44');
+INSERT INTO `movie_area_relate` VALUES ('1652238044529', '1652189745734', '2022-05-11 11:00:44', '2022-05-11 11:00:44');
 
 -- ----------------------------
 -- Table structure for movie_cate
@@ -240,6 +250,10 @@ CREATE TABLE `movie_cate_relate`  (
 -- ----------------------------
 -- Records of movie_cate_relate
 -- ----------------------------
+INSERT INTO `movie_cate_relate` VALUES ('1652237815469', '1652190067124', '2022-05-11 10:56:55', '2022-05-11 10:56:55');
+INSERT INTO `movie_cate_relate` VALUES ('1652237815469', '1652190054769', '2022-05-11 10:56:55', '2022-05-11 10:56:55');
+INSERT INTO `movie_cate_relate` VALUES ('1652238044529', '1652190067124', '2022-05-11 11:00:44', '2022-05-11 11:00:44');
+INSERT INTO `movie_cate_relate` VALUES ('1652238044529', '1652190054769', '2022-05-11 11:00:44', '2022-05-11 11:00:44');
 
 -- ----------------------------
 -- Table structure for movie_director
@@ -259,6 +273,10 @@ CREATE TABLE `movie_director`  (
 -- ----------------------------
 -- Records of movie_director
 -- ----------------------------
+INSERT INTO `movie_director` VALUES ('1652237815469', '1652105870601', '2022-05-11 10:56:55', '2022-05-11 10:56:55');
+INSERT INTO `movie_director` VALUES ('1652237815469', '1652105949804', '2022-05-11 10:56:55', '2022-05-11 10:56:55');
+INSERT INTO `movie_director` VALUES ('1652238044529', '1652097604414', '2022-05-11 11:00:44', '2022-05-11 11:00:44');
+INSERT INTO `movie_director` VALUES ('1652238044529', '1652105949804', '2022-05-11 11:00:44', '2022-05-11 11:00:44');
 
 -- ----------------------------
 -- Table structure for movie_form
@@ -281,6 +299,27 @@ INSERT INTO `movie_form` VALUES ('1652189378407', '综艺', '2022-05-10 21:29:38
 INSERT INTO `movie_form` VALUES ('1652189384380', '动漫', '2022-05-10 21:29:44', '2022-05-10 21:29:44');
 INSERT INTO `movie_form` VALUES ('1652189395431', '纪录片', '2022-05-10 21:29:55', '2022-05-10 21:29:55');
 INSERT INTO `movie_form` VALUES ('1652189403822', '短片', '2022-05-10 21:30:03', '2022-05-10 21:30:03');
+
+-- ----------------------------
+-- Table structure for movie_screenwriter_relate
+-- ----------------------------
+DROP TABLE IF EXISTS `movie_screenwriter_relate`;
+CREATE TABLE `movie_screenwriter_relate`  (
+  `mId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `sId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX `mId`(`mId`) USING BTREE,
+  INDEX `sId`(`sId`) USING BTREE,
+  CONSTRAINT `movie_screenwriter_relate_ibfk_1` FOREIGN KEY (`mId`) REFERENCES `movie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `movie_screenwriter_relate_ibfk_2` FOREIGN KEY (`sId`) REFERENCES `screenwriter` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of movie_screenwriter_relate
+-- ----------------------------
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652237815469', '1652195889420', '2022-05-11 10:56:55', '2022-05-11 10:56:55');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652238044529', '1652195889420', '2022-05-11 11:00:44', '2022-05-11 11:00:44');
 
 -- ----------------------------
 -- Table structure for movie_tag
