@@ -1,6 +1,7 @@
 package com.codergb.service;
 
 import com.codergb.bean.movie.*;
+import com.codergb.dto.movie.MovieDTO;
 import com.codergb.mapper.MovieMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -25,7 +26,7 @@ public class MovieService {
   public int createTag(Tag tag){
     return movieMapper.createTag(tag);
   }
-  public int createMovie(Movie movie){
+  public int createMovie(MovieDTO movie){
     return movieMapper.createMovie(movie);
   }
   public int setDirectorForMovie(String mId,String dId){
@@ -44,9 +45,9 @@ public class MovieService {
     return movieMapper.setCateForMovie(mId,cId);
   }
 
-  public Page<Movie> getAllMovie(Integer page,Integer limit){
+  public Page<Movie> getAllMovie(Integer page,Integer limit,String form,String cateId,String keyword,String areaId){
     Page<Movie> p= PageHelper.startPage(page,limit);
-    List<Movie> movies=movieMapper.getAllMovie(page,limit);
+    List<Movie> movies=movieMapper.getAllMovie(page,limit,form,cateId,keyword,areaId);
     return p;
   }
   //获取所有地区

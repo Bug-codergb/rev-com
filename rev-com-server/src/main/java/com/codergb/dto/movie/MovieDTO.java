@@ -16,4 +16,5 @@ public class MovieDTO extends Movie {
   private List<String> areaList;
   private List<String> actorList;
   private List<String> cateList;
+  private String formItem;
 }

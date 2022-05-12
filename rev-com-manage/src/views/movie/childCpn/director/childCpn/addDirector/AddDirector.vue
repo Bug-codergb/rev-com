@@ -48,6 +48,11 @@
           :autosize="{ minRows: 4, maxRows: 6 }"
         />
       </el-form-item>
+      <el-form-item label="头像">
+        <div class="director-avatar" style="height: 100px; width: 100%">
+          <img-prev @onCancel="cancel" @onFileChange="fileChange" />
+        </div>
+      </el-form-item>
     </el-form>
   </div>
 </template>
@@ -58,8 +63,13 @@ import type { FormInstance, FormRules } from "element-plus"
 import { getAllOccupation } from "@/network/occupation"
 import { IResponseType } from "@/types/responseType"
 import { IOccupation } from "@/types/occupation"
+import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue"
+import { uploadAvatar } from "@/network/director"
 export default defineComponent({
   name: "AddDirector",
+  components: {
+    ImgPrev
+  },
   setup() {
     const ruleFormRef = ref<FormInstance>()
     const director = reactive({
@@ -69,6 +79,9 @@ export default defineComponent({
       birthPlace: "",
       description: "",
       occupation: []
+    })
+    const avatar = reactive<{ source: FormData | null }>({
+      source: null
     })
     const occupation = reactive<{ list: IOccupation[] }>({
       list: []
@@ -117,11 +130,22 @@ export default defineComponent({
         occupation.list = data.data
       }
     })
+    const cancel = () => {
+      avatar.source = null
+    }
+    const fileChange = (file: File) => {
+      let formData = new FormData()
+      formData.append("avatar", file)
+      avatar.source = formData
+    }
     return {
       director,
       rules,
       ruleFormRef,
-      occupation
+      occupation,
+      cancel,
+      fileChange,
+      avatar
     }
   }
 })

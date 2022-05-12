@@ -30,7 +30,11 @@
   </resultMap>
   <select id="getAllDirect" resultMap="directorResultMap">
     select * ,"dId" as dId from director
-    where name like "%"#{keyword}"%"
+    <where>
+      <if test="keyword!='' and keyword!=null">
+        name like "%"#{keyword}"%"
+      </if>
+    </where>
   </select>
   <update id="uploadAvatar">
     update director set avatarUrl=#{avatarUrl},originalname=#{originalname},

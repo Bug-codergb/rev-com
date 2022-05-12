@@ -1,9 +1,10 @@
 import gbRequest from "@/network"
 import { IResponseType } from "@/types/responseType"
 
-enum directorApi {
+enum DirectorApi {
   allDirector = "/director/all",
-  addDirector = "/director/"
+  addDirector = "/director/",
+  uploadAvatar = "/director/avatar/upload/"
 }
 export function getAllDirector<T = IResponseType<any>>(
   page: number,
@@ -11,7 +12,7 @@ export function getAllDirector<T = IResponseType<any>>(
   keyword: string
 ) {
   return gbRequest.get<T>({
-    url: directorApi.allDirector,
+    url: DirectorApi.allDirector,
     params: {
       page: page,
       limit: limit,
@@ -27,7 +28,7 @@ export function addDirectorRequest<T = IResponseType<any>>(
   description: string
 ) {
   return gbRequest.post<T>({
-    url: directorApi.addDirector,
+    url: DirectorApi.addDirector,
     method: "post",
     data: {
       name,
@@ -35,6 +36,20 @@ export function addDirectorRequest<T = IResponseType<any>>(
       gender,
       birthPlace,
       description
+    }
+  })
+}
+//上传头像
+export function uploadAvatar<T = IResponseType<any>>(
+  formData: FormData,
+  id: string
+) {
+  return gbRequest.post<T>({
+    url: DirectorApi.uploadAvatar + `${id}`,
+    method: "post",
+    data: formData,
+    headers: {
+      "Content-type": "multipart/form-data"
     }
   })
 }

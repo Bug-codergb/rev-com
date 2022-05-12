@@ -136,7 +136,11 @@
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from "vue"
-import { addDirectorRequest, getAllDirector } from "@/network/director"
+import {
+  addDirectorRequest,
+  getAllDirector,
+  uploadAvatar
+} from "@/network/director"
 import { IResponseType } from "@/types/responseType"
 import { IPageResult } from "@/types/pageResult"
 import { IDirector } from "@/types/director"
@@ -197,7 +201,7 @@ export default defineComponent({
       false
     )
     const define = () => {
-      addDirectRef.value?.ruleFormRef?.validate((e) => {
+      addDirectRef.value?.ruleFormRef?.validate((e: boolean) => {
         if (e) {
           if (addDirectRef.value) {
             const { name, alias, gender, birthPlace, description, occupation } =
@@ -214,6 +218,13 @@ export default defineComponent({
                   message: "导演信息添加成功",
                   type: "success"
                 })
+                //上传头像
+                if (addDirectRef.value) {
+                  const { avatar } = addDirectRef.value
+                  if (avatar.source instanceof FormData) {
+                    uploadAvatar(avatar.source, data.data.id).then(() => {})
+                  }
+                }
                 if (occupation.length !== 0) {
                   for (let item of occupation) {
                     setOccupation("dId", data.data.id, item).then(() => {

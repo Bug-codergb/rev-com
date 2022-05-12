@@ -1,65 +1,78 @@
 <template>
   <div class="movie">
     <div class="movie-header">
-      <div class="movie-search">
-        <el-input
-          v-model="keyword"
-          placeholder="请输入人导演名称"
-          clearable
-          @input="keywordChange"
-        />
-      </div>
-      <div class="cate-list">
-        <el-select
-          v-model="cate"
-          class="m-2"
-          filterable
-          placeholder="请选择电影类型"
-        >
-          <el-option
-            v-for="item in cateList.list"
-            :key="item.id"
-            :label="item.name"
-            :value="item.id"
+      <div class="movie-header-left">
+        <div class="movie-search">
+          <el-input
+            v-model="keyword"
+            placeholder="请输入电影/导演/演员/名称"
+            clearable
+            @input="keywordChange"
           />
-        </el-select>
+        </div>
+        <div class="cate-list">
+          <el-select
+            v-model="cate"
+            class="m-2"
+            filterable
+            placeholder="请选择电影类型"
+          >
+            <el-option
+              v-for="item in cateList.list"
+              :key="item.id"
+              :label="item.name"
+              :value="item.id"
+            />
+          </el-select>
+        </div>
+        <div class="form-list">
+          <el-select
+            v-model="form"
+            class="m-2"
+            filterable
+            placeholder="请选择电影形式"
+          >
+            <el-option
+              v-for="item in formList.list"
+              :key="item.id"
+              :label="item.name"
+              :value="item.id"
+            />
+          </el-select>
+        </div>
+        <div class="area-list">
+          <el-select
+            v-model="area"
+            class="m-2"
+            filterable
+            placeholder="请选择电影地区"
+          >
+            <el-option
+              v-for="item in areaList.list"
+              :key="item.id"
+              :label="item.name"
+              :value="item.id"
+            />
+          </el-select>
+        </div>
+        <div class="add-movie-btn">
+          <el-button type="primary" @click="drawer = true">添加电影</el-button>
+        </div>
       </div>
-      <div class="form-list">
-        <el-select
-          v-model="form"
-          class="m-2"
-          filterable
-          placeholder="请选择电影形式"
-        >
-          <el-option
-            v-for="item in formList.list"
-            :key="item.id"
-            :label="item.name"
-            :value="item.id"
-          />
-        </el-select>
-      </div>
-      <div class="area-list">
-        <el-select
-          v-model="area"
-          class="m-2"
-          filterable
-          placeholder="请选择电影地区"
-        >
-          <el-option
-            v-for="item in areaList.list"
-            :key="item.id"
-            :label="item.name"
-            :value="item.id"
-          />
-        </el-select>
-      </div>
-      <div class="add-movie-btn">
-        <el-button type="primary" @click="drawer = true">添加电影</el-button>
+      <div class="movie-header-right">
+        <el-icon :class="{ active: isRotate }" @click="changeRotate"
+          ><refresh
+        /></el-icon>
       </div>
     </div>
     <div class="movie-body">
-      <movie-list />
+      <movie-list
+        :key="keyIndex"
+        :keyword="keyword"
+        :area="area"
+        :cate="cate"
+        :form="form"
+      />
     </div>
     <el-drawer
       v-model="drawer"
@@ -70,7 +83,7 @@
     >
       <template #title>
         <div class="drawer-title-outer">
-          <div class="title">添加导演</div>
+          <div class="title">添加影视</div>
           <button class="drawer-define-btn" @click="define">确定</button>
         </div>
       </template>
@@ -81,9 +94,10 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, reactive, ref } from "vue"
-import { getAllMovie } from "@/network/movie"
+import { Refresh } from "@element-plus/icons-vue"
+import { ElMessage } from "element-plus"
+import { addMovie } from "@/network/movie"
 import { IResponseType } from "@/types/responseType"
-import { IMovie } from "@/types/movie"
 import { getAllArea } from "@/network/movie/area"
 import { IArea } from "@/types/area"
 import { getAllForm } from "@/network/movie/form"
@@ -96,15 +110,19 @@ export default defineComponent({
   name: "Movie",
   components: {
     MovieList,
-    AddMovie
+    AddMovie,
+    Refresh
   },
   setup() {
+    const isRotate = ref(false)
+    const keyIndex = ref(0)
     const keyword = ref("")
     const area = ref("")
     const cate = ref("")
     const form = ref("")
-    const drawer = ref(true)
+    const drawer = ref(false)
     const direction = ref("rtl")
+    const addMovieRef = ref<InstanceType<typeof AddMovie>>()
     const areaList = reactive<{ list: IArea[] }>({
       list: []
     })
@@ -115,9 +133,6 @@ export default defineComponent({
       list: []
     })
     onMounted(() => {
-      getAllMovie<IResponseType<IMovie[]>>(1, 10).then((data) => {
-        console.log(data)
-      })
       getAllArea<IResponseType<IArea[]>>().then((data) => {
         if (data.status === 200) {
           areaList.list = data.data
@@ -134,8 +149,63 @@ export default defineComponent({
         }
       })
     })
+    const changeRotate = () => {
+      isRotate.value = true
+      keyword.value = ""
+      area.value = ""
+      form.value = ""
+      cate.value = ""
+      setTimeout(() => {
+        isRotate.value = false
+      }, 2000)
+    }
     const keywordChange = () => {}
+    const define = () => {
+      addMovieRef.value?.ruleFormRef?.validate(async (e) => {
+        if (e) {
+          if (addMovieRef.value) {
+            const {
+              name,
+              language,
+              alias,
+              actor,
+              area,
+              cate,
+              desc,
+              director,
+              form,
+              releaseTime,
+              screenwriter
+            } = addMovieRef.value.director
+            const data = await addMovie(
+              name,
+              director,
+              screenwriter,
+              area,
+              actor,
+              language,
+              releaseTime,
+              15000,
+              alias,
+              form,
+              cate,
+              desc
+            )
+            if (data.status === 200) {
+              keyIndex.value += 1
+              ElMessage({
+                message: "电影添加成功",
+                type: "success"
+              })
+              drawer.value = false
+            }
+          }
+        }
+      })
+    }
     return {
+      isRotate,
+      changeRotate,
       keyword,
       keywordChange,
       areaList,
@@ -145,7 +215,10 @@ export default defineComponent({
       form,
       cate,
       drawer,
-      direction
+      direction,
+      define,
+      addMovieRef,
+      keyIndex
     }
   }
 })
@@ -158,6 +231,35 @@ export default defineComponent({
     align-items: center;
     border-bottom: 1px solid #dcdfe6;
     padding: 0 0 15px 0;
+    justify-content: space-between;
+    .movie-header-left {
+      display: flex;
+      align-items: center;
+    }
+    .movie-header-right {
+      background-color: #00a1d6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      @keyframes test {
+        from {
+          transform: rotateZ(0deg);
+        }
+        to {
+          transform: rotateZ(-360deg);
+        }
+      }
+      .el-icon {
+        font-size: 24px;
+        color: #fff;
+        &.active {
+          animation: test 1s linear 0s 1;
+        }
+      }
+    }
     .movie-search,
     .cate-list,
     .form-list {

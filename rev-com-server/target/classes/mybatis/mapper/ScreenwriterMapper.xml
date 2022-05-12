@@ -7,4 +7,12 @@
     insert into screenwriter(id,name,alias,family,gender,birthPlace,birth,description)
     values(#{id},#{name},#{alias},#{family},#{gender},#{birthPlace},#{birth},#{description})
   </insert>
+  <select id="getAllScreenwriter" resultType="Screenwriter">
+    select * from screenwriter
+    <where>
+      <if test=" keyword!=null and keyword!='' ">
+        name like "%"#{keyword}"%"
+      </if>
+    </where>
+  </select>
 </mapper>

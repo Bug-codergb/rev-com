@@ -90,7 +90,7 @@ public class MovieController {
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "时长不能为空",null);
     }else if(new EmptyJudge().judgeEmpty(movie.getAlias())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "电影别名不能为空",null);
-    }else if(new EmptyJudge().judgeEmpty(movie.getForm())){
+    }else if(new EmptyJudge().judgeEmpty(movie.getFormItem())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "电影形式不能为空",null);
     }else if(new EmptyJudge().judgeEmpty(movie.getActorList())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "演员不能为空",null);
@@ -122,8 +122,13 @@ public class MovieController {
   }
   @LoginAuth
   @GetMapping("/all")
-  public ResponseType<PageResult<List<Movie>>> getAllMovie(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit){
-    Page<Movie> movies=movieService.getAllMovie(page,limit);
+  public ResponseType<PageResult<List<Movie>>> getAllMovie(@RequestParam("page") Integer page,
+                                                           @RequestParam("limit") Integer limit,
+                                                           @RequestParam(value="keyword",required = false) String keyword,
+                                                           @RequestParam(value = "form",required = false) String form,
+                                                           @RequestParam(value = "cate",required = false) String cateId,
+                                                           @RequestParam(value = "area",required = false) String areaId){
+    Page<Movie> movies=movieService.getAllMovie(page,limit,form,cateId,keyword,areaId);
     PageResult pageResult=new PageResult<List<Movie>>(movies.getPageNum(),
                                                       movies.getTotal(),
                                                       movies.getPages(),

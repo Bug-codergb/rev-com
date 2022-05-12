@@ -17,7 +17,7 @@
   </insert>
   <insert id="createMovie">
     insert into movie(id,name,form,language ,description,releaseTime,duration,alias)
-    values (#{id},#{name},#{form},#{language},#{description},#{releaseTime},#{duration},#{alias})
+    values (#{id},#{name},#{formItem},#{language},#{description},#{releaseTime},#{duration},#{alias})
   </insert>
   <insert id="setDirectorForMovie">
     insert into movie_director(mId,dId) values(#{mId},#{dId})
@@ -59,7 +59,11 @@
   <select id="getCateByMid" resultType="Category">
     select * from movie_cate_relate as mcr
              left join movie_cate as mc on mcr.cId=mc.id
-    where mcr.mId=#{mId}
+    <where>
+      <if test="mId!='' and mId!=null">
+        mcr.mId=#{mId}
+      </if>
+    </where>
   </select>
   <select id="getFormByMid" resultType="Form">
     select * from movie_form where id=#{id}
@@ -96,10 +100,31 @@
     <collection property="categories"
                 ofType="Category"
                 select="com.codergb.mapper.MovieMapper.getCateByMid"
-                column="id"></collection>
+                column="{mId=id}"></collection>
   </resultMap>
   <select id="getAllMovie" resultMap="movieResultMap">
-    select * from movie
+    select DISTINCT(m.id),m.name,m.coverUrl,m.alias,m.language,m.releaseTime,m.duration,form,
+    m.description,m.originalname,m.mimetype,m.filename ,m.dest,m.size
+    from movie as m
+    left join movie_actor as ma on ma.mId=m.id left join actor on actor.id=ma.aId
+    LEFT JOIN movie_director as md on md.mId=m.id left join director on director.id=md.did
+    LEFT JOIN movie_area_relate as mar on mar.mId=m.id
+    LEFT JOIN movie_cate_relate as mcr on mcr.mId=m.id
+    LEFT JOIN movie_screenwriter_relate as mccr on mccr.mId=m.id
+    <where>
+      <if test="cateId!='' and cateId !=null">
+        and mcr.cId=#{cateId}
+      </if>
+      <if test="areaId!='' and areaId!=null">
+        and mar.aId=#{areaId}
+      </if>
+      <if test="form!='' and form !=null">
+        and form=#{form}
+      </if>
+      <if test="keyword!='' and keyword!=null">
+        and (m.name like "%"#{keyword}"%" or actor.name like "%"#{keyword}"%" or director.name like "%"#{keyword}"%")
+      </if>
+    </where>
   </select>
   <!--获取所有地区-->
   <select id="getAllArea" resultType="Area">
