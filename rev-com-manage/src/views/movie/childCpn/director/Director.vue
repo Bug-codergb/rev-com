@@ -98,7 +98,11 @@
                 @click="editDirector(scope.row)"
                 >编辑</el-button
               >
-              <el-button type="text" size="small" class="table-control-btn"
+              <el-button
+                type="text"
+                size="small"
+                class="table-control-btn"
+                @click="deleteDirectorHandle(scope.row)"
                 >删除</el-button
               >
             </template>
@@ -143,6 +147,7 @@
 import { defineComponent, ref, reactive } from "vue"
 import {
   addDirectorRequest,
+  deleteDirector,
   getAllDirector,
   updateDirector,
   uploadAvatar
@@ -151,7 +156,7 @@ import { IResponseType } from "@/types/responseType"
 import { IPageResult } from "@/types/pageResult"
 import { IDirector } from "@/types/director"
 import AddDirector from "./childCpn/addDirector/AddDirector.vue"
-import { ElMessage } from "element-plus/lib/components"
+import { ElMessage, ElMessageBox } from "element-plus/lib/components"
 import { setOccupation } from "@/network/occupation"
 import { debounce } from "@/utils/debounce"
 
@@ -214,6 +219,7 @@ export default defineComponent({
       })
     }
     const addDirector = () => {
+      console.log(1)
       drawer.value = true
     }
     const keywordChange = debounce(
@@ -236,6 +242,7 @@ export default defineComponent({
           if (addDirectRef.value) {
             const { name, alias, gender, birthPlace, description, occupation } =
               addDirectRef.value.director
+            console.log(addDirectRef.value.isUpdate)
             if (!addDirectRef.value.isUpdate) {
               //添加
               addDirectorRequest(
@@ -296,6 +303,25 @@ export default defineComponent({
         }
       })
     }
+    const deleteDirectorHandle = (item: IDirector) => {
+      ElMessageBox.confirm("确定要删除该导演么?", "警告", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          deleteDirector(item.id).then((data) => {
+            if (data.status === 200) {
+              getAllDirectorRequest()
+              ElMessage({
+                type: "success",
+                message: "删除成功"
+              })
+            }
+          })
+        })
+        .catch(() => {})
+    }
     return {
       directList,
       pageChange,
@@ -309,7 +335,8 @@ export default defineComponent({
       keywordChange,
       editDirector,
       directorItem,
-      drawerClose
+      drawerClose,
+      deleteDirectorHandle
     }
   }
 })

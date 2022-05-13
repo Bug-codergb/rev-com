@@ -12,4 +12,5 @@ public interface DirectorMapper {
   public int uploadAvatar(Director director);
   public Director getDirectorById(@Param("id") String id);
   public int updateDirector(DirectorDTO directorDTO);
+  public int deleteDirector(@Param("id") String id);
 }

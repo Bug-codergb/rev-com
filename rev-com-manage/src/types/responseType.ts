@@ -1,8 +1,6 @@
-interface IResponseType<T>{
-  status:number,
-  message:string,
-  data:T
+interface IResponseType<T> {
+  status: number
+  message: string
+  data: T
 }
-export type{
-  IResponseType
-}
+export type { IResponseType }

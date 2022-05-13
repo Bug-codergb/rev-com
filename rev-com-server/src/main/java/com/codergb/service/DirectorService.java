@@ -31,4 +31,7 @@ public class DirectorService {
   public int updateDirector(DirectorDTO directorDTO){
     return directorMapper.updateDirector(directorDTO);
   }
+  public int deleteDirector(String id){
+    return directorMapper.deleteDirector(id);
+  }
 }

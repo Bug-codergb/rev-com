@@ -5,7 +5,8 @@ enum DirectorApi {
   allDirector = "/director/all",
   addDirector = "/director/",
   uploadAvatar = "/director/avatar/upload/",
-  updateDirector = "/director/update"
+  updateDirector = "/director/update",
+  deleteDirector = "/director/delete"
 }
 export function getAllDirector<T = IResponseType<any>>(
   page: number,
@@ -74,6 +75,15 @@ export function updateDirector<T = IResponseType<any>>(
       occupationList,
       description,
       birthPlace
+    }
+  })
+}
+//删除导演信息
+export function deleteDirector<T = IResponseType<any>>(id: string) {
+  return gbRequest.post<T>({
+    url: DirectorApi.deleteDirector,
+    params: {
+      id
     }
   })
 }

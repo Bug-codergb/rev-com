@@ -10,7 +10,7 @@
         />
       </div>
       <div class="add-actor">
-        <el-button type="primary" @click="addActor">添加导演</el-button>
+        <el-button type="primary" @click="addActor">添加演员</el-button>
       </div>
     </div>
     <div class="actor-list">
@@ -139,14 +139,15 @@
       :direction="direction"
       :show-close="false"
       :destroy-on-close="true"
+      size="40%"
     >
       <template #title>
         <div class="drawer-title-outer">
-          <div class="title">添加导演</div>
+          <div class="title">添加演员</div>
           <button class="drawer-define-btn" @click="define">确定</button>
         </div>
       </template>
-      <add-director ref="addDirectRef" />
+      <add-actor ref="addActorRef" />
     </el-drawer>
   </div>
 </template>
@@ -158,11 +159,18 @@ import { getAllActor } from "@/network/actor"
 import { debounce } from "@/utils/debounce"
 import { IResponseType } from "@/types/responseType"
 import { IPageResult } from "@/types/pageResult"
+import AddActor from "@/views/movie/childCpn/actor/childCpn/AddActor.vue"
 export default defineComponent({
   name: "Actor",
+  components: {
+    AddActor
+  },
+
   setup() {
     const keyword = ref("")
     const total = ref(0)
+    const direction = ref("rtl")
+    const drawer = ref(true)
     const actorList = reactive<{ list: IActor[] }>({
       list: []
     })
@@ -198,7 +206,9 @@ export default defineComponent({
       actorList,
       keywordChange,
       addActor,
-      pageChange
+      pageChange,
+      drawer,
+      direction
     }
   }
 })

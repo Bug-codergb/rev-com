@@ -93,7 +93,11 @@ export default defineComponent({
       list: []
     })
     if (props.directorItem) {
-      if (Object.keys(props.directorItem.item).length !== 0) {
+      if (
+        props.directorItem.item &&
+        Object.keys(props.directorItem.item).length !== 0 &&
+        props.directorItem.item.id !== ""
+      ) {
         let directorTmp = toRefs(props.directorItem.item)
         console.log(directorTmp)
         director.name = directorTmp.name.value

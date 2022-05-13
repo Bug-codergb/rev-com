@@ -49,4 +49,7 @@
                        description=#{description}
     where id=#{id}
   </update>
+  <delete id="deleteDirector">
+    delete from director where id=#{id}
+  </delete>
 </mapper>

@@ -4,7 +4,9 @@ import com.codergb.annotation.LoginAuth;
 import com.codergb.bean.PageResult;
 import com.codergb.bean.movie.Actor;
 import com.codergb.constant.ResponseMessage;
+import com.codergb.dto.movie.ActorDTO;
 import com.codergb.service.ActorService;
+import com.codergb.service.OccupationService;
 import com.codergb.utils.EmptyJudge;
 import com.codergb.utils.ResponseType;
 import com.github.pagehelper.Page;
@@ -22,10 +24,12 @@ public class ActorController {
 
   @Autowired
   ActorService actorService;
+  @Autowired
+  OccupationService occupationService;
 
   @LoginAuth
   @PostMapping("/")
-  public ResponseType<Object> createActor(@RequestBody Actor actor){
+  public ResponseType<Object> createActor(@RequestBody ActorDTO actor){
     if(new EmptyJudge().judgeEmpty(actor.getName())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员名称不能为空",null);
     }else if(new EmptyJudge().judgeEmpty(actor.getForeignName())){
@@ -42,10 +46,15 @@ public class ActorController {
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员家庭成员不能为空",null);
     }else if(new EmptyJudge().judgeEmpty(actor.getDescription())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员简介不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(actor.getOccupationList())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"演员职业不能为空",null);
     }else{
       Long id=new Date().getTime();
       actor.setId(id.toString());
       actorService.createActor(actor);
+      for(String item:actor.getOccupationList()){
+        occupationService.setOccupation("aId",actor.getId(),item);
+      }
       return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), null);
     }
   }

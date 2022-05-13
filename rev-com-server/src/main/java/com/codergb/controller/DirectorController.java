@@ -35,8 +35,6 @@ public class DirectorController {
   DirectorService directorService;
   @Autowired
   OccupationService occupationService;
-  EmptyJudge emptyJudge;
-
   @LoginAuth
   @PostMapping("/")
   public ResponseType<Director> createDirector(@RequestBody Director director){
@@ -130,6 +128,16 @@ public class DirectorController {
        }
        directorService.updateDirector(directorDTO);
        return new ResponseType<Object>(HttpStatus.OK.value(), "导演信息更新成功",null);
+    }
+  }
+  @LoginAuth
+  @PostMapping("/delete")
+  public ResponseType<Object> deleteDirector(@RequestParam("id") String id){
+    if(new EmptyJudge().judgeEmpty(id)){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "导演id不能为空",null);
+    }else{
+      directorService.deleteDirector(id);
+      return new ResponseType<Object>(HttpStatus.OK.value(),"导演删除成功",null);
     }
   }
 }
