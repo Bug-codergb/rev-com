@@ -13,4 +13,6 @@ public interface OccupationMapper {
   public List<Occupation> getOccupationById(@Param("key") String key,@Param("id") String id);
   //获取所有职业
   public List<Occupation> getAllOccupation();
+  //删除角色职业
+  public int deleteOccupationForRole(@Param("key") String key,@Param("id") String id);
 }

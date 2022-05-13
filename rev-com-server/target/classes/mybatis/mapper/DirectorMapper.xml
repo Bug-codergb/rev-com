@@ -44,4 +44,9 @@
   <select id="getDirectorById" resultType="Director">
     select * from director where id=#{id}
   </select>
+  <update id="updateDirector">
+    update director set name=#{name},alias=#{alias},gender=#{gender},birthPlace=#{birthPlace},
+                       description=#{description}
+    where id=#{id}
+  </update>
 </mapper>

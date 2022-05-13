@@ -21,4 +21,7 @@ public class OccupationService {
   public List<Occupation> getAllOccupation(){
     return occupationMapper.getAllOccupation();
   }
+  public int deleteOccupationForRole(String key,String id){
+    return occupationMapper.deleteOccupationForRole(key,id);
+  }
 }

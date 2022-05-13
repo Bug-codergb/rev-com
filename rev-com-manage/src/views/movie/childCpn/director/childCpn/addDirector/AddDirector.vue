@@ -58,19 +58,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, onMounted } from "vue"
+import { defineComponent, reactive, ref, onMounted, toRefs } from "vue"
 import type { FormInstance, FormRules } from "element-plus"
 import { getAllOccupation } from "@/network/occupation"
 import { IResponseType } from "@/types/responseType"
 import { IOccupation } from "@/types/occupation"
 import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue"
-import { uploadAvatar } from "@/network/director"
+
 export default defineComponent({
   name: "AddDirector",
   components: {
     ImgPrev
   },
-  setup() {
+  props: {
+    directorItem: {
+      type: Object
+    }
+  },
+  setup(props, context) {
     const ruleFormRef = ref<FormInstance>()
     const director = reactive({
       name: "",
@@ -80,12 +85,28 @@ export default defineComponent({
       description: "",
       occupation: []
     })
+    const isUpdate = ref<boolean>(false)
     const avatar = reactive<{ source: FormData | null }>({
       source: null
     })
     const occupation = reactive<{ list: IOccupation[] }>({
       list: []
     })
+    if (props.directorItem) {
+      if (Object.keys(props.directorItem.item).length !== 0) {
+        let directorTmp = toRefs(props.directorItem.item)
+        console.log(directorTmp)
+        director.name = directorTmp.name.value
+        director.alias = directorTmp.alias.value
+        director.gender = directorTmp.gender.value
+        director.birthPlace = directorTmp.birthPlace.value
+        director.description = directorTmp.description.value
+        director.occupation = directorTmp.occupations.value.map(
+          (item: IOccupation) => item.id
+        )
+        isUpdate.value = true
+      }
+    }
     const rules = reactive<FormRules>({
       name: [
         {
@@ -145,7 +166,8 @@ export default defineComponent({
       occupation,
       cancel,
       fileChange,
-      avatar
+      avatar,
+      isUpdate
     }
   }
 })

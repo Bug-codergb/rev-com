@@ -1,6 +1,7 @@
 package com.codergb.mapper;
 
 import com.codergb.bean.movie.*;
+import com.codergb.dto.movie.DirectorDTO;
 import com.codergb.dto.movie.MovieDTO;
 import org.apache.ibatis.annotations.Param;
 

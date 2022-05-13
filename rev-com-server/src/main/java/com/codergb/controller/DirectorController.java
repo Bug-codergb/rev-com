@@ -7,7 +7,9 @@ import com.codergb.constant.ErrorType;
 import com.codergb.constant.Host;
 import com.codergb.constant.ResponseMessage;
 import com.codergb.constant.UploadPath;
+import com.codergb.dto.movie.DirectorDTO;
 import com.codergb.service.DirectorService;
+import com.codergb.service.OccupationService;
 import com.codergb.utils.EmptyJudge;
 import com.codergb.utils.FilePreview;
 import com.codergb.utils.FileUniqueName;
@@ -31,6 +33,9 @@ public class DirectorController {
 
   @Autowired
   DirectorService directorService;
+  @Autowired
+  OccupationService occupationService;
+  EmptyJudge emptyJudge;
 
   @LoginAuth
   @PostMapping("/")
@@ -98,5 +103,33 @@ public class DirectorController {
   public ResponseEntity<byte[]> getDirectorAvatar(@PathVariable("id") String id){
     Director director=directorService.getDirectorById(id);
     return new FilePreview().getFilePreview(director.getDest()+"/"+director.getFilename(),director.getMimetype());
+  }
+  //更新导演信息
+  @LoginAuth
+  @PostMapping("/update")
+  public ResponseType<Object> updateDirector(@RequestBody DirectorDTO directorDTO){
+    System.out.println(directorDTO.getId());
+    if(new EmptyJudge().judgeEmpty(directorDTO.getId())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"导演id不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(directorDTO.getName())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"导演名称不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(directorDTO.getAlias())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"导演别名不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(directorDTO.getGender())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"导演性别不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(directorDTO.getOccupationList())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"导演职业不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(directorDTO.getDescription())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"导演简介不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(directorDTO.getBirthPlace())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"导演出生地不能为空",null);
+    }else {
+       occupationService.deleteOccupationForRole("dId",directorDTO.getId());
+       for(String item :directorDTO.getOccupationList()){
+         occupationService.setOccupation("dId",directorDTO.getId(),item);
+       }
+       directorService.updateDirector(directorDTO);
+       return new ResponseType<Object>(HttpStatus.OK.value(), "导演信息更新成功",null);
+    }
   }
 }

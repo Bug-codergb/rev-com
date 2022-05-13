@@ -4,7 +4,8 @@ import { IResponseType } from "@/types/responseType"
 enum DirectorApi {
   allDirector = "/director/all",
   addDirector = "/director/",
-  uploadAvatar = "/director/avatar/upload/"
+  uploadAvatar = "/director/avatar/upload/",
+  updateDirector = "/director/update"
 }
 export function getAllDirector<T = IResponseType<any>>(
   page: number,
@@ -50,6 +51,29 @@ export function uploadAvatar<T = IResponseType<any>>(
     data: formData,
     headers: {
       "Content-type": "multipart/form-data"
+    }
+  })
+}
+//更新导演信息
+export function updateDirector<T = IResponseType<any>>(
+  id: string,
+  name: string,
+  alias: string,
+  gender: string,
+  occupationList: string[],
+  description: string,
+  birthPlace: string
+) {
+  return gbRequest.post<T>({
+    url: DirectorApi.updateDirector,
+    data: {
+      id,
+      name,
+      gender,
+      alias,
+      occupationList,
+      description,
+      birthPlace
     }
   })
 }

@@ -15,7 +15,7 @@
     </div>
     <div class="director-list">
       <template v-if="directList.list && directList.list.length > 0">
-        <el-table :data="directList.list" :height="490">
+        <el-table :data="directList.list" :height="490" row-key="id">
           <el-table-column
             :show-overflow-tooltip="true"
             prop="name"
@@ -87,11 +87,15 @@
             </template>
           </el-table-column>
           <el-table-column fixed="right" label="操作" min-width="100">
-            <template #default>
+            <template #default="scope">
               <el-button type="text" size="small" class="table-control-btn"
                 >查看</el-button
               >
-              <el-button type="text" size="small" class="table-control-btn"
+              <el-button
+                type="text"
+                size="small"
+                class="table-control-btn"
+                @click="editDirector(scope.row)"
                 >编辑</el-button
               >
               <el-button type="text" size="small" class="table-control-btn"
@@ -122,6 +126,7 @@
       :direction="direction"
       :show-close="false"
       :destroy-on-close="true"
+      @closed="drawerClose"
     >
       <template #title>
         <div class="drawer-title-outer">
@@ -129,7 +134,7 @@
           <button class="drawer-define-btn" @click="define">确定</button>
         </div>
       </template>
-      <add-director ref="addDirectRef" />
+      <add-director :directorItem="directorItem" ref="addDirectRef" />
     </el-drawer>
   </div>
 </template>
@@ -139,13 +144,14 @@ import { defineComponent, ref, reactive } from "vue"
 import {
   addDirectorRequest,
   getAllDirector,
+  updateDirector,
   uploadAvatar
 } from "@/network/director"
 import { IResponseType } from "@/types/responseType"
 import { IPageResult } from "@/types/pageResult"
 import { IDirector } from "@/types/director"
 import AddDirector from "./childCpn/addDirector/AddDirector.vue"
-import { ElMessage } from "element-plus"
+import { ElMessage } from "element-plus/lib/components"
 import { setOccupation } from "@/network/occupation"
 import { debounce } from "@/utils/debounce"
 
@@ -159,7 +165,24 @@ export default defineComponent({
     const drawer = ref(false)
     const direction = ref("rtl")
     const addDirectRef = ref<InstanceType<typeof AddDirector>>()
-
+    const directorItem = reactive<{ item: IDirector | null }>({
+      item: {
+        alias: "",
+        avatarUrl: "",
+        birthPlace: "",
+        createTime: "",
+        description: "",
+        filename: "",
+        gender: "",
+        id: "",
+        mimetype: "",
+        name: "",
+        occupations: [],
+        originalname: "",
+        size: 0,
+        updateTime: ""
+      }
+    })
     let directList = reactive<{ list: IDirector[] }>({
       list: []
     })
@@ -200,43 +223,75 @@ export default defineComponent({
       1000,
       false
     )
+    const editDirector = (item: IDirector) => {
+      directorItem.item = item
+      drawer.value = true
+    }
+    const drawerClose = () => {
+      directorItem.item = null
+    }
     const define = () => {
       addDirectRef.value?.ruleFormRef?.validate((e: boolean) => {
         if (e) {
           if (addDirectRef.value) {
             const { name, alias, gender, birthPlace, description, occupation } =
               addDirectRef.value.director
-            addDirectorRequest(
-              name,
-              alias,
-              gender,
-              birthPlace,
-              description
-            ).then((data) => {
-              if (data.status === 200) {
-                ElMessage({
-                  message: "导演信息添加成功",
-                  type: "success"
-                })
-                //上传头像
-                if (addDirectRef.value) {
-                  const { avatar } = addDirectRef.value
-                  if (avatar.source instanceof FormData) {
-                    uploadAvatar(avatar.source, data.data.id).then(() => {})
+            if (!addDirectRef.value.isUpdate) {
+              //添加
+              addDirectorRequest(
+                name,
+                alias,
+                gender,
+                birthPlace,
+                description
+              ).then((data) => {
+                if (data.status === 200) {
+                  ElMessage({
+                    message: "导演信息添加成功",
+                    type: "success"
+                  })
+                  //上传头像
+                  if (addDirectRef.value) {
+                    const { avatar } = addDirectRef.value
+                    if (avatar.source instanceof FormData) {
+                      uploadAvatar(avatar.source, data.data.id).then(() => {})
+                    }
                   }
+                  if (occupation.length !== 0) {
+                    for (let item of occupation) {
+                      setOccupation("dId", data.data.id, item).then(() => {
+                        getAllDirectorRequest()
+                      })
+                    }
+                  } else {
+                    getAllDirectorRequest()
+                  }
+                  drawer.value = false
                 }
-                if (occupation.length !== 0) {
-                  for (let item of occupation) {
-                    setOccupation("dId", data.data.id, item).then(() => {
-                      getAllDirectorRequest()
+              })
+            } else {
+              //更新
+              if (directorItem.item) {
+                updateDirector(
+                  directorItem.item.id,
+                  name,
+                  alias,
+                  gender,
+                  occupation,
+                  description,
+                  birthPlace
+                ).then((data) => {
+                  if (data.status === 200) {
+                    ElMessage({
+                      message: "导演信息更新成功",
+                      type: "success"
                     })
+                    getAllDirectorRequest()
+                    drawer.value = false
                   }
-                } else {
-                  getAllDirectorRequest()
-                }
-                drawer.value = false
+                })
               }
-            })
+            }
           }
         }
       })
@@ -251,7 +306,10 @@ export default defineComponent({
       direction,
       define,
       addDirectRef,
-      keywordChange
+      keywordChange,
+      editDirector,
+      directorItem,
+      drawerClose
     }
   }
 })

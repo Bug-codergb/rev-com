@@ -1,6 +1,7 @@
 package com.codergb.service;
 
 import com.codergb.bean.movie.Director;
+import com.codergb.dto.movie.DirectorDTO;
 import com.codergb.mapper.DirectorMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -26,5 +27,8 @@ public class DirectorService {
   }
   public Director getDirectorById(String id){
     return directorMapper.getDirectorById(id);
+  }
+  public int updateDirector(DirectorDTO directorDTO){
+    return directorMapper.updateDirector(directorDTO);
   }
 }
