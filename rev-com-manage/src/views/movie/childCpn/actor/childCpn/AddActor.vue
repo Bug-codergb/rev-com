@@ -45,7 +45,7 @@
         <el-col :span="12">
           <el-form-item label="演员生日" prop="birth">
             <el-date-picker
-              v-model="actor.releaseTime"
+              v-model="actor.birth"
               type="date"
               style="width: 100%"
               placeholder="选择演员生日"
@@ -131,7 +131,7 @@ import constellation from "../../../../../constant/constellation"
 export default defineComponent({
   name: "AddActor",
   props: {
-    directorItem: {
+    actorItem: {
       type: Object
     }
   },
@@ -140,7 +140,7 @@ export default defineComponent({
     const actor = reactive({
       name: "",
       alias: "",
-      birth: "0",
+      birth: "",
       birthPlace: "",
       description: "",
       family: "",
@@ -155,25 +155,28 @@ export default defineComponent({
     const occupation = reactive<{ list: IOccupation[] }>({
       list: []
     })
-    /* if (props.directorItem) {
+    if (props.actorItem) {
       if (
-        props.directorItem.item &&
-        Object.keys(props.directorItem.item).length !== 0 &&
-        props.directorItem.item.id !== ""
+        props.actorItem.item &&
+        Object.keys(props.actorItem.item).length !== 0 &&
+        props.actorItem.item.id !== ""
       ) {
-        let directorTmp = toRefs(props.directorItem.item)
-        console.log(directorTmp)
-        director.name = directorTmp.name.value
-        director.alias = directorTmp.alias.value
-        director.gender = directorTmp.gender.value
-        director.birthPlace = directorTmp.birthPlace.value
-        director.description = directorTmp.description.value
-        director.occupation = directorTmp.occupations.value.map(
+        let actorTmp = toRefs(props.actorItem.item)
+        console.log(actorTmp)
+        actor.name = actorTmp.name.value
+        actor.alias = actorTmp.alias.value
+        actor.birth = actorTmp.birth.value
+        actor.birthPlace = actorTmp.birthPlace.value
+        actor.description = actorTmp.description.value
+        actor.occupations = actorTmp.occupations.value.map(
           (item: IOccupation) => item.id
         )
+        actor.family = actorTmp.family.value
+        actor.foreignName = actorTmp.foreignName.value
+        actor.constellation = actorTmp.constellation.value
         isUpdate.value = true
       }
-    }*/
+    }
     const rules = reactive<FormRules>({
       name: [
         {

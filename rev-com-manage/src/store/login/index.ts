@@ -35,9 +35,12 @@ const loginModule: Module<IUserMsg, IRootState> = {
   actions: {
     loginAction(context, payload) {
       const { userName, password } = payload
+      console.log(userName, password)
       return new Promise((resolve, reject) => {
+        console.log(0)
         login<IResponseType<IUser>>(userName, password)
           .then((data) => {
+            console.log(data)
             if (data && Object.keys(data).length !== 0) {
               if (data.status === 200) {
                 context.dispatch({

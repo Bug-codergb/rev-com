@@ -4,7 +4,7 @@
       <div class="actor-search">
         <el-input
           v-model="keyword"
-          placeholder="请输入人导演名称"
+          placeholder="请输入演员名称"
           clearable
           @input="keywordChange"
         />
@@ -15,7 +15,7 @@
     </div>
     <div class="actor-list">
       <template v-if="actorList.list && actorList.list.length > 0">
-        <el-table :data="actorList.list" :height="490">
+        <el-table :data="actorList.list" :height="490" row-key="id">
           <el-table-column
             :show-overflow-tooltip="true"
             prop="name"
@@ -36,12 +36,14 @@
           />
           <el-table-column
             :show-overflow-tooltip="true"
-            prop="birthPlace"
+            prop="birth"
             label="出生日期"
             width="110"
           >
             <template #default="scope">
-              <span v-format="'yyyy-MM-dd'">{{ scope.row.birth }}</span>
+              <span :key="scope.row.birth" v-format="'yyyy-MM-dd'">{{
+                scope.row.birth
+              }}</span>
             </template>
           </el-table-column>
 
@@ -69,7 +71,7 @@
             label="职业"
           >
             <template #default="scope">
-              <template v-if="scope.row.occupations.length > 1">
+              <template v-if="scope.row.occupations.length > 0">
                 <span>
                   {{
                     scope.row.occupations.map((item) => item.name).join(" / ")
@@ -104,14 +106,22 @@
             </template>
           </el-table-column>
           <el-table-column fixed="right" label="操作" width="140">
-            <template #default>
+            <template #default="scope">
               <el-button type="text" size="small" class="table-control-btn"
                 >查看</el-button
               >
-              <el-button type="text" size="small" class="table-control-btn"
+              <el-button
+                type="text"
+                size="small"
+                class="table-control-btn"
+                @click="editActor(scope.row)"
                 >编辑</el-button
               >
-              <el-button type="text" size="small" class="table-control-btn"
+              <el-button
+                type="text"
+                size="small"
+                class="table-control-btn"
+                @click="deleteActorHandle(scope.row)"
                 >删除</el-button
               >
             </template>
@@ -147,7 +157,7 @@
           <button class="drawer-define-btn" @click="define">确定</button>
         </div>
       </template>
-      <add-actor ref="addActorRef" />
+      <add-actor ref="addActorRef" :actorItem="actorItem" />
     </el-drawer>
   </div>
 </template>
@@ -155,28 +165,34 @@
 <script lang="ts">
 import { defineComponent, ref, reactive } from "vue"
 import { IActor } from "@/types/actor"
-import { getAllActor } from "@/network/actor"
+import { deleteActor, getAllActor, updateActor } from "@/network/actor"
 import { debounce } from "@/utils/debounce"
 import { IResponseType } from "@/types/responseType"
 import { IPageResult } from "@/types/pageResult"
 import AddActor from "@/views/movie/childCpn/actor/childCpn/AddActor.vue"
+import { addActor as addActorRequest } from "@/network/actor"
+import { ElMessage, ElMessageBox } from "element-plus/lib/components"
+
 export default defineComponent({
   name: "Actor",
   components: {
     AddActor
   },
-
   setup() {
     const keyword = ref("")
     const total = ref(0)
     const direction = ref("rtl")
-    const drawer = ref(true)
+    const drawer = ref(false)
+    const actorItem = reactive<{ item: IActor | null }>({
+      item: null
+    })
+    const addActorRef = ref<InstanceType<typeof AddActor>>()
     const actorList = reactive<{ list: IActor[] }>({
       list: []
     })
-    const getAllActorRequest = () => {
+    const getAllActorRequest = (e: number) => {
       getAllActor<IResponseType<IPageResult<IActor[]>>>(
-        1,
+        e,
         10,
         keyword.value
       ).then((data) => {
@@ -186,19 +202,108 @@ export default defineComponent({
         }
       })
     }
-    getAllActorRequest()
+    getAllActorRequest(1)
     const keywordChange = debounce(
       () => {
-        getAllActorRequest()
+        getAllActorRequest(1)
       },
       1000,
       false
     )
     const addActor = () => {
-      getAllActorRequest()
+      drawer.value = true
+      actorItem.item = null
     }
-    const pageChange = () => {
-      getAllActorRequest()
+    const pageChange = (e: number) => {
+      getAllActorRequest(e)
+    }
+    const editActor = (item: IActor) => {
+      drawer.value = true
+      actorItem.item = item
+    }
+    const deleteActorHandle = (item: IActor) => {
+      ElMessageBox.confirm("确定要删除该演员吗?", "警告", {
+        confirmButtonText: "OK",
+        cancelButtonText: "Cancel",
+        type: "warning"
+      })
+        .then(async () => {
+          const data = await deleteActor(item.id)
+          if (data.status === 200) {
+            getAllActorRequest(1)
+            ElMessage({
+              type: "success",
+              message: "删除成功"
+            })
+          }
+        })
+        .catch(() => {})
+    }
+    const define = () => {
+      if (addActorRef.value) {
+        const {
+          alias,
+          birth,
+          birthPlace,
+          constellation,
+          description,
+          family,
+          foreignName,
+          name,
+          occupations
+        } = addActorRef.value.actor
+        const { isUpdate } = addActorRef.value
+        if (addActorRef.value.ruleFormRef) {
+          addActorRef.value.ruleFormRef.validate(async (e: boolean) => {
+            if (e) {
+              if (!isUpdate) {
+                const data = await addActorRequest(
+                  name,
+                  foreignName,
+                  constellation,
+                  birth,
+                  birthPlace,
+                  family,
+                  description,
+                  alias,
+                  occupations
+                )
+                if (data.status === 200) {
+                  getAllActorRequest(1)
+                  drawer.value = false
+                  ElMessage({
+                    message: "演员添加成功",
+                    type: "success"
+                  })
+                }
+              } else {
+                if (actorItem.item) {
+                  const data = await updateActor(
+                    actorItem.item.id,
+                    name,
+                    foreignName,
+                    constellation,
+                    birth,
+                    birthPlace,
+                    family,
+                    description,
+                    alias,
+                    occupations
+                  )
+                  if (data.status === 200) {
+                    getAllActorRequest(1)
+                    drawer.value = false
+                    ElMessage({
+                      message: "演员更新成功",
+                      type: "success"
+                    })
+                  }
+                }
+              }
+            }
+          })
+        }
+      }
     }
     return {
       keyword,
@@ -208,7 +313,12 @@ export default defineComponent({
       addActor,
       pageChange,
       drawer,
-      direction
+      direction,
+      addActorRef,
+      define,
+      actorItem,
+      editActor,
+      deleteActorHandle
     }
   }
 })

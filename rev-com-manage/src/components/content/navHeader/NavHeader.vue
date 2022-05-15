@@ -8,17 +8,31 @@
         <el-icon><fold /></el-icon>
       </template>
     </div>
+    <div class="right-content">
+      <el-dropdown trigger="click">
+        <div class="user-avatar">
+          <el-icon><UserFilled /></el-icon>
+        </div>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item>个人中心</el-dropdown-item>
+            <el-dropdown-item>退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
   </div>
 </template>
 
 <script>
-import { ref } from "vue"
-import { Expand, Fold } from "@element-plus/icons-vue"
-export default {
+import { ref, defineComponent } from "vue"
+import { Expand, Fold, UserFilled } from "@element-plus/icons-vue"
+export default defineComponent({
   name: "NavHeader",
   components: {
     Expand,
-    Fold
+    Fold,
+    UserFilled
   },
   emits: ["changeFold"],
   setup(props, { emit }) {
@@ -32,14 +46,15 @@ export default {
       changeFold
     }
   }
-}
+})
 </script>
 
 <style scoped lang="less">
 .nav-header {
-  border-bottom: 1px dotted #00a1d6;
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
   .is-nav-fold {
     height: 100%;
     display: flex;
@@ -54,6 +69,21 @@ export default {
     .el-icon {
       font-size: 27px;
       color: #0c2135;
+    }
+  }
+  .right-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 0 0;
+    .user-avatar {
+      background-color: #dcdfe6;
+      padding: 7px 8px;
+      border-radius: 50%;
+      cursor: pointer;
+      .el-icon {
+        font-size: 24px;
+      }
     }
   }
 }

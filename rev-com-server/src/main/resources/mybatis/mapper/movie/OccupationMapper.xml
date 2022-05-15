@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.movie.OccupationMapper">
+  <insert id="createOccupation">
+    insert into occupation(id,name) values(#{id},#{name})
+  </insert>
+  <insert id="setOccupation">
+    insert into occupation_relate(${key},oId) values(#{id},#{oId})
+  </insert>
+  <select id="getOccupationById" resultType="Occupation">
+    select * from occupation_relate as oc
+             left join occupation as o
+             on o.id=oc.oId
+    where ${key}=#{id}
+  </select>
+  <select id="getAllOccupation" resultType="Occupation">
+    select * from occupation
+  </select>
+  <delete id="deleteOccupationForRole">
+    delete from occupation_relate where ${key}=#{id}
+  </delete>
+</mapper>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.movie.DirectorMapper">
+  <insert id="createDirector">
+    insert into director(id,name,alias,gender,birthPlace,description)
+    values (#{id},#{name},#{alias},#{gender},#{birthPlace},#{description})
+  </insert>
+  <resultMap id="directorResultMap" type="Director">
+    <id property="id" column="id"></id>
+    <result property="name" column="name"></result>
+    <result property="avatarUrl" column="avatarUrl"></result>
+    <result property="alias" column="alias"></result>
+    <result property="gender" column="gender"></result>
+    <result property="birthPlace" column="birthPlace"></result>
+    <result property="description" column="description"></result>
+    <result property="createTime" column="createTime"></result>
+    <result property="updateTime" column="updateTime"></result>
+    <result property="originalname" column="originalname"></result>
+    <result property="dest" column="dest"></result>
+    <result property="filename" column="filename"></result>
+    <result property="size" column="size"></result>
+    <result property="mimetype" column="mimetype"></result>
+    <collection property="occupations"
+                 ofType="Occupation"
+                 select="com.codergb.mapper.movie.OccupationMapper.getOccupationById"
+                 column="{id=id,key=dId}"
+                 ></collection>
+  </resultMap>
+  <select id="getAllDirect" resultMap="directorResultMap">
+    select * ,"dId" as dId from director
+    <where>
+      <if test="keyword!='' and keyword!=null">
+        name like "%"#{keyword}"%"
+      </if>
+    </where>
+  </select>
+  <update id="uploadAvatar">
+    update director set avatarUrl=#{avatarUrl},originalname=#{originalname},
+                        mimetype=#{mimetype},filename=#{filename},size=#{size},dest=#{dest}
+    where id=#{id}
+  </update>
+  <select id="getDirectorById" resultType="Director">
+    select * from director where id=#{id}
+  </select>
+  <update id="updateDirector">
+    update director set name=#{name},alias=#{alias},gender=#{gender},birthPlace=#{birthPlace},
+                       description=#{description}
+    where id=#{id}
+  </update>
+  <delete id="deleteDirector">
+    delete from director where id=#{id}
+  </delete>
+</mapper>

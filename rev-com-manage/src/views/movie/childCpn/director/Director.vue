@@ -4,7 +4,7 @@
       <div class="director-search">
         <el-input
           v-model="keyword"
-          placeholder="请输入人导演名称"
+          placeholder="请输入导演名称"
           clearable
           @input="keywordChange"
         />
@@ -53,7 +53,7 @@
             label="职业"
           >
             <template #default="scope">
-              <template v-if="scope.row.occupations.length > 1">
+              <template v-if="scope.row.occupations.length > 0">
                 <span>
                   {{
                     scope.row.occupations.map((item) => item.name).join(" / ")

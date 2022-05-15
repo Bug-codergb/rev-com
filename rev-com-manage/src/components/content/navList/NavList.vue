@@ -4,7 +4,7 @@
       <span class="sys-title" :class="{ isOpacity: collapse }"> Rev-Com </span>
     </div>
     <el-menu
-      default-active="11-1"
+      default-active="1001"
       background-color="#0c2135"
       text-color="#b7bdc3"
       active-text-color="#0a60bd"
@@ -14,7 +14,9 @@
       <template v-for="item in menu" :key="item.name">
         <el-sub-menu :index="item.index">
           <template #title>
-            <el-icon><film /></el-icon>
+            <el-icon>
+              <component :is="item.icon"></component>
+            </el-icon>
             <span>{{ item.name }}</span>
           </template>
           <template v-for="it in item.children" :key="it.name">
@@ -30,12 +32,17 @@
 
 <script lang="ts">
 import { useRouter } from "vue-router"
+import { defineComponent } from "vue"
 import { menu } from "@/constant/menu"
-import { Film } from "@element-plus/icons-vue"
-export default {
+import { Film, Notebook, User, Setting, Mic } from "@element-plus/icons-vue"
+export default defineComponent({
   name: "NavList",
   components: {
-    Film
+    Film,
+    Notebook,
+    User,
+    Setting,
+    Mic
   },
   props: {
     collapse: {
@@ -55,7 +62,7 @@ export default {
       navRouter
     }
   }
-}
+})
 </script>
 <style lang="less">
 .nav-list {

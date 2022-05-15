@@ -2,7 +2,8 @@ import gbRequest from "@/network"
 import { IResponseType } from "@/types/responseType"
 enum MovieApi {
   allMovie = "/movie/all",
-  addMovie = "/movie/"
+  addMovie = "/movie/",
+  updateMovie = "/movie/update"
 }
 //获取所有电影
 export function getAllMovie<T = IResponseType<any>>(
@@ -53,6 +54,41 @@ export function addMovie<T = IResponseType<any>>(
       duration,
       alias,
       formItem: form,
+      cateList,
+      description
+    }
+  })
+}
+//更新电影信息
+export function updateMovie<T = IResponseType<any>>(
+  id: string,
+  name: string,
+  directorList: string[],
+  screenwriterList: string[],
+  areaList: string[],
+  actorList: string[],
+  language: string,
+  releaseTime: string,
+  duration: string,
+  alias: string,
+  formItem: string,
+  cateList: string[],
+  description: string
+) {
+  return gbRequest.post<T>({
+    url: MovieApi.updateMovie,
+    data: {
+      id,
+      name,
+      directorList,
+      screenwriterList,
+      areaList,
+      actorList,
+      language,
+      releaseTime,
+      duration,
+      alias,
+      formItem,
       cateList,
       description
     }

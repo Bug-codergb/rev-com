@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.movie.ActorMapper">
+  <insert id="createActor">
+    insert into actor(id,name,foreignName,alias,constellation,birth,birthPlace,family,description)
+    values(#{id},#{name},#{foreignName},#{alias},#{constellation},#{birth},#{birthPlace},#{family},#{description})
+  </insert>
+  <resultMap id="actorResultMap" type="Actor">
+    <id property="id" column="id"></id>
+    <result property="name" column="name"></result>
+    <result property="avatarUrl" column="avatarUrl"></result>
+    <result property="foreignName" column="foreignName"></result>
+    <result property="alias" column="alias"></result>
+    <result property="constellation" column="constellation"></result>
+    <result property="birth" column="birth"></result>
+    <result property="birthPlace" column="birthPlace"></result>
+    <result property="family" column="family"></result>
+    <result property="description" column="description"></result>
+    <result property="createTime" column="createTime"></result>
+    <result property="updateTime" column="updateTime"></result>
+    <result property="originalname" column="originalname"></result>
+    <result property="dest" column="dest"></result>
+    <result property="filename" column="filename"></result>
+    <result property="mimetype" column="mimetype"></result>
+    <result property="size" column="size"></result>
+    <collection property="occupations"
+                ofType="Occupation"
+                select="com.codergb.mapper.movie.OccupationMapper.getOccupationById"
+                column="{id=id,key=aId}">
+
+    </collection>
+  </resultMap>
+  <select id="getAllActor" resultMap="actorResultMap">
+    select * ,"aId" as aId from actor
+    <where>
+      <if test="keyword!='' and keyword!=null">
+        name like "%"#{keyword}"%"
+      </if>
+    </where>
+  </select>
+  <update id="updateActor">
+    update actor set name=#{name},foreignName=#{foreignName},alias=#{alias},constellation=#{constellation},
+                     birth=#{birth},birthPlace=#{birthPlace},family=#{family},description=#{description}
+    where id=#{id}
+  </update>
+  <delete id="deleteActor">
+    delete from actor where id=#{id}
+  </delete>
+</mapper>

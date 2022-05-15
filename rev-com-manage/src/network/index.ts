@@ -7,9 +7,13 @@ const gbRequest = new GBRequest({
   timeout: 20000,
   interceptors: {
     requestInterceptor: (config) => {
-      const token = localCache.getCache("userMsg").token
-      if (token && config.headers) {
-        config.headers.Authorization = token
+      try {
+        const token = localCache.getCache("userMsg").token
+        if (localCache.getCache("userMsg") && token && config.headers) {
+          config.headers.Authorization = token
+        }
+      } catch (e) {
+        console.log(e)
       }
       return config
     },
