@@ -24,7 +24,14 @@ const menu = [
   {
     name: "小说管理",
     icon: "notebook",
-    index: "2"
+    index: "2",
+    children: [
+      {
+        index: "2001",
+        name: "作家信息",
+        path: "/Home/Book/writer"
+      }
+    ]
   },
   {
     name: "音乐管理",

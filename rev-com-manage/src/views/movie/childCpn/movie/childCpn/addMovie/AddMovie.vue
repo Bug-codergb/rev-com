@@ -184,7 +184,6 @@
 import { defineComponent, onMounted, reactive, ref } from "vue"
 import { FormInstance, FormRules } from "element-plus"
 import { IOccupation } from "@/types/occupation"
-import { getAllOccupation } from "@/network/occupation"
 import { IResponseType } from "@/types/responseType"
 import { IForm } from "@/types/form"
 import { getAllForm } from "@/network/movie/form"

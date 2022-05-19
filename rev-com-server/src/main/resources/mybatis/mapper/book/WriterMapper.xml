@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.book.WriterMapper">
+  <insert id="createWriter">
+    insert into writer(id,name,gender,birth,deadTime,birthPlace,area,foreignName,alias,description)
+    values(#{id},#{name},#{gender},#{birth},#{deadTime},#{birthPlace},#{area},#{foreignName},#{alias},#{description})
+  </insert>
+  <select id="getAllWriter" resultType="Writer">
+    select *
+    from writer as w
+    <where>
+      <if test="keyword!='' and keyword !=null">
+        and (w.name like "%"#{keyword}"%" or w.foreignName like "%"#{keyword}"%" or w.alias like "%"#{keyword}"%")
+      </if>
+    </where>
+  </select>
+</mapper>
