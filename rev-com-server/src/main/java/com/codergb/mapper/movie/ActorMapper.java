@@ -11,4 +11,7 @@ public interface ActorMapper {
   public List<Actor> getAllActor(int page, int limit, @Param("keyword") String keyword);
   public int updateActor(ActorDTO actorDTO);
   public int deleteActor(@Param("id") String id);
+  //上传用户头像
+  public int uploadAvatar(Actor actor);
+  public Actor getActorById(@Param("id") String id);
 }

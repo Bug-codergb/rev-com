@@ -28,4 +28,10 @@ public class ActorService {
   public int deleteActor(String id){
     return actorMapper.deleteActor(id);
   }
+  public int uploadAvatar(Actor actor){
+    return actorMapper.uploadAvatar(actor);
+  }
+  public Actor getActorById(String id){
+    return actorMapper.getActorById(id);
+  }
 }

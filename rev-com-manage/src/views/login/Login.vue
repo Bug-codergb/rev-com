@@ -1,5 +1,6 @@
 <template>
   <div class="login">
+    <bgc />
     <div class="login-inner">
       <div class="sys-name">Rev-Com</div>
       <div class="user-name-outer">
@@ -21,9 +22,12 @@ import { defineComponent, reactive } from "vue"
 import { useRouter } from "vue-router"
 import { ElMessage } from "element-plus"
 import { useStore } from "vuex"
-
+import Bgc from "@/views/login/childCpn/bgc/Bgc.vue"
 export default defineComponent({
   name: "Login",
+  components: {
+    Bgc
+  },
   setup() {
     const router = useRouter()
     const store = useStore()
@@ -105,8 +109,9 @@ export default defineComponent({
       padding: 15px;
       display: inline-block;
       width: 340px;
-      margin: 20px 0 0 0;
+      margin: 30px 0 0 0;
       border-radius: 5px;
+      cursor: pointer;
     }
   }
 }

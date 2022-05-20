@@ -156,6 +156,9 @@ export default defineComponent({
     }
     .search-outer {
       margin: 0 20px 0 0;
+      .el-input {
+        width: 100%;
+      }
     }
     .change-outer {
       margin: 0 20px 0 0;

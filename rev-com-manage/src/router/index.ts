@@ -6,6 +6,7 @@ const director = () => import("../views/movie/childCpn/director/Director.vue")
 const actor = () => import("../views/movie/childCpn/actor/Actor.vue")
 
 const writer = () => import("../views/book/childCpn/writer/Writer.vue")
+const publish = () => import("../views/book/childCpn/publish/Publish.vue")
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -21,6 +22,12 @@ const routes: Array<RouteRecordRaw> = [
     name: "home",
     component: home,
     children: [
+      {
+        path: "/Home",
+        redirect: () => {
+          return "/Home/Movie/video"
+        }
+      },
       {
         path: "Movie/video",
         name: "movie",
@@ -40,6 +47,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "Book/writer",
         name: "writer",
         component: writer
+      },
+      {
+        path: "Book/publish",
+        name: "publish",
+        component: publish
       }
     ]
   }

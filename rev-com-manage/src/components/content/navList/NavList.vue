@@ -92,24 +92,12 @@ export default defineComponent({
     }
   }
   width: 100%;
-  /*.el-submenu {
+  /deep/.el-menu .el-menu--inline {
     background-color: #001529 !important;
-    // 二级菜单 ( 默认背景 )
-    .el-menu-item {
-      padding-left: 50px !important;
-      background-color: #0c2135 !important;
-    }
-  }*/
-
+  }
   /deep/ .el-submenu__title {
     background-color: #001529 !important;
   }
-
-  // hover 高亮
-  .el-menu-item:hover {
-    color: #fff !important; // 菜单
-  }
-
   .el-menu-item.is-active {
     color: #fff !important;
     background-color: #00a1d6 !important;

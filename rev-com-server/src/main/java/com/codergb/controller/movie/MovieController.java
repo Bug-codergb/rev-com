@@ -3,16 +3,25 @@ package com.codergb.controller.movie;
 import com.codergb.annotation.LoginAuth;
 import com.codergb.bean.PageResult;
 import com.codergb.bean.movie.*;
+import com.codergb.constant.ErrorType;
+import com.codergb.constant.Host;
 import com.codergb.constant.ResponseMessage;
+import com.codergb.constant.UploadPath;
 import com.codergb.dto.movie.MovieDTO;
 import com.codergb.service.movie.MovieService;
 import com.codergb.utils.EmptyJudge;
+import com.codergb.utils.FilePreview;
+import com.codergb.utils.FileUniqueName;
 import com.codergb.utils.ResponseType;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -209,5 +218,37 @@ public class MovieController {
       movieService.updateMovie(movieDTO);
       return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), null);
     }
+  }
+  //上传电影封面
+  @LoginAuth
+  @PostMapping("/cover/upload/{id}")
+  public ResponseType<Object> uploadAvatar(@PathVariable("id") String id,
+                                           @RequestBody MultipartFile cover){
+    if(new EmptyJudge().judgeEmpty(cover)){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), ErrorType.FILE_CANNOT_BE_EMPTY.getErrorMsg(), null);
+    }else{
+      String filename=new FileUniqueName().getFileUniqueName(cover.getOriginalFilename());
+      String coverUrl= Host.HOST_NAME.getHOST()+":"+Host.HOST_PORT.getHOST()+"/movie/cover/"+id;
+      Movie movie=new Movie();
+      movie.setId(id);
+      movie.setCoverUrl(coverUrl);
+      movie.setOriginalname(cover.getOriginalFilename());
+      movie.setFilename(filename);
+      movie.setMimetype(cover.getContentType());
+      movie.setDest(UploadPath.MOVIE_COVER_UPLOAD_PATH.getUPLOADPATH());
+      movie.setSize(cover.getSize());
+      movieService.uploadCover(movie);
+      try {
+        cover.transferTo(new File(UploadPath.MOVIE_COVER_UPLOAD_PATH.getUPLOADPATH()+filename));
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+      return new ResponseType<Object>(HttpStatus.OK.value(), "封面上传成功",null);
+    }
+  }
+  @GetMapping("/cover/{id}")
+  public ResponseEntity<byte[]> getMovieCover(@PathVariable("id") String id){
+    Movie movie= movieService.getMovieById(id);
+    return new FilePreview().getFilePreview(movie.getDest()+"/"+movie.getFilename(),movie.getMimetype());
   }
 }

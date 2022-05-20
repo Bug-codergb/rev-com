@@ -21,7 +21,6 @@ public class Writer extends FileInfo {
   private String foreignName;
   private String alias;
   private String description;
-  private String originalName;
   private Date createTime;
   private Date updateTime;
 }

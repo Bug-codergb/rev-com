@@ -9,14 +9,14 @@
       </template>
     </div>
     <div class="right-content">
-      <el-dropdown trigger="click">
+      <el-dropdown trigger="click" @command="handleCommand">
         <div class="user-avatar">
           <el-icon><UserFilled /></el-icon>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>个人中心</el-dropdown-item>
-            <el-dropdown-item>退出登录</el-dropdown-item>
+            <el-dropdown-item command="profile">个人中心</el-dropdown-item>
+            <el-dropdown-item command="exit">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -24,8 +24,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { ref, defineComponent } from "vue"
+import { useRouter } from "vue-router"
 import { Expand, Fold, UserFilled } from "@element-plus/icons-vue"
 export default defineComponent({
   name: "NavHeader",
@@ -37,13 +38,22 @@ export default defineComponent({
   emits: ["changeFold"],
   setup(props, { emit }) {
     const isFold = ref(false)
+    const router = useRouter()
     const changeFold = () => {
       isFold.value = !isFold.value
       emit("changeFold", isFold.value)
     }
+    const handleCommand = (e: string) => {
+      if (e === "exit") {
+        router.push({
+          path: "/Login"
+        })
+      }
+    }
     return {
       isFold,
-      changeFold
+      changeFold,
+      handleCommand
     }
   }
 })

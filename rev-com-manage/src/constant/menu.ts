@@ -30,6 +30,11 @@ const menu = [
         index: "2001",
         name: "作家信息",
         path: "/Home/Book/writer"
+      },
+      {
+        index: "2002",
+        name: "出版社信息",
+        path: "/Home/Book/publish"
       }
     ]
   },

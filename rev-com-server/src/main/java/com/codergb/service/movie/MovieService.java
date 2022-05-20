@@ -86,4 +86,12 @@ public class MovieService {
   public int updateMovie(Movie movie){
     return movieMapper.updateMovie(movie);
   }
+  //上传电影封面
+  public int uploadCover(Movie movie){
+    return movieMapper.uploadCover(movie);
+  }
+  //获取去电影
+  public Movie getMovieById(String id){
+    return movieMapper.getMovieById(id);
+  }
 }

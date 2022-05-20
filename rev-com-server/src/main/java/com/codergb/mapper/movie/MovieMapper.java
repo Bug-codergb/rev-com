@@ -49,4 +49,7 @@ public interface MovieMapper {
   public int deleteMovieCate(@Param("mId") String mId);
   //更新电影信息
   public int updateMovie(Movie movie);
+  //上传电影封面
+  public int uploadCover(Movie movie);
+  public Movie getMovieById(@Param("id") String id);
 }

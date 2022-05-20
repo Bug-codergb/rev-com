@@ -50,6 +50,7 @@
           <el-table-column
             :show-overflow-tooltip="true"
             prop="occupations"
+            min-width="120"
             label="职业"
           >
             <template #default="scope">
@@ -68,10 +69,21 @@
           <el-table-column
             :show-overflow-tooltip="true"
             prop="gender"
+            width="80"
             label="性别"
           >
             <template #default="scope">
               <span>{{ scope.row.gender * 1 === 0 ? "男" : "女" }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            prop="description"
+            label="演员简介"
+            min-width="130"
+            :show-overflow-tooltip="false"
+          >
+            <template #default="scope">
+              <span class="text-nowrap">{{ scope.row.description }}</span>
             </template>
           </el-table-column>
           <el-table-column

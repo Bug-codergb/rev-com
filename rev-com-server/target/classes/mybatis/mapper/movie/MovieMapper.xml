@@ -161,4 +161,13 @@
                      alias=#{alias},description=#{description}
     where id=#{id}
   </update>
+  <!--上传电影封面-->
+  <update id="uploadCover">
+    update movie set coverUrl=#{coverUrl},originalname=#{originalname},mimetype=#{mimetype},
+                     filename=#{filename},dest=#{dest},size=#{size}
+   where id=#{id}
+  </update>
+  <select id="getMovieById" resultType="Movie">
+    select * from movie where id=#{id}
+  </select>
 </mapper>

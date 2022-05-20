@@ -48,4 +48,12 @@
   <delete id="deleteActor">
     delete from actor where id=#{id}
   </delete>
+  <update id="uploadAvatar">
+    update actor set avatarUrl=#{avatarUrl},originalname=#{originalname},mimetype=#{mimetype},
+                     filename=#{filename},dest=#{dest},size=#{size}
+    where id=#{id}
+  </update>
+  <select id="getActorById" resultType="Actor">
+    select * from actor where id=#{id}
+  </select>
 </mapper>

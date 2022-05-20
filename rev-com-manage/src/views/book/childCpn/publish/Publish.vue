@@ -1,79 +1,69 @@
 <template>
-  <div class="writer">
-    <div class="writer-header">
+  <div class="publish">
+    <div class="publish-header">
       <PageItemList
         :keyword-list="keywordList"
-        add-name="添加作家"
+        add-name="添加出版社"
         @showDrawer="showDrawer"
         @keywordChange="keywordChange"
       />
     </div>
-    <div class="actor-list">
-      <template v-if="writerList.list && writerList.list.length > 0">
-        <el-table :data="writerList.list" :height="490" row-key="id">
+    <div class="publish-list">
+      <template v-if="publishList.list && publishList.list.length > 0">
+        <el-table :data="publishList.list" :height="490" row-key="id">
           <el-table-column
             :show-overflow-tooltip="true"
             prop="name"
-            label="作家名称"
+            label="出版社名称"
             min-width="130"
           />
           <el-table-column
             :show-overflow-tooltip="true"
-            prop="gender"
-            label="性别"
-            width="100"
-          >
-            <template #default="scope">
-              {{ scope.row.gender * 1 === 0 ? "男" : "女" }}
-            </template>
-          </el-table-column>
+            prop="foreignName"
+            label="出版社外文名"
+            width="130"
+          />
           <el-table-column
             :show-overflow-tooltip="true"
-            prop="foreignName"
-            label="外文名"
+            prop="representative"
+            label="法定代表人"
             width="140"
           />
           <el-table-column
             :show-overflow-tooltip="true"
-            prop="alias"
-            label="别名"
+            prop="industry"
+            label="所属行业"
             min-width="130"
           />
           <el-table-column
             :show-overflow-tooltip="true"
-            prop="birth"
-            label="生日"
+            prop="establish"
+            label="成立日期"
             width="130"
+            :sortable="true"
           >
             <template #default="scope">
-              <span v-format="'yyyy-MM-dd'">{{ scope.row.birth }}</span>
+              <span v-format="'yyyy-MM-dd'">{{ scope.row.establish }}</span>
             </template>
           </el-table-column>
           <el-table-column
             :show-overflow-tooltip="true"
-            prop="birthPlace"
-            label="出生地"
+            prop="online"
+            label="官方网址"
             width="130"
           />
           <el-table-column
             :show-overflow-tooltip="true"
-            prop="area"
-            label="地区"
+            prop="organizer"
+            label="主办单位"
             width="100"
           />
           <el-table-column
             :show-overflow-tooltip="true"
-            prop="createTime"
-            label="创建时间"
+            prop="type"
+            label="类型"
             min-width="120"
-            :sortable="true"
-          >
-            <template #default="scope">
-              <span v-format="'yyyy-MM-dd hh:mm'">{{
-                scope.row.createTime
-              }}</span>
-            </template>
-          </el-table-column>
+          />
 
           <el-table-column fixed="right" label="操作" width="140">
             <template #default="scope">
@@ -119,142 +109,135 @@
     >
       <template #title>
         <div class="drawer-title-outer">
-          <div class="title">添加作家</div>
+          <div class="title">添加出版社</div>
           <button class="drawer-define-btn" @click="define">确定</button>
         </div>
       </template>
-      <add-writer ref="addWriter" />
+      <add-publish ref="addPublish" />
     </el-drawer>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, reactive } from "vue"
+import { defineComponent, ref, reactive, onMounted } from "vue"
 import PageItemList from "@/components/content/pageItemList/PageItemList.vue"
-import AddWriter from "@/views/book/childCpn/writer/childCpn/addWriter/AddWriter.vue"
-import { createWriter, getAllWriter } from "@/network/book/writer"
+import { debounce } from "@/utils/debounce"
+import AddPublish from "@/views/book/childCpn/publish/childCpn/addPublish/AddPublish.vue"
+import { createPublish, getAllPublish } from "@/network/book/publish"
 import { ElMessage } from "element-plus/lib/components"
+import { IPublish } from "@/types/book/publish"
 import { IResponseType } from "@/types/responseType"
 import { IPageResult } from "@/types/pageResult"
-import { IWriter } from "@/types/book/writer"
-import { debounce } from "@/utils/debounce"
 export default defineComponent({
-  name: "Writer",
+  name: "Publish",
   components: {
     PageItemList,
-    AddWriter
+    AddPublish
   },
   setup() {
-    const keyword = ref("")
-    const total = ref(0)
-    const writerList = reactive<{ list: IWriter[] | null }>({
-      list: null
-    })
-    const addWriter = ref<InstanceType<typeof AddWriter>>()
     const drawer = ref(false)
     const direction = ref("rtl")
+    const addPublish = ref<InstanceType<typeof AddPublish>>()
     const keywordList = [
-      { id: 1, keyword: "请输入人", placeholder: "请输入作家名称" }
+      { id: 1, keyword: "请输入", placeholder: "请输入出版社名称" }
     ]
-    const getAllWriterRequest = async (
+    const publishList = reactive<{ list: IPublish[] | null }>({
+      list: null
+    })
+    const total = ref(0)
+    const keyword = ref("")
+    const showDrawer = () => {
+      drawer.value = true
+    }
+    const getAllPublishRequest = async (
       page: number,
       limit: number,
       keyword: string
     ) => {
-      const data = await getAllWriter<IResponseType<IPageResult<IWriter[]>>>(
+      const data = await getAllPublish<IResponseType<IPageResult<IPublish[]>>>(
         page,
         limit,
         keyword
       )
       if (data.status === 200) {
         total.value = data.data.total
-        writerList.list = data.data.data
+        publishList.list = data.data.data
       }
     }
     onMounted(async () => {
-      await getAllWriterRequest(1, 10, keyword.value)
+      await getAllPublishRequest(1, 10, keyword.value)
     })
-    const editWriter = () => {}
-    const deleteWriterHandle = () => {}
+    const keywordChange = debounce(
+      (keywords: string[]) => {
+        keyword.value = keywords[0]
+        getAllPublishRequest(1, 10, keyword.value)
+      },
+      1000,
+      false
+    )
+    const pageChange = (e: number) => {
+      getAllPublishRequest(e, 10, keyword.value)
+    }
     const define = () => {
-      if (
-        addWriter.value &&
-        addWriter.value.ruleFormRef &&
-        addWriter.value.writer
-      ) {
-        addWriter.value.ruleFormRef.validate(async (e: boolean) => {
+      if (addPublish.value && addPublish.value.ruleFormRef) {
+        addPublish.value.ruleFormRef.validate(async (e: boolean) => {
           if (e) {
-            if (addWriter.value) {
+            if (addPublish.value) {
               const {
-                alias,
-                area,
-                birth,
-                birthPlace,
-                description,
-                foreignName,
-                gender,
-                name
-              } = addWriter.value.writer
-              const data = await createWriter(
                 name,
-                gender,
-                birth,
-                birthPlace,
-                area,
                 foreignName,
-                alias,
-                description
+                representative,
+                industry,
+                establish,
+                online,
+                organizer,
+                description,
+                type
+              } = addPublish.value.publish
+              const data = await createPublish(
+                name,
+                foreignName,
+                representative,
+                industry,
+                establish,
+                online,
+                organizer,
+                description,
+                type
               )
               if (data.status === 200) {
                 ElMessage({
-                  type: "success",
-                  message: "作家添加成功"
+                  message: "出版社添加成功",
+                  type: "success"
                 })
                 drawer.value = false
-                getAllWriterRequest(1, 10, keyword.value)
+                await getAllPublishRequest(1, 10, keyword.value)
               }
             }
           }
         })
       }
     }
-    const showDrawer = () => {
-      drawer.value = true
-    }
-    const pageChange = async (e: number) => {
-      await getAllWriterRequest(e, 10, keyword.value)
-    }
-    const keywordChange = debounce(
-      (keywords: string[]) => {
-        keyword.value = keywords[0]
-        getAllWriterRequest(1, 10, keyword.value)
-      },
-      1000,
-      false
-    )
     return {
       keywordList,
       drawer,
       direction,
-      define,
       showDrawer,
-      addWriter,
-      writerList,
-      total,
-      editWriter,
-      deleteWriterHandle,
+      keywordChange,
+      define,
+      addPublish,
+      publishList,
       pageChange,
-      keywordChange
+      total
     }
   }
 })
 </script>
 
 <style scoped lang="less">
-.writer {
+.publish {
   .page {
     display: flex;
-    align-items: center;
     justify-content: center;
     padding: 15px 0;
   }
