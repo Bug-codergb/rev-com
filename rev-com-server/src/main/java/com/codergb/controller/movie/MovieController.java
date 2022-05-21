@@ -15,6 +15,7 @@ import com.codergb.utils.FileUniqueName;
 import com.codergb.utils.ResponseType;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -239,7 +240,7 @@ public class MovieController {
       movie.setSize(cover.getSize());
       movieService.uploadCover(movie);
       try {
-        cover.transferTo(new File(UploadPath.MOVIE_COVER_UPLOAD_PATH.getUPLOADPATH()+filename));
+        cover.transferTo(new File(System.getProperty("user.dir")+UploadPath.MOVIE_COVER_UPLOAD_PATH.getUPLOADPATH()+filename));
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -249,6 +250,46 @@ public class MovieController {
   @GetMapping("/cover/{id}")
   public ResponseEntity<byte[]> getMovieCover(@PathVariable("id") String id){
     Movie movie= movieService.getMovieById(id);
-    return new FilePreview().getFilePreview(movie.getDest()+"/"+movie.getFilename(),movie.getMimetype());
+    return new FilePreview().getFilePreview(System.getProperty("user.dir")+movie.getDest()+"/"+movie.getFilename(),movie.getMimetype());
+  }
+  @LoginAuth
+  @PostMapping("/cover/update/{id}")
+  public ResponseType<Object> updateCover(@PathVariable("id") String id,
+                                          @RequestBody MultipartFile cover){
+    if(new EmptyJudge().judgeEmpty(cover)){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "封面不能为空",null);
+    }else{
+      Movie movie= movieService.getMovieById(id);
+      File file=new File(System.getProperty("user.dir")+movie.getDest()+movie.getFilename());
+      if(file.exists()){
+        boolean isDelete = file.delete();
+        this.uploadAvatar(id,cover);
+      }else{
+        this.uploadAvatar(id,cover);
+      }
+      return new ResponseType<Object>(HttpStatus.OK.value(), "头像更新成功",null);
+    }
+  }
+  @LoginAuth
+  @PostMapping("/delete/{id}")
+  public ResponseType<Object> deleteMovie(@PathVariable("id") String id){
+    Movie movie= movieService.getMovieById(id);
+    File file=new File(System.getProperty("user.dir")+movie.getDest()+movie.getFilename());
+    if(file.exists()){
+      boolean isDelete=file.delete();
+    }
+    movieService.deleteMovie(id);
+    return new ResponseType<Object>(HttpStatus.OK.value(), "电影删除成功",null);
+  }
+  @LoginAuth
+  @GetMapping("/director/{id}")
+  public ResponseType<PageResult<List<Movie>>> getMovieByDid(@PathVariable("id") String id,
+                                                             @RequestParam("page") Integer page,
+                                                             @RequestParam("limit")Integer limit){
+    Page<Movie> movies= movieService.getMovieByDid(id, page, limit);
+    PageResult pageResult=new PageResult<List<Movie>>(movies.getPageNum(),
+            movies.getTotal(),
+            movies.getPages(),movies);
+    return new ResponseType<PageResult<List<Movie>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
   }
 }

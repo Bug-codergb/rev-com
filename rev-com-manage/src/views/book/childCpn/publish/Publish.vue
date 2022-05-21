@@ -58,18 +58,11 @@
             label="主办单位"
             width="100"
           />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="type"
-            label="类型"
-            min-width="120"
-          />
+          <el-table-column :show-overflow-tooltip="true" prop="type" label="类型" min-width="120" />
 
           <el-table-column fixed="right" label="操作" width="140">
             <template #default="scope">
-              <el-button type="text" size="small" class="table-control-btn"
-                >查看</el-button
-              >
+              <el-button type="text" size="small" class="table-control-btn">查看</el-button>
               <el-button
                 type="text"
                 size="small"
@@ -138,9 +131,7 @@ export default defineComponent({
     const drawer = ref(false)
     const direction = ref("rtl")
     const addPublish = ref<InstanceType<typeof AddPublish>>()
-    const keywordList = [
-      { id: 1, keyword: "请输入", placeholder: "请输入出版社名称" }
-    ]
+    const keywordList = [{ id: 1, keyword: "请输入", placeholder: "请输入出版社名称" }]
     const publishList = reactive<{ list: IPublish[] | null }>({
       list: null
     })
@@ -149,16 +140,8 @@ export default defineComponent({
     const showDrawer = () => {
       drawer.value = true
     }
-    const getAllPublishRequest = async (
-      page: number,
-      limit: number,
-      keyword: string
-    ) => {
-      const data = await getAllPublish<IResponseType<IPageResult<IPublish[]>>>(
-        page,
-        limit,
-        keyword
-      )
+    const getAllPublishRequest = async (page: number, limit: number, keyword: string) => {
+      const data = await getAllPublish<IResponseType<IPageResult<IPublish[]>>>(page, limit, keyword)
       if (data.status === 200) {
         total.value = data.data.total
         publishList.list = data.data.data

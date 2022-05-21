@@ -52,4 +52,8 @@ public interface MovieMapper {
   //上传电影封面
   public int uploadCover(Movie movie);
   public Movie getMovieById(@Param("id") String id);
+  //删除电影
+  public int deleteMovie(@Param("id") String id);
+  //获取电影通过导演
+  public List<Movie> getMovieByDid(@Param("dId") String dId,@Param("page") Integer page,@Param("limit") Integer limit);
 }

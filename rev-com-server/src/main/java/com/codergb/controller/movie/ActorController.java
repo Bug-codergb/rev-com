@@ -63,7 +63,7 @@ public class ActorController {
       for(String item:actor.getOccupationList()){
         occupationService.setOccupation("aId",actor.getId(),item);
       }
-      return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), null);
+      return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), actor);
     }
   }
   @LoginAuth
@@ -119,6 +119,11 @@ public class ActorController {
     if(new EmptyJudge().judgeEmpty(id)){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "演员id不能为空",null);
     }else{
+      Actor actor=actorService.getActorById(id);
+      File file=new File(System.getProperty("user.dir")+actor.getDest()+actor.getFilename());
+      if(file.exists()){
+        boolean isDelete=file.delete();
+      }
       actorService.deleteActor(id);
       return new ResponseType<Object>(HttpStatus.OK.value(),"演员删除成功",null);
     }
@@ -153,5 +158,23 @@ public class ActorController {
   public ResponseEntity<byte[]> getActorAvatar(@PathVariable("id") String id){
      Actor actor=actorService.getActorById(id);
      return new FilePreview().getFilePreview(System.getProperty("user.dir")+actor.getDest()+"/"+actor.getFilename(),actor.getMimetype());
+  }
+  @LoginAuth
+  @PostMapping("/avatar/update/{id}")
+  public ResponseType<Object> updateAvatar(@PathVariable("id") String id,
+                                           @RequestBody MultipartFile avatar){
+    if(new EmptyJudge().judgeEmpty(avatar)){
+      return new ResponseType<Object>(HttpStatus.OK.value(), "头像不能为空",null);
+    }else{
+      Actor actor=actorService.getActorById(id);
+      File file=new File(System.getProperty("user.dir")+actor.getDest()+actor.getFilename());
+      if(file.exists()){
+        Boolean isDelete=file.delete();
+        this.uploadAvatar(id,avatar);
+      }else{
+        this.uploadAvatar(id,avatar);
+      }
+      return new ResponseType<Object>(HttpStatus.OK.value(), "头像更新成功",null);
+    }
   }
 }

@@ -30,11 +30,7 @@ export function createWriter<T = IResponseType<any>>(
   })
 }
 //获取所有作家
-export function getAllWriter<T = IResponseType<any>>(
-  page: number,
-  limit: number,
-  keyword: string
-) {
+export function getAllWriter<T = IResponseType<any>>(page: number, limit: number, keyword: string) {
   return gbRequest.get<T>({
     url: WriterApi.allWriter,
     params: {

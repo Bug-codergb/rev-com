@@ -50,7 +50,7 @@
       </el-form-item>
       <el-form-item label="头像">
         <div class="director-avatar" style="height: 100px; width: 100%">
-          <img-prev @onCancel="cancel" @onFileChange="fileChange" />
+          <img-prev @onCancel="cancel" @onFileChange="fileChange" :prevURL="prevURL" />
         </div>
       </el-form-item>
     </el-form>
@@ -89,6 +89,7 @@ export default defineComponent({
     const avatar = reactive<{ source: FormData | null }>({
       source: null
     })
+    const prevURL = ref("")
     const occupation = reactive<{ list: IOccupation[] }>({
       list: []
     })
@@ -99,15 +100,15 @@ export default defineComponent({
         props.directorItem.item.id !== ""
       ) {
         let directorTmp = toRefs(props.directorItem.item)
-        console.log(directorTmp)
+        if (directorTmp.avatarUrl.value) {
+          prevURL.value = directorTmp.avatarUrl.value
+        }
         director.name = directorTmp.name.value
         director.alias = directorTmp.alias.value
         director.gender = directorTmp.gender.value
         director.birthPlace = directorTmp.birthPlace.value
         director.description = directorTmp.description.value
-        director.occupation = directorTmp.occupations.value.map(
-          (item: IOccupation) => item.id
-        )
+        director.occupation = directorTmp.occupations.value.map((item: IOccupation) => item.id)
         isUpdate.value = true
       }
     }
@@ -171,7 +172,8 @@ export default defineComponent({
       cancel,
       fileChange,
       avatar,
-      isUpdate
+      isUpdate,
+      prevURL
     }
   }
 })

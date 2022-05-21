@@ -1,8 +1,6 @@
 <template>
   <div class="img-prev-outer" @mouseenter="maskEnter" @mouseleave="maskLeave">
-    <template v-if="!isShowPrev"
-      ><input type="file" @change="fileChange"
-    /></template>
+    <template v-if="!isShowPrev"><input type="file" @change="fileChange" /></template>
     <template v-if="isShowPrev"><img :src="imgURL" /></template>
     <template v-if="!isShowPrev"
       ><el-icon><Picture /></el-icon
@@ -26,10 +24,21 @@ export default defineComponent({
     DeleteFilled
   },
   emits: ["onFileChange", "onCancel"],
+  props: {
+    prevURL: {
+      type: String,
+      default: ""
+    }
+  },
   setup(props, context) {
     const imgURL = ref("")
     const isShowPrev = ref(false)
     const isShowMask = ref(false)
+    if (props.prevURL.trim().length !== 0) {
+      let prevURLTmp = ref(props.prevURL)
+      imgURL.value = prevURLTmp.value
+      isShowPrev.value = true
+    }
     const fileChange = (e: Event) => {
       const tar = e.target as HTMLInputElement
       if (tar.files) {

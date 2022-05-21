@@ -11,11 +11,7 @@
       <el-row :gutter="24">
         <el-col :span="12">
           <el-form-item label="出版社名称" prop="name">
-            <el-input
-              v-model="publish.name"
-              style="width: 100%"
-              placeholder="请输入出版社名称"
-            />
+            <el-input v-model="publish.name" style="width: 100%" placeholder="请输入出版社名称" />
           </el-form-item>
         </el-col>
         <el-col :span="12">
@@ -40,11 +36,7 @@
         </el-col>
         <el-col :span="12">
           <el-form-item label="所属行业" prop="industry">
-            <el-input
-              v-model="publish.industry"
-              style="width: 100%"
-              placeholder="请输入所属行业"
-            />
+            <el-input v-model="publish.industry" style="width: 100%" placeholder="请输入所属行业" />
           </el-form-item>
         </el-col>
       </el-row>
@@ -61,22 +53,14 @@
         </el-col>
         <el-col :span="12">
           <el-form-item label="官方网站" prop="online">
-            <el-input
-              v-model="publish.online"
-              style="width: 100%"
-              placeholder="请输入官方网站"
-            />
+            <el-input v-model="publish.online" style="width: 100%" placeholder="请输入官方网站" />
           </el-form-item>
         </el-col>
       </el-row>
       <el-row :gutter="24">
         <el-col :span="12">
           <el-form-item label="类型" prop="type">
-            <el-input
-              v-model="publish.type"
-              style="width: 100%"
-              placeholder="请输入出版社类型"
-            />
+            <el-input v-model="publish.type" style="width: 100%" placeholder="请输入出版社类型" />
           </el-form-item>
         </el-col>
         <el-col :span="12">

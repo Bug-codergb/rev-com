@@ -15,6 +15,7 @@ import com.codergb.utils.FilePreview;
 import com.codergb.utils.FileUniqueName;
 import com.codergb.utils.ResponseType;
 import com.github.pagehelper.Page;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -89,7 +90,7 @@ public class DirectorController {
       director.setDest(UploadPath.DIRECTOR_AVATAR_UPLOAD_PATH.getUPLOADPATH());
       directorService.uploadAvatar(director);
       try {
-        avatar.transferTo(new File(UploadPath.DIRECTOR_AVATAR_UPLOAD_PATH.getUPLOADPATH()+filename));
+        avatar.transferTo(new File(System.getProperty("user.dir")+UploadPath.DIRECTOR_AVATAR_UPLOAD_PATH.getUPLOADPATH()+filename));
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -99,7 +100,7 @@ public class DirectorController {
   @GetMapping("/avatar/{id}")
   public ResponseEntity<byte[]> getDirectorAvatar(@PathVariable("id") String id){
     Director director=directorService.getDirectorById(id);
-    return new FilePreview().getFilePreview(director.getDest()+"/"+director.getFilename(),director.getMimetype());
+    return new FilePreview().getFilePreview(System.getProperty("user.dir")+director.getDest()+"/"+director.getFilename(),director.getMimetype());
   }
   //更新导演信息
   @LoginAuth
@@ -135,8 +136,32 @@ public class DirectorController {
     if(new EmptyJudge().judgeEmpty(id)){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "导演id不能为空",null);
     }else{
+      Director director=directorService.getDirectorById(id);
+      System.out.println(director);
+      File file=new File(System.getProperty("user.dir")+director.getDest()+director.getFilename());
+      if(file.exists()){
+        file.delete();
+      }
       directorService.deleteDirector(id);
       return new ResponseType<Object>(HttpStatus.OK.value(),"导演删除成功",null);
+    }
+  }
+  @LoginAuth
+  @PostMapping("/avatar/update/{id}")
+  public ResponseType<Object> updateAvatar(@PathVariable("id") String id,
+                                           @RequestBody MultipartFile avatar){
+    if(new EmptyJudge().judgeEmpty(avatar)){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"头像不能为空",null);
+    }else{
+      Director director=directorService.getDirectorById(id);
+      File file=new File(System.getProperty("user.dir")+director.getDest()+director.getFilename());
+      if(file.exists()){
+        Boolean isDelete=file.delete();
+        this.uploadAvatar(id,avatar);
+      }else{
+        this.uploadAvatar(id,avatar);
+      }
+      return new ResponseType<Object>(HttpStatus.OK.value(), "头像更新成功",null);
     }
   }
 }

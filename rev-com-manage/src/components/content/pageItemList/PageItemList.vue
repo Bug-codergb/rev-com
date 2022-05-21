@@ -29,16 +29,12 @@
           </div>
         </template>
         <div class="add-btn">
-          <el-button type="primary" @click="showDrawer">{{
-            addName
-          }}</el-button>
+          <el-button type="primary" @click="showDrawer">{{ addName }}</el-button>
         </div>
       </div>
       <template v-if="isShowRefresh">
         <div class="page-item-list-header-right">
-          <el-icon :class="{ active: isRotate }" @click="changeRotate"
-            ><refresh
-          /></el-icon>
+          <el-icon :class="{ active: isRotate }" @click="changeRotate"><refresh /></el-icon>
         </div>
       </template>
     </div>

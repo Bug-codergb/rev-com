@@ -25,39 +25,40 @@ textarea {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-body,html{
+body,
+html {
   scrollbar-width: none; /* firefox */
   -ms-overflow-style: none; /* IE 10+ */
 }
 ::-webkit-scrollbar {
   display: none;
 }
-.el-input__wrapper{
-  padding: 5px 12px!important;
+.el-input__wrapper {
+  padding: 5px 12px !important;
 }
-.table-control-btn{
+.table-control-btn {
   font-size: 13px;
 }
-.drawer-title-outer{
+.drawer-title-outer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #dcdfe6;
   padding: 0 0 15px 0;
 }
-.drawer-title-outer .title{
+.drawer-title-outer .title {
   font-weight: bold;
 }
-.drawer-title-outer .drawer-define-btn{
+.drawer-title-outer .drawer-define-btn {
   background-color: #00a1d6;
   color: #fff;
   padding: 8px 20px;
-  border-radius:5px ;
+  border-radius: 5px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.el-form-item__label{
+.el-form-item__label {
   text-align: left;
 }

@@ -1,5 +1,6 @@
 import { IFileInfo } from "@/types/FileInfo"
-import {IOccupation} from "@/types/occupation";
+import { IOccupation } from "@/types/occupation"
+import { IMovie } from "@/types/movie"
 
 interface IDirector extends IFileInfo {
   id: string
@@ -9,6 +10,7 @@ interface IDirector extends IFileInfo {
   gender: string
   birthPlace: string
   occupations: IOccupation[]
+  movies?: IMovie[]
   description: string
   createTime: string
   updateTime: string

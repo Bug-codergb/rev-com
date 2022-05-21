@@ -9,11 +9,7 @@ export function getAllOccupation<T = IResponseType<any>>() {
     url: OccupationApi.allOccupation
   })
 }
-export function setOccupation<T = IResponseType<any>>(
-  key: string,
-  id: string,
-  oId: string
-) {
+export function setOccupation<T = IResponseType<any>>(key: string, id: string, oId: string) {
   return gbRequest.post<T>({
     url: OccupationApi.setOccupation + "/" + key + "/" + id + "/" + oId
   })

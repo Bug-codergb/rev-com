@@ -4,14 +4,12 @@ enum ActorApi {
   allActor = "/actor/all",
   addActor = "/actor/",
   updateActor = "/actor/update",
-  deleteActor = "/actor/delete"
+  deleteActor = "/actor/delete",
+  uploadAvatar = "/actor/avatar/upload",
+  updateAvatar = "/actor/avatar/update"
 }
 //获取所有演员
-export function getAllActor<T = IResponseType<any>>(
-  page: number,
-  limit: number,
-  keyword: string
-) {
+export function getAllActor<T = IResponseType<any>>(page: number, limit: number, keyword: string) {
   return gbRequest.get<T>({
     url: ActorApi.allActor,
     params: {
@@ -83,6 +81,26 @@ export function deleteActor<T = IResponseType<any>>(id: string) {
     url: ActorApi.deleteActor,
     params: {
       id
+    }
+  })
+}
+//上传演员头像
+export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormData) {
+  return gbRequest.post<T>({
+    url: ActorApi.uploadAvatar + `/${id}`,
+    data: formData,
+    headers: {
+      "Content-type": "multipart/form-data"
+    }
+  })
+}
+//更新演员头像
+export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData) {
+  return gbRequest.post<T>({
+    url: ActorApi.updateAvatar + `/${id}`,
+    data: formData,
+    headers: {
+      "Content-type": "multipart/form-data"
     }
   })
 }

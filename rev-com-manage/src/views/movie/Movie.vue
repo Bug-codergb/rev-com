@@ -11,12 +11,7 @@
           />
         </div>
         <div class="cate-list">
-          <el-select
-            v-model="cate"
-            class="m-2"
-            filterable
-            placeholder="请选择电影类型"
-          >
+          <el-select v-model="cate" class="m-2" filterable placeholder="请选择电影类型">
             <el-option
               v-for="item in cateList.list"
               :key="item.id"
@@ -26,12 +21,7 @@
           </el-select>
         </div>
         <div class="form-list">
-          <el-select
-            v-model="form"
-            class="m-2"
-            filterable
-            placeholder="请选择电影形式"
-          >
+          <el-select v-model="form" class="m-2" filterable placeholder="请选择电影形式">
             <el-option
               v-for="item in formList.list"
               :key="item.id"
@@ -41,12 +31,7 @@
           </el-select>
         </div>
         <div class="area-list">
-          <el-select
-            v-model="area"
-            class="m-2"
-            filterable
-            placeholder="请选择电影地区"
-          >
+          <el-select v-model="area" class="m-2" filterable placeholder="请选择电影地区">
             <el-option
               v-for="item in areaList.list"
               :key="item.id"
@@ -60,9 +45,7 @@
         </div>
       </div>
       <div class="movie-header-right">
-        <el-icon :class="{ active: isRotate }" @click="changeRotate"
-          ><refresh
-        /></el-icon>
+        <el-icon :class="{ active: isRotate }" @click="changeRotate"><refresh /></el-icon>
       </div>
     </div>
     <div class="movie-body">
@@ -72,6 +55,7 @@
         :area="area"
         :cate="cate"
         :form="form"
+        @editMovie="editMovie"
       />
     </div>
     <el-drawer
@@ -80,6 +64,7 @@
       :show-close="false"
       :destroy-on-close="true"
       size="45%"
+      @close="drawerClose"
     >
       <template #title>
         <div class="drawer-title-outer">
@@ -87,7 +72,7 @@
           <button class="drawer-define-btn" @click="define">确定</button>
         </div>
       </template>
-      <add-movie ref="addMovieRef" />
+      <add-movie ref="addMovieRef" :movieItem="movieItem" />
     </el-drawer>
   </div>
 </template>
@@ -96,7 +81,7 @@
 import { defineComponent, onMounted, reactive, ref } from "vue"
 import { Refresh } from "@element-plus/icons-vue"
 import { ElMessage } from "element-plus"
-import { addMovie } from "@/network/movie"
+import { addMovie, updateCover, updateMovie, uploadCover } from "@/network/movie"
 import { IResponseType } from "@/types/responseType"
 import { getAllArea } from "@/network/movie/area"
 import { IArea } from "@/types/area"
@@ -106,6 +91,7 @@ import { getAllCate } from "@/network/movie/cate"
 import { ICategory } from "@/types/category"
 import MovieList from "./childCpn/movie/Movie.vue"
 import AddMovie from "./childCpn/movie/childCpn/addMovie/AddMovie.vue"
+import { IMovie } from "@/types/movie"
 export default defineComponent({
   name: "Movie",
   components: {
@@ -123,6 +109,9 @@ export default defineComponent({
     const drawer = ref(false)
     const direction = ref("rtl")
     const addMovieRef = ref<InstanceType<typeof AddMovie>>()
+    const movieItem = reactive<{ item: null | IMovie }>({
+      item: null
+    })
     const areaList = reactive<{ list: IArea[] }>({
       list: []
     })
@@ -176,32 +165,86 @@ export default defineComponent({
               form,
               releaseTime,
               screenwriter
-            } = addMovieRef.value.director
-            const data = await addMovie(
-              name,
-              director,
-              screenwriter,
-              area,
-              actor,
-              language,
-              releaseTime,
-              15000,
-              alias,
-              form,
-              cate,
-              desc
-            )
-            if (data.status === 200) {
-              keyIndex.value += 1
-              ElMessage({
-                message: "电影添加成功",
-                type: "success"
-              })
-              drawer.value = false
+            } = addMovieRef.value.movie
+            if (!addMovieRef.value.isUpdate) {
+              //创建电影
+              const data = await addMovie(
+                name,
+                director,
+                screenwriter,
+                area,
+                actor,
+                language,
+                releaseTime,
+                15000,
+                alias,
+                form,
+                cate,
+                desc
+              )
+              if (data.status === 200) {
+                keyIndex.value += 1
+                ElMessage({
+                  message: "电影添加成功",
+                  type: "success"
+                })
+                drawer.value = false
+              }
+              if (addMovieRef.value.cover && addMovieRef.value.cover.source) {
+                const { cover } = addMovieRef.value
+                if (cover.source instanceof FormData) {
+                  const res = await uploadCover(data.data.id, cover.source)
+                  console.log(res)
+                }
+              }
+            } else {
+              //更新电影
+              if (movieItem.item) {
+                const data = await updateMovie(
+                  movieItem.item.id,
+                  name,
+                  director,
+                  screenwriter,
+                  area,
+                  actor,
+                  language,
+                  releaseTime,
+                  1500,
+                  alias,
+                  form,
+                  cate,
+                  desc
+                )
+                if (data.status === 200) {
+                  ElMessage({
+                    message: "电影信息更新成功",
+                    type: "success"
+                  })
+                  if (addMovieRef.value && addMovieRef.value.cover.source) {
+                    const { cover } = addMovieRef.value
+                    if (cover.source instanceof FormData) {
+                      const res = await updateCover(movieItem.item.id, cover.source)
+                      if (res.status === 200) {
+                        drawer.value = false
+                        keyIndex.value += 1
+                      }
+                    }
+                  }
+                  drawer.value = false
+                  keyIndex.value += 1
+                }
+              }
             }
           }
         }
       })
+    }
+    const editMovie = (item: IMovie) => {
+      drawer.value = true
+      movieItem.item = item
+    }
+    const drawerClose = () => {
+      movieItem.item = null
     }
     return {
       isRotate,
@@ -218,7 +261,10 @@ export default defineComponent({
       direction,
       define,
       addMovieRef,
-      keyIndex
+      keyIndex,
+      editMovie,
+      movieItem,
+      drawerClose
     }
   }
 })

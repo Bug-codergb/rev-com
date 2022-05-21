@@ -6,7 +6,8 @@ enum DirectorApi {
   addDirector = "/director/",
   uploadAvatar = "/director/avatar/upload/",
   updateDirector = "/director/update",
-  deleteDirector = "/director/delete"
+  deleteDirector = "/director/delete",
+  updateAvatar = "/director/avatar/update"
 }
 export function getAllDirector<T = IResponseType<any>>(
   page: number,
@@ -42,10 +43,7 @@ export function addDirectorRequest<T = IResponseType<any>>(
   })
 }
 //上传头像
-export function uploadAvatar<T = IResponseType<any>>(
-  formData: FormData,
-  id: string
-) {
+export function uploadAvatar<T = IResponseType<any>>(formData: FormData, id: string) {
   return gbRequest.post<T>({
     url: DirectorApi.uploadAvatar + `${id}`,
     method: "post",
@@ -84,6 +82,16 @@ export function deleteDirector<T = IResponseType<any>>(id: string) {
     url: DirectorApi.deleteDirector,
     params: {
       id
+    }
+  })
+}
+//更新头像信息
+export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData) {
+  return gbRequest.post<T>({
+    url: DirectorApi.updateAvatar + `/${id}`,
+    data: formData,
+    headers: {
+      "Content-type": "multipart/form-data"
     }
   })
 }

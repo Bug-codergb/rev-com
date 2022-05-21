@@ -20,6 +20,7 @@ public class Director extends FileInfo {
   private String gender;
   private String birthPlace;
   private List<Occupation> occupations;
+  private List<Movie> movies;
   private String description;
   private Date createTime;
   private Date updateTime;

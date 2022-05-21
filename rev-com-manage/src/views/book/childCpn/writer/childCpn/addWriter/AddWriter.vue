@@ -11,11 +11,7 @@
       <el-row :gutter="24">
         <el-col :span="12">
           <el-form-item label="作家名称" prop="name">
-            <el-input
-              v-model="writer.name"
-              style="width: 100%"
-              placeholder="请输入作家名称"
-            />
+            <el-input v-model="writer.name" style="width: 100%" placeholder="请输入作家名称" />
           </el-form-item>
         </el-col>
         <el-col :span="12">
@@ -31,20 +27,12 @@
       <el-row :gutter="24">
         <el-col :span="12">
           <el-form-item label="其他名称" prop="alias">
-            <el-input
-              v-model="writer.alias"
-              style="width: 100%"
-              placeholder="请输入作家其他名称"
-            />
+            <el-input v-model="writer.alias" style="width: 100%" placeholder="请输入作家其他名称" />
           </el-form-item>
         </el-col>
         <el-col :span="12">
           <el-form-item label="地区" prop="area">
-            <el-input
-              v-model="writer.area"
-              style="width: 100%"
-              placeholder="请输入地区"
-            />
+            <el-input v-model="writer.area" style="width: 100%" placeholder="请输入地区" />
           </el-form-item>
         </el-col>
       </el-row>
@@ -61,11 +49,7 @@
         </el-col>
         <el-col :span="12">
           <el-form-item label="出生地" prop="birthPlace">
-            <el-input
-              v-model="writer.birthPlace"
-              style="width: 100%"
-              placeholder="请输入出生地"
-            />
+            <el-input v-model="writer.birthPlace" style="width: 100%" placeholder="请输入出生地" />
           </el-form-item>
         </el-col>
       </el-row>

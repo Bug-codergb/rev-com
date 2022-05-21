@@ -4,7 +4,7 @@
       <span class="sys-title" :class="{ isOpacity: collapse }"> Rev-Com </span>
     </div>
     <el-menu
-      default-active="1001"
+      :default-active="defaultActive"
       background-color="#0c2135"
       text-color="#b7bdc3"
       active-text-color="#0a60bd"
@@ -32,8 +32,9 @@
 
 <script lang="ts">
 import { useRouter } from "vue-router"
-import { defineComponent } from "vue"
+import { defineComponent, ref } from "vue"
 import { menu } from "@/constant/menu"
+import pathMapMenu from "@/utils/pathMapMenu"
 import { Film, Notebook, User, Setting, Mic } from "@element-plus/icons-vue"
 export default defineComponent({
   name: "NavList",
@@ -52,6 +53,8 @@ export default defineComponent({
   },
   setup() {
     const router = useRouter()
+    const menuItem = pathMapMenu(menu, router.currentRoute.value.path)
+    const defaultActive = ref(menuItem ? menuItem.index : "1001")
     const navRouter = (path: string) => {
       router.push({
         path: path
@@ -59,7 +62,8 @@ export default defineComponent({
     }
     return {
       menu,
-      navRouter
+      navRouter,
+      defaultActive
     }
   }
 })

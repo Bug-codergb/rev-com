@@ -1,9 +1,9 @@
 package com.codergb.constant;
 
 public enum UploadPath {
-  AVATAR_UPLOAD_PATH(System.getProperty("user.dir")+"/upload/avatar/"),
-  DIRECTOR_AVATAR_UPLOAD_PATH(System.getProperty("user.dir")+"/upload/director/avatar/"),
-  MOVIE_COVER_UPLOAD_PATH(System.getProperty("user.dir")+"/upload/movie/cover/"),
+  AVATAR_UPLOAD_PATH("./upload/avatar/"),
+  DIRECTOR_AVATAR_UPLOAD_PATH("./upload/director/avatar/"),
+  MOVIE_COVER_UPLOAD_PATH("./upload/movie/cover/"),
   ACTOR_AVATAR_UPLOAD_PATH("./upload/actor/avatar/");
   private final String UPLOADPATH;
   UploadPath(String UPLOADPATH) {

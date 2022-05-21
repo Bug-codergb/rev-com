@@ -27,6 +27,12 @@
                  select="com.codergb.mapper.movie.OccupationMapper.getOccupationById"
                  column="{id=id,key=dId}"
                  ></collection>
+    <collection property="movies"
+                ofType="Movie"
+                select="com.codergb.mapper.movie.MovieMapper.getMovieByDid"
+                column="{dId=id}">
+
+    </collection>
   </resultMap>
   <select id="getAllDirect" resultMap="directorResultMap">
     select * ,"dId" as dId from director
@@ -41,8 +47,10 @@
                         mimetype=#{mimetype},filename=#{filename},size=#{size},dest=#{dest}
     where id=#{id}
   </update>
-  <select id="getDirectorById" resultType="Director">
-    select * from director where id=#{id}
+  <!--获取导演-->
+  <select id="getDirectorById" resultMap="directorResultMap">
+    select *, "dId" as dId from director
+    where id=#{id}
   </select>
   <update id="updateDirector">
     update director set name=#{name},alias=#{alias},gender=#{gender},birthPlace=#{birthPlace},

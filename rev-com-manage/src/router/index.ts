@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
+import detailRoutes from "./detail"
 const login = () => import("../views/login/Login.vue")
 const home = () => import("../views/home/Home.vue")
 const movie = () => import("../views/movie/Movie.vue")
@@ -7,6 +8,7 @@ const actor = () => import("../views/movie/childCpn/actor/Actor.vue")
 
 const writer = () => import("../views/book/childCpn/writer/Writer.vue")
 const publish = () => import("../views/book/childCpn/publish/Publish.vue")
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -52,7 +54,8 @@ const routes: Array<RouteRecordRaw> = [
         path: "Book/publish",
         name: "publish",
         component: publish
-      }
+      },
+      ...detailRoutes
     ]
   }
 ]

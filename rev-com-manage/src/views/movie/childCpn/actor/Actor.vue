@@ -2,12 +2,7 @@
   <div class="actor">
     <div class="actor-header">
       <div class="actor-search">
-        <el-input
-          v-model="keyword"
-          placeholder="请输入演员名称"
-          clearable
-          @input="keywordChange"
-        />
+        <el-input v-model="keyword" placeholder="请输入演员名称" clearable @input="keywordChange" />
       </div>
       <div class="add-actor">
         <el-button type="primary" @click="addActor">添加演员</el-button>
@@ -16,12 +11,7 @@
     <div class="actor-list">
       <template v-if="actorList.list && actorList.list.length > 0">
         <el-table :data="actorList.list" :height="490" row-key="id">
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="name"
-            label="演员名称"
-            width="130"
-          />
+          <el-table-column :show-overflow-tooltip="true" prop="name" label="演员名称" width="130" />
           <el-table-column
             :show-overflow-tooltip="true"
             prop="foreignName"
@@ -34,16 +24,9 @@
             label="其他名称"
             width="140"
           />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="birth"
-            label="出生日期"
-            width="110"
-          >
+          <el-table-column :show-overflow-tooltip="true" prop="birth" label="出生日期" width="110">
             <template #default="scope">
-              <span :key="scope.row.birth" v-format="'yyyy-MM-dd'">{{
-                scope.row.birth
-              }}</span>
+              <span :key="scope.row.birth" v-format="'yyyy-MM-dd'">{{ scope.row.birth }}</span>
             </template>
           </el-table-column>
 
@@ -65,17 +48,11 @@
             width="130"
             label="家庭成员"
           />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="occupations"
-            label="职业"
-          >
+          <el-table-column :show-overflow-tooltip="true" prop="occupations" label="职业">
             <template #default="scope">
               <template v-if="scope.row.occupations.length > 0">
                 <span>
-                  {{
-                    scope.row.occupations.map((item) => item.name).join(" / ")
-                  }}
+                  {{ scope.row.occupations.map((item) => item.name).join(" / ") }}
                 </span>
               </template>
               <template v-else>
@@ -83,31 +60,23 @@
               </template>
             </template>
           </el-table-column>
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="gender"
-            width="60"
-            label="性别"
-          >
+          <el-table-column :show-overflow-tooltip="true" prop="gender" width="60" label="性别">
             <template #default="scope">
               <span>{{ scope.row.gender * 1 === 0 ? "男" : "女" }}</span>
             </template>
           </el-table-column>
-          <el-table-column
-            prop="createTime"
-            label="创建时间"
-            :sortable="true"
-            width="160"
-          >
+          <el-table-column prop="createTime" label="创建时间" :sortable="true" width="160">
             <template #default="scope">
-              <span v-format="'yyyy-MM-dd hh:mm'">{{
-                scope.row.createTime
-              }}</span>
+              <span v-format="'yyyy-MM-dd hh:mm'">{{ scope.row.createTime }}</span>
             </template>
           </el-table-column>
           <el-table-column fixed="right" label="操作" width="140">
             <template #default="scope">
-              <el-button type="text" size="small" class="table-control-btn"
+              <el-button
+                type="text"
+                size="small"
+                class="table-control-btn"
+                @click="actorRouter(scope.row)"
                 >查看</el-button
               >
               <el-button
@@ -164,14 +133,16 @@
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from "vue"
+import { useRouter } from "vue-router"
 import { IActor } from "@/types/actor"
-import { deleteActor, getAllActor, updateActor } from "@/network/actor"
+import { deleteActor, getAllActor, updateActor, uploadAvatar } from "@/network/actor"
 import { debounce } from "@/utils/debounce"
 import { IResponseType } from "@/types/responseType"
 import { IPageResult } from "@/types/pageResult"
 import AddActor from "@/views/movie/childCpn/actor/childCpn/AddActor.vue"
 import { addActor as addActorRequest } from "@/network/actor"
 import { ElMessage, ElMessageBox } from "element-plus/lib/components"
+import { updateAvatar } from "@/network/actor"
 
 export default defineComponent({
   name: "Actor",
@@ -179,6 +150,7 @@ export default defineComponent({
     AddActor
   },
   setup() {
+    const router = useRouter()
     const keyword = ref("")
     const total = ref(0)
     const direction = ref("rtl")
@@ -191,11 +163,7 @@ export default defineComponent({
       list: []
     })
     const getAllActorRequest = (e: number) => {
-      getAllActor<IResponseType<IPageResult<IActor[]>>>(
-        e,
-        10,
-        keyword.value
-      ).then((data) => {
+      getAllActor<IResponseType<IPageResult<IActor[]>>>(e, 10, keyword.value).then((data) => {
         if (data.status === 200) {
           actorList.list = data.data.data
           total.value = data.data.total
@@ -221,10 +189,19 @@ export default defineComponent({
       drawer.value = true
       actorItem.item = item
     }
+    const actorRouter = (item: IActor) => {
+      console.log(item)
+      router.push({
+        path: "/Home/actor/actorDetail",
+        query: {
+          detail: window.btoa(encodeURIComponent(JSON.stringify(item)))
+        }
+      })
+    }
     const deleteActorHandle = (item: IActor) => {
       ElMessageBox.confirm("确定要删除该演员吗?", "警告", {
-        confirmButtonText: "OK",
-        cancelButtonText: "Cancel",
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
         type: "warning"
       })
         .then(async () => {
@@ -275,6 +252,13 @@ export default defineComponent({
                     message: "演员添加成功",
                     type: "success"
                   })
+                  const { id } = data.data
+                  if (addActorRef.value) {
+                    const { avatar } = addActorRef.value
+                    if (avatar.source instanceof FormData) {
+                      const data = await uploadAvatar(id, avatar.source)
+                    }
+                  }
                 }
               } else {
                 if (actorItem.item) {
@@ -291,6 +275,14 @@ export default defineComponent({
                     occupations
                   )
                   if (data.status === 200) {
+                    if (addActorRef.value) {
+                      const { avatar } = addActorRef.value
+                      if (actorItem.item && avatar.source instanceof FormData) {
+                        updateAvatar(actorItem.item.id, avatar.source).then(() => {
+                          getAllActorRequest(1)
+                        })
+                      }
+                    }
                     getAllActorRequest(1)
                     drawer.value = false
                     ElMessage({
@@ -318,7 +310,8 @@ export default defineComponent({
       define,
       actorItem,
       editActor,
-      deleteActorHandle
+      deleteActorHandle,
+      actorRouter
     }
   }
 })

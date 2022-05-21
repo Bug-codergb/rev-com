@@ -17,12 +17,7 @@
             label="作家名称"
             min-width="130"
           />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="gender"
-            label="性别"
-            width="100"
-          >
+          <el-table-column :show-overflow-tooltip="true" prop="gender" label="性别" width="100">
             <template #default="scope">
               {{ scope.row.gender * 1 === 0 ? "男" : "女" }}
             </template>
@@ -39,12 +34,7 @@
             label="别名"
             min-width="130"
           />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="birth"
-            label="生日"
-            width="130"
-          >
+          <el-table-column :show-overflow-tooltip="true" prop="birth" label="生日" width="130">
             <template #default="scope">
               <span v-format="'yyyy-MM-dd'">{{ scope.row.birth }}</span>
             </template>
@@ -55,12 +45,7 @@
             label="出生地"
             width="130"
           />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="area"
-            label="地区"
-            width="100"
-          />
+          <el-table-column :show-overflow-tooltip="true" prop="area" label="地区" width="100" />
           <el-table-column
             :show-overflow-tooltip="true"
             prop="createTime"
@@ -69,17 +54,13 @@
             :sortable="true"
           >
             <template #default="scope">
-              <span v-format="'yyyy-MM-dd hh:mm'">{{
-                scope.row.createTime
-              }}</span>
+              <span v-format="'yyyy-MM-dd hh:mm'">{{ scope.row.createTime }}</span>
             </template>
           </el-table-column>
 
           <el-table-column fixed="right" label="操作" width="140">
             <template #default="scope">
-              <el-button type="text" size="small" class="table-control-btn"
-                >查看</el-button
-              >
+              <el-button type="text" size="small" class="table-control-btn">查看</el-button>
               <el-button
                 type="text"
                 size="small"
@@ -153,19 +134,9 @@ export default defineComponent({
     const addWriter = ref<InstanceType<typeof AddWriter>>()
     const drawer = ref(false)
     const direction = ref("rtl")
-    const keywordList = [
-      { id: 1, keyword: "请输入人", placeholder: "请输入作家名称" }
-    ]
-    const getAllWriterRequest = async (
-      page: number,
-      limit: number,
-      keyword: string
-    ) => {
-      const data = await getAllWriter<IResponseType<IPageResult<IWriter[]>>>(
-        page,
-        limit,
-        keyword
-      )
+    const keywordList = [{ id: 1, keyword: "请输入人", placeholder: "请输入作家名称" }]
+    const getAllWriterRequest = async (page: number, limit: number, keyword: string) => {
+      const data = await getAllWriter<IResponseType<IPageResult<IWriter[]>>>(page, limit, keyword)
       if (data.status === 200) {
         total.value = data.data.total
         writerList.list = data.data.data
@@ -177,24 +148,12 @@ export default defineComponent({
     const editWriter = () => {}
     const deleteWriterHandle = () => {}
     const define = () => {
-      if (
-        addWriter.value &&
-        addWriter.value.ruleFormRef &&
-        addWriter.value.writer
-      ) {
+      if (addWriter.value && addWriter.value.ruleFormRef && addWriter.value.writer) {
         addWriter.value.ruleFormRef.validate(async (e: boolean) => {
           if (e) {
             if (addWriter.value) {
-              const {
-                alias,
-                area,
-                birth,
-                birthPlace,
-                description,
-                foreignName,
-                gender,
-                name
-              } = addWriter.value.writer
+              const { alias, area, birth, birthPlace, description, foreignName, gender, name } =
+                addWriter.value.writer
               const data = await createWriter(
                 name,
                 gender,

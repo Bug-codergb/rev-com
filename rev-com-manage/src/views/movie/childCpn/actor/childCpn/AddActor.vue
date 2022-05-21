@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="add-actor">
     <el-form
       ref="ruleFormRef"
       :model="actor"
@@ -11,20 +11,12 @@
       <el-row :gutter="24">
         <el-col :span="12">
           <el-form-item label="演员名称" prop="name">
-            <el-input
-              v-model="actor.name"
-              style="width: 100%"
-              placeholder="请输入演员名称"
-            />
+            <el-input v-model="actor.name" style="width: 100%" placeholder="请输入演员名称" />
           </el-form-item>
         </el-col>
         <el-col :span="12">
           <el-form-item label="演员别名" prop="alias">
-            <el-input
-              v-model="actor.alias"
-              style="width: 100%"
-              placeholder="请输入演员别名"
-            />
+            <el-input v-model="actor.alias" style="width: 100%" placeholder="请输入演员别名" />
           </el-form-item>
         </el-col>
       </el-row>
@@ -65,11 +57,7 @@
         </el-col>
         <el-col :span="12">
           <el-form-item label="演员家庭" prop="family">
-            <el-input
-              v-model="actor.family"
-              style="width: 100%"
-              placeholder="请输入演员家庭"
-            />
+            <el-input v-model="actor.family" style="width: 100%" placeholder="请输入演员家庭" />
           </el-form-item>
         </el-col>
       </el-row>
@@ -117,6 +105,15 @@
           </el-form-item>
         </el-col>
       </el-row>
+      <el-row>
+        <el-col>
+          <el-form-item label="演员头像">
+            <div class="actor-avatar">
+              <img-prev @onCancel="cancel" @onFileChange="fileChange" :prevURL="prevURL" />
+            </div>
+          </el-form-item>
+        </el-col>
+      </el-row>
     </el-form>
   </div>
 </template>
@@ -128,8 +125,12 @@ import { getAllOccupation } from "@/network/occupation"
 import { IResponseType } from "@/types/responseType"
 import type { FormInstance, FormRules } from "element-plus"
 import constellation from "../../../../../constant/constellation"
+import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue"
 export default defineComponent({
   name: "AddActor",
+  components: {
+    ImgPrev
+  },
   props: {
     actorItem: {
       type: Object
@@ -149,6 +150,7 @@ export default defineComponent({
       constellation: ""
     })
     const isUpdate = ref<boolean>(false)
+    const prevURL = ref("")
     const avatar = reactive<{ source: FormData | null }>({
       source: null
     })
@@ -162,15 +164,15 @@ export default defineComponent({
         props.actorItem.item.id !== ""
       ) {
         let actorTmp = toRefs(props.actorItem.item)
-        console.log(actorTmp)
+        if (actorTmp.avatarUrl.value) {
+          prevURL.value = actorTmp.avatarUrl.value
+        }
         actor.name = actorTmp.name.value
         actor.alias = actorTmp.alias.value
         actor.birth = actorTmp.birth.value
         actor.birthPlace = actorTmp.birthPlace.value
         actor.description = actorTmp.description.value
-        actor.occupations = actorTmp.occupations.value.map(
-          (item: IOccupation) => item.id
-        )
+        actor.occupations = actorTmp.occupations.value.map((item: IOccupation) => item.id)
         actor.family = actorTmp.family.value
         actor.foreignName = actorTmp.foreignName.value
         actor.constellation = actorTmp.constellation.value
@@ -266,10 +268,18 @@ export default defineComponent({
       fileChange,
       avatar,
       isUpdate,
-      constellation
+      constellation,
+      prevURL
     }
   }
 })
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.add-actor {
+  .actor-avatar {
+    height: 120px;
+    width: 100%;
+  }
+}
+</style>

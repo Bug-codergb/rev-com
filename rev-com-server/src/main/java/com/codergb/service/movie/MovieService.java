@@ -94,4 +94,14 @@ public class MovieService {
   public Movie getMovieById(String id){
     return movieMapper.getMovieById(id);
   }
+  //删除电影
+  public int deleteMovie(String id){
+    return movieMapper.deleteMovie(id);
+  }
+  //获取电影根据导演
+  public Page<Movie> getMovieByDid(String id,Integer page,Integer limit){
+    Page<Movie> p=PageHelper.startPage(page,limit);
+    List<Movie> movies=movieMapper.getMovieByDid(id,page,limit);
+    return p;
+  }
 }

@@ -2,12 +2,7 @@
   <div class="director">
     <div class="director-header">
       <div class="director-search">
-        <el-input
-          v-model="keyword"
-          placeholder="请输入导演名称"
-          clearable
-          @input="keywordChange"
-        />
+        <el-input v-model="keyword" placeholder="请输入导演名称" clearable @input="keywordChange" />
       </div>
       <div class="add-director">
         <el-button type="primary" @click="addDirector">添加导演</el-button>
@@ -16,12 +11,7 @@
     <div class="director-list">
       <template v-if="directList.list && directList.list.length > 0">
         <el-table :data="directList.list" :height="490" row-key="id">
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="name"
-            label="导演头像"
-            width="80"
-          >
+          <el-table-column :show-overflow-tooltip="true" prop="name" label="导演头像" width="80">
             <template #default="scope">
               <!--              <img class="director-avatar"  />-->
               <el-image :src="scope.row.avatarUrl" style="height: 40px">
@@ -56,9 +46,7 @@
             <template #default="scope">
               <template v-if="scope.row.occupations.length > 0">
                 <span>
-                  {{
-                    scope.row.occupations.map((item) => item.name).join(" / ")
-                  }}
+                  {{ scope.row.occupations.map((item) => item.name).join(" / ") }}
                 </span>
               </template>
               <template v-else>
@@ -66,12 +54,7 @@
               </template>
             </template>
           </el-table-column>
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="gender"
-            width="80"
-            label="性别"
-          >
+          <el-table-column :show-overflow-tooltip="true" prop="gender" width="80" label="性别">
             <template #default="scope">
               <span>{{ scope.row.gender * 1 === 0 ? "男" : "女" }}</span>
             </template>
@@ -86,21 +69,18 @@
               <span class="text-nowrap">{{ scope.row.description }}</span>
             </template>
           </el-table-column>
-          <el-table-column
-            prop="createTime"
-            label="创建时间"
-            :sortable="true"
-            min-width="100"
-          >
+          <el-table-column prop="createTime" label="创建时间" :sortable="true" min-width="100">
             <template #default="scope">
-              <span v-format="'yyyy-MM-dd hh:mm'">{{
-                scope.row.createTime
-              }}</span>
+              <span v-format="'yyyy-MM-dd hh:mm'">{{ scope.row.createTime }}</span>
             </template>
           </el-table-column>
           <el-table-column fixed="right" label="操作" min-width="100">
             <template #default="scope">
-              <el-button type="text" size="small" class="table-control-btn"
+              <el-button
+                type="text"
+                size="small"
+                class="table-control-btn"
+                @click="directorRouter(scope.row)"
                 >查看</el-button
               >
               <el-button
@@ -131,6 +111,7 @@
           background
           @current-change="pageChange"
           layout="prev, pager, next"
+          :default-current-page="1"
           :total="total"
           :page-size="7"
         />
@@ -156,11 +137,13 @@
 </template>
 
 <script lang="ts">
+import { useRouter } from "vue-router"
 import { defineComponent, ref, reactive } from "vue"
 import {
   addDirectorRequest,
   deleteDirector,
   getAllDirector,
+  updateAvatar,
   updateDirector,
   uploadAvatar
 } from "@/network/director"
@@ -171,6 +154,7 @@ import AddDirector from "./childCpn/addDirector/AddDirector.vue"
 import { ElMessage, ElMessageBox } from "element-plus/lib/components"
 import { setOccupation } from "@/network/occupation"
 import { debounce } from "@/utils/debounce"
+import router from "@/router"
 
 export default defineComponent({
   name: "Director",
@@ -178,6 +162,7 @@ export default defineComponent({
     AddDirector
   },
   setup() {
+    const router = useRouter()
     const keyword = ref<string>("")
     const drawer = ref(false)
     const direction = ref("rtl")
@@ -206,11 +191,7 @@ export default defineComponent({
     const total = ref(0)
 
     const getAllDirectorRequest = () => {
-      getAllDirector<IResponseType<IPageResult<IDirector[]>>>(
-        1,
-        7,
-        keyword.value
-      ).then((res) => {
+      getAllDirector<IResponseType<IPageResult<IDirector[]>>>(1, 7, keyword.value).then((res) => {
         if (res.status === 200) {
           directList.list = res.data.data
           total.value = res.data.total
@@ -219,11 +200,7 @@ export default defineComponent({
     }
     getAllDirectorRequest()
     const pageChange = (e: number) => {
-      getAllDirector<IResponseType<IPageResult<IDirector[]>>>(
-        e,
-        7,
-        keyword.value
-      ).then((res) => {
+      getAllDirector<IResponseType<IPageResult<IDirector[]>>>(e, 7, keyword.value).then((res) => {
         if (res.status === 200) {
           directList.list = res.data.data
           total.value = res.data.total
@@ -231,7 +208,6 @@ export default defineComponent({
       })
     }
     const addDirector = () => {
-      console.log(1)
       drawer.value = true
     }
     const keywordChange = debounce(
@@ -257,13 +233,7 @@ export default defineComponent({
             console.log(addDirectRef.value.isUpdate)
             if (!addDirectRef.value.isUpdate) {
               //添加
-              addDirectorRequest(
-                name,
-                alias,
-                gender,
-                birthPlace,
-                description
-              ).then((data) => {
+              addDirectorRequest(name, alias, gender, birthPlace, description).then((data) => {
                 if (data.status === 200) {
                   ElMessage({
                     message: "导演信息添加成功",
@@ -305,6 +275,15 @@ export default defineComponent({
                       message: "导演信息更新成功",
                       type: "success"
                     })
+                    if (addDirectRef.value) {
+                      const { avatar } = addDirectRef.value
+                      if (directorItem.item && avatar.source instanceof FormData) {
+                        updateAvatar(directorItem.item.id, avatar.source).then(() => {
+                          getAllDirectorRequest()
+                        })
+                      }
+                    }
+
                     getAllDirectorRequest()
                     drawer.value = false
                   }
@@ -334,6 +313,17 @@ export default defineComponent({
         })
         .catch(() => {})
     }
+    const directorRouter = (item: IDirector) => {
+      if ("movies" in item) {
+        delete item.movies
+      }
+      router.push({
+        path: "/Home/director/directorDetail",
+        query: {
+          detail: window.btoa(encodeURIComponent(JSON.stringify(item)))
+        }
+      })
+    }
     return {
       directList,
       pageChange,
@@ -348,7 +338,8 @@ export default defineComponent({
       editDirector,
       directorItem,
       drawerClose,
-      deleteDirectorHandle
+      deleteDirectorHandle,
+      directorRouter
     }
   }
 })

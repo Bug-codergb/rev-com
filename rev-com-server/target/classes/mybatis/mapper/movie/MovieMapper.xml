@@ -157,7 +157,7 @@
   </delete>
   <!--更新电影信息-->
   <update id="updateMovie">
-    update movie set name=#{name},language=#{language},releaseTime=#{releaseTime},duration=#{duration},
+    update movie set name=#{name},language=#{language},releaseTime=#{releaseTime},duration=#{duration},form=#{formItem},
                      alias=#{alias},description=#{description}
     where id=#{id}
   </update>
@@ -169,5 +169,14 @@
   </update>
   <select id="getMovieById" resultType="Movie">
     select * from movie where id=#{id}
+  </select>
+  <delete id="deleteMovie">
+    delete from movie where id=#{id}
+  </delete>
+  <select id="getMovieByDid" resultMap="movieResultMap">
+    select *
+    from movie_director as md
+           LEFT JOIN movie as m on m.id=md.mId
+    where md.did=#{dId}
   </select>
 </mapper>
