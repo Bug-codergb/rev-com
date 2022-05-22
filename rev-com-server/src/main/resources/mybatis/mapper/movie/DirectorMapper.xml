@@ -60,4 +60,26 @@
   <delete id="deleteDirector">
     delete from director where id=#{id}
   </delete>
+  <!--获取导演合作导演-->
+  <select id="getDirectorCooperate" resultMap="directorResultMap">
+    select DISTINCT(dir.id),dir.name,dir.avatarUrl,dir.alias,dir.gender,dir.birthPlace,dir.description,dir.createTime,dir.updateTime,
+                   dir.originalname,dir.mimetype,dir.dest,dir.filename,dir.size, "dId" as dId
+    from director as d
+           LEFT JOIN movie_director as md on md.dId=d.id
+           LEFT JOIN movie as m on m.id=md.mId
+           LEFT JOIN movie_director as mdir on mdir.mId=m.id
+           LEFT JOIN director as dir on dir.id=mdir.dId
+    where d.id=#{dId} and dir.id!=d.id
+  </select>
+  <!--获取演员合作导演-->
+  <select id="getActorCooperateDir" resultMap="directorResultMap">
+    SELECT DISTINCT(d.id),d.name,d.avatarUrl,d.alias,d.gender,d.birthPlace,d.description,d.createTime,
+                   d.updateTime,d.originalname,d.mimetype,d.dest,d.filename,d.size,"dId" as dId
+    from actor as a
+           LEFT JOIN movie_actor as ma on ma.aId=a.id
+           LEFT JOIN movie as m on m.id=ma.mId
+           LEFT JOIN movie_director as md on md.mId=m.id
+           LEFT JOIN director as d on d.id=md.dId
+    where a.id=#{aId}
+  </select>
 </mapper>

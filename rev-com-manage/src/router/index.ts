@@ -5,10 +5,12 @@ const home = () => import("../views/home/Home.vue")
 const movie = () => import("../views/movie/Movie.vue")
 const director = () => import("../views/movie/childCpn/director/Director.vue")
 const actor = () => import("../views/movie/childCpn/actor/Actor.vue")
+const screenwriter = () => import("../views/movie/childCpn/screenwriter/Screenwriter.vue")
+const group = () => import("../views/movie/childCpn/group/Group.vue")
 
 const writer = () => import("../views/book/childCpn/writer/Writer.vue")
 const publish = () => import("../views/book/childCpn/publish/Publish.vue")
-
+const books = () => import("../views/book/childCpn/book/Book.vue")
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -46,6 +48,16 @@ const routes: Array<RouteRecordRaw> = [
         component: actor
       },
       {
+        path: "Movie/screenwriter",
+        name: "screenwriter",
+        component: screenwriter
+      },
+      {
+        path: "Movie/group",
+        name: "group",
+        component: group
+      },
+      {
         path: "Book/writer",
         name: "writer",
         component: writer
@@ -54,6 +66,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "Book/publish",
         name: "publish",
         component: publish
+      },
+      {
+        path: "Book/books",
+        name: "books",
+        component: books
       },
       ...detailRoutes
     ]

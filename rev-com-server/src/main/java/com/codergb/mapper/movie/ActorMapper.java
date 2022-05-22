@@ -14,4 +14,8 @@ public interface ActorMapper {
   //上传用户头像
   public int uploadAvatar(Actor actor);
   public Actor getActorById(@Param("id") String id);
+  //获取导演合作演员
+  public List<Actor> getDirectorActor(@Param("dId") String dId,@Param("page") Integer page,@Param("limit") Integer limit);
+  //获取演员合作的演员
+  public List<Actor> getActorCooperate(@Param("aId") String aId,@Param("page") Integer page,@Param("limit") Integer limit);
 }

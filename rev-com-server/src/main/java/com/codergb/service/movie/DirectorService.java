@@ -34,4 +34,15 @@ public class DirectorService {
   public int deleteDirector(String id){
     return directorMapper.deleteDirector(id);
   }
+  public Page<Director> getDirectorCooperate(String id,Integer page,Integer limit){
+    Page<Director> p=PageHelper.startPage(page,limit);
+    List<Director> directors=directorMapper.getDirectorCooperate(id,page,limit);
+    return p;
+  }
+  //获取演员合作导演
+  public Page<Director> getActorCooperateDir(String id,Integer page, Integer limit){
+    Page<Director> p=PageHelper.startPage(page,limit);
+    List<Director> directors=directorMapper.getActorCooperateDir(id,page,limit);
+    return p;
+  }
 }

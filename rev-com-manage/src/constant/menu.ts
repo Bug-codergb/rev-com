@@ -18,6 +18,16 @@ const menu = [
         index: "1003",
         name: "演员信息",
         path: "/Home/Movie/actor"
+      },
+      {
+        index: "1004",
+        name: "编剧信息",
+        path: "/Home/Movie/screenwriter"
+      },
+      {
+        index: "1005",
+        name: "小组信息",
+        path: "/Home/Movie/group"
       }
     ]
   },
@@ -28,11 +38,16 @@ const menu = [
     children: [
       {
         index: "2001",
+        name: "图书信息",
+        path: "/Home/Book/books"
+      },
+      {
+        index: "2002",
         name: "作家信息",
         path: "/Home/Book/writer"
       },
       {
-        index: "2002",
+        index: "2003",
         name: "出版社信息",
         path: "/Home/Book/publish"
       }

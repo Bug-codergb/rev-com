@@ -143,6 +143,7 @@ export default defineComponent({
 
 <style scoped lang="less">
 .movie-table {
+  margin: 5px 0 0 0;
   .page {
     display: flex;
     justify-content: center;

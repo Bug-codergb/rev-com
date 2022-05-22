@@ -179,4 +179,10 @@
            LEFT JOIN movie as m on m.id=md.mId
     where md.did=#{dId}
   </select>
+  <select id="getMovieByAid" resultMap="movieResultMap">
+    select *
+    from movie_actor as ma
+    left join movie as m on m.id=ma.mId
+    where ma.aId=#{aId}
+  </select>
 </mapper>

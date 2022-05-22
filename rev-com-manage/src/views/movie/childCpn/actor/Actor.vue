@@ -8,111 +8,16 @@
         <el-button type="primary" @click="addActor">添加演员</el-button>
       </div>
     </div>
-    <div class="actor-list">
-      <template v-if="actorList.list && actorList.list.length > 0">
-        <el-table :data="actorList.list" :height="490" row-key="id">
-          <el-table-column :show-overflow-tooltip="true" prop="name" label="演员名称" width="130" />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="foreignName"
-            label="外文名称"
-            width="140"
-          />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="alias"
-            label="其他名称"
-            width="140"
-          />
-          <el-table-column :show-overflow-tooltip="true" prop="birth" label="出生日期" width="110">
-            <template #default="scope">
-              <span :key="scope.row.birth" v-format="'yyyy-MM-dd'">{{ scope.row.birth }}</span>
-            </template>
-          </el-table-column>
-
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="birthPlace"
-            label="出生地"
-            width="100"
-          />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="constellation"
-            width="90"
-            label="星座"
-          />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="family"
-            width="130"
-            label="家庭成员"
-          />
-          <el-table-column :show-overflow-tooltip="true" prop="occupations" label="职业">
-            <template #default="scope">
-              <template v-if="scope.row.occupations.length > 0">
-                <span>
-                  {{ scope.row.occupations.map((item) => item.name).join(" / ") }}
-                </span>
-              </template>
-              <template v-else>
-                {{ "暂无" }}
-              </template>
-            </template>
-          </el-table-column>
-          <el-table-column :show-overflow-tooltip="true" prop="gender" width="60" label="性别">
-            <template #default="scope">
-              <span>{{ scope.row.gender * 1 === 0 ? "男" : "女" }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column prop="createTime" label="创建时间" :sortable="true" width="160">
-            <template #default="scope">
-              <span v-format="'yyyy-MM-dd hh:mm'">{{ scope.row.createTime }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column fixed="right" label="操作" width="140">
-            <template #default="scope">
-              <el-button
-                type="text"
-                size="small"
-                class="table-control-btn"
-                @click="actorRouter(scope.row)"
-                >查看</el-button
-              >
-              <el-button
-                type="text"
-                size="small"
-                class="table-control-btn"
-                @click="editActor(scope.row)"
-                >编辑</el-button
-              >
-              <el-button
-                type="text"
-                size="small"
-                class="table-control-btn"
-                @click="deleteActorHandle(scope.row)"
-                >删除</el-button
-              >
-            </template>
-          </el-table-column>
-        </el-table>
-      </template>
-      <template v-if="total < 1">
-        <el-empty description="暂无导演信息" />
-      </template>
-    </div>
-    <template v-if="total > 10">
-      <div class="page">
-        <el-pagination
-          background
-          @current-change="pageChange"
-          layout="prev, pager, next"
-          :total="total"
-          :page-size="10"
-        />
-      </div>
-    </template>
-
+    <ActorTable
+      :actor-list="actorList"
+      :count="10"
+      :total="total"
+      :height="490"
+      @editActor="editActor"
+      @actorRouter="actorRouter"
+      @deleteActorHandle="deleteActorHandle"
+      @pageChange="pageChange"
+    />
     <el-drawer
       v-model="drawer"
       :direction="direction"
@@ -143,11 +48,12 @@ import AddActor from "@/views/movie/childCpn/actor/childCpn/AddActor.vue"
 import { addActor as addActorRequest } from "@/network/actor"
 import { ElMessage, ElMessageBox } from "element-plus/lib/components"
 import { updateAvatar } from "@/network/actor"
-
+import ActorTable from "@/components/content/actorTable/ActorTable.vue"
 export default defineComponent({
   name: "Actor",
   components: {
-    AddActor
+    AddActor,
+    ActorTable
   },
   setup() {
     const router = useRouter()
@@ -337,11 +243,6 @@ export default defineComponent({
   }
   .actor-list {
     padding: 15px 0 0 0;
-  }
-  .page {
-    display: flex;
-    padding: 15px 0 15px;
-    justify-content: center;
   }
 }
 </style>

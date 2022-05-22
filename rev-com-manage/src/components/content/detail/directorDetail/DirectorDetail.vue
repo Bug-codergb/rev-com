@@ -70,7 +70,8 @@
         <el-tab-pane label="导演作品">
           <movie-list :id="directorDetail.detail.id" />
         </el-tab-pane>
-        <el-tab-pane label="合作演员">Config</el-tab-pane>
+        <el-tab-pane label="合作演员"><ActorList :id="directorDetail.detail.id" /></el-tab-pane>
+        <el-tab-pane label="合作导演"><DirectorList :id="directorDetail.detail.id" /></el-tab-pane>
       </el-tabs>
     </div>
   </div>
@@ -81,10 +82,14 @@ import { defineComponent, reactive } from "vue"
 import { useRoute } from "vue-router"
 import { IDirector } from "@/types/director"
 import MovieList from "@/components/content/detail/directorDetail/childCpn/movieList/MovieList.vue"
+import ActorList from "@/components/content/detail/directorDetail/childCpn/actorList/ActorList.vue"
+import DirectorList from "@/components/content/detail/directorDetail/childCpn/directorList/DirectorList.vue"
 export default defineComponent({
   name: "DirectorDetail",
   components: {
-    MovieList
+    MovieList,
+    ActorList,
+    DirectorList
   },
   setup(props, context) {
     const route = useRoute()
@@ -146,7 +151,7 @@ export default defineComponent({
     }
   }
   .movie-list {
-    margin: 15px 0 0 0;
+    margin: 5px 0 0 0;
   }
 }
 </style>

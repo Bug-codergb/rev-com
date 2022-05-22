@@ -7,7 +7,9 @@ enum DirectorApi {
   uploadAvatar = "/director/avatar/upload/",
   updateDirector = "/director/update",
   deleteDirector = "/director/delete",
-  updateAvatar = "/director/avatar/update"
+  updateAvatar = "/director/avatar/update",
+  directorCooperate = "/director/cooperate",
+  directorActor = "/director/actor/cooperate"
 }
 export function getAllDirector<T = IResponseType<any>>(
   page: number,
@@ -92,6 +94,32 @@ export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormD
     data: formData,
     headers: {
       "Content-type": "multipart/form-data"
+    }
+  })
+}
+//获取导演合作导演
+export function getDirectorCooperate<T = IResponseType<any>>(
+  id: string,
+  page: number,
+  limit: number
+) {
+  return gbRequest.get<T>({
+    url: DirectorApi.directorCooperate,
+    params: {
+      id,
+      page,
+      limit
+    }
+  })
+}
+//获取演员合作导演
+export function getDirectorActor<T = IResponseType<any>>(id: string, page: number, limit: number) {
+  return gbRequest.get<T>({
+    url: DirectorApi.directorActor,
+    params: {
+      id,
+      page,
+      limit
     }
   })
 }

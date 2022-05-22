@@ -104,4 +104,10 @@ public class MovieService {
     List<Movie> movies=movieMapper.getMovieByDid(id,page,limit);
     return p;
   }
+  //获取电影根据演员
+  public Page<Movie> getMovieByAid(String id,Integer page,Integer limit){
+    Page<Movie> p=PageHelper.startPage(page,limit);
+    List<Movie> movies=movieMapper.getMovieByAid(id,page,limit);
+    return p;
+  }
 }

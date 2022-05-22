@@ -81,9 +81,15 @@
     </el-row>
     <div class="work-list">
       <el-tabs>
-        <el-tab-pane label="参与作品"> ddede </el-tab-pane>
-        <el-tab-pane label="合作演员">Config</el-tab-pane>
-        <el-tab-pane label="合作导演">Config</el-tab-pane>
+        <el-tab-pane label="参与作品">
+          <movie-list :id="actorDetail.detail.id" />
+        </el-tab-pane>
+        <el-tab-pane label="合作演员">
+          <ActorList :id="actorDetail.detail.id" />
+        </el-tab-pane>
+        <el-tab-pane label="合作导演">
+          <DirectorList :id="actorDetail.detail.id" />
+        </el-tab-pane>
       </el-tabs>
     </div>
   </div>
@@ -93,9 +99,16 @@
 import { defineComponent, reactive } from "vue"
 import { useRoute } from "vue-router"
 import { IActor } from "@/types/actor"
-
+import MovieList from "@/components/content/detail/actorDetail/childCpn/movieList/MovieList.vue"
+import ActorList from "@/components/content/detail/actorDetail/childCpn/actorList/ActorList.vue"
+import DirectorList from "@/components/content/detail/actorDetail/childCpn/directorList/DirectorList.vue"
 export default defineComponent({
   name: "ActorDetail",
+  components: {
+    DirectorList,
+    MovieList,
+    ActorList
+  },
   setup(props, context) {
     const route = useRoute()
     const actorDetail = reactive<{ detail: IActor | null }>({
@@ -157,7 +170,7 @@ export default defineComponent({
     }
   }
   .work-list {
-    margin: 15px 0 0 0;
+    margin: 5px 0 0 0;
   }
 }
 </style>

@@ -56,4 +56,26 @@
   <select id="getActorById" resultType="Actor">
     select * from actor where id=#{id}
   </select>
+  <!--获取导演合作演员-->
+  <select id="getDirectorActor" resultMap="actorResultMap">
+    select DISTINCT(a.id),a.name,a.avatarUrl,a.foreignName,a.alias,a.constellation,a.birth,a.birthPlace,
+                   a.family,a.description,a.createTime,a.updateTime,a.originalname,a.mimetype,a.dest,a.filename,a.size,"aId" as aId
+    from director as d
+           LEFT JOIN movie_director as md on md.dId=d.id
+           LEFT JOIN movie as m on m.id=md.mId
+           LEFT JOIN movie_actor as ma on ma.mId=m.id
+           LEFT JOIN actor as a on a.id=ma.aId
+    where d.id=#{dId}
+  </select>
+  <select id="getActorCooperate" resultMap="actorResultMap">
+    select DISTINCT(ac.id),ac.name,ac.avatarUrl,ac.foreignName,ac.alias,ac.constellation,
+                   ac.birth,ac.birthPlace,ac.family,ac.description,ac.createTime,ac.updateTime,
+                   ac.originalname,ac.mimetype,ac.dest,ac.filename,ac.size,"aId" as aId
+    from actor as a
+           left join movie_actor as ma on a.id=ma.aId
+           LEFT JOIN movie as m on m.id=ma.mId
+           LEFT JOIN movie_actor as mac on mac.mId=m.id
+           LEFT JOIN actor as ac on ac.id=mac.aId
+    where a.id=#{aId} and ac.id!=a.id
+  </select>
 </mapper>

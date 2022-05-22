@@ -34,4 +34,15 @@ public class ActorService {
   public Actor getActorById(String id){
     return actorMapper.getActorById(id);
   }
+  public Page<Actor> getDirectorActor(String id,Integer page,Integer limit){
+    Page<Actor> p=PageHelper.startPage(page,limit);
+    List<Actor> actors=actorMapper.getDirectorActor(id,page,limit);
+    return p;
+  }
+  //获取演员合作演员
+  public Page<Actor> getActorCooperate(String id,Integer page,Integer limit){
+    Page<Actor> p=PageHelper.startPage(page,limit);
+    List<Actor> actors=actorMapper.getActorCooperate(id,page,limit);
+    return p;
+  }
 }

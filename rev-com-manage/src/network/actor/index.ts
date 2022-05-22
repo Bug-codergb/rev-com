@@ -6,7 +6,9 @@ enum ActorApi {
   updateActor = "/actor/update",
   deleteActor = "/actor/delete",
   uploadAvatar = "/actor/avatar/upload",
-  updateAvatar = "/actor/avatar/update"
+  updateAvatar = "/actor/avatar/update",
+  directorActor = "/actor/director/cooperate",
+  actorCooperate = "/actor/cooperate"
 }
 //获取所有演员
 export function getAllActor<T = IResponseType<any>>(page: number, limit: number, keyword: string) {
@@ -101,6 +103,28 @@ export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormD
     data: formData,
     headers: {
       "Content-type": "multipart/form-data"
+    }
+  })
+}
+//获取导演合作演员
+export function getDirectorActor<T = IResponseType<any>>(id: string, page: number, limit: number) {
+  return gbRequest.get<T>({
+    url: ActorApi.directorActor,
+    params: {
+      id,
+      page,
+      limit
+    }
+  })
+}
+//获取演员合作演员
+export function getActorCooperate<T = IResponseType<any>>(id: string, page: number, limit: number) {
+  return gbRequest.get<T>({
+    url: ActorApi.actorCooperate,
+    params: {
+      id,
+      page,
+      limit
     }
   })
 }

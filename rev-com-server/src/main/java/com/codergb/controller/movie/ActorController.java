@@ -2,6 +2,7 @@ package com.codergb.controller.movie;
 
 import com.codergb.annotation.LoginAuth;
 import com.codergb.bean.PageResult;
+import com.codergb.bean.book.Publish;
 import com.codergb.bean.movie.Actor;
 import com.codergb.constant.Host;
 import com.codergb.constant.ResponseMessage;
@@ -15,6 +16,7 @@ import com.codergb.utils.FileUniqueName;
 import com.codergb.utils.ResponseType;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -176,5 +178,29 @@ public class ActorController {
       }
       return new ResponseType<Object>(HttpStatus.OK.value(), "头像更新成功",null);
     }
+  }
+  //获取导演合作演员
+  @LoginAuth
+  @GetMapping("/director/cooperate")
+  public ResponseType<PageResult<List<Actor>>> getDirectorActor(@RequestParam("id") String id,
+                                                                @RequestParam("page") Integer page,
+                                                                @RequestParam("limit") Integer limit){
+    Page<Actor> actors=actorService.getDirectorActor(id,page,limit);
+    PageResult pageResult=new PageResult<List<Actor>>(actors.getPageNum(),
+            actors.getTotal(),
+            actors.getPages(),actors);
+    return new ResponseType<PageResult<List<Actor>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
+  }
+  //获取演员合作演员
+  @LoginAuth
+  @GetMapping("/cooperate")
+  public ResponseType<PageResult<List<Actor>>> getActorCooperate(@RequestParam("id") String id,
+                                                                 @RequestParam("page") Integer page,
+                                                                 @RequestParam("limit")Integer limit){
+    Page<Actor> actors=actorService.getActorCooperate(id,page,limit);
+    PageResult pageResult=new PageResult<List<Actor>>(actors.getPageNum(),
+            actors.getTotal(),
+            actors.getPages(),actors);
+    return new ResponseType<PageResult<List<Actor>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
   }
 }

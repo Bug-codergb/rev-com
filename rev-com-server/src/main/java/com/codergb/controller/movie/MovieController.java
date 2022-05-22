@@ -292,4 +292,15 @@ public class MovieController {
             movies.getPages(),movies);
     return new ResponseType<PageResult<List<Movie>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
   }
+  @LoginAuth
+  @GetMapping("/actor/{id}")
+  public ResponseType<PageResult<List<Movie>>> getMovieByAid(@PathVariable("id") String id,
+                                                             @RequestParam("page") Integer page,
+                                                             @RequestParam("limit") Integer limit){
+    Page<Movie> movies= movieService.getMovieByAid(id, page, limit);
+    PageResult pageResult=new PageResult<List<Movie>>(movies.getPageNum(),
+            movies.getTotal(),
+            movies.getPages(),movies);
+    return new ResponseType<PageResult<List<Movie>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
+  }
 }

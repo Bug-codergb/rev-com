@@ -8,116 +8,16 @@
         <el-button type="primary" @click="addDirector">添加导演</el-button>
       </div>
     </div>
-    <div class="director-list">
-      <template v-if="directList.list && directList.list.length > 0">
-        <el-table :data="directList.list" :height="490" row-key="id">
-          <el-table-column :show-overflow-tooltip="true" prop="name" label="导演头像" width="80">
-            <template #default="scope">
-              <!--              <img class="director-avatar"  />-->
-              <el-image :src="scope.row.avatarUrl" style="height: 40px">
-                <template #error> </template>
-              </el-image>
-            </template>
-          </el-table-column>
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="name"
-            label="导演名称"
-            min-width="100"
-          />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="alias"
-            label="其他名称"
-            min-width="120"
-          />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="birthPlace"
-            label="出生地"
-            min-width="100"
-          />
-          <el-table-column
-            :show-overflow-tooltip="true"
-            prop="occupations"
-            min-width="120"
-            label="职业"
-          >
-            <template #default="scope">
-              <template v-if="scope.row.occupations.length > 0">
-                <span>
-                  {{ scope.row.occupations.map((item) => item.name).join(" / ") }}
-                </span>
-              </template>
-              <template v-else>
-                {{ "暂无" }}
-              </template>
-            </template>
-          </el-table-column>
-          <el-table-column :show-overflow-tooltip="true" prop="gender" width="80" label="性别">
-            <template #default="scope">
-              <span>{{ scope.row.gender * 1 === 0 ? "男" : "女" }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column
-            prop="description"
-            label="演员简介"
-            min-width="130"
-            :show-overflow-tooltip="false"
-          >
-            <template #default="scope">
-              <span class="text-nowrap">{{ scope.row.description }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column prop="createTime" label="创建时间" :sortable="true" min-width="100">
-            <template #default="scope">
-              <span v-format="'yyyy-MM-dd hh:mm'">{{ scope.row.createTime }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column fixed="right" label="操作" min-width="100">
-            <template #default="scope">
-              <el-button
-                type="text"
-                size="small"
-                class="table-control-btn"
-                @click="directorRouter(scope.row)"
-                >查看</el-button
-              >
-              <el-button
-                type="text"
-                size="small"
-                class="table-control-btn"
-                @click="editDirector(scope.row)"
-                >编辑</el-button
-              >
-              <el-button
-                type="text"
-                size="small"
-                class="table-control-btn"
-                @click="deleteDirectorHandle(scope.row)"
-                >删除</el-button
-              >
-            </template>
-          </el-table-column>
-        </el-table>
-      </template>
-      <template v-if="total < 1">
-        <el-empty description="暂无导演信息" />
-      </template>
-    </div>
-    <template v-if="total > 7">
-      <div class="page">
-        <el-pagination
-          background
-          @current-change="pageChange"
-          layout="prev, pager, next"
-          :default-current-page="1"
-          :total="total"
-          :page-size="7"
-        />
-      </div>
-    </template>
-
+    <DirectorTable
+      :height="490"
+      :total="total"
+      :direct-list="directList"
+      :count="10"
+      @directorRouter="directorRouter"
+      @editDirector="editDirector"
+      @deleteDirectorHandle="deleteDirectorHandle"
+      @pageChange="pageChange"
+    />
     <el-drawer
       v-model="drawer"
       :direction="direction"
@@ -154,12 +54,13 @@ import AddDirector from "./childCpn/addDirector/AddDirector.vue"
 import { ElMessage, ElMessageBox } from "element-plus/lib/components"
 import { setOccupation } from "@/network/occupation"
 import { debounce } from "@/utils/debounce"
-import router from "@/router"
+import DirectorTable from "@/components/content/directorTable/DirectorTable.vue"
 
 export default defineComponent({
   name: "Director",
   components: {
-    AddDirector
+    AddDirector,
+    DirectorTable
   },
   setup() {
     const router = useRouter()
@@ -368,11 +269,6 @@ export default defineComponent({
     .director-avatar {
       height: 40px;
     }
-  }
-  .page {
-    display: flex;
-    padding: 15px 0 15px;
-    justify-content: center;
   }
 }
 </style>

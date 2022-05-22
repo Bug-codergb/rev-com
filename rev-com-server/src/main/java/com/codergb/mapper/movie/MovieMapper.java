@@ -56,4 +56,6 @@ public interface MovieMapper {
   public int deleteMovie(@Param("id") String id);
   //获取电影通过导演
   public List<Movie> getMovieByDid(@Param("dId") String dId,@Param("page") Integer page,@Param("limit") Integer limit);
+  //获取电影通过演员
+  public List<Movie> getMovieByAid(@Param("aId") String aId,@Param("page") Integer page,@Param("limit") Integer limit);
 }

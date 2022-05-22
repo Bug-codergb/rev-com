@@ -16,6 +16,7 @@ import com.codergb.utils.FileUniqueName;
 import com.codergb.utils.ResponseType;
 import com.github.pagehelper.Page;
 import lombok.extern.java.Log;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -163,5 +164,29 @@ public class DirectorController {
       }
       return new ResponseType<Object>(HttpStatus.OK.value(), "头像更新成功",null);
     }
+  }
+  //获取导演合作导演
+  @LoginAuth
+  @GetMapping("/cooperate")
+  public ResponseType<PageResult<List<Director>>> getDirectorCooperate(@RequestParam("id") String id,
+                                                                       @RequestParam("page") Integer page,
+                                                                       @RequestParam("limit") Integer limit){
+    Page<Director> directors= directorService.getDirectorCooperate(id, page, limit);
+    PageResult pageResult=new PageResult<List<Director>>(directors.getPageNum(),
+            directors.getTotal(),
+            directors.getPages(),directors);
+    return new ResponseType<PageResult<List<Director>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
+  }
+  //获取演员合作导演
+  @LoginAuth
+  @GetMapping("/actor/cooperate")
+  public ResponseType<PageResult<List<Director>>> getActorCooperateDir(@RequestParam("id") String id,
+                                                                       @RequestParam("page") Integer page,
+                                                                       @RequestParam("limit") Integer limit){
+    Page<Director> directors= directorService.getActorCooperateDir(id, page, limit);
+    PageResult pageResult=new PageResult(directors.getPageNum(),
+            directors.getTotal(),
+            directors.getPages(),directors);
+    return new ResponseType<PageResult<List<Director>>>(HttpStatus.OK.value(),ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
   }
 }
