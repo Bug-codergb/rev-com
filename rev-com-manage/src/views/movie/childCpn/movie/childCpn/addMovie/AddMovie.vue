@@ -16,7 +16,19 @@
         </el-col>
         <el-col :span="12">
           <el-form-item label="语言" prop="language">
-            <el-input v-model="movie.language" placeholder="请输入语言" />
+            <el-select
+              v-model="movie.language"
+              placeholder="请输入语言"
+              style="width: 100%"
+              multiple
+              multiple-limit="4"
+              clearable
+              filterable
+            >
+              <template v-for="item in languages" :key="item">
+                <el-option :value="item" :label="item"></el-option>
+              </template>
+            </el-select>
           </el-form-item>
         </el-col>
       </el-row>
@@ -208,6 +220,7 @@ import { getAllDirector } from "@/network/director"
 import { IScreenwriter } from "@/types/screenwriter"
 import { getAllScreenwriter } from "@/network/screenwriter"
 import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue"
+import languages from "@/constant/language"
 export default defineComponent({
   name: "AddMovie",
   components: {
@@ -224,7 +237,7 @@ export default defineComponent({
     const movie = reactive({
       name: "",
       alias: "",
-      language: "",
+      language: [],
       releaseTime: "",
       form: "",
       area: [],
@@ -269,7 +282,7 @@ export default defineComponent({
         {
           required: true,
           message: "请输入语言",
-          trigger: "blur"
+          trigger: "change"
         }
       ],
       alias: [
@@ -410,7 +423,8 @@ export default defineComponent({
       fileChange,
       cover,
       isUpdate,
-      prevURL
+      prevURL,
+      languages
     }
   }
 })
