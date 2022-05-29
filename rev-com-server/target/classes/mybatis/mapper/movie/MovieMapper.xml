@@ -185,4 +185,10 @@
     left join movie as m on m.id=ma.mId
     where ma.aId=#{aId}
   </select>
+  <!--获取电影详情-->
+  <select id="getMovieDetail" resultMap="movieResultMap">
+    select *
+    from movie
+    where id=#{id}
+  </select>
 </mapper>

@@ -8,7 +8,8 @@ enum MovieApi {
   updateCover = "/movie/cover/update",
   deleteMovie = "/movie/delete/",
   movieByDirector = "/movie/director",
-  movieByActor = "/movie/actor"
+  movieByActor = "/movie/actor",
+  movieDetail = "/movie/detail"
 }
 //获取所有电影
 export function getAllMovie<T = IResponseType<any>>(
@@ -143,5 +144,11 @@ export function getMovieByAid<T = IResponseType<any>>(id: string, page: number, 
       page,
       limit
     }
+  })
+}
+//获取电影详情
+export function getMovieDetail<T = IResponseType<any>>(id: string) {
+  return gbRequest.get<T>({
+    url: MovieApi.movieDetail + `/${id}`
   })
 }

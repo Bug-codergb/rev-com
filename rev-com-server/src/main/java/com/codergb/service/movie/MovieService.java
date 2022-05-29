@@ -110,4 +110,8 @@ public class MovieService {
     List<Movie> movies=movieMapper.getMovieByAid(id,page,limit);
     return p;
   }
+  //获取电影详情
+  public Movie getMovieDetail(String id){
+    return movieMapper.getMovieDetail(id);
+  }
 }

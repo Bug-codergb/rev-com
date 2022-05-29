@@ -221,6 +221,9 @@ import { IScreenwriter } from "@/types/screenwriter"
 import { getAllScreenwriter } from "@/network/screenwriter"
 import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue"
 import languages from "@/constant/language"
+import { createLogger } from "vuex"
+import { IMovie } from "@/types/movie"
+import { IFormMovie } from "@/views/movie/childCpn/movie/childCpn/addMovie/types/IFormMovie"
 export default defineComponent({
   name: "AddMovie",
   components: {
@@ -234,7 +237,7 @@ export default defineComponent({
   setup(props, context) {
     const isUpdate = ref(false)
     const ruleFormRef = ref<FormInstance>()
-    const movie = reactive({
+    const movie = reactive<IFormMovie>({
       name: "",
       alias: "",
       language: [],
@@ -387,9 +390,14 @@ export default defineComponent({
       if (movieTmp.coverUrl.value) {
         prevURL.value = movieTmp.coverUrl.value
       }
+      if (movieTmp.language.value.split("/").length > 0) {
+        for (const item of movieTmp.language.value.split("/")) {
+          movie.language.push(item)
+        }
+      }
       movie.name = movieTmp.name.value
       movie.alias = movieTmp.alias.value
-      movie.language = movieTmp.language.value
+
       movie.releaseTime = movieTmp.releaseTime.value
       movie.form = movieTmp.form.value.id
       movie.area = movieTmp.area.value.map((item: IArea) => item.id)

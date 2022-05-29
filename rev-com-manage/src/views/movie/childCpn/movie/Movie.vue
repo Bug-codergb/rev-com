@@ -3,6 +3,7 @@
     <MovieTable
       @editMovie="editMovie"
       @deleteMovieHandle="deleteMovieHandle"
+      @movieRouter="movieRouter"
       @pageChange="pageChange"
       :total="total"
       :movie-list="movieList"
@@ -12,6 +13,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, reactive, ref, watch } from "vue"
+import { useRouter } from "vue-router"
 import { deleteMovie, getAllMovie } from "@/network/movie"
 import { IResponseType } from "@/types/responseType"
 import { IMovie } from "@/types/movie"
@@ -43,6 +45,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
+    const router = useRouter()
     const movieList = reactive<{ list: IMovie[] }>({
       list: []
     })
@@ -76,6 +79,14 @@ export default defineComponent({
     const editMovie = (item: IMovie) => {
       context.emit("editMovie", item)
     }
+    const movieRouter = (item: IMovie) => {
+      router.push({
+        path: "/Home/movie/movieDetail",
+        query: {
+          id: item.id
+        }
+      })
+    }
     const deleteMovieHandle = (item: IMovie) => {
       ElMessageBox.confirm("确定要删除该电影么?", "警告", {
         confirmButtonText: "确定",
@@ -100,6 +111,7 @@ export default defineComponent({
       total,
       pageChange,
       editMovie,
+      movieRouter,
       deleteMovieHandle
     }
   }

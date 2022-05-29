@@ -59,7 +59,13 @@
         </el-table-column>
         <el-table-column v-if="isShowOperator" fixed="right" label="操作" width="140">
           <template #default="scope">
-            <el-button type="text" size="small" class="table-control-btn">查看</el-button>
+            <el-button
+              type="text"
+              size="small"
+              class="table-control-btn"
+              @click="movieRouter(scope.row)"
+              >查看</el-button
+            >
             <el-button
               type="text"
               size="small"
@@ -121,7 +127,7 @@ export default defineComponent({
       default: true
     }
   },
-  emits: ["editMovie", "deleteMovieHandle", "pageChange"],
+  emits: ["editMovie", "deleteMovieHandle", "pageChange", "movieRouter"],
   setup(props, context) {
     const editMovie = (item: IMovie) => {
       context.emit("editMovie", item)
@@ -132,10 +138,14 @@ export default defineComponent({
     const pageChange = (item: IMovie) => {
       context.emit("pageChange", item)
     }
+    const movieRouter = (item: IMovie) => {
+      context.emit("movieRouter", item)
+    }
     return {
       editMovie,
       deleteMovieHandle,
-      pageChange
+      pageChange,
+      movieRouter
     }
   }
 })

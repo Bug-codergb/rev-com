@@ -21,4 +21,16 @@ public class ScreenwriterService {
     List<Screenwriter> screenwriters=screenwriterMapper.getAllScreenwriter(page,limit,keyword);
     return p;
   }
+  public int uploadAvatar(Screenwriter screenwriter){
+    return screenwriterMapper.uploadAvatar(screenwriter);
+  }
+  public Screenwriter getScreenwriterById(String id){
+    return screenwriterMapper.getScreenwriterById(id);
+  }
+  public int updateScreenwriter(Screenwriter screenwriter){
+    return screenwriterMapper.updateScreenwriter(screenwriter);
+  }
+  public int deleteScreenwriter(String id){
+    return screenwriterMapper.deleteScreenwriter(id);
+  }
 }

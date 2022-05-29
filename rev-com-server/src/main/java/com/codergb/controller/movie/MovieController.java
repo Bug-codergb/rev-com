@@ -14,6 +14,7 @@ import com.codergb.utils.FilePreview;
 import com.codergb.utils.FileUniqueName;
 import com.codergb.utils.ResponseType;
 import com.github.pagehelper.Page;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.relational.core.sql.In;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.xml.ws.Response;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
@@ -302,5 +304,11 @@ public class MovieController {
             movies.getTotal(),
             movies.getPages(),movies);
     return new ResponseType<PageResult<List<Movie>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
+  }
+  @LoginAuth
+  @GetMapping("/detail/{id}")
+  public ResponseType<Movie> getMovieDetail(@PathVariable("id") String id){
+    Movie movie= movieService.getMovieDetail(id);
+    return new ResponseType<Movie>(HttpStatus.OK.value(),ResponseMessage.SUCCESS.getMESSAGE(), movie);
   }
 }

@@ -49,6 +49,7 @@ import { addActor as addActorRequest } from "@/network/actor"
 import { ElMessage, ElMessageBox } from "element-plus/lib/components"
 import { updateAvatar } from "@/network/actor"
 import ActorTable from "@/components/content/actorTable/ActorTable.vue"
+import { useDeleteHook } from "@/hook/deleteHook"
 export default defineComponent({
   name: "Actor",
   components: {
@@ -68,18 +69,18 @@ export default defineComponent({
     const actorList = reactive<{ list: IActor[] }>({
       list: []
     })
-    const getAllActorRequest = (e: number) => {
-      getAllActor<IResponseType<IPageResult<IActor[]>>>(e, 10, keyword.value).then((data) => {
+    const getAllActorRequest = (page: number, limit: number, keyword: string) => {
+      getAllActor<IResponseType<IPageResult<IActor[]>>>(page, limit, keyword).then((data) => {
         if (data.status === 200) {
           actorList.list = data.data.data
           total.value = data.data.total
         }
       })
     }
-    getAllActorRequest(1)
+    getAllActorRequest(1, 10, keyword.value)
     const keywordChange = debounce(
       () => {
-        getAllActorRequest(1)
+        getAllActorRequest(1, 10, keyword.value)
       },
       1000,
       false
@@ -89,7 +90,7 @@ export default defineComponent({
       actorItem.item = null
     }
     const pageChange = (e: number) => {
-      getAllActorRequest(e)
+      getAllActorRequest(e, 10, keyword.value)
     }
     const editActor = (item: IActor) => {
       drawer.value = true
@@ -105,22 +106,7 @@ export default defineComponent({
       })
     }
     const deleteActorHandle = (item: IActor) => {
-      ElMessageBox.confirm("确定要删除该演员吗?", "警告", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning"
-      })
-        .then(async () => {
-          const data = await deleteActor(item.id)
-          if (data.status === 200) {
-            getAllActorRequest(1)
-            ElMessage({
-              type: "success",
-              message: "删除成功"
-            })
-          }
-        })
-        .catch(() => {})
+      useDeleteHook(item.id, 1, 10, keyword.value, deleteActor, getAllActorRequest)
     }
     const define = () => {
       if (addActorRef.value) {
@@ -152,7 +138,7 @@ export default defineComponent({
                   occupations
                 )
                 if (data.status === 200) {
-                  getAllActorRequest(1)
+                  getAllActorRequest(1, 10, keyword.value)
                   drawer.value = false
                   ElMessage({
                     message: "演员添加成功",
@@ -185,11 +171,11 @@ export default defineComponent({
                       const { avatar } = addActorRef.value
                       if (actorItem.item && avatar.source instanceof FormData) {
                         updateAvatar(actorItem.item.id, avatar.source).then(() => {
-                          getAllActorRequest(1)
+                          getAllActorRequest(1, 10, keyword.value)
                         })
                       }
                     }
-                    getAllActorRequest(1)
+                    getAllActorRequest(1, 10, keyword.value)
                     drawer.value = false
                     ElMessage({
                       message: "演员更新成功",
