@@ -1,4 +1,5 @@
 import {lazy,Suspense} from "react";
+import {Navigate} from "react-router-dom"
 import {RouteObject} from "react-router/lib/router";
 import movieRoutes from "./movieRoutes/index"
 const Movie=lazy(()=>import("../../views/movie/index"));
@@ -7,6 +8,12 @@ const Group=lazy(()=>import("../../views/group/index"));
 const Read=lazy(()=>import("../../views/read/index"));
 
 const routes:RouteObject[]=[
+  {
+    path:"/Home",
+    element:(
+      <Navigate to={"/Home/Movie"}/>
+    )
+  },
   {
     path:"Movie",
     element:(

@@ -12,7 +12,7 @@
       :height="490"
       :total="total"
       :direct-list="directList"
-      :count="10"
+      :count="7"
       @directorRouter="directorRouter"
       @editDirector="editDirector"
       @deleteDirectorHandle="deleteDirectorHandle"

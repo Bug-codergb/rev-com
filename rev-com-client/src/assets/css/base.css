@@ -23,10 +23,17 @@ ul,li{
     overflow: hidden;
 }
 .center-auto{
-  width: 92%;
+  width: 90%;
   background-color:#fff ;
   margin: 0 auto;
   border-left:1px solid #d3d3d3;
   border-right:1px solid #d3d3d3;
   padding: 20px;
+}
+.empty-status{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 150px 0;
+  width: 100%;
 }
