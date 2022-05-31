@@ -9,16 +9,17 @@ interface IMovie{
   id: string
   name: string
   directors: IDirector[]
-  screenwriters: IScreenwriter
-  coverUrl: string
-  area: IArea
+  screenwriters: IScreenwriter[]
+  coverUrl: string,
+  score:number,
+  area: IArea[]
   language: string
   releaseTime: string
   duration: number
   alias: string
   form: IForm
   actors: IActor[]
-  categories: ICategory
+  categories: ICategory[]
   description: string
 }
 export type{

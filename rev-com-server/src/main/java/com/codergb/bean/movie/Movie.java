@@ -18,6 +18,7 @@ import java.util.List;
 public class Movie  extends FileInfo {
   private String id;
   private String name;
+  private float score;
   private List<Director> directors;
   private List<Screenwriter> screenwriters;
   private String coverUrl;

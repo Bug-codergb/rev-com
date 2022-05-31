@@ -74,6 +74,7 @@
     <result property="coverUrl" column="coverUrl"></result>
     <result property="language" column="language"></result>
     <result property="releaseTime" column="releaseTime"></result>
+    <result property="score" column="score"></result>
     <result property="duration" column="duration"></result>
     <result property="alias" column="alias"></result>
     <result property="description" column="description"></result>
@@ -103,7 +104,7 @@
                 column="{mId=id}"></collection>
   </resultMap>
   <select id="getAllMovie" resultMap="movieResultMap">
-    select DISTINCT(m.id),m.name,m.coverUrl,m.alias,m.language,m.releaseTime,m.duration,form,
+    select DISTINCT(m.id),m.name,m.coverUrl,m.alias,m.language,m.releaseTime,m.duration,form,m.score,
     m.description,m.originalname,m.mimetype,m.filename ,m.dest,m.size
     from movie as m
     left join movie_actor as ma on ma.mId=m.id left join actor on actor.id=ma.aId

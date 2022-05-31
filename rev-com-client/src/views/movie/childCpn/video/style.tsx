@@ -9,6 +9,9 @@ export const VideoWrapper=styled.div`
     &>li{
       margin: 0 0 20px 0;
       width: 150px;
+      .score{
+        color: #e09015;
+      }
     }
   }
 `

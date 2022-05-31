@@ -17,7 +17,7 @@ const MsgItem:FC<IProps>=(props):ReactElement=>{
       <div className="img-container">
         {img}
       </div>
-      <div className={`state ${isFlex?'is-flex':''}`}>
+      <div className={`state text-nowrap ${isFlex?'is-flex':''}`}>
         {name}
         {creator}
       </div>

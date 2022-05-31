@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.comment.CommentMapper">
+  <insert id="addCommentPic">
+    insert into comment_img(id,cId,picUrl,originalname,mimetype,dest,filename,size)
+    values(#{id},#{cId},#{picUrl},#{originalname},#{mimetype},#{dest},#{filename},#{size})
+  </insert>
+  <insert id="addComment">
+    insert into comment(id,content,userId)
+    values(#{id},#{content},#{userId})
+  </insert>
+  <select id="getCommentPic" resultType="CommentPic">
+    select * from comment_img where id=#{id}
+  </select>
+</mapper>

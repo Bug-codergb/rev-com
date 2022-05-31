@@ -1,5 +1,6 @@
 import React, {memo, FC, ReactElement, useEffect, useState} from "react";
-import {Empty, Image} from "antd"
+import {useNavigate} from "react-router-dom";
+import {Empty, Image} from "antd";
 import {
   VideoWrapper
 }from "./style";
@@ -17,6 +18,9 @@ const Video:FC=():ReactElement=>{
   const [form,setForm]=useState<string>("");
   const [cate,setCate]=useState<string>("");
   const [area,setArea]=useState<string>("");
+
+  const navigate=useNavigate();
+
   const getAllMovieRequest=(form:string,cate:string,area:string,page:number,limit:number)=>{
     getAllMovie<IResponseType<IPageResult<IMovie[]>>>(form,cate,area,page,limit).then((data)=>{
       if(data.status===200){
@@ -40,6 +44,15 @@ const Video:FC=():ReactElement=>{
   const areaClick=(id:string)=>{
     setArea(id);
   }
+  const movieRouter=(item:IMovie)=>{
+    console.log(item);
+    navigate("/Home/Movie/MovieDetail",{
+      replace:true,
+      state:{
+        id:item.id
+      }
+    })
+  }
   return (
     <VideoWrapper className="center-auto">
       <Filter areaClick={(id:string)=>areaClick(id)}
@@ -51,7 +64,7 @@ const Video:FC=():ReactElement=>{
             return (
               <li key={item.id}>
                 <MsgItem img={<Image width={150}
-
+                                     onClick={e=>movieRouter(item)}
                                      preview={false}
                                      src={item.coverUrl}
                                      placeholder={<Image width={150}
@@ -62,7 +75,7 @@ const Video:FC=():ReactElement=>{
                          itemWidth={150}
                          scale={1.3}
                          isFlex={true}
-                         creator={<span> </span>}/>
+                         creator={<span className="score">{item.score}</span>}/>
               </li>
             )
           })

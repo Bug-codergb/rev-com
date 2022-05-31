@@ -1,6 +1,9 @@
 import {lazy,Suspense} from "react";
 import {RouteObject} from "react-router/lib/router";
-import {Navigate} from "react-router-dom"
+import {Navigate} from "react-router-dom";
+
+import {movieDetailRouter,movieComEditRouter} from "./detail/index"
+
 const HotMovie=lazy(()=>import("../../../views/movie/childCpn/hotMovie/index"));
 const Video=lazy(()=>import("../../../views/movie/childCpn/video/index"));
 const Toplist=lazy(()=>import("../../../views/movie/childCpn/toplist/index"));
@@ -53,6 +56,8 @@ const routes:RouteObject[]=[
         <Director/>
       </Suspense>
     )
-  }
+  },
+  movieDetailRouter,
+  movieComEditRouter
 ]
 export default routes;
