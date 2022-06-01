@@ -192,4 +192,8 @@
     from movie
     where id=#{id}
   </select>
+  <!--更新电影评分-->
+  <update id="updateMovieRate">
+    update movie set score=#{rate} where id=#{id}
+  </update>
 </mapper>

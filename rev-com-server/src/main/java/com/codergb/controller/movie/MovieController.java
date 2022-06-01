@@ -1,6 +1,8 @@
 package com.codergb.controller.movie;
 
 import com.codergb.annotation.LoginAuth;
+import com.codergb.bean.Comment;
+import com.codergb.bean.CommentPic;
 import com.codergb.bean.PageResult;
 import com.codergb.bean.movie.*;
 import com.codergb.constant.ErrorType;
@@ -8,13 +10,10 @@ import com.codergb.constant.Host;
 import com.codergb.constant.ResponseMessage;
 import com.codergb.constant.UploadPath;
 import com.codergb.dto.movie.MovieDTO;
+import com.codergb.service.comment.CommentService;
 import com.codergb.service.movie.MovieService;
-import com.codergb.utils.EmptyJudge;
-import com.codergb.utils.FilePreview;
-import com.codergb.utils.FileUniqueName;
-import com.codergb.utils.ResponseType;
+import com.codergb.utils.*;
 import com.github.pagehelper.Page;
-import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.relational.core.sql.In;
 import org.springframework.http.HttpStatus;
@@ -22,9 +21,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.xml.ws.Response;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,7 +32,8 @@ import java.util.List;
 public class MovieController {
   @Autowired
   MovieService movieService;
-
+  @Autowired
+  CommentService commentService;
   @LoginAuth
   @PostMapping("/form")
   public ResponseType<Object> createForm(@RequestBody Form form){
@@ -140,6 +140,18 @@ public class MovieController {
                                                            @RequestParam(value = "cate",required = false) String cateId,
                                                            @RequestParam(value = "area",required = false) String areaId){
     Page<Movie> movies=movieService.getAllMovie(page,limit,form,cateId,keyword,areaId);
+    for(Movie item :movies){
+      List<Comment> comments= commentService.getCommentList(item.getId());
+      List<Double> scores=new ArrayList<Double>();
+      for(Comment c : comments){
+        scores.add(c.getScore()*2);
+      }
+      Double rate=new Average().getAverage(scores);
+      if(rate.isNaN()){
+        rate=0.0;
+      }
+      movieService.updateMovieRate(item.getId(),rate);
+    }
     PageResult pageResult=new PageResult<List<Movie>>(movies.getPageNum(),
                                                       movies.getTotal(),
                                                       movies.getPages(),

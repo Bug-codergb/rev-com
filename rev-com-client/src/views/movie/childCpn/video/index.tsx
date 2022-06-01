@@ -75,7 +75,7 @@ const Video:FC=():ReactElement=>{
                          itemWidth={150}
                          scale={1.3}
                          isFlex={true}
-                         creator={<span className="score">{item.score}</span>}/>
+                         creator={<span className="score">{item.score.toFixed(1)}</span>}/>
               </li>
             )
           })

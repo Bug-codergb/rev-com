@@ -11,4 +11,5 @@ import lombok.*;
 public class CommentDTO extends Comment {
   private String userId;
   private String replyId;
+  private String relateId;
 }

@@ -14,7 +14,10 @@ import java.util.Date;
 public class Comment {
   private String id;
   private String content;
+  private String title;
   private User user;
+  private Double score;
+  private Integer isShort;
   private Comment reply;
   private Date createTime;
   private Date updateTime;

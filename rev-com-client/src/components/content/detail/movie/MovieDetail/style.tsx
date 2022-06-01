@@ -42,6 +42,8 @@ export const LeftContent=styled.div`
    }
    .center{
      margin: 0 0 0 15px;
+     width: 50%;
+     border-right: 1px solid #eaeaea;
      .info-list{
        .item{
          margin: 0 0 7px 0;
@@ -62,6 +64,40 @@ export const LeftContent=styled.div`
              color: #3377aa;
              font-size: 13px;
            }
+         }
+       }
+     }
+   }
+   .right{
+     padding: 0 0 0 15px;
+     .tip{
+       color: #9b9b9b;
+       font-size: 13px;
+     }
+     .score-info{
+       display: flex;
+       align-items: center;
+       .score{
+         font-size: 28px;
+         color: #494949;
+         margin: 0 15px 0 0;
+       }
+       .score-star{
+         .score-star-movie-detail{
+           display: flex;
+           align-items: center;
+           .ant-rate-star{
+             margin: 0 4px 0 0;
+           }
+           svg{
+             width: 16px;
+             height: 16px;
+
+           }
+         }
+         .person-count{
+           color: #3377AA;
+           font-size: 12px;
          }
        }
      }

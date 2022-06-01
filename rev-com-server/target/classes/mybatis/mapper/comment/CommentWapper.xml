@@ -7,11 +7,52 @@
     insert into comment_img(id,cId,picUrl,originalname,mimetype,dest,filename,size)
     values(#{id},#{cId},#{picUrl},#{originalname},#{mimetype},#{dest},#{filename},#{size})
   </insert>
+  <!--添加评论-->
   <insert id="addComment">
-    insert into comment(id,content,userId)
-    values(#{id},#{content},#{userId})
+    insert into comment(id,content,userId,${key},isShort,title,score)
+    values(#{id},#{content},#{userId},#{relateId},#{isShort},#{title},#{score})
   </insert>
   <select id="getCommentPic" resultType="CommentPic">
     select * from comment_img where id=#{id}
+  </select>
+  <resultMap id="commentResultMap" type="Comment">
+    <id property="id" column="id"></id>
+    <result property="content" column="content"></result>
+    <result property="title" column="title"></result>
+    <result property="score" column="score"></result>
+    <result property="isShort" column="isShort"></result>
+    <result property="createTime" column="createTime"/>
+    <result property="updateTime" column="updateTime"/>
+    <association property="user"
+                 javaType="User"
+                 select="com.codergb.mapper.user.UserMapper.getUserById"
+                 column="userId"></association>
+    <collection property="reply"
+                ofType="Comment"
+                select="com.codergb.mapper.comment.CommentMapper.getAllReply"
+                column="id"></collection>
+  </resultMap>
+  <!--获取所有短评-->
+  <select id="getAllShortCom" resultMap="commentResultMap">
+    select *
+    from comment
+    where replyId is null and isShort=0 and ${key}=#{relateId}
+  </select>
+  <!--获取评论回复 传入评论ID-->
+  <select id="getAllReply" resultMap="commentResultMap">
+    select *
+    from comment
+    where replyId=#{id}
+  </select>
+  <!--获取所有影评-->
+  <select id="getAllComment" resultMap="commentResultMap">
+    select *
+    from comment
+    where replyId is null and isShort=1 and ${key}=#{relateId}
+  </select>
+  <select id="getCommentList" resultType="Comment">
+    select *
+    from comment
+    where movieId=#{id} and replyId is null
   </select>
 </mapper>

@@ -37,3 +37,16 @@ ul,li{
   padding: 150px 0;
   width: 100%;
 }
+.comment-content *{
+  font-size: 13px!important;
+  line-height: 22px;
+  color: #666666!important;
+}
+.text-num-nowrap{
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}

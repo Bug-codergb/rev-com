@@ -1,5 +1,28 @@
 import styled from "styled-components";
 export const CommentEditWrapper=styled.div`
+  .score{
+    width: 78%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    &>span{
+      font-size: 13px;
+      margin: 0 5px 0 0;
+    }
+    .rate-style{
+      display: flex;
+      align-items: center;
+      svg{
+        height: 22px;
+        width: 22px;
+      }
+    }
+    .rate-status{
+      font-size: 13px;
+      margin: 0 0 0 8px;
+      color: #656565;
+    }
+  }
   .comment-pub{
     display: flex;
     align-items:center;

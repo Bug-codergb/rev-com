@@ -1,7 +1,9 @@
-package com.codergb.controller.movie;
+package com.codergb.controller.comment;
 
 import com.codergb.annotation.LoginAuth;
+import com.codergb.bean.Comment;
 import com.codergb.bean.CommentPic;
+import com.codergb.bean.PageResult;
 import com.codergb.bean.wangEditor.WangData;
 import com.codergb.bean.wangEditor.WangEditor;
 import com.codergb.constant.Host;
@@ -13,6 +15,7 @@ import com.codergb.utils.EmptyJudge;
 import com.codergb.utils.FilePreview;
 import com.codergb.utils.FileUniqueName;
 import com.codergb.utils.ResponseType;
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/comment")
@@ -32,14 +36,16 @@ public class CommentController {
   @LoginAuth
   @PostMapping("/publish")
   public ResponseType<Object> publishComment(@RequestBody CommentDTO commentDTO,
+                                             @RequestParam("key") String key,
                                              @RequestAttribute("userId") String userId){
     if(new EmptyJudge().judgeEmpty(commentDTO.getContent())){
       return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "评论内容不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(key)){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "评论项ID不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(commentDTO.getId())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "评论ID不能为空",null);
     }else {
-      commentDTO.setUserId(userId);
-      Long id=new Date().getTime();
-      commentDTO.setId(id.toString());
-      commentService.addComment(commentDTO);
+      commentService.addComment(commentDTO.getId(),commentDTO.getContent(),userId,key,commentDTO.getRelateId(),commentDTO.getTitle(),commentDTO.getScore(),commentDTO.getIsShort());
       return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), commentDTO);
     }
   }
@@ -84,5 +90,45 @@ public class CommentController {
     CommentPic commentPic= commentService.getCommentPic(id);
     System.out.println(commentPic.getDest());
     return new FilePreview().getFilePreview(System.getProperty("user.dir")+commentPic.getDest()+"/"+commentPic.getFilename(),commentPic.getMimetype());
+  }
+  //获取所有评论
+  @LoginAuth
+  @GetMapping("/short/all")
+  public ResponseType<PageResult<List<Comment>>> getAllShort(@RequestParam("page") Integer page,
+                                                             @RequestParam("limit") Integer limit,
+                                                             @RequestParam("key") String key,
+                                                             @RequestParam("relateId") String relateId){
+    if(new EmptyJudge().judgeEmpty(key)){
+      return new ResponseType<PageResult<List<Comment>>>(HttpStatus.OK.value(), "key不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(relateId)){
+      return new ResponseType<PageResult<List<Comment>>>(HttpStatus.OK.value(), "relateId不能为空",null);
+    }else{
+      Page<Comment> comments=commentService.getAllShortCom(page,limit,key,relateId);
+      PageResult pageResult=new PageResult<List<Comment>>(comments.getPageNum(),
+              comments.getTotal(),
+              comments.getPages(),
+              comments);
+      return new ResponseType<PageResult<List<Comment>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
+    }
+  }
+  //获取所有影评
+  @LoginAuth
+  @GetMapping("/all")
+  public ResponseType<PageResult<List<Comment>>> getAllComment(@RequestParam("page") Integer page,
+                                                             @RequestParam("limit") Integer limit,
+                                                             @RequestParam("key") String key,
+                                                             @RequestParam("relateId") String relateId){
+    if(new EmptyJudge().judgeEmpty(key)){
+      return new ResponseType<PageResult<List<Comment>>>(HttpStatus.OK.value(), "key不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(relateId)){
+      return new ResponseType<PageResult<List<Comment>>>(HttpStatus.OK.value(), "relateId不能为空",null);
+    }else{
+      Page<Comment> comments=commentService.getAllComment(page,limit,key,relateId);
+      PageResult pageResult=new PageResult<List<Comment>>(comments.getPageNum(),
+              comments.getTotal(),
+              comments.getPages(),
+              comments);
+      return new ResponseType<PageResult<List<Comment>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
+    }
   }
 }

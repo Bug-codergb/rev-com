@@ -60,4 +60,6 @@ public interface MovieMapper {
   public List<Movie> getMovieByAid(@Param("aId") String aId,@Param("page") Integer page,@Param("limit") Integer limit);
   //获取电影详情
   public Movie getMovieDetail(@Param("id") String id);
+  //更新电影评分(更具电影ID)
+  public int updateMovieRate(@Param("id") String id,@Param("rate") Double rate);
 }

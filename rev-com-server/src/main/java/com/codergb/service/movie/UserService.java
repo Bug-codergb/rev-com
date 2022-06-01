@@ -1,7 +1,7 @@
 package com.codergb.service.movie;
 
 import com.codergb.bean.User;
-import com.codergb.mapper.movie.UserMapper;
+import com.codergb.mapper.user.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

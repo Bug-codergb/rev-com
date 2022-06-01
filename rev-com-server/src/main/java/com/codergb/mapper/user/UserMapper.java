@@ -1,4 +1,4 @@
-package com.codergb.mapper.movie;
+package com.codergb.mapper.user;
 
 import com.codergb.bean.User;
 import org.apache.ibatis.annotations.Param;

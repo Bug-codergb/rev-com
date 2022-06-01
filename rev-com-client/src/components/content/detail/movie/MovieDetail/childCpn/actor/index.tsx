@@ -5,13 +5,13 @@ import {
 import {IActor} from "../../../../../../../types/movie/actor";
 import {IDirector} from "../../../../../../../types/movie/director";
 import MsgItem from "../../../../../../common/msgItem";
+import {holder} from "../../../../../../../utils/holder";
 interface IProps{
   actors?:IActor[],
   directors?:IDirector[]
 }
 const Actor:FC<IProps>=(props):ReactElement=>{
   const {actors,directors}=props;
-  console.log(directors)
   return (
     <ActorWrapper>
       <ul className="actor-list">
@@ -40,6 +40,13 @@ const Actor:FC<IProps>=(props):ReactElement=>{
                          scale={1.4}
                          isFlex={false} />
               </li>
+            )
+          })
+        }
+        {
+          holder((directors?directors.length:0) + (actors?actors.length:0),6).map((item)=>{
+            return (
+              <li> </li>
             )
           })
         }

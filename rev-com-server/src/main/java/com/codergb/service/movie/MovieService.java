@@ -114,4 +114,8 @@ public class MovieService {
   public Movie getMovieDetail(String id){
     return movieMapper.getMovieDetail(id);
   }
+  //更新电影评分
+  public int updateMovieRate(String id ,Double rate){
+    return movieMapper.updateMovieRate(id,rate);
+  }
 }

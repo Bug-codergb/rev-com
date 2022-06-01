@@ -1,6 +1,6 @@
-import React, {memo, FC, ReactElement, useState, useEffect} from "react";
+import React, {memo, FC, ReactElement, useState, useEffect,useRef} from "react";
 import {useLocation,useNavigate} from "react-router-dom";
-import { Rate } from 'antd';
+import { Rate,Modal,message } from 'antd';
 import {PlusOutlined,FormOutlined} from "@ant-design/icons";
 import {
   MovieDetailWrapper,
@@ -12,18 +12,35 @@ import {IResponseType} from "../../../../../types/responseType";
 import {IMovie} from "../../../../../types/movie/movie";
 import {IScreenwriter} from "../../../../../types/movie/screenwriter";
 import Actor from "./childCpn/actor";
+import ShortComment from "../../../shortComment";
+import {publishComment} from "../../../../../network/comment";
+import MovieCom from "./childCpn/movieCom";
+import {getMovieRate} from "../../../../../network/rate";
+import {IRate} from "../../../../../types/rate";
 const MovieDetail:FC=():ReactElement=>{
   const location=useLocation();
   const navigate=useNavigate();
   const state=location.state as {id:string}
   const rateText=["很差","较差","还行","推荐","力荐"];
   const [rateStatus,setStatus]=useState("");
+  const [rate,setRate]=useState(0);
   const [id,setId]=useState(state.id);
   const [movie,setMovie]=useState<IMovie>();
+  const [isModalVisible,setIsModalVisible]=useState<boolean>(false);
+  const [keyIndex,setKeyIndex]=useState<number>(1);
+  const [rateInfo,setRateInfo]=useState<IRate>();
+  const commentRef = useRef<any>();
   useEffect(()=>{
     getMovieDetail<IResponseType<IMovie>>(id).then((data)=>{
       if(data.status===200){
         setMovie(data.data)
+      }
+    })
+  },[id])
+  useEffect(()=>{
+    getMovieRate<IResponseType<IRate>>(id).then((data)=>{
+      if(data.status===200){
+        setRateInfo(data.data);
       }
     })
   },[id])
@@ -37,6 +54,37 @@ const MovieDetail:FC=():ReactElement=>{
         id:id
       }
     })
+  }
+  const publishRate=(e:number)=>{
+    setIsModalVisible(true)
+    setRate(e);
+  }
+  const handleOk=async ()=>{
+    if(!commentRef.current.score){
+      message.warn({
+        content:"评分不能为空",
+        className:"global-tip"
+      })
+    }else if(commentRef.current.content.trim().length===0){
+      message.warn({
+        content:"影评内容不能为空",
+        className:"global-tip"
+      })
+    }else{
+      const data=await publishComment(`${new Date().getTime()}`,commentRef.current.content,"movieId",
+                         id,0,undefined,commentRef.current.score);
+      if(data.status===200){
+        setIsModalVisible(false);
+        setKeyIndex(keyIndex+1)
+        message.success({
+          content:"影评发表成功",
+          className:"global-tip"
+        })
+      }
+    }
+  }
+  const handleCancel=()=>{
+    setIsModalVisible(false)
   }
   return (
     <MovieDetailWrapper className="center-auto">
@@ -114,15 +162,42 @@ const MovieDetail:FC=():ReactElement=>{
               </li>
             </ul>
           </div>
-          <div className="right"></div>
+          <div className="right">
+            <div className="tip">电影评分</div>
+            <div className="score-info">
+              <div className="score">{rateInfo?(rateInfo.score*1.0).toFixed(1):0}</div>
+              <div className="score-star">
+                <Rate className="score-star-movie-detail"
+                      disabled={true}
+                      value={rateInfo?(rateInfo.score/10*5.0):0}
+                      allowHalf={true}/>
+                <div className="person-count">{rateInfo?.person}人评价</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="operator">
           <div className="want-see">想看</div>
           <div className="saw">看过</div>
           <div className="rate">
             <span>评价:</span>
-            <Rate className="rate-style" onHoverChange={e=>rateChange(e)}/>
+            <Rate className="rate-style"
+                  allowClear={false}
+                  onHoverChange={e=>rateChange(e)}
+                  onChange={e=>publishRate(e)}/>
             <div className='rate-status'>{rateStatus}</div>
+            <Modal title="发表简短评论"
+                   visible={isModalVisible}
+                   width={"56%"}
+                   destroyOnClose={true}
+                   onOk={handleOk}
+                   onCancel={handleCancel}
+                   cancelText={"取消"}
+                   okText={"确定"}>
+              <ShortComment rate={rate}
+                            //@ts-ignore
+                            ref={commentRef}/>
+            </Modal>
           </div>
         </div>
         <div className="write-comment">
@@ -142,6 +217,16 @@ const MovieDetail:FC=():ReactElement=>{
         <div className="movie-actors">
           {
             movie&&movie.directors&&<Actor actors={movie?.actors} directors={movie?.directors}/>
+          }
+        </div>
+        <div className="movie-comment">
+          {
+            movie&&movie.id&&<MovieCom isShort={true} id={movie?.id} name={movie?.name} key={keyIndex}/>
+          }
+        </div>
+        <div className="movie-comment">
+          {
+            movie&&movie.id&&<MovieCom isShort={false} id={movie?.id} name={movie?.name} key={keyIndex}/>
           }
         </div>
       </LeftContent>

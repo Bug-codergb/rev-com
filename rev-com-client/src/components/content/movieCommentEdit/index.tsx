@@ -102,7 +102,8 @@ const MovieCommentEdit:FC=():ReactElement=>{
         </div>
       </div>
       <h3 className="publish-tip" >发表影评</h3>
-      <CommentEdit/>
+
+      <CommentEdit id={id}/>
     </MovieCommentEditWrapper>
   )
 }
