@@ -10,5 +10,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class MainApplication {
   public static void main(String[] args) {
     ConfigurableApplicationContext run= SpringApplication.run(MainApplication.class,args);
+    System.out.println(System.getProperty("user.dir"));
   }
 }

@@ -2,7 +2,6 @@ package com.codergb.controller.movie;
 
 import com.codergb.annotation.LoginAuth;
 import com.codergb.bean.PageResult;
-import com.codergb.bean.book.Publish;
 import com.codergb.bean.movie.Actor;
 import com.codergb.constant.Host;
 import com.codergb.constant.ResponseMessage;
@@ -16,13 +15,11 @@ import com.codergb.utils.FileUniqueName;
 import com.codergb.utils.ResponseType;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.relational.core.sql.In;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.xml.ws.Response;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;

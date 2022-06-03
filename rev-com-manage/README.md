@@ -23,25 +23,26 @@ npm run build
 ```
 npm run lint
 ```
+
 ## /rev-com
 
 ```text
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -65,19 +66,19 @@ npm run lint
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -105,7 +106,7 @@ npm run lint
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/login
 
@@ -117,7 +118,7 @@ npm run lint
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -135,8 +136,8 @@ npm run lint
 #### 后执行脚本
 
 ```javascript
-const res=response.json;
-apt.globals.set("token", res.data.token);
+const res = response.json
+apt.globals.set("token", res.data.token)
 ```
 
 ## /rev-com/登录/注册
@@ -149,7 +150,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/register
 
@@ -161,7 +162,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -188,19 +189,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -228,7 +229,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/user/avatar/upload
 
@@ -240,7 +241,7 @@ apt.globals.set("token", res.data.token);
 
 > form-data
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 | 参数名 | 示例值         | 参数类型 | 是否必填 | 参数描述 |
 | ------ | -------------- | -------- | -------- | -------- |
@@ -268,7 +269,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/user/avatar/1651935333133
 
@@ -280,7 +281,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -304,19 +305,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -344,7 +345,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/director/
 
@@ -356,7 +357,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -390,7 +391,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/director/all?page=1&limit=5
 
@@ -402,7 +403,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名  | 示例值 | 参数类型 | 是否必填 | 参数描述 |
 | ------- | ------ | -------- | -------- | -------- |
@@ -410,7 +411,7 @@ apt.globals.set("token", res.data.token);
 | limit   | 5      | Text     | 是       | -        |
 | keyword | 李     | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -438,7 +439,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/director/avatar/upload/1652147804701
 
@@ -450,10 +451,10 @@ apt.globals.set("token", res.data.token);
 
 > form-data
 
-#### 请求Body参数
+#### 请求 Body 参数
 
-| 参数名 | 示例值                                                       | 参数类型 | 是否必填 | 参数描述 |
-| ------ | ------------------------------------------------------------ | -------- | -------- | -------- |
+| 参数名 | 示例值                                                        | 参数类型 | 是否必填 | 参数描述 |
+| ------ | ------------------------------------------------------------- | -------- | -------- | -------- |
 | avatar | C:\Users\guo'bin\Desktop\b55653316617fb515b3e0b9f15887af9.jpg | File     | 是       | -        |
 
 #### 预执行脚本
@@ -478,7 +479,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/director/update
 
@@ -490,7 +491,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -526,7 +527,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/director/delete?id=1652443093091
 
@@ -538,13 +539,13 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名 | 示例值        | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ------------- | -------- | -------- | -------- |
 | id     | 1652443093091 | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -572,7 +573,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/director/avatar/update/1653096371152
 
@@ -584,7 +585,7 @@ apt.globals.set("token", res.data.token);
 
 > form-data
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 | 参数名 | 示例值                             | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ---------------------------------- | -------- | -------- | -------- |
@@ -608,19 +609,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -648,7 +649,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/actor/
 
@@ -660,7 +661,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -698,7 +699,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/actor/all?page=1&limit=10&keyword=尔
 
@@ -710,7 +711,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名  | 示例值 | 参数类型 | 是否必填 | 参数描述 |
 | ------- | ------ | -------- | -------- | -------- |
@@ -718,7 +719,7 @@ apt.globals.set("token", res.data.token);
 | limit   | 10     | Text     | 是       | -        |
 | keyword | 尔     | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -746,7 +747,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/actor/update
 
@@ -758,7 +759,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -797,7 +798,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/actor/delete?id=1652493246449
 
@@ -809,13 +810,13 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名 | 示例值        | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ------------- | -------- | -------- | -------- |
 | id     | 1652493246449 | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -843,7 +844,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/actor/avatar/upload/1652014592779
 
@@ -855,7 +856,7 @@ apt.globals.set("token", res.data.token);
 
 > form-data
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 | 参数名 | 示例值                         | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ------------------------------ | -------- | -------- | -------- |
@@ -883,7 +884,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > http://localhost:8888/actor/avatar/1653099994469
 
@@ -895,7 +896,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -923,7 +924,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/actor/avatar/update/1653099994469
 
@@ -935,7 +936,7 @@ apt.globals.set("token", res.data.token);
 
 > form-data
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 | 参数名 | 示例值                             | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ---------------------------------- | -------- | -------- | -------- |
@@ -963,7 +964,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/actor/director/cooperate?id=1652097604414&page=1&limit=5
 
@@ -975,7 +976,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名 | 示例值        | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ------------- | -------- | -------- | -------- |
@@ -983,7 +984,7 @@ apt.globals.set("token", res.data.token);
 | page   | 1             | Text     | 是       | -        |
 | limit  | 5             | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -1011,7 +1012,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/director/cooperate?id=1652097604414&page=1&limit=5
 
@@ -1023,7 +1024,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名 | 示例值        | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ------------- | -------- | -------- | -------- |
@@ -1031,7 +1032,7 @@ apt.globals.set("token", res.data.token);
 | page   | 1             | Text     | 是       | -        |
 | limit  | 5             | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -1059,7 +1060,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/actor/cooperate?id=1652152775219&page=1&limit=2
 
@@ -1071,7 +1072,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名 | 示例值        | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ------------- | -------- | -------- | -------- |
@@ -1079,7 +1080,7 @@ apt.globals.set("token", res.data.token);
 | page   | 1             | Text     | 是       | -        |
 | limit  | 2             | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -1107,7 +1108,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/director/actor/cooperate?id=1652152775219&page=1&limit=5
 
@@ -1119,7 +1120,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名 | 示例值        | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ------------- | -------- | -------- | -------- |
@@ -1127,7 +1128,7 @@ apt.globals.set("token", res.data.token);
 | page   | 1             | Text     | 是       | -        |
 | limit  | 5             | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -1151,19 +1152,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -1191,7 +1192,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/occupation/
 
@@ -1203,7 +1204,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -1233,7 +1234,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/occupation/dId/1652097604414/1652100299387
 
@@ -1245,7 +1246,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -1273,7 +1274,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/occupation/all
 
@@ -1285,7 +1286,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -1309,19 +1310,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -1345,19 +1346,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -1385,7 +1386,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/form
 
@@ -1397,7 +1398,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -1427,7 +1428,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/form/all
 
@@ -1439,7 +1440,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -1463,19 +1464,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -1503,7 +1504,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/area
 
@@ -1515,7 +1516,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -1545,7 +1546,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/area/all
 
@@ -1557,7 +1558,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -1581,19 +1582,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -1617,19 +1618,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -1657,7 +1658,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/cate
 
@@ -1669,7 +1670,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -1699,7 +1700,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/tag/
 
@@ -1711,7 +1712,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -1741,7 +1742,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/cate/all
 
@@ -1753,7 +1754,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -1781,7 +1782,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/
 
@@ -1793,7 +1794,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -1834,7 +1835,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/all?page=2&limit=10
 
@@ -1846,7 +1847,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名  | 示例值        | 参数类型 | 是否必填 | 参数描述 |
 | ------- | ------------- | -------- | -------- | -------- |
@@ -1855,7 +1856,7 @@ apt.globals.set("token", res.data.token);
 | page    | 2             | Text     | 是       | -        |
 | limit   | 10            | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -1883,7 +1884,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/update
 
@@ -1895,7 +1896,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -1937,7 +1938,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/cover/upload/1652237815469
 
@@ -1949,7 +1950,7 @@ apt.globals.set("token", res.data.token);
 
 > form-data
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 | 参数名 | 示例值                             | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ---------------------------------- | -------- | -------- | -------- |
@@ -1977,7 +1978,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > http://localhost:8888/movie/cover/1652237815469
 
@@ -1989,7 +1990,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -2017,7 +2018,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/update
 
@@ -2029,7 +2030,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -2057,7 +2058,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/cover/update/1653111702293
 
@@ -2069,7 +2070,7 @@ apt.globals.set("token", res.data.token);
 
 > form-data
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 | 参数名 | 示例值                               | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ------------------------------------ | -------- | -------- | -------- |
@@ -2097,7 +2098,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/delete/1653111702293
 
@@ -2109,7 +2110,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -2137,7 +2138,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/director/1652105949804?page=1&limit=2
 
@@ -2149,14 +2150,14 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名 | 示例值 | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ------ | -------- | -------- | -------- |
 | page   | 1      | Text     | 是       | -        |
 | limit  | 2      | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -2184,7 +2185,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/movie/actor/1652014592779?page=1&limit=3
 
@@ -2196,14 +2197,14 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名 | 示例值 | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ------ | -------- | -------- | -------- |
 | page   | 1      | Text     | 是       | -        |
 | limit  | 3      | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -2227,19 +2228,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -2267,7 +2268,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/screenwriter/
 
@@ -2279,7 +2280,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -2316,7 +2317,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/screenwriter/all?page=1&limit=2
 
@@ -2328,14 +2329,14 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名 | 示例值 | 参数类型 | 是否必填 | 参数描述 |
 | ------ | ------ | -------- | -------- | -------- |
 | page   | 1      | Text     | 是       | -        |
 | limit  | 2      | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -2359,19 +2360,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -2395,19 +2396,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -2435,7 +2436,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/writer
 
@@ -2447,7 +2448,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -2484,7 +2485,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/writer/all?page=1&limit=20&keyword=毛
 
@@ -2496,7 +2497,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名  | 示例值 | 参数类型 | 是否必填 | 参数描述 |
 | ------- | ------ | -------- | -------- | -------- |
@@ -2504,7 +2505,7 @@ apt.globals.set("token", res.data.token);
 | limit   | 20     | Text     | 是       | -        |
 | keyword | 毛     | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 
@@ -2528,19 +2529,19 @@ apt.globals.set("token", res.data.token);
 暂无描述
 ```
 
-#### 公共Header参数
+#### 公共 Header 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Query参数
+#### 公共 Query 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
 | 暂无参数 |        |          |
 
-#### 公共Body参数
+#### 公共 Body 参数
 
 | 参数名   | 示例值 | 参数描述 |
 | -------- | ------ | -------- |
@@ -2568,7 +2569,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/publish
 
@@ -2580,7 +2581,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 {
@@ -2618,7 +2619,7 @@ apt.globals.set("token", res.data.token);
 
 > 开发中
 
-#### 接口URL
+#### 接口 URL
 
 > {{baseUrl}}/publish/all?page=1&limit=10&keyword=1
 
@@ -2630,7 +2631,7 @@ apt.globals.set("token", res.data.token);
 
 > json
 
-#### 请求Query参数
+#### 请求 Query 参数
 
 | 参数名  | 示例值 | 参数类型 | 是否必填 | 参数描述 |
 | ------- | ------ | -------- | -------- | -------- |
@@ -2638,7 +2639,7 @@ apt.globals.set("token", res.data.token);
 | limit   | 10     | Text     | 是       | -        |
 | keyword | 1      | Text     | 是       | -        |
 
-#### 请求Body参数
+#### 请求 Body 参数
 
 ```javascript
 

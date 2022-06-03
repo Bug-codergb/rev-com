@@ -1,12 +1,12 @@
 import React, {memo, FC, ReactElement, useState, useEffect,useRef} from "react";
 import {useLocation,useNavigate} from "react-router-dom";
-import { Rate,Modal,message } from 'antd';
+import { Rate,Modal,message,Progress  } from 'antd';
 import {PlusOutlined,FormOutlined} from "@ant-design/icons";
 import {
   MovieDetailWrapper,
   LeftContent,
   RightContent
-}from "./style";
+}from './style';
 import {getMovieDetail} from "../../../../../network/movie";
 import {IResponseType} from "../../../../../types/responseType";
 import {IMovie} from "../../../../../types/movie/movie";
@@ -33,7 +33,7 @@ const MovieDetail:FC=():ReactElement=>{
   useEffect(()=>{
     getMovieDetail<IResponseType<IMovie>>(id).then((data)=>{
       if(data.status===200){
-        setMovie(data.data)
+        setMovie(data.data);
       }
     })
   },[id])
@@ -174,6 +174,53 @@ const MovieDetail:FC=():ReactElement=>{
                 <div className="person-count">{rateInfo?.person}人评价</div>
               </div>
             </div>
+            <ul className="rate-percentage">
+              <li className="one">
+                <div className="start-name">5星</div>
+                <div className="start-value">
+                  <Progress strokeColor="#ffd596"
+                            strokeWidth={10}
+                            percent={parseFloat(((rateInfo?rateInfo.five:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1))}
+                            />
+                </div>
+              </li>
+              <li className="two">
+                <div className="start-name">4星</div>
+                <div className="start-value">
+                  <Progress strokeColor="#ffd596"
+                            strokeWidth={10}
+                            percent={parseFloat(((rateInfo?rateInfo.four:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1))}
+                             />
+                </div>
+              </li>
+              <li className="three">
+                <div className="start-name">3星</div>
+                <div className="start-value">
+                  <Progress strokeColor="#ffd596"
+                            strokeWidth={10}
+                            percent={parseFloat(((rateInfo?rateInfo.three:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1))}
+                           />
+                </div>
+              </li>
+              <li className="four">
+                <div className="start-name">2星</div>
+                <div className="start-value">
+                  <Progress strokeColor="#ffd596"
+                            strokeWidth={10}
+                            percent={parseFloat(((rateInfo?rateInfo.two:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1))}
+                            />
+                </div>
+              </li>
+              <li className="one">
+                <div className="start-name">1星</div>
+                <div className="start-value">
+                  <Progress strokeColor="#ffd596"
+                            strokeWidth={10}
+                            percent={parseFloat(((rateInfo?rateInfo.one:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1))}
+                            />
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
         <div className="operator">

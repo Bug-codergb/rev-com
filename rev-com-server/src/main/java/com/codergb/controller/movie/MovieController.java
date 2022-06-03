@@ -2,7 +2,6 @@ package com.codergb.controller.movie;
 
 import com.codergb.annotation.LoginAuth;
 import com.codergb.bean.Comment;
-import com.codergb.bean.CommentPic;
 import com.codergb.bean.PageResult;
 import com.codergb.bean.movie.*;
 import com.codergb.constant.ErrorType;
@@ -15,7 +14,6 @@ import com.codergb.service.movie.MovieService;
 import com.codergb.utils.*;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.relational.core.sql.In;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -322,5 +320,19 @@ public class MovieController {
   public ResponseType<Movie> getMovieDetail(@PathVariable("id") String id){
     Movie movie= movieService.getMovieDetail(id);
     return new ResponseType<Movie>(HttpStatus.OK.value(),ResponseMessage.SUCCESS.getMESSAGE(), movie);
+  }
+  //获取近期热门
+  @LoginAuth
+  @GetMapping("/hot/recent")
+  public ResponseType<Object> getRecentHot(@RequestParam("areaId") String areaId,
+                                                @RequestParam("form") String form){
+    if(new EmptyJudge().judgeEmpty(areaId)){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"地区不能为空",null);
+    }else if(new EmptyJudge().judgeEmpty(form)){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "形式不能为空",null);
+    }else{
+      List<Movie> movies=movieService.getRecentHot(areaId,form);
+      return new ResponseType<Object>(HttpStatus.OK.value(),ResponseMessage.SUCCESS.getMESSAGE(), movies);
+    }
   }
 }

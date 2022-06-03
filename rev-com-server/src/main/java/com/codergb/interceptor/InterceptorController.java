@@ -3,7 +3,6 @@ package com.codergb.interceptor;
 import com.alibaba.fastjson.JSON;
 import com.codergb.annotation.LoginAuth;
 import com.codergb.constant.ErrorType;
-import com.codergb.exception.ExceptionHandle;
 import com.codergb.utils.ResponseType;
 import com.codergb.utils.Token;
 import io.jsonwebtoken.Claims;
@@ -29,6 +28,8 @@ public class InterceptorController implements HandlerInterceptor {
     if(isExists!=null){
       System.out.println("盒盒盒");
       String token=request.getHeader("Authorization");
+      System.out.println(token);
+      System.out.println("-----");
       try{
         if(token==null || token.equals("")){
           response.setStatus(HttpStatus.UNAUTHORIZED.value());

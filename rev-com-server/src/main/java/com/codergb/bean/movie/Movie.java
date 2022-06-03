@@ -1,8 +1,6 @@
 package com.codergb.bean.movie;
 
 import com.codergb.bean.FileInfo;
-import com.codergb.bean.movie.Director;
-import com.codergb.bean.movie.Screenwriter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

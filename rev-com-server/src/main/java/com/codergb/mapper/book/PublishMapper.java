@@ -1,6 +1,7 @@
 package com.codergb.mapper.book;
 
 import com.codergb.bean.book.Publish;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

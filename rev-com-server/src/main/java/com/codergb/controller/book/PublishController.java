@@ -3,7 +3,6 @@ package com.codergb.controller.book;
 import com.codergb.annotation.LoginAuth;
 import com.codergb.bean.PageResult;
 import com.codergb.bean.book.Publish;
-import com.codergb.bean.book.Writer;
 import com.codergb.constant.ResponseMessage;
 import com.codergb.service.book.PublishService;
 import com.codergb.utils.EmptyJudge;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
 import java.util.Date;
 import java.util.List;
 

@@ -118,4 +118,8 @@ public class MovieService {
   public int updateMovieRate(String id ,Double rate){
     return movieMapper.updateMovieRate(id,rate);
   }
+  //获取近期热门
+  public List<Movie> getRecentHot(String areaId,String form){
+    return movieMapper.getMovieByTimeCate(areaId,form);
+  }
 }

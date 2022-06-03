@@ -196,4 +196,17 @@
   <update id="updateMovieRate">
     update movie set score=#{rate} where id=#{id}
   </update>
+  <!--获取电影，电视剧根据近期时间-->
+  <select id="getMovieByTimeCate" resultMap="movieResultMap">
+    select *,COUNT(com.movieId) as count
+    from movie as m
+    INNER join movie_area_relate as mar on mar.mId=m.id
+    INNER join movie_area as ma on ma.id=mar.aId
+    LEFT JOIN `comment` AS com on com.movieId=m.id
+    where ma.id=#{areaId} and m.form =#{form} AND
+    com.createTime &lt;=CURRENT_TIMESTAMP() and com.createTime&gt;= date_sub(CURRENT_TIMESTAMP(), INTERVAL 90 day)
+    GROUP BY m.id
+    ORDER BY count desc,m.score*1 desc
+    limit 0,50
+  </select>
 </mapper>

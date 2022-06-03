@@ -101,6 +101,51 @@ export const LeftContent=styled.div`
          }
        }
      }
+     .rate-percentage{
+       margin: 15px 0 0 0;
+       .one,.two,.three,.four,.five{
+         display: flex;
+         align-content: center;
+         height: 18px;
+         .start-name{
+           font-size: 12px;
+           color: #9b9b9b;
+           width: 30px;
+           height: 12px;
+           line-height: 12px;
+         }
+         .start-value{
+           width: 150px;
+           display: flex;
+           align-items: center;
+           height: 12px;
+         }
+         .ant-progress-steps-item{
+           width:20px!important;
+           margin-right: 5px!important;
+         }
+         .ant-progress-text{
+           font-size: 12px!important;
+           color: #9b9b9b;
+         }
+         .ant-progress-bg{
+           border-radius: 0;
+         }
+         .ant-progress-inner{
+           border-radius: 0;
+         }
+         .ant-progress-outer{
+           padding:0px 35px 0px 5px!important;
+           height: 12px;
+           display: flex;
+           align-items: center;
+         }
+         .ant-progress{
+           display: flex;
+           align-items: center;
+         }
+       }
+     }
    }
   }
   .operator{

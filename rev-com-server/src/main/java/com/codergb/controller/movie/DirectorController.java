@@ -1,8 +1,8 @@
 package com.codergb.controller.movie;
 
 import com.codergb.annotation.LoginAuth;
-import com.codergb.bean.movie.Director;
 import com.codergb.bean.PageResult;
+import com.codergb.bean.movie.Director;
 import com.codergb.constant.ErrorType;
 import com.codergb.constant.Host;
 import com.codergb.constant.ResponseMessage;
@@ -15,8 +15,6 @@ import com.codergb.utils.FilePreview;
 import com.codergb.utils.FileUniqueName;
 import com.codergb.utils.ResponseType;
 import com.github.pagehelper.Page;
-import lombok.extern.java.Log;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
