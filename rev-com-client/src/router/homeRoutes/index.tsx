@@ -6,7 +6,7 @@ const Movie=lazy(()=>import("../../views/movie/index"));
 const Music=lazy(()=>import("../../views/music/index"));
 const Group=lazy(()=>import("../../views/group/index"));
 const Read=lazy(()=>import("../../views/read/index"));
-
+const Topic=lazy(()=>import("../../views/topic/index"));
 const routes:RouteObject[]=[
   {
     path:"/Home",
@@ -44,6 +44,14 @@ const routes:RouteObject[]=[
     element:(
       <Suspense>
         <Group/>
+      </Suspense>
+    )
+  },
+  {
+    path:"Topic",
+    element:(
+      <Suspense>
+        <Topic/>
       </Suspense>
     )
   }

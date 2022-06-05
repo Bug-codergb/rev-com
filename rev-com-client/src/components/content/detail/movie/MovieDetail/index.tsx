@@ -86,6 +86,15 @@ const MovieDetail:FC=():ReactElement=>{
   const handleCancel=()=>{
     setIsModalVisible(false)
   }
+  const commentClickHandle=(id:string,name:string|undefined)=>{
+    navigate("/Home/Movie/MovieReview",{
+      replace:true,
+      state:{
+        id:id,
+        name:name
+      }
+    })
+  }
   return (
     <MovieDetailWrapper className="center-auto">
       <LeftContent>
@@ -180,8 +189,12 @@ const MovieDetail:FC=():ReactElement=>{
                 <div className="start-value">
                   <Progress strokeColor="#ffd596"
                             strokeWidth={10}
+                            showInfo={false}
                             percent={parseFloat(((rateInfo?rateInfo.five:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1))}
                             />
+                  <p className="start-num-tip">
+                    {((rateInfo?rateInfo.five:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1)}%
+                  </p>
                 </div>
               </li>
               <li className="two">
@@ -189,8 +202,12 @@ const MovieDetail:FC=():ReactElement=>{
                 <div className="start-value">
                   <Progress strokeColor="#ffd596"
                             strokeWidth={10}
+                            showInfo={false}
                             percent={parseFloat(((rateInfo?rateInfo.four:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1))}
                              />
+                  <p className="start-num-tip">
+                    {((rateInfo?rateInfo.four:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1)}%
+                  </p>
                 </div>
               </li>
               <li className="three">
@@ -198,8 +215,12 @@ const MovieDetail:FC=():ReactElement=>{
                 <div className="start-value">
                   <Progress strokeColor="#ffd596"
                             strokeWidth={10}
+                            showInfo={false}
                             percent={parseFloat(((rateInfo?rateInfo.three:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1))}
                            />
+                  <p className="start-num-tip">
+                    {((rateInfo?rateInfo.three:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1)}%
+                  </p>
                 </div>
               </li>
               <li className="four">
@@ -207,8 +228,12 @@ const MovieDetail:FC=():ReactElement=>{
                 <div className="start-value">
                   <Progress strokeColor="#ffd596"
                             strokeWidth={10}
+                            showInfo={false}
                             percent={parseFloat(((rateInfo?rateInfo.two:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1))}
                             />
+                  <p className="start-num-tip">
+                    {((rateInfo?rateInfo.two:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1)}%
+                  </p>
                 </div>
               </li>
               <li className="one">
@@ -216,8 +241,12 @@ const MovieDetail:FC=():ReactElement=>{
                 <div className="start-value">
                   <Progress strokeColor="#ffd596"
                             strokeWidth={10}
+                            showInfo={false}
                             percent={parseFloat(((rateInfo?rateInfo.one:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1))}
                             />
+                  <p className="start-num-tip">
+                    {((rateInfo?rateInfo.one:0)/(rateInfo?rateInfo.person:1)*100).toFixed(1)}%
+                  </p>
                 </div>
               </li>
             </ul>
@@ -273,7 +302,11 @@ const MovieDetail:FC=():ReactElement=>{
         </div>
         <div className="movie-comment">
           {
-            movie&&movie.id&&<MovieCom isShort={false} id={movie?.id} name={movie?.name} key={keyIndex}/>
+            movie&&movie.id&&<MovieCom isShort={false}
+                                       id={movie?.id}
+                                       name={movie?.name}
+                                       key={keyIndex}
+                                       commentClick={(id:string)=>commentClickHandle(id,movie?.name)}/>
           }
         </div>
       </LeftContent>

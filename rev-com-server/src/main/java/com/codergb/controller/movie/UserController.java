@@ -45,7 +45,7 @@ public class UserController {
       user.setAvatarUrl(avatarUrl);
       try {
         userService.uploadAvatar(user);
-        avatar.transferTo(new File(UploadPath.AVATAR_UPLOAD_PATH.getUPLOADPATH()+filename));
+        avatar.transferTo(new File(System.getProperty("user.dir")+UploadPath.AVATAR_UPLOAD_PATH.getUPLOADPATH()+filename));
       } catch (IOException e) {
         e.printStackTrace();
       }

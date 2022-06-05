@@ -15,22 +15,30 @@
   <select id="getCommentPic" resultType="CommentPic">
     select * from comment_img where id=#{id}
   </select>
+  <!--回复reply-->
+  <resultMap id="replyResultMap" type="Comment" extends="commentResultMap">
+    <association property="reply" javaType="Comment"
+                                  select="com.codergb.mapper.comment.CommentMapper.getCommentFrom"
+                                  column="replyId"/>
+  </resultMap>
+  <select id="getCommentFrom" resultMap="commentResultMap">
+    select *
+    from comment
+    where id=#{id}
+  </select>
+  <!--评论map-->
   <resultMap id="commentResultMap" type="Comment">
-    <id property="id" column="id"></id>
-    <result property="content" column="content"></result>
-    <result property="title" column="title"></result>
-    <result property="score" column="score"></result>
-    <result property="isShort" column="isShort"></result>
+    <id property="id" column="id"/>
+    <result property="content" column="content"/>
+    <result property="title" column="title"/>
+    <result property="score" column="score"/>
+    <result property="isShort" column="isShort"/>
     <result property="createTime" column="createTime"/>
     <result property="updateTime" column="updateTime"/>
     <association property="user"
                  javaType="User"
                  select="com.codergb.mapper.user.UserMapper.getUserById"
                  column="userId"></association>
-    <collection property="reply"
-                ofType="Comment"
-                select="com.codergb.mapper.comment.CommentMapper.getAllReply"
-                column="id"></collection>
   </resultMap>
   <!--获取所有短评-->
   <select id="getAllShortCom" resultMap="commentResultMap">
@@ -38,21 +46,29 @@
     from comment
     where replyId is null and isShort=0 and ${key}=#{relateId}
   </select>
-  <!--获取评论回复 传入评论ID-->
-  <select id="getAllReply" resultMap="commentResultMap">
-    select *
-    from comment
-    where replyId=#{id}
+  <!--获取影评回复 传入影评ID-->
+  <select id="getCommentReply" resultMap="replyResultMap">
+    SELECT * FROM `comment` WHERE FIND_IN_SET(id,getAllComment(${id})) and id!=#{id}
   </select>
   <!--获取所有影评-->
   <select id="getAllComment" resultMap="commentResultMap">
     select *
     from comment
-    where replyId is null and isShort=1 and ${key}=#{relateId}
+    where isShort=1 and replyId is null and ${key}=#{relateId}
   </select>
+  <!--所有评论 计算评分-->
   <select id="getCommentList" resultType="Comment">
     select *
     from comment
     where movieId=#{id} and replyId is null
   </select>
+  <select id="getCommentDetail" resultMap="commentResultMap">
+    select *
+    from comment
+    where id=#{id} and replyId is null and isShort=1
+  </select>
+  <!--回复评论-->
+  <insert id="replyComment">
+    insert into comment (id,content,userId,replyId) values (#{id},#{content},#{userId},#{replyId})
+  </insert>
 </mapper>

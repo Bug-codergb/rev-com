@@ -12,10 +12,11 @@ import {Empty} from "antd";
 interface IProps{
   id?:string,
   name?:string,
-  isShort:boolean
+  isShort:boolean,
+  commentClick?:(id:string)=>void
 }
 const MovieCom:FC<IProps>=(props):ReactElement=>{
-  const {id,name,isShort}=props;
+  const {id,name,isShort,commentClick}=props;
   const [comment,setComment]=useState<IComment[]>([]);
   const [total,setTotal]=useState<number>(0);
   useEffect(()=>{
@@ -35,6 +36,11 @@ const MovieCom:FC<IProps>=(props):ReactElement=>{
       })
     }
   },[])
+  const commentClickHandle=(id:string)=>{
+    if(commentClick){
+      commentClick(id);
+    }
+  }
   return (
     <MovieComWrapper>
       <div className="comment-name">
@@ -43,7 +49,14 @@ const MovieCom:FC<IProps>=(props):ReactElement=>{
         <span className="total-comment">( {total}条评论 )</span>
       </div>
       {
-        comment.length>0&&<Comment isShort={isShort} comment={comment}/>
+        comment.length>0&&<Comment isShort={isShort}
+                                   isShowRate={true}
+                                   comment={comment}
+                                   isControl={false}
+                                   total={0}
+                                   count={0}
+                                   isPage={false}
+                                   commentClick={(id:string)=>commentClickHandle(id)}/>
       }
       {
         comment&&comment.length<1&&<div className="empty-status">

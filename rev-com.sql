@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : JavaMySQL
+ Source Server         : NodeMySQL
  Source Server Type    : MySQL
- Source Server Version : 80022
+ Source Server Version : 80029
  Source Host           : localhost:3306
  Source Schema         : rev-com
 
  Target Server Type    : MySQL
- Target Server Version : 80022
+ Target Server Version : 80029
  File Encoding         : 65001
 
- Date: 02/06/2022 07:43:53
+ Date: 05/06/2022 20:58:46
 */
 
 SET NAMES utf8mb4;
@@ -40,25 +40,25 @@ CREATE TABLE `actor`  (
   `filename` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `size` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of actor
 -- ----------------------------
-INSERT INTO `actor` VALUES ('1652014592779', '小罗伯特·唐尼', 'http://localhost:8888/actor/avatar/1652014592779', 'Robert Downey Jr.', 'Bob', '双子座', '1997-04-07 16:00:00', '纽约', '克里斯埃文斯', 'ffffff', '2022-05-08 20:56:32', '2022-05-22 21:15:42', '周慧明.jpeg', 'image/jpeg', './upload/actor/avatar/', '1653102966353.jpeg', 27637);
-INSERT INTO `actor` VALUES ('1652152711455', '克里斯埃韦是', 'http://localhost:8888/actor/avatar/1652152711455', 'Robert Downey Jr.', 'Bob', '双子座', '2010-07-19 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:18:31', '2022-05-21 11:08:14', 'p4213.jpg', 'image/jpeg', './upload/actor/avatar/', '1653102494559.jpg', 20576);
-INSERT INTO `actor` VALUES ('1652152720292', '詹兆隆', 'http://localhost:8888/actor/avatar/1652152720292', 'Robert Downey Jr.', 'Bob', '处女座', '2000-04-21 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:18:40', '2022-05-29 20:37:55', 'p4213.jpg', 'image/jpeg', './upload/actor/avatar/', '1653102097067.jpg', 20576);
-INSERT INTO `actor` VALUES ('1652152736343', '拉伦寺', 'http://localhost:8888/actor/avatar/1652152736343', 'Robert Downey Jr.', 'Bob', '水瓶座', '1990-04-12 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:18:56', '2022-05-21 11:02:28', 'f68d10b9925b1209bb3e0a4307028062.jpg', 'image/jpeg', './upload/actor/avatar/', '1653102148655.jpg', 326404);
-INSERT INTO `actor` VALUES ('1652152758674', '阿尔弗雷德·希区柯克', 'http://localhost:8888/actor/avatar/1652152758674', 'Robert Downey Jr.', 'Bob', '狮子座', '2002-03-31 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:19:18', '2022-05-21 10:59:56', 'OIP-C.jpg', 'image/jpeg', './upload/actor/avatar/', '1653101996595.jpg', 5780);
-INSERT INTO `actor` VALUES ('1652152775219', '艾玛·雷维尔 ', 'http://localhost:8888/actor/avatar/1652152775219', 'Robert Downey Jr.', 'Bob', '白羊座', '2007-08-22 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:19:35', '2022-05-22 20:40:10', 'p4213.jpg', 'image/jpeg', './upload/actor/avatar/', '1653223210639.jpg', 20576);
-INSERT INTO `actor` VALUES ('1652152809362', '山姆·洛克威尔 ', 'http://localhost:8888/actor/avatar/1652152809362', 'Robert Downey Jr.', 'Bob', '白羊座', '2001-10-24 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:20:09', '2022-05-21 21:41:10', 'OIP-C.jpg', 'image/jpeg', './upload/actor/avatar/', '1653140470555.jpg', 5780);
-INSERT INTO `actor` VALUES ('1652444349475', '西泽尔', 'http://localhost:8888/actor/avatar/1652444349475', 'Robert Downey Jr.34', 'elmpt', '狮子座', '2010-04-04 00:00:00', '美国华盛顿', '莎拉·杰西(女)', 'ffffff', '2022-05-13 20:19:09', '2022-05-22 10:31:29', 'p4213.jpg', 'image/jpeg', './upload/actor/avatar/', '1653186689607.jpg', 20576);
-INSERT INTO `actor` VALUES ('1652491465151', '吴京', 'http://localhost:8888/actor/avatar/1652491465151', '吴京', 'Jing Wu', '白羊座', '2016-01-14 16:00:00', '中国,北京', '谢楠(妻)', '吴京，被誉为“功夫小子”，从1995年就开始接拍电视剧和电影，其引路人便是《少林寺》以及《少林武王》的导演张鑫炎，而吴京的武术教练也就是李连杰的教练吴彬。当年还在武术队里奋斗的吴京被张鑫炎看中，于是和师兄李连杰一样，顺利地加入了娱乐圈。两人的经历惊人地相似。2005年后吴京搬迁至香港，正式在香港发展，并取得了不俗的成绩。', '2022-05-14 09:24:25', '2022-05-22 10:58:42', 'p4213.jpg', 'image/jpeg', './upload/actor/avatar/', '1653188322223.jpg', 20576);
-INSERT INTO `actor` VALUES ('1652494639677', '小罗伯特·唐尼', NULL, 'Robert Downey Jr.', 'Bob', '白羊座', '1990-04-04 00:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-14 10:17:19', '2022-05-14 10:17:19', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `actor` VALUES ('1652494690386', '吴孟达', NULL, 'da wu', 'da wu', '射手座', '2022-05-10 16:00:00', '香港', '暂无', '香港黄金配角', '2022-05-14 10:18:10', '2022-05-14 10:25:15', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `actor` VALUES ('1653099331792', 'tgtgtg', NULL, 'tgtg', 'tgtg', '巨蟹座', '2022-05-19 16:00:00', 'tgt', 'gtg', 'gtgt', '2022-05-21 10:15:31', '2022-05-21 10:15:31', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `actor` VALUES ('1653099398251', 'er', NULL, 're', 're', '狮子座', '2022-05-19 16:00:00', 'er', 'er', 'rer', '2022-05-21 10:16:38', '2022-05-21 10:16:38', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `actor` VALUES ('1653789676790', '三毛', 'http://localhost:8888/actor/avatar/1653789676790', 'のの3のののののの4谔谔呃额阿(⊙﹏⊙)', 'three mao', '处女座', '2022-05-12 16:00:00', '每股派', 'ee3のの二次', '你就是个垃圾你就是个拦击', '2022-05-29 10:01:16', '2022-05-29 10:01:53', 'OIP-C.jpg', 'image/jpeg', './upload/actor/avatar/', '1653789713040.jpg', 5780);
+INSERT INTO `actor` VALUES ('1652014592779', '小罗伯特·唐尼', 'http://localhost:8888/actor/avatar/1652014592779', 'Robert Downey Jr.', 'Bob', '双子座', '1997-04-07 16:00:00', '纽约', '克里斯埃文斯', 'ffffff', '2022-05-08 20:56:32', '2022-06-03 19:52:56', '3.webp', 'image/webp', './upload/actor/avatar/', '1654257176253.webp', 23850);
+INSERT INTO `actor` VALUES ('1652152711455', '克里斯埃韦是', 'http://localhost:8888/actor/avatar/1652152711455', 'Robert Downey Jr.', 'Bob', '双子座', '2010-07-19 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:18:31', '2022-06-03 19:53:01', 'f15887af9.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257181638.jpg', 31515);
+INSERT INTO `actor` VALUES ('1652152720292', '詹兆隆', 'http://localhost:8888/actor/avatar/1652152720292', 'Robert Downey Jr.', 'Bob', '处女座', '2000-04-21 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:18:40', '2022-06-03 19:53:06', 'lisa.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257186794.jpg', 216978);
+INSERT INTO `actor` VALUES ('1652152736343', '拉伦寺', 'http://localhost:8888/actor/avatar/1652152736343', 'Robert Downey Jr.', 'Bob', '水瓶座', '1990-04-12 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:18:56', '2022-06-03 19:53:12', 'p1378204929.4.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257192636.jpg', 24950);
+INSERT INTO `actor` VALUES ('1652152758674', '阿尔弗雷德·希区柯克', 'http://localhost:8888/actor/avatar/1652152758674', 'Robert Downey Jr.', 'Bob', '狮子座', '2002-03-31 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:19:18', '2022-06-03 19:54:42', '3.webp', 'image/webp', './upload/actor/avatar/', '1654257282235.webp', 23850);
+INSERT INTO `actor` VALUES ('1652152775219', '艾玛·雷维尔 ', 'http://localhost:8888/actor/avatar/1652152775219', 'Robert Downey Jr.', 'Bob', '白羊座', '2007-08-22 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:19:35', '2022-06-03 19:53:17', 'p2677018763.webp', 'image/webp', './upload/actor/avatar/', '1654257197531.webp', 92266);
+INSERT INTO `actor` VALUES ('1652152809362', '山姆·洛克威尔 ', 'http://localhost:8888/actor/avatar/1652152809362', 'Robert Downey Jr.', 'Bob', '白羊座', '2001-10-24 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:20:09', '2022-06-03 19:54:50', 'p2677018763.webp', 'image/webp', './upload/actor/avatar/', '1654257290224.webp', 92266);
+INSERT INTO `actor` VALUES ('1652444349475', '西泽尔', 'http://localhost:8888/actor/avatar/1652444349475', 'Robert Downey Jr.34', 'elmpt', '狮子座', '2010-04-04 00:00:00', '美国华盛顿', '莎拉·杰西(女)', 'ffffff', '2022-05-13 20:19:09', '2022-06-03 19:54:11', '3.webp', 'image/webp', './upload/actor/avatar/', '1654257251557.webp', 23850);
+INSERT INTO `actor` VALUES ('1652491465151', '吴京', 'http://localhost:8888/actor/avatar/1652491465151', '吴京', 'Jing Wu', '白羊座', '2016-01-14 16:00:00', '中国,北京', '谢楠(妻)', '吴京，被誉为“功夫小子”，从1995年就开始接拍电视剧和电影，其引路人便是《少林寺》以及《少林武王》的导演张鑫炎，而吴京的武术教练也就是李连杰的教练吴彬。当年还在武术队里奋斗的吴京被张鑫炎看中，于是和师兄李连杰一样，顺利地加入了娱乐圈。两人的经历惊人地相似。2005年后吴京搬迁至香港，正式在香港发展，并取得了不俗的成绩。', '2022-05-14 09:24:25', '2022-06-03 19:53:23', 'p2185073849.webp', 'image/webp', './upload/actor/avatar/', '1654257203495.webp', 28686);
+INSERT INTO `actor` VALUES ('1652494639677', '小罗伯特·唐尼', 'http://localhost:8888/actor/avatar/1652494639677', 'Robert Downey Jr.', 'Bob', '白羊座', '1990-04-04 00:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-14 10:17:19', '2022-06-03 19:53:29', 'p1386481612.26.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257209029.jpg', 73591);
+INSERT INTO `actor` VALUES ('1652494690386', '吴孟达', 'http://localhost:8888/actor/avatar/1652494690386', 'da wu', 'da wu', '射手座', '2022-05-10 16:00:00', '香港', '暂无', '香港黄金配角', '2022-05-14 10:18:10', '2022-06-03 19:53:35', 'lisa.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257215673.jpg', 216978);
+INSERT INTO `actor` VALUES ('1653099331792', 'tgtgtg', 'http://localhost:8888/actor/avatar/1653099331792', 'tgtg', 'tgtg', '巨蟹座', '2022-05-19 16:00:00', 'tgt', 'gtg', 'gtgt', '2022-05-21 10:15:31', '2022-06-03 19:53:42', '3.webp', 'image/webp', './upload/actor/avatar/', '1654257222486.webp', 23850);
+INSERT INTO `actor` VALUES ('1653099398251', 'er', 'http://localhost:8888/actor/avatar/1653099398251', 're', 're', '狮子座', '2022-05-19 16:00:00', 'er', 'er', 'rer', '2022-05-21 10:16:38', '2022-06-03 19:54:20', 'lisa.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257260724.jpg', 216978);
+INSERT INTO `actor` VALUES ('1653789676790', '三毛', 'http://localhost:8888/actor/avatar/1653789676790', 'のの3のののののの4谔谔呃额阿(⊙﹏⊙)', 'three mao', '处女座', '2022-05-12 16:00:00', '每股派', 'ee3のの二次', '你就是个垃圾你就是个拦击', '2022-05-29 10:01:16', '2022-06-03 19:53:50', 'p1378204929.4.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257230759.jpg', 24950);
 INSERT INTO `actor` VALUES ('1653831630847', '茂芹', 'http://localhost:8888/actor/avatar/1653831630847', '如4人', '茂芹', '白羊座', '2022-05-25 16:00:00', '时产生的污染', '3如4 55555', '人34人3', '2022-05-29 21:40:30', '2022-05-29 21:40:44', '周慧明.jpeg', 'image/jpeg', './upload/actor/avatar/', '1653831630925.jpeg', 27637);
 
 -- ----------------------------
@@ -77,11 +77,11 @@ CREATE TABLE `comment`  (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `replyId`(`replyId`) USING BTREE,
-  INDEX `comment_ibfk_2`(`movieId`) USING BTREE,
+  INDEX `replyId`(`replyId` ASC) USING BTREE,
+  INDEX `comment_ibfk_2`(`movieId` ASC) USING BTREE,
   CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`replyId`) REFERENCES `comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`movieId`) REFERENCES `movie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of comment
@@ -99,6 +99,42 @@ INSERT INTO `comment` VALUES ('1654075129397', NULL, '郡，洪都新府。星�
 INSERT INTO `comment` VALUES ('1654087490704', NULL, '4温故痛过通规划 与6用5 用5要6 ', '1651935333133', 3, '1652322979306', 0, NULL, '2022-06-01 20:44:50', '2022-06-01 20:44:50');
 INSERT INTO `comment` VALUES ('1654087494032', '个人提供他个人', '<p>个人提供突然</p><p>过图给他</p><p>过问题</p><p><strong>gt我</strong></p><p><br></p>', '1651935333133', 0, '1652322979306', 1, NULL, '2022-06-01 20:45:11', '2022-06-01 20:45:11');
 INSERT INTO `comment` VALUES ('1654087653198', NULL, '，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得天人之旧馆', '1651935333133', 3, '1652323356167', 0, NULL, '2022-06-01 20:47:33', '2022-06-01 20:47:33');
+INSERT INTO `comment` VALUES ('1654260143914', NULL, '慕尼黑各部分v的城市', '1651935333133', 5, '1652323356167', 0, NULL, '2022-06-03 20:42:23', '2022-06-03 20:42:23');
+INSERT INTO `comment` VALUES ('1654261622601', NULL, '飞。爽籁发而清风生，纤歌凝而白云遏。睢园绿竹，气凌彭泽之樽；邺水朱华，光照临川之笔。四美具，二难并。穷睇眄于中天，极娱游于暇日。天高地迥，觉宇宙之无穷；兴尽悲来，识盈虚之有数。望长安', '1651935333133', 4, '1652323129328', 0, NULL, '2022-06-03 21:07:02', '2022-06-03 21:07:02');
+INSERT INTO `comment` VALUES ('1654261665107', NULL, '途多舛。冯唐易老，李广难封。屈贾谊于长沙，非无圣主；窜梁鸿于海曲，岂乏明时？所赖君子见机', '1651935333133', 2, '1652323129328', 0, NULL, '2022-06-03 21:07:45', '2022-06-03 21:07:45');
+INSERT INTO `comment` VALUES ('1654261840082', NULL, '12', '1651935333133', 2, '1652323065481', 0, NULL, '2022-06-03 21:10:40', '2022-06-03 21:10:40');
+INSERT INTO `comment` VALUES ('1654346449288', NULL, 'jyhtgrf', '1651935333133', 3, '1652323265333', 0, NULL, '2022-06-04 20:40:49', '2022-06-04 20:40:49');
+INSERT INTO `comment` VALUES ('1654346524154', NULL, 'ghrthtr', '1651935333133', 4, '1653092993980', 0, NULL, '2022-06-04 20:42:04', '2022-06-04 20:42:04');
+INSERT INTO `comment` VALUES ('1654346885367', NULL, 'f而纷纷发出', '1651935333133', 2, '1654346873456', 0, NULL, '2022-06-04 20:48:05', '2022-06-04 20:48:05');
+INSERT INTO `comment` VALUES ('1654346966925', NULL, '介书生。无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。舍簪笏于百龄，奉晨昏于万里。非谢家之宝树，接孟氏之芳邻。他日趋庭，叨陪鲤对；今兹捧袂，喜托龙门。杨意不逢，抚凌云而自惜；钟期既遇', '1651935333133', 3, '1654346950495', 0, NULL, '2022-06-04 20:49:26', '2022-06-04 20:49:26');
+INSERT INTO `comment` VALUES ('1654347024400', NULL, '北海虽赊，扶摇可接；东隅已逝，桑榆非晚。孟尝高洁，空余报国之情；阮籍猖狂，岂效穷途之哭！', '1651935333133', 3, '1654347011424', 0, NULL, '2022-06-04 20:50:24', '2022-06-04 20:50:24');
+INSERT INTO `comment` VALUES ('1654347076609', NULL, '闲云潭影日闲云潭影日闲云潭影日闲云潭影日', '1651935333133', 5, '1654347066042', 0, NULL, '2022-06-04 20:51:16', '2022-06-04 20:51:16');
+INSERT INTO `comment` VALUES ('1654347130553', NULL, '所作文章就像像腾起的蛟龙、飞舞的彩凤；王将军的兵器库中，藏有像紫电、青霜这样锋利的宝剑。由于父亲在交趾做县令，我在探亲途中经过这个著名的地方。我年幼无知，竟有幸亲身参加了这次盛大的宴会。\n\n正当深秋九月之时，雨后的积水消尽，', '1651935333133', 4, '1654347114186', 0, NULL, '2022-06-04 20:52:10', '2022-06-04 20:52:10');
+INSERT INTO `comment` VALUES ('1654347181877', NULL, '飞。爽籁发而清风生，纤歌凝而白云遏。睢园绿竹，气凌彭泽之樽；邺水朱华，光照临川之笔。四美具，二难并。穷睇眄于中天，', '1651935333133', 3, '1654347168760', 0, NULL, '2022-06-04 20:53:01', '2022-06-04 20:53:01');
+INSERT INTO `comment` VALUES ('1654347230293', NULL, '序属三秋序属三秋序属三秋序属三秋序属三秋', '1651935333133', 2, '1654347220164', 0, NULL, '2022-06-04 20:53:50', '2022-06-04 20:53:50');
+INSERT INTO `comment` VALUES ('1654347291334', NULL, '落霞与孤鹜齐飞落霞与孤鹜齐飞落霞与孤鹜齐飞落霞与孤鹜齐飞落霞与孤鹜齐飞落霞与孤鹜齐飞', '1651935333133', 3, '1654347283917', 0, NULL, '2022-06-04 20:54:51', '2022-06-04 20:54:51');
+INSERT INTO `comment` VALUES ('1654347789208', NULL, '潦水尽而寒潭清潦水尽而寒潭清', '1651935333133', 3, '1654347779763', 0, NULL, '2022-06-04 21:03:09', '2022-06-04 21:03:09');
+INSERT INTO `comment` VALUES ('1654348252728', NULL, '二分法', '1651935333133', 3, '1654347066042', 0, NULL, '2022-06-04 21:10:52', '2022-06-04 21:10:52');
+INSERT INTO `comment` VALUES ('1654348261594', '潦水尽而寒潭清，烟光凝而暮山紫', '<p style=\"text-indent: 0px; text-align: start;\">披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨，雁阵惊寒，声断衡阳之浦。</p><p style=\"text-indent: 0px; text-align: start;\">　　遥襟甫畅，逸兴遄飞。爽籁发而清风生，纤歌凝而白云遏。睢园绿竹，气凌彭泽之樽；邺水朱华，光照临川之笔。四美具，二难并。穷睇眄于中天，极娱游于暇日。天高地迥，觉宇宙之无穷；兴尽悲来，识盈虚之有数。望长安于日下，目吴会于云间。地势极而南溟深，天柱高而北辰远。关山难越，谁悲失路之人；萍水相逢，尽是他乡之客。怀帝阍而不见，奉宣室以何年？</p>', '1651935333133', 4, '1654347066042', 1, NULL, '2022-06-04 21:11:16', '2022-06-04 21:11:16');
+INSERT INTO `comment` VALUES ('1654348831474', '时维九月，序属三秋', '<p style=\"text-indent: 2em;\"><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">披绣闼，</span><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\"><strong>俯雕甍</strong></span><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">，山原旷其盈视，川泽纡其骇瞩。</span><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\"><strong>闾阎扑地</strong></span><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨，雁阵惊寒，声断衡阳之浦。</span></p><p style=\"text-indent: 2em;\"><img src=\"http://localhost:8888/comment/picture/1654348872596\" alt=\"\" data-href=\"\" style=\"\"></p><p style=\"text-indent: 2em;\"><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">遥襟甫畅，逸兴遄飞。爽籁发而清风生，纤歌凝而白云遏。睢园绿竹，气凌彭泽之樽；邺水朱华，光照临川之笔。四美具，二难并。穷睇眄于中天，极娱游于暇日。天高地迥，觉宇宙之无穷；兴尽悲来，识盈虚之有数。望长安于日下，目吴会于云间。地势极而南溟深，天柱高而</span></p><p style=\"text-indent: 2em;\"><img src=\"http://localhost:8888/comment/picture/1654348887839\" alt=\"\" data-href=\"\" style=\"\"></p><p style=\"text-indent: 2em;\"><br></p><p style=\"text-indent: 2em;\"><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">勃，三尺微命，一介书生。无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。舍簪笏于百龄，奉晨昏于万里。非谢家之宝树，接孟氏之芳邻。他日趋庭，叨陪鲤对；今兹捧袂，喜托龙门。杨意不逢，抚凌云而自惜；钟期既遇，奏流水以何惭</span></p>', '1651935333133', 3, '1652323356167', 1, NULL, '2022-06-04 21:21:38', '2022-06-04 21:21:38');
+INSERT INTO `comment` VALUES ('1654349629759', NULL, '平凡人感觉突然渴望', '1651935333133', 5, '1652323356167', 0, NULL, '2022-06-04 21:33:49', '2022-06-04 21:33:49');
+INSERT INTO `comment` VALUES ('1654349641906', NULL, '二位违法', '1651935333133', 5, '1653918306384', 0, NULL, '2022-06-04 21:34:01', '2022-06-04 21:34:01');
+INSERT INTO `comment` VALUES ('1654396616441', NULL, '哈哈哈', '1651935333133', NULL, NULL, 0, '1654348831474', '2022-06-05 10:36:56', '2022-06-05 10:36:56');
+INSERT INTO `comment` VALUES ('1654396639299', NULL, '楼主应该感谢的不是2007年的这部电影，而是神通广大的让楼主知道原来有这样一', '1651935333133', NULL, NULL, 0, '1654348831474', '2022-06-05 10:37:19', '2022-06-05 10:37:19');
+INSERT INTO `comment` VALUES ('1654397528317', NULL, '形金刚的续作一直有，就算是初代G1的漫画也有大把，怎么说得好像断奶20年的人。平时不去了解挖掘，等人家大片热热闹', '1651935333133', NULL, NULL, 0, '1654348831474', '2022-06-05 10:52:08', '2022-06-05 10:52:08');
+INSERT INTO `comment` VALUES ('1654397599483', NULL, '豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望', '1651935333133', NULL, NULL, 0, '1654348831474', '2022-06-05 10:53:19', '2022-06-05 10:53:19');
+INSERT INTO `comment` VALUES ('1654397665341', NULL, 'cececece', '1651935333133', NULL, NULL, 0, '1654348831474', '2022-06-05 10:54:25', '2022-06-05 10:54:25');
+INSERT INTO `comment` VALUES ('1654413936988', NULL, '电青霜，王将军之武库。家君作宰，路出名区', '1651935333133', NULL, NULL, 0, '1654396616441', '2022-06-05 15:25:36', '2022-06-05 15:25:36');
+INSERT INTO `comment` VALUES ('1654418209996', NULL, '11', '1651935333133', NULL, NULL, 0, '1654397665341', '2022-06-05 16:36:50', '2022-06-05 16:36:50');
+INSERT INTO `comment` VALUES ('1654421018945', NULL, '热沟通', '1654177694466', NULL, NULL, 0, '1654348831474', '2022-06-05 17:23:38', '2022-06-05 17:23:38');
+INSERT INTO `comment` VALUES ('1654422289323', NULL, '时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲', '1651935333133', NULL, NULL, 0, '1654421018945', '2022-06-05 17:44:49', '2022-06-05 17:44:49');
+INSERT INTO `comment` VALUES ('1654422315296', NULL, '，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交', '1651935333133', NULL, NULL, 0, '1654396616441', '2022-06-05 17:45:15', '2022-06-05 17:45:15');
+INSERT INTO `comment` VALUES ('1654422902869', NULL, '时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得天人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，即冈峦之体势', '1651935333133', NULL, NULL, 0, '1654397599483', '2022-06-05 17:55:02', '2022-06-05 17:55:02');
+INSERT INTO `comment` VALUES ('1654423537168', NULL, '勃，三尺微命，一介书生。无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。舍簪笏于百龄，奉晨昏于万里。非谢家之宝树，接孟氏之芳邻。他日趋庭，叨陪鲤对；今兹捧袂，喜托龙门。杨意不逢，抚凌云而自惜；钟期既遇，奏流水以何惭', '1651935333133', NULL, NULL, 0, '1654397665341', '2022-06-05 18:05:37', '2022-06-05 18:05:37');
+INSERT INTO `comment` VALUES ('1654423746078', '遥襟甫畅，逸兴遄飞。爽籁发而清风生', '<p><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">&nbsp;嗟乎！时运不齐，命途多舛。冯唐易老，李广难封。屈贾谊于长沙，非无圣主；窜梁鸿于海曲，岂乏明时？所赖君子见机，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志。酌贪泉而觉爽，处涸辙以犹欢。北海虽赊，扶摇可接；东隅已逝，桑榆非晚。孟尝高洁，空余报国之情；阮籍猖狂，岂效穷途之哭！</span><img src=\"http://localhost:8888/comment/picture/1654423772218\" alt=\"\" data-href=\"\" style=\"\"/></p><p><br></p><p><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">嗟乎！时运不齐，命途多舛。冯唐易老，李广难封。屈贾谊于长沙，非无圣主；窜梁鸿于海曲，岂乏明时？所赖君子见机，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志。酌贪泉而觉爽，处涸辙以犹欢。</span></p>', '1651935333133', 4, '1652237815469', 1, NULL, '2022-06-05 18:09:44', '2022-06-05 18:09:44');
+INSERT INTO `comment` VALUES ('1654423811183', NULL, 'frff', '1651935333133', NULL, NULL, 0, '1654423746078', '2022-06-05 18:10:11', '2022-06-05 18:10:11');
+INSERT INTO `comment` VALUES ('1654423845174', NULL, 'gtg', '1651935333133', NULL, NULL, 0, '1654423746078', '2022-06-05 18:10:45', '2022-06-05 18:10:45');
+INSERT INTO `comment` VALUES ('1654433823907', NULL, '2502520', '1654177694466', 3, '1652323197911', 0, NULL, '2022-06-05 20:57:03', '2022-06-05 20:57:03');
 INSERT INTO `comment` VALUES ('1675464984912', 'hellO', 'hahaha', '1651935333133', 3, '1652323356167', 0, '1654050213142', '2022-06-01 10:47:08', '2022-06-01 10:47:08');
 INSERT INTO `comment` VALUES ('1678156156511', '发freer', '你好你好', '1651935333133', 2, '1652323356167', 0, '1675464984912', '2022-06-01 11:16:31', '2022-06-01 11:16:31');
 
@@ -116,13 +152,16 @@ CREATE TABLE `comment_img`  (
   `filename` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `size` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `cId`(`cId`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  INDEX `cId`(`cId` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of comment_img
 -- ----------------------------
 INSERT INTO `comment_img` VALUES ('1654072485670', '1654072467495', 'http://localhost:8888/comment/picture/1654072485670', 'p2185073849.webp', 'image/webp', './upload/comment/picture/', '1654072485671.webp', 28686);
+INSERT INTO `comment_img` VALUES ('1654348872596', '1654348831474', 'http://localhost:8888/comment/picture/1654348872596', '2.jpg', 'image/jpeg', './upload/comment/picture/', '1654348872596.jpg', 35135);
+INSERT INTO `comment_img` VALUES ('1654348887839', '1654348831474', 'http://localhost:8888/comment/picture/1654348887839', '1.jpg', 'image/jpeg', './upload/comment/picture/', '1654348887839.jpg', 35671);
+INSERT INTO `comment_img` VALUES ('1654423772218', '1654423746078', 'http://localhost:8888/comment/picture/1654423772218', 'lisa.jpg', 'image/jpeg', './upload/comment/picture/', '1654423772218.jpg', 216978);
 
 -- ----------------------------
 -- Table structure for director
@@ -144,27 +183,27 @@ CREATE TABLE `director`  (
   `filename` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `size` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  UNIQUE INDEX `name`(`name` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of director
 -- ----------------------------
-INSERT INTO `director` VALUES ('1652097604414', '安东尼·罗素', 'http://localhost:8888/director/avatar/1652097604414', 'Anthony Russo', '0', '美国', 'Joe Russo的兄弟', '2022-05-09 20:00:04', '2022-05-22 21:12:24', 'OIP-C.jpg', 'image/jpeg', './upload/director/avatar/', '1653123559927.jpg', 5780);
-INSERT INTO `director` VALUES ('1652097707616', '张艺谋', 'http://localhost:8888/director/avatar/1652097707616', 'YImou Z', '1', '纽约', '牛逼牛逼牛逼你比u', '2022-05-09 20:01:47', '2022-05-22 21:41:04', 'c18c0962e339ca8b6f1d9e8be73cc8d1.jpg', 'image/jpeg', './upload/director/avatar/', '1652185789394.jpg', 41883);
-INSERT INTO `director` VALUES ('1652105870601', '李安', 'http://localhost:8888/director/avatar/1652105870601', 'Ang Lee', '0', '中国,陕西,西安', '李安生于台湾屏东县潮州镇，高中原就读台南二中，后转学考进了台南第一志愿——台南一中（注：其父先后曾任两校校长）。对于读书，李安一点兴趣都没有，心里只想着当导演。大学考试落榜两次，后来准备专科考试，进了国立台湾艺专（今国立台湾艺术大学）影剧科，从此改变了李安的一生。', '2022-05-09 22:17:50', '2022-05-22 21:41:11', 'p595.jpg', 'image/jpeg', './upload/director/avatar/', '1652185831463.jpg', 27363);
-INSERT INTO `director` VALUES ('1652105949804', '史蒂文·斯皮尔伯格', 'http://localhost:8888/director/avatar/1652105949804', 'Steven Spielberg', '0', '美国,俄亥俄州,辛辛那提', '史蒂文·艾伦·斯皮尔伯格，（Steven Allan Spielberg，1946年12月18日－），生于美国辛辛那提市，犹太人，美国著名电影导演、编剧、电影制作人、慈善家，主要导演作品包括《头号玩家》、《侏罗纪公园》、《辛德勒的名单》和《拯救大兵瑞恩》等多部影史经典。', '2022-05-09 22:19:09', '2022-05-21 09:51:05', 'photo.jpg', 'image/jpeg', './upload/director/avatar/', '1653097865390.jpg', 299753);
-INSERT INTO `director` VALUES ('1652109629705', '昆汀·塔伦蒂诺', 'http://localhost:8888/director/avatar/1652109629705', 'Quentin Tarantino', '0', '美国,田纳西州,诺克斯维尔', '毫无疑问，昆汀是个鬼才。而所谓“鬼才”，就是“鬼才知道他在想什么”。\n　　美国导演，演员及奥斯卡获奖编剧。生于美国田纳西州的挪克斯维尔。昆汀这个名字来源于影片《枪之烟火》中的角色。他在20世纪九十年代作为风格独特的导演迅速成名，他擅长非线性讲述故事，难忘的对白及血腥场面，将美国本土B级片的黑色暴力风格发扬光大。昆汀是20世纪90年代美国独立电影革命中重要的年轻导演，以独特的个性和对商业电影和艺术电影均有深刻理解著称。', '2022-05-09 23:20:29', '2022-05-21 09:39:27', 'p10798.jpg', 'image/jpeg', './upload/director/avatar/', '1652185917817.jpg', 35033);
-INSERT INTO `director` VALUES ('1652109714661', '周星驰', 'http://localhost:8888/director/avatar/1652109714661', 'Stephen Chow', '0', '中国,香港', '著名演员、导演、编剧、电影监制以及电影制作人。曾主演《九品芝麻官》、《长江七号》等多部喜剧影片。捧红过张柏芝、张雨绮等影星。曾获1998年国际杰人会港澳杰人之星奖。其与成龙和周润发并称“双周一成”，意为香港电影票房的保证。', '2022-05-09 23:21:54', '2022-05-21 09:39:31', 'p1362491610.81.jpg', 'image/jpeg', './upload/director/avatar/', '1652185946883.jpg', 32464);
-INSERT INTO `director` VALUES ('1652109786913', '李力持', 'http://localhost:8888/director/avatar/1652109786913', 'Lik-Chi Lee', '0', '中国,香港', '香港金牌导演、著名喜剧导演，曾是周星驰的御用导演，开创香港无厘头式电影模式，执导过多部脍炙人口的喜剧电影，大多数叫好又叫座的经典影片，如《喜剧之王》、《食神》、《少林足球》、《唐伯虎点秋香》、《国产凌凌漆》等。近几年一直致力于演艺教育培训方面的工作，包括演艺素质培训、电影拍摄技巧、提供器材学习等。', '2022-05-09 23:23:06', '2022-05-21 09:39:34', 'p51748.jpg', 'image/jpeg', './upload/director/avatar/', '1652185976968.jpg', 63124);
-INSERT INTO `director` VALUES ('1652147682816', '詹姆斯·卡梅隆', 'http://localhost:8888/director/avatar/1652147682816', 'James Cameron', '0', '加拿大,安大略,卡普斯卡辛', '　詹姆斯·卡梅隆，加拿大电影导演，擅长拍摄动作片以及科幻电影。詹姆斯·卡梅隆曾在加州的两年制社区学院学习物理学，但没多久又改主修英文，但在开学前自己休学。他到南加州大学的图书馆找资料自修学习电影特效技术，并用开卡车赚钱的空档写剧本。', '2022-05-10 09:54:42', '2022-05-21 09:39:37', 'p33715.jpg', 'image/jpeg', './upload/director/avatar/', '1652186010626.jpg', 94279);
-INSERT INTO `director` VALUES ('1652147804701', '温子仁', 'http://localhost:8888/director/avatar/1652147804701', ' James Wan', '0', '马来西亚,古晋', '出生于马来西亚、成长于澳洲的华裔导演。早年在墨尔本上大学时主修的专业是中国民族划分。对于东方异域文化的了解对詹姆斯·温的导演风格也有着很大的影响，而造就他对于《电锯惊魂》和《死寂》(dead silence)之类血浆片独特口味的更重要的因素是他14岁时父亲过世的打击。', '2022-05-10 09:56:44', '2022-05-21 11:25:41', 'OIP-C.jpg', 'image/jpeg', './upload/director/avatar/', '1653103541661.jpg', 5780);
-INSERT INTO `director` VALUES ('1652148133473', '雷·沃纳尔', 'http://localhost:8888/director/avatar/1652148133473', 'Leigh Whannell', '0', '澳大利亚,维多利亚,墨尔本', '雷·沃纳尔是澳洲的一位编剧、导演和演员。他经常为他的朋友温子仁的电影担任编剧。他曾经导演过两部电影，分别是2015年的《潜伏3》和2018年的《人类升级》。', '2022-05-10 10:02:13', '2022-05-21 11:26:45', '周慧明.jpeg', 'image/jpeg', './upload/director/avatar/', '1653103605409.jpeg', 27637);
-INSERT INTO `director` VALUES ('1652148383742', '徐克', 'http://localhost:8888/director/avatar/1652148383742', 'Hark Tsui', '0', '越南,西贡', '1950年2月15日生于越南西贡市，祖籍广东省海丰县，出身自华侨的大家庭，共有16名兄弟姐妹。在他十岁那年，他已经对电影发生兴趣，他曾与朋友租了摄录机来拍摄魔术表演，并在校内播放。他也喜爱漫画。这对他的电影风格有很大影响。', '2022-05-10 10:06:23', '2022-05-21 09:52:09', 'f68d10b9925b1209bb3e0a4307028062.jpg', 'image/jpeg', './upload/director/avatar/', '1653097929669.jpg', 326404);
-INSERT INTO `director` VALUES ('1652148516616', '阿尔弗雷德·希区柯克 ', 'http://localhost:8888/director/avatar/1652148516616', 'Alfred Hitchcock', '0', '英国,伦敦,莱顿斯通', '阿尔弗雷德·希区柯克，（Sir Alfred Hitchcock，1899年8月13日－1980年4月29日）原籍英国，是一位闻名世界的电影导演，尤其擅长于拍摄惊悚悬疑片。希区柯克在英国拍摄了大批默片和有声片，之后，他前往好莱坞谋求发展，并与1956年加入美国国籍，并保留了英国国籍。在长达六十年的艺术生涯中，希区柯克共拍摄了超过五十部电影，他成为历史上著名的电影艺术大师。', '2022-05-10 10:08:36', '2022-05-21 11:24:12', 'OIP-C.jpg', 'image/jpeg', './upload/director/avatar/', '1653103452024.jpg', 5780);
-INSERT INTO `director` VALUES ('1652368056784', '亚历山大·阿嘉', 'http://localhost:8888/director/avatar/1652368056784', 'Alexandre Aja', '0', '法国,巴黎', '亚历山大·阿嘉，法国著名导演。阿嘉在1999年和2003年拍过《Furia》和《血色月亮》两部法国片之后,接下来的《隔山有眼》《鬼镜》和《食人鱼3D》皆为翻拍版影片(依次翻拍自1977年同名片;2003年韩国片《照出冤灵》;1978年《食人鱼》)。', '2022-05-12 23:07:36', '2022-05-21 11:22:31', 'f68d10b9925b1209bb3e0a4307028062.jpg', 'image/jpeg', './upload/director/avatar/', '1653103351965.jpg', 326404);
-INSERT INTO `director` VALUES ('1652368225016', '马特·里夫斯', 'http://localhost:8888/director/avatar/1652368225016', 'Matt Reeves', '0', '美国,纽约,罗克维尔中心', '马特·里夫斯（Matt Reeves），全名马修·乔治·里夫斯（Matthew George Reeves），1966年4月27日出生于美国纽约罗克维尔中心，美国导演、编剧、制片人，毕业于南加利福尼亚大学。', '2022-05-12 23:10:25', '2022-05-21 09:50:16', '周慧明.jpeg', 'image/jpeg', './upload/director/avatar/', '1653097816111.jpeg', 27637);
-INSERT INTO `director` VALUES ('1653918593878', '皮埃尔', 'http://localhost:8888/director/avatar/1653918593878', 'piaier', '1', 'rthr ', 'fsdsasdfgh', '2022-05-30 21:49:53', '2022-05-30 21:49:53', 'photo.jpg', 'image/jpeg', './upload/director/avatar/', '1653918593926.jpg', 299753);
+INSERT INTO `director` VALUES ('1652097604414', '安东尼·罗素', 'http://localhost:8888/director/avatar/1652097604414', 'Anthony Russo', '0', '美国', 'Joe Russo的兄弟', '2022-05-09 20:00:04', '2022-06-03 19:33:21', 'p2185073849.webp', 'image/webp', './upload/director/avatar/', '1654256001480.webp', 28686);
+INSERT INTO `director` VALUES ('1652097707616', '张艺谋', 'http://localhost:8888/director/avatar/1652097707616', 'YImou Z', '1', '纽约', '牛逼牛逼牛逼你比u', '2022-05-09 20:01:47', '2022-06-03 19:34:14', 'f15887af9.jpg', 'image/jpeg', './upload/director/avatar/', '1654256054781.jpg', 31515);
+INSERT INTO `director` VALUES ('1652105870601', '李安', 'http://localhost:8888/director/avatar/1652105870601', 'Ang Lee', '0', '中国,陕西,西安', '李安生于台湾屏东县潮州镇，高中原就读台南二中，后转学考进了台南第一志愿——台南一中（注：其父先后曾任两校校长）。对于读书，李安一点兴趣都没有，心里只想着当导演。大学考试落榜两次，后来准备专科考试，进了国立台湾艺专（今国立台湾艺术大学）影剧科，从此改变了李安的一生。', '2022-05-09 22:17:50', '2022-06-03 19:34:36', 'f15887af9.jpg', 'image/jpeg', './upload/director/avatar/', '1654256075999.jpg', 31515);
+INSERT INTO `director` VALUES ('1652105949804', '史蒂文·斯皮尔伯格', 'http://localhost:8888/director/avatar/1652105949804', 'Steven Spielberg', '0', '美国,俄亥俄州,辛辛那提', '史蒂文·艾伦·斯皮尔伯格，（Steven Allan Spielberg，1946年12月18日－），生于美国辛辛那提市，犹太人，美国著名电影导演、编剧、电影制作人、慈善家，主要导演作品包括《头号玩家》、《侏罗纪公园》、《辛德勒的名单》和《拯救大兵瑞恩》等多部影史经典。', '2022-05-09 22:19:09', '2022-06-03 19:50:04', 'lisa.jpg', 'image/jpeg', './upload/director/avatar/', '1654257004536.jpg', 216978);
+INSERT INTO `director` VALUES ('1652109629705', '昆汀·塔伦蒂诺', 'http://localhost:8888/director/avatar/1652109629705', 'Quentin Tarantino', '0', '美国,田纳西州,诺克斯维尔', '毫无疑问，昆汀是个鬼才。而所谓“鬼才”，就是“鬼才知道他在想什么”。\n　　美国导演，演员及奥斯卡获奖编剧。生于美国田纳西州的挪克斯维尔。昆汀这个名字来源于影片《枪之烟火》中的角色。他在20世纪九十年代作为风格独特的导演迅速成名，他擅长非线性讲述故事，难忘的对白及血腥场面，将美国本土B级片的黑色暴力风格发扬光大。昆汀是20世纪90年代美国独立电影革命中重要的年轻导演，以独特的个性和对商业电影和艺术电影均有深刻理解著称。', '2022-05-09 23:20:29', '2022-06-03 19:50:37', 'p1386481612.26.jpg', 'image/jpeg', './upload/director/avatar/', '1654257037732.jpg', 73591);
+INSERT INTO `director` VALUES ('1652109714661', '周星驰', 'http://localhost:8888/director/avatar/1652109714661', 'Stephen Chow', '0', '中国,香港', '著名演员、导演、编剧、电影监制以及电影制作人。曾主演《九品芝麻官》、《长江七号》等多部喜剧影片。捧红过张柏芝、张雨绮等影星。曾获1998年国际杰人会港澳杰人之星奖。其与成龙和周润发并称“双周一成”，意为香港电影票房的保证。', '2022-05-09 23:21:54', '2022-06-03 19:50:13', '3.webp', 'image/webp', './upload/director/avatar/', '1654257013170.webp', 23850);
+INSERT INTO `director` VALUES ('1652109786913', '李力持', 'http://localhost:8888/director/avatar/1652109786913', 'Lik-Chi Lee', '0', '中国,香港', '香港金牌导演、著名喜剧导演，曾是周星驰的御用导演，开创香港无厘头式电影模式，执导过多部脍炙人口的喜剧电影，大多数叫好又叫座的经典影片，如《喜剧之王》、《食神》、《少林足球》、《唐伯虎点秋香》、《国产凌凌漆》等。近几年一直致力于演艺教育培训方面的工作，包括演艺素质培训、电影拍摄技巧、提供器材学习等。', '2022-05-09 23:23:06', '2022-06-03 19:51:32', 'p2677018763.webp', 'image/webp', './upload/director/avatar/', '1654257092750.webp', 92266);
+INSERT INTO `director` VALUES ('1652147682816', '詹姆斯·卡梅隆', 'http://localhost:8888/director/avatar/1652147682816', 'James Cameron', '0', '加拿大,安大略,卡普斯卡辛', '　詹姆斯·卡梅隆，加拿大电影导演，擅长拍摄动作片以及科幻电影。詹姆斯·卡梅隆曾在加州的两年制社区学院学习物理学，但没多久又改主修英文，但在开学前自己休学。他到南加州大学的图书馆找资料自修学习电影特效技术，并用开卡车赚钱的空档写剧本。', '2022-05-10 09:54:42', '2022-06-03 19:50:21', 'lisa.jpg', 'image/jpeg', './upload/director/avatar/', '1654257021200.jpg', 216978);
+INSERT INTO `director` VALUES ('1652147804701', '温子仁', 'http://localhost:8888/director/avatar/1652147804701', ' James Wan', '0', '马来西亚,古晋', '出生于马来西亚、成长于澳洲的华裔导演。早年在墨尔本上大学时主修的专业是中国民族划分。对于东方异域文化的了解对詹姆斯·温的导演风格也有着很大的影响，而造就他对于《电锯惊魂》和《死寂》(dead silence)之类血浆片独特口味的更重要的因素是他14岁时父亲过世的打击。', '2022-05-10 09:56:44', '2022-06-03 19:51:40', 'f15887af9.jpg', 'image/jpeg', './upload/director/avatar/', '1654257100417.jpg', 31515);
+INSERT INTO `director` VALUES ('1652148133473', '雷·沃纳尔', 'http://localhost:8888/director/avatar/1652148133473', 'Leigh Whannell', '0', '澳大利亚,维多利亚,墨尔本', '雷·沃纳尔是澳洲的一位编剧、导演和演员。他经常为他的朋友温子仁的电影担任编剧。他曾经导演过两部电影，分别是2015年的《潜伏3》和2018年的《人类升级》。', '2022-05-10 10:02:13', '2022-06-03 19:52:25', 'p1386481612.26.jpg', 'image/jpeg', './upload/director/avatar/', '1654257145427.jpg', 73591);
+INSERT INTO `director` VALUES ('1652148383742', '徐克', 'http://localhost:8888/director/avatar/1652148383742', 'Hark Tsui', '0', '越南,西贡', '1950年2月15日生于越南西贡市，祖籍广东省海丰县，出身自华侨的大家庭，共有16名兄弟姐妹。在他十岁那年，他已经对电影发生兴趣，他曾与朋友租了摄录机来拍摄魔术表演，并在校内播放。他也喜爱漫画。这对他的电影风格有很大影响。', '2022-05-10 10:06:23', '2022-06-03 19:51:47', 'lisa.jpg', 'image/jpeg', './upload/director/avatar/', '1654257107611.jpg', 216978);
+INSERT INTO `director` VALUES ('1652148516616', '阿尔弗雷德·希区柯克 ', 'http://localhost:8888/director/avatar/1652148516616', 'Alfred Hitchcock', '0', '英国,伦敦,莱顿斯通', '阿尔弗雷德·希区柯克，（Sir Alfred Hitchcock，1899年8月13日－1980年4月29日）原籍英国，是一位闻名世界的电影导演，尤其擅长于拍摄惊悚悬疑片。希区柯克在英国拍摄了大批默片和有声片，之后，他前往好莱坞谋求发展，并与1956年加入美国国籍，并保留了英国国籍。在长达六十年的艺术生涯中，希区柯克共拍摄了超过五十部电影，他成为历史上著名的电影艺术大师。', '2022-05-10 10:08:36', '2022-06-03 19:52:33', 'p2185073849.webp', 'image/webp', './upload/director/avatar/', '1654257153807.webp', 28686);
+INSERT INTO `director` VALUES ('1652368056784', '亚历山大·阿嘉', 'http://localhost:8888/director/avatar/1652368056784', 'Alexandre Aja', '0', '法国,巴黎', '亚历山大·阿嘉，法国著名导演。阿嘉在1999年和2003年拍过《Furia》和《血色月亮》两部法国片之后,接下来的《隔山有眼》《鬼镜》和《食人鱼3D》皆为翻拍版影片(依次翻拍自1977年同名片;2003年韩国片《照出冤灵》;1978年《食人鱼》)。', '2022-05-12 23:07:36', '2022-06-03 19:52:16', 'p2677018763.webp', 'image/webp', './upload/director/avatar/', '1654257136846.webp', 92266);
+INSERT INTO `director` VALUES ('1652368225016', '马特·里夫斯', 'http://localhost:8888/director/avatar/1652368225016', 'Matt Reeves', '0', '美国,纽约,罗克维尔中心', '马特·里夫斯（Matt Reeves），全名马修·乔治·里夫斯（Matthew George Reeves），1966年4月27日出生于美国纽约罗克维尔中心，美国导演、编剧、制片人，毕业于南加利福尼亚大学。', '2022-05-12 23:10:25', '2022-06-03 19:52:43', 'lisa.jpg', 'image/jpeg', './upload/director/avatar/', '1654257163107.jpg', 216978);
+INSERT INTO `director` VALUES ('1653918593878', '皮埃尔', 'http://localhost:8888/director/avatar/1653918593878', 'piaier', '1', 'rthr ', 'fsdsasdfgh', '2022-05-30 21:49:53', '2022-06-03 19:50:30', 'p1386481612.26.jpg', 'image/jpeg', './upload/director/avatar/', '1654257030236.jpg', 73591);
 
 -- ----------------------------
 -- Table structure for movie
@@ -187,36 +226,45 @@ CREATE TABLE `movie`  (
   `size` int NULL DEFAULT NULL,
   `score` float(4, 2) NULL DEFAULT 0.00,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  UNIQUE INDEX `name`(`name` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of movie
 -- ----------------------------
-INSERT INTO `movie` VALUES ('1652237815469', '大话西游记', 'http://localhost:8888/movie/cover/1652237815469', '1652189363945', '英语/德语/俄语', '45', '2022-10-17 16:00:00', 1500, '花花4566', 'OIP-C.jpg', 'image/jpeg', './upload/movie/cover/', '1653113962684.jpg', 5780, 6.00);
-INSERT INTO `movie` VALUES ('1652238044529', '复仇者联盟', 'http://localhost:8888/movie/cover/1652238044529', '1652189384380', '华语', '45222', '2022-11-12 00:00:00', 1500, '花花', '周慧明.jpeg', 'image/jpeg', './upload/movie/cover/', '1653113986967.jpeg', 27637, 0.00);
-INSERT INTO `movie` VALUES ('1652322636610', '美国队长2', 'http://localhost:8888/movie/cover/1652322636610', '1652189363945', '法语/俄语/韩语', '渐渐习惯了现代生活的美国队长史蒂夫·罗杰斯（克里斯·埃文斯 Chris Evans 饰），在一次行动后隐隐嗅到神盾局内部所弥漫出来的凶险气味。', '2014-04-03 16:00:00', 1500, 'Captain America: The Winter Soldier ', '周慧明.jpeg', 'image/jpeg', './upload/movie/cover/', '1653113997365.jpeg', 27637, 0.00);
-INSERT INTO `movie` VALUES ('1652322979306', 'X战警：逆转未来', 'http://localhost:8888/movie/cover/1652322979306', '1652189363945', '法语/德语/中文', '故事的设定发生在当下，变种人族群遭到了前所未有的毁灭性打击，而这一切的根源是“魔形女”瑞文（詹妮弗·劳伦斯 Jennifer Lawrence 饰）在1973年刺杀了玻利瓦尔·特拉斯克（彼特·丁拉基 ', '2022-05-16 16:00:00', 1500, 'X-Men: Days of Future Past', '1.jpeg', 'image/jpeg', './upload/movie/cover/', '1653487866261.jpeg', 129517, 3.00);
-INSERT INTO `movie` VALUES ('1652323065481', '明日边缘 ', 'http://localhost:8888/movie/cover/1652323065481', '1652189363945', '英语', '未来世界陷入外星人入侵的恐慌中，军事演说家凯奇少校（汤姆·克鲁斯 Tom Cruise 饰）畏惧上战场，他从没想过将军（布莱丹·格里森 Brendan Gleeson 饰）会让他去指挥即将开始的“诺曼', '2014-05-20 16:00:00', 1500, 'Edge of Tomorrow', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1653914872626.webp', 28686, 0.00);
-INSERT INTO `movie` VALUES ('1652323129328', '源代码 ', 'http://localhost:8888/movie/cover/1652323129328', '1652189363945', '英语', '在阿富汗执行任务的美国空军飞行员科特史蒂文斯上尉（杰克·吉伦哈尔 Jake Gyllenhaal 饰）突然惊醒，发现自己在一辆高速行驶的列车上，而他的身边坐着一个素不相识的女子克里斯蒂安（米歇尔·莫娜', '2009-05-11 16:00:00', 1500, 'Source Code', 'photo.jpg', 'image/jpeg', './upload/movie/cover/', '1653915103094.jpg', 299753, 0.00);
-INSERT INTO `movie` VALUES ('1652323197911', '终结者2', 'http://localhost:8888/movie/cover/1652323197911', '1652189363945', '英语 / 西班牙语', '上一部中，超级电脑“天网”阻止人类抵抗领袖约翰·康纳诞生的行动失败，时隔13年后，在“审判日”到来之前，“天网”派出了更加先进的生化机器人T-1000（罗伯特·帕特里克 饰）从公元2029年回到洛杉矶', '2002-05-08 16:00:00', 1500, 'Terminator 2: Judgment Day', '希区柯克.jpg', 'image/jpeg', './upload/movie/cover/', '1653915111078.jpg', 20576, 0.00);
-INSERT INTO `movie` VALUES ('1652323265333', '阿凡达', 'http://localhost:8888/movie/cover/1652323265333', '1652189395431', '英语', '战斗中负伤而下身瘫痪的前海军战士杰克·萨利（萨姆·沃辛顿 Sam Worthington 饰）决定替死去的同胞哥哥来到潘多拉星操纵格蕾丝博士（西格妮·韦弗 Sigourney Weaver 饰）用人类', '2016-04-24 16:00:00', 1500, 'Avatar ', '希区柯克.jpg', 'image/jpeg', './upload/movie/cover/', '1653917189675.jpg', 20576, 0.00);
-INSERT INTO `movie` VALUES ('1652323356167', '变形金刚 ', 'http://localhost:8888/movie/cover/1652323356167', '1652189371834', '英语 / 西班牙语', '　“霸天虎”的先遣部队旋风和毒蝎袭击了美军位于卡塔尔的军事基地，与此同时，路障帮助他的搭档迷乱潜入了美国总统的座机空中一号，通过电脑获悉，要想找到威震天就必须找到维特维奇家族的那副眼镜，上面有威震天关', '2012-05-23 16:00:00', 1500, 'Transformers', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1653917599922.webp', 28686, 6.22);
-INSERT INTO `movie` VALUES ('1652323435978', '蜘蛛侠', 'http://localhost:8888/movie/cover/1652323435978', '1652189403822', '英语', '彼得 帕克（托比•马奎尔 Tobey Maguire 饰）只是美国一个平凡的高中生，当一次他被蜘蛛博物馆偷跑出来的变种蜘蛛咬了一口之后，彼得的生活彻底改变了。他变得和蜘蛛一样，拥有各种蜘蛛特有的超能力', '2008-05-21 16:00:00', 1500, 'Spider-Man', '周慧明.jpeg', 'image/jpeg', './upload/movie/cover/', '1653915123653.jpeg', 27637, 0.00);
-INSERT INTO `movie` VALUES ('1652323545139', '金刚狼', 'http://localhost:8888/movie/cover/1652323545139', '1652189371834', '英语', '　　1845年，尚年幼的维克多与詹姆斯兄弟俩在长辈之间一场突如其来争执中唤醒了自身的潜能，詹姆斯情急之下将陌生的生父杀死，自此兄弟两人流落战场', '2008-04-22 16:00:00', 1500, 'Wolverine', '希区柯克.jpg', 'image/jpeg', './upload/movie/cover/', '1653917619397.jpg', 20576, 0.00);
-INSERT INTO `movie` VALUES ('1653092993980', '致命ID', 'http://localhost:8888/movie/cover/1653092993980', '1652189378407', '英语', 'fefer', '2022-05-14 16:00:00', 1500, '恐吓', 'OIP-C.jpg', 'image/jpeg', './upload/movie/cover/', '1653114124086.jpg', 5780, 0.00);
-INSERT INTO `movie` VALUES ('1653093101630', 'rfrfr', NULL, '1652189395431', '爱尔兰语/爱沙尼亚语/阿塞拜疆语', 'w2w2', '2022-05-07 16:00:00', 1500, 'w2w2', NULL, NULL, NULL, NULL, NULL, 0.00);
-INSERT INTO `movie` VALUES ('1653093159957', 'rrrr', NULL, '1652189384380', '芬兰语/菲律宾语', 'r3r', '2022-05-07 16:00:00', 1500, 'rrr', NULL, NULL, NULL, NULL, NULL, 0.00);
-INSERT INTO `movie` VALUES ('1653093195764', 'r43r43', NULL, '1652189384380', '奥利亚语/爱沙尼亚语', 'r43r4', '2022-05-09 16:00:00', 1500, 'r34r34r', NULL, NULL, NULL, NULL, NULL, 0.00);
-INSERT INTO `movie` VALUES ('1653093614667', '34r43r4', 'http://localhost:8888/movie/cover/1653093614667', '1652189371834', '英语/韩语/日语', '4r34r34r', '2022-05-03 16:00:00', 1500, '3r443r', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1653917218831.webp', 28686, 0.00);
-INSERT INTO `movie` VALUES ('1653093675274', '34r34r', NULL, '1652189384380', '意大利语/西班牙语', '4r43r43r', '2022-05-01 16:00:00', 1500, 'r334r', NULL, NULL, NULL, NULL, NULL, 0.00);
-INSERT INTO `movie` VALUES ('1653228335073', 'w\'s\'w\'s', 'http://localhost:8888/movie/cover/1653228335073', '1652189371834', '中文/英语', '得得', '2022-05-10 16:00:00', 15000, '得得', 'f68d10b9925b1209bb3e0a4307028062.jpg', 'image/jpeg', './upload/movie/cover/', '1653228335209.jpg', 326404, 0.00);
-INSERT INTO `movie` VALUES ('1653489563065', '假如爱有天意', 'http://localhost:8888/movie/cover/1653489563065', '1652189363945', '韩语/泰语', '饰）留下的情书，在阅读中她重温着母亲的初恋回忆。1968年的珠喜，是一个清纯可爱的少女，与穷学生俊河（曹承佑饰）一见钟情，由于珠喜显赫的家世，令两人的恋爱陷入俗套的门不当户不对的痛苦纠结中。2003年', '2015-05-03 16:00:00', 15000, '佳佳', '周慧明.jpeg', 'image/jpeg', './upload/movie/cover/', '1653489563149.jpeg', 27637, 0.00);
-INSERT INTO `movie` VALUES ('1653918216406', '猪头', 'http://localhost:8888/movie/cover/1653918216406', '1652189384380', '德语/韩语', '45太5他太其他七条', '2022-05-17 16:00:00', 15000, '太沟通无果', 'OIP-C.jpg', 'image/jpeg', './upload/movie/cover/', '1653918216515.jpg', 5780, 0.00);
-INSERT INTO `movie` VALUES ('1653918255848', '太提高给', 'http://localhost:8888/movie/cover/1653918255848', '1652189371834', '德语/法语', '过他沟通无果', '2021-12-06 16:00:00', 15000, '太他他', '周慧明.jpeg', 'image/jpeg', './upload/movie/cover/', '1653918255921.jpeg', 27637, 0.00);
-INSERT INTO `movie` VALUES ('1653918306384', '而非热风热风', 'http://localhost:8888/movie/cover/1653918306384', '1652189384380', '英语/俄语', '废人高清版有 ', '2015-05-13 16:00:00', 15000, '风热风热', '希区柯克.jpg', 'image/jpeg', './upload/movie/cover/', '1653918306466.jpg', 20576, 0.00);
-INSERT INTO `movie` VALUES ('1653918353049', '给他人外国人沟通', 'http://localhost:8888/movie/cover/1653918353049', '1652189371834', '班巴拉语/白俄罗斯语/巴斯克语', '过歌', '2022-05-09 16:00:00', 15000, '过而且给', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1653918353128.webp', 28686, 0.00);
-INSERT INTO `movie` VALUES ('1653918415127', '罗三炮', 'http://localhost:8888/movie/cover/1653918415127', '1652189371834', '波斯尼亚语/波斯语', '局域居然', '2022-05-23 16:00:00', 1500, '看i看', 'OIP-C.jpg', 'image/jpeg', './upload/movie/cover/', '1653918415213.jpg', 5780, 0.00);
+INSERT INTO `movie` VALUES ('1652237815469', '大话西游记', 'http://localhost:8888/movie/cover/1652237815469', '1652189363945', '英语/德语/俄语', '45', '2022-10-17 16:00:00', 1500, '花花4566', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654255934209.webp', 28686, 6.67);
+INSERT INTO `movie` VALUES ('1652238044529', '复仇者联盟', 'http://localhost:8888/movie/cover/1652238044529', '1652189384380', '华语', '45222', '2022-11-12 00:00:00', 1500, '花花', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654255984879.webp', 28686, 0.00);
+INSERT INTO `movie` VALUES ('1652322636610', '美国队长2', 'http://localhost:8888/movie/cover/1652322636610', '1652189363945', '法语/俄语/韩语', '渐渐习惯了现代生活的美国队长史蒂夫·罗杰斯（克里斯·埃文斯 Chris Evans 饰），在一次行动后隐隐嗅到神盾局内部所弥漫出来的凶险气味。', '2022-04-19 16:00:00', 1500, 'Captain America: The Winter Soldier ', 'p1378204929.4.jpg', 'image/jpeg', './upload/movie/cover/', '1654256801718.jpg', 24950, 0.00);
+INSERT INTO `movie` VALUES ('1652322979306', 'X战警：逆转未来', 'http://localhost:8888/movie/cover/1652322979306', '1652189363945', '法语/德语/中文', '故事的设定发生在当下，变种人族群遭到了前所未有的毁灭性打击，而这一切的根源是“魔形女”瑞文（詹妮弗·劳伦斯 Jennifer Lawrence 饰）在1973年刺杀了玻利瓦尔·特拉斯克（彼特·丁拉基 ', '2022-05-16 16:00:00', 1500, 'X-Men: Days of Future Past', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654256808437.jpg', 73591, 3.00);
+INSERT INTO `movie` VALUES ('1652323065481', '明日边缘 ', 'http://localhost:8888/movie/cover/1652323065481', '1652189363945', '英语', '未来世界陷入外星人入侵的恐慌中，军事演说家凯奇少校（汤姆·克鲁斯 Tom Cruise 饰）畏惧上战场，他从没想过将军（布莱丹·格里森 Brendan Gleeson 饰）会让他去指挥即将开始的“诺曼', '2014-05-20 16:00:00', 1500, 'Edge of Tomorrow', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654256869465.jpg', 73591, 4.00);
+INSERT INTO `movie` VALUES ('1652323129328', '源代码 ', 'http://localhost:8888/movie/cover/1652323129328', '1652189363945', '英语', '在阿富汗执行任务的美国空军飞行员科特史蒂文斯上尉（杰克·吉伦哈尔 Jake Gyllenhaal 饰）突然惊醒，发现自己在一辆高速行驶的列车上，而他的身边坐着一个素不相识的女子克里斯蒂安（米歇尔·莫娜', '2022-05-11 16:00:00', 1500, 'Source Code', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654256815588.webp', 28686, 6.00);
+INSERT INTO `movie` VALUES ('1652323197911', '终结者2', 'http://localhost:8888/movie/cover/1652323197911', '1652189363945', '英语 / 西班牙语', '上一部中，超级电脑“天网”阻止人类抵抗领袖约翰·康纳诞生的行动失败，时隔13年后，在“审判日”到来之前，“天网”派出了更加先进的生化机器人T-1000（罗伯特·帕特里克 饰）从公元2029年回到洛杉矶', '2002-05-08 16:00:00', 1500, 'Terminator 2: Judgment Day', '3.webp', 'image/webp', './upload/movie/cover/', '1654257331361.webp', 23850, 6.00);
+INSERT INTO `movie` VALUES ('1652323265333', '阿凡达', 'http://localhost:8888/movie/cover/1652323265333', '1652189363945', '英语', '战斗中负伤而下身瘫痪的前海军战士杰克·萨利（萨姆·沃辛顿 Sam Worthington 饰）决定替死去的同胞哥哥来到潘多拉星操纵格蕾丝博士（西格妮·韦弗 Sigourney Weaver 饰）用人类', '2022-05-11 16:00:00', 1500, 'Avatar ', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654256876916.webp', 28686, 6.00);
+INSERT INTO `movie` VALUES ('1652323356167', '变形金刚 ', 'http://localhost:8888/movie/cover/1652323356167', '1652189371834', '英语 / 西班牙语', '　“霸天虎”的先遣部队旋风和毒蝎袭击了美军位于卡塔尔的军事基地，与此同时，路障帮助他的搭档迷乱潜入了美国总统的座机空中一号，通过电脑获悉，要想找到威震天就必须找到维特维奇家族的那副眼镜，上面有威震天关', '2012-05-23 16:00:00', 1500, 'Transformers', 'p2677018763.webp', 'image/webp', './upload/movie/cover/', '1654257314728.webp', 92266, 6.83);
+INSERT INTO `movie` VALUES ('1652323435978', '蜘蛛侠', 'http://localhost:8888/movie/cover/1652323435978', '1652189403822', '英语', '彼得 帕克（托比•马奎尔 Tobey Maguire 饰）只是美国一个平凡的高中生，当一次他被蜘蛛博物馆偷跑出来的变种蜘蛛咬了一口之后，彼得的生活彻底改变了。他变得和蜘蛛一样，拥有各种蜘蛛特有的超能力', '2008-05-21 16:00:00', 1500, 'Spider-Man', 'p1378204929.4.jpg', 'image/jpeg', './upload/movie/cover/', '1654256821840.jpg', 24950, 0.00);
+INSERT INTO `movie` VALUES ('1652323545139', '金刚狼', 'http://localhost:8888/movie/cover/1652323545139', '1652189371834', '英语', '　　1845年，尚年幼的维克多与詹姆斯兄弟俩在长辈之间一场突如其来争执中唤醒了自身的潜能，詹姆斯情急之下将陌生的生父杀死，自此兄弟两人流落战场', '2008-04-22 16:00:00', 1500, 'Wolverine', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654256829821.jpg', 73591, 0.00);
+INSERT INTO `movie` VALUES ('1653092993980', '致命ID', 'http://localhost:8888/movie/cover/1653092993980', '1652189363945', '英语', 'fefer', '2022-05-14 16:00:00', 1500, '恐吓', 'p1378204929.4.jpg', 'image/jpeg', './upload/movie/cover/', '1654256862898.jpg', 24950, 8.00);
+INSERT INTO `movie` VALUES ('1653093101630', 'rfrfr', 'http://localhost:8888/movie/cover/1653093101630', '1652189395431', '爱尔兰语/爱沙尼亚语/阿塞拜疆语', 'w2w2', '2022-05-07 16:00:00', 1500, 'w2w2', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654257362553.webp', 28686, 0.00);
+INSERT INTO `movie` VALUES ('1653093159957', 'rrrr', 'http://localhost:8888/movie/cover/1653093159957', '1652189384380', '芬兰语/菲律宾语', 'r3r', '2022-05-07 16:00:00', 1500, 'rrr', 'f15887af9.jpg', 'image/jpeg', './upload/movie/cover/', '1654256855777.jpg', 31515, 0.00);
+INSERT INTO `movie` VALUES ('1653093195764', 'r43r43', 'http://localhost:8888/movie/cover/1653093195764', '1652189384380', '奥利亚语/爱沙尼亚语', 'r43r4', '2022-05-09 16:00:00', 1500, 'r34r34r', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654257418871.webp', 28686, 0.00);
+INSERT INTO `movie` VALUES ('1653093614667', '34r43r4', 'http://localhost:8888/movie/cover/1653093614667', '1652189371834', '英语/韩语/日语', '4r34r34r', '2022-05-03 16:00:00', 1500, '3r443r', 'lisa.jpg', 'image/jpeg', './upload/movie/cover/', '1654257403888.jpg', 216978, 0.00);
+INSERT INTO `movie` VALUES ('1653093675274', '34r34r', 'http://localhost:8888/movie/cover/1653093675274', '1652189384380', '意大利语/西班牙语', '4r43r43r', '2022-05-01 16:00:00', 1500, 'r334r', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654257394860.jpg', 73591, 0.00);
+INSERT INTO `movie` VALUES ('1653228335073', 'w\'s\'w\'s', 'http://localhost:8888/movie/cover/1653228335073', '1652189371834', '中文/英语', '得得', '2022-05-10 16:00:00', 1500, '得得', 'p2677018763.webp', 'image/webp', './upload/movie/cover/', '1654257381192.webp', 92266, 0.00);
+INSERT INTO `movie` VALUES ('1653489563065', '假如爱有天意', 'http://localhost:8888/movie/cover/1653489563065', '1652189363945', '韩语/泰语', '饰）留下的情书，在阅读中她重温着母亲的初恋回忆。1968年的珠喜，是一个清纯可爱的少女，与穷学生俊河（曹承佑饰）一见钟情，由于珠喜显赫的家世，令两人的恋爱陷入俗套的门不当户不对的痛苦纠结中。2003年', '2015-05-03 16:00:00', 1500, '佳佳', 'lisa.jpg', 'image/jpeg', './upload/movie/cover/', '1654257352936.jpg', 216978, 0.00);
+INSERT INTO `movie` VALUES ('1653918216406', '猪头', 'http://localhost:8888/movie/cover/1653918216406', '1652189384380', '德语/韩语', '45太5他太其他七条', '2022-05-17 16:00:00', 1500, '太沟通无果', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654256846908.webp', 28686, 0.00);
+INSERT INTO `movie` VALUES ('1653918255848', '太提高给', 'http://localhost:8888/movie/cover/1653918255848', '1652189371834', '德语/法语', '过他沟通无果', '2022-06-06 16:00:00', 1500, '太他他', 'lisa.jpg', 'image/jpeg', './upload/movie/cover/', '1654256969486.jpg', 216978, 0.00);
+INSERT INTO `movie` VALUES ('1653918306384', '而非热风热风', 'http://localhost:8888/movie/cover/1653918306384', '1652189384380', '英语/俄语', '废人高清版有 ', '2015-05-13 16:00:00', 1500, '风热风热', '3.webp', 'image/webp', './upload/movie/cover/', '1654256979868.webp', 23850, 10.00);
+INSERT INTO `movie` VALUES ('1653918353049', '给他人外国人沟通', 'http://localhost:8888/movie/cover/1653918353049', '1652189371834', '班巴拉语/白俄罗斯语/巴斯克语', '过歌', '2022-05-09 16:00:00', 1500, '过而且给', '3.webp', 'image/webp', './upload/movie/cover/', '1654256993435.webp', 23850, 0.00);
+INSERT INTO `movie` VALUES ('1653918415127', '罗三炮', 'http://localhost:8888/movie/cover/1653918415127', '1652189371834', '波斯尼亚语/波斯语', '局域居然', '2022-05-23 16:00:00', 1500, '看i看', 'f15887af9.jpg', 'image/jpeg', './upload/movie/cover/', '1654256838288.jpg', 31515, 0.00);
+INSERT INTO `movie` VALUES ('1654346873456', '我i不是腰身', 'http://localhost:8888/movie/cover/1654346873456', '1652189363945', '中文/德语', 'vVS VS v', '2022-06-07 16:00:00', 15000, '我i不是腰身', 'lisa.jpg', 'image/jpeg', './upload/movie/cover/', '1654346873578.jpg', 216978, 4.00);
+INSERT INTO `movie` VALUES ('1654346950495', '发v发v', 'http://localhost:8888/movie/cover/1654346950495', '1652189363945', '中文/英语', '无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。', '2022-05-31 16:00:00', 15000, '李广难封', 'p2677018763.webp', 'image/webp', './upload/movie/cover/', '1654346950576.webp', 92266, 6.00);
+INSERT INTO `movie` VALUES ('1654347011424', '四美具', 'http://localhost:8888/movie/cover/1654347011424', '1652189363945', '中文/英语', '！时运不齐，命途多舛。冯唐易老，李广难封。屈贾谊于长沙，非无圣主；窜梁鸿于海曲，岂乏明时？', '2022-05-31 16:00:00', 15000, '四美具', '3.webp', 'image/webp', './upload/movie/cover/', '1654347011521.webp', 23850, 6.00);
+INSERT INTO `movie` VALUES ('1654347066042', '闲云潭影日', 'http://localhost:8888/movie/cover/1654347066042', '1652189363945', '中文/英语', '闲云潭影日', '2022-06-06 16:00:00', 15000, '闲云潭影日', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654347066123.webp', 28686, 8.00);
+INSERT INTO `movie` VALUES ('1654347114186', '赴任途中', 'http://localhost:8888/movie/cover/1654347114186', '1652189363945', '英语/中文', '赴任途中赴任途中赴任途中赴任途中', '2022-06-13 16:00:00', 15000, '赴任途中', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654347114267.jpg', 73591, 8.00);
+INSERT INTO `movie` VALUES ('1654347168760', '尽是他乡之客', 'http://localhost:8888/movie/cover/1654347168760', '1652189363945', '中文', '尽是他乡之客', '2022-06-05 16:00:00', 15000, '尽是他乡之客', 'f15887af9.jpg', 'image/jpeg', './upload/movie/cover/', '1654347168831.jpg', 31515, 6.00);
+INSERT INTO `movie` VALUES ('1654347220164', '序属三秋', 'http://localhost:8888/movie/cover/1654347220164', '1652189363945', '中文/英语/法语', '序属三秋序属三秋序属三秋序属三秋序属三秋', '2022-06-07 16:00:00', 15000, '序属三秋', 'lisa.jpg', 'image/jpeg', './upload/movie/cover/', '1654347220248.jpg', 216978, 4.00);
+INSERT INTO `movie` VALUES ('1654347283917', '落霞与孤鹜齐飞', 'http://localhost:8888/movie/cover/1654347283917', '1652189363945', '英语/中文', '落霞与孤鹜齐飞落霞与孤鹜齐飞落霞与孤鹜齐飞落霞与孤鹜齐飞', '2022-05-31 16:00:00', 15000, '落霞与孤鹜齐飞', 'p2677018763.webp', 'image/webp', './upload/movie/cover/', '1654347283998.webp', 92266, 6.00);
+INSERT INTO `movie` VALUES ('1654347779763', '潦水尽而寒潭清', 'http://localhost:8888/movie/cover/1654347779763', '1652189371834', '中文/英语', '潦水尽而寒潭清潦水尽而寒潭清潦水尽而寒潭清潦水尽而寒潭清', '2022-05-31 16:00:00', 15000, '潦水尽而寒潭清', 'p2677018763.webp', 'image/webp', './upload/movie/cover/', '1654347779839.webp', 92266, 6.00);
 
 -- ----------------------------
 -- Table structure for movie_actor
@@ -227,73 +275,96 @@ CREATE TABLE `movie_actor`  (
   `aId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  INDEX `mId`(`mId`) USING BTREE,
-  INDEX `aId`(`aId`) USING BTREE,
+  INDEX `mId`(`mId` ASC) USING BTREE,
+  INDEX `aId`(`aId` ASC) USING BTREE,
   CONSTRAINT `movie_actor_ibfk_1` FOREIGN KEY (`mId`) REFERENCES `movie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `movie_actor_ibfk_2` FOREIGN KEY (`aId`) REFERENCES `actor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of movie_actor
 -- ----------------------------
-INSERT INTO `movie_actor` VALUES ('1652238044529', '1652014592779', '2022-05-21 14:19:46', '2022-05-21 14:19:46');
-INSERT INTO `movie_actor` VALUES ('1652238044529', '1652494690386', '2022-05-21 14:19:46', '2022-05-21 14:19:46');
-INSERT INTO `movie_actor` VALUES ('1653092993980', '1652494690386', '2022-05-21 18:17:33', '2022-05-21 18:17:33');
-INSERT INTO `movie_actor` VALUES ('1653092993980', '1652494639677', '2022-05-21 18:17:33', '2022-05-21 18:17:33');
-INSERT INTO `movie_actor` VALUES ('1653228335073', '1652152775219', '2022-05-22 22:05:35', '2022-05-22 22:05:35');
-INSERT INTO `movie_actor` VALUES ('1653228335073', '1652152736343', '2022-05-22 22:05:35', '2022-05-22 22:05:35');
-INSERT INTO `movie_actor` VALUES ('1652322979306', '1652152809362', '2022-05-25 22:11:06', '2022-05-25 22:11:06');
-INSERT INTO `movie_actor` VALUES ('1652322979306', '1652152720292', '2022-05-25 22:11:06', '2022-05-25 22:11:06');
-INSERT INTO `movie_actor` VALUES ('1652322979306', '1652152736343', '2022-05-25 22:11:06', '2022-05-25 22:11:06');
-INSERT INTO `movie_actor` VALUES ('1652237815469', '1652152809362', '2022-05-25 22:27:38', '2022-05-25 22:27:38');
-INSERT INTO `movie_actor` VALUES ('1652237815469', '1652152736343', '2022-05-25 22:27:38', '2022-05-25 22:27:38');
-INSERT INTO `movie_actor` VALUES ('1652322636610', '1652152711455', '2022-05-25 22:28:03', '2022-05-25 22:28:03');
-INSERT INTO `movie_actor` VALUES ('1652322636610', '1652014592779', '2022-05-25 22:28:03', '2022-05-25 22:28:03');
-INSERT INTO `movie_actor` VALUES ('1652322636610', '1652152775219', '2022-05-25 22:28:03', '2022-05-25 22:28:03');
-INSERT INTO `movie_actor` VALUES ('1653093675274', '1652152758674', '2022-05-25 22:28:23', '2022-05-25 22:28:23');
-INSERT INTO `movie_actor` VALUES ('1653093675274', '1652152720292', '2022-05-25 22:28:23', '2022-05-25 22:28:23');
-INSERT INTO `movie_actor` VALUES ('1653093195764', '1652152809362', '2022-05-25 22:28:36', '2022-05-25 22:28:36');
-INSERT INTO `movie_actor` VALUES ('1653093101630', '1652152809362', '2022-05-25 22:28:48', '2022-05-25 22:28:48');
-INSERT INTO `movie_actor` VALUES ('1653093159957', '1652152711455', '2022-05-25 22:29:00', '2022-05-25 22:29:00');
-INSERT INTO `movie_actor` VALUES ('1653489563065', '1653099331792', '2022-05-25 22:39:23', '2022-05-25 22:39:23');
-INSERT INTO `movie_actor` VALUES ('1653489563065', '1652494690386', '2022-05-25 22:39:23', '2022-05-25 22:39:23');
-INSERT INTO `movie_actor` VALUES ('1653489563065', '1652491465151', '2022-05-25 22:39:23', '2022-05-25 22:39:23');
-INSERT INTO `movie_actor` VALUES ('1653489563065', '1652444349475', '2022-05-25 22:39:23', '2022-05-25 22:39:23');
-INSERT INTO `movie_actor` VALUES ('1652323065481', '1652152775219', '2022-05-30 20:47:52', '2022-05-30 20:47:52');
-INSERT INTO `movie_actor` VALUES ('1652323065481', '1652152736343', '2022-05-30 20:47:52', '2022-05-30 20:47:52');
-INSERT INTO `movie_actor` VALUES ('1652323065481', '1652152711455', '2022-05-30 20:47:52', '2022-05-30 20:47:52');
-INSERT INTO `movie_actor` VALUES ('1652323129328', '1652152775219', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_actor` VALUES ('1652323129328', '1652152736343', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_actor` VALUES ('1652323129328', '1652152720292', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_actor` VALUES ('1652323129328', '1652152711455', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_actor` VALUES ('1652323435978', '1652152711455', '2022-05-30 20:52:03', '2022-05-30 20:52:03');
-INSERT INTO `movie_actor` VALUES ('1652323435978', '1652152775219', '2022-05-30 20:52:03', '2022-05-30 20:52:03');
-INSERT INTO `movie_actor` VALUES ('1652323265333', '1652152809362', '2022-05-30 21:26:29', '2022-05-30 21:26:29');
-INSERT INTO `movie_actor` VALUES ('1652323265333', '1652152720292', '2022-05-30 21:26:29', '2022-05-30 21:26:29');
-INSERT INTO `movie_actor` VALUES ('1653093614667', '1652152775219', '2022-05-30 21:26:58', '2022-05-30 21:26:58');
-INSERT INTO `movie_actor` VALUES ('1652323356167', '1652152809362', '2022-05-30 21:33:19', '2022-05-30 21:33:19');
-INSERT INTO `movie_actor` VALUES ('1652323356167', '1652152736343', '2022-05-30 21:33:19', '2022-05-30 21:33:19');
-INSERT INTO `movie_actor` VALUES ('1653918216406', '1652152775219', '2022-05-30 21:43:36', '2022-05-30 21:43:36');
-INSERT INTO `movie_actor` VALUES ('1653918216406', '1652152736343', '2022-05-30 21:43:36', '2022-05-30 21:43:36');
-INSERT INTO `movie_actor` VALUES ('1653918255848', '1652152775219', '2022-05-30 21:44:15', '2022-05-30 21:44:15');
-INSERT INTO `movie_actor` VALUES ('1653918255848', '1652152736343', '2022-05-30 21:44:15', '2022-05-30 21:44:15');
-INSERT INTO `movie_actor` VALUES ('1653918255848', '1652152758674', '2022-05-30 21:44:15', '2022-05-30 21:44:15');
-INSERT INTO `movie_actor` VALUES ('1653918306384', '1652152809362', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_actor` VALUES ('1653918306384', '1652152775219', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_actor` VALUES ('1653918306384', '1652152736343', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_actor` VALUES ('1653918306384', '1652152711455', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_actor` VALUES ('1653918353049', '1653099398251', '2022-05-30 21:45:53', '2022-05-30 21:45:53');
-INSERT INTO `movie_actor` VALUES ('1653918353049', '1653099331792', '2022-05-30 21:45:53', '2022-05-30 21:45:53');
-INSERT INTO `movie_actor` VALUES ('1653918353049', '1652494690386', '2022-05-30 21:45:53', '2022-05-30 21:45:53');
-INSERT INTO `movie_actor` VALUES ('1653918415127', '1652152775219', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_actor` VALUES ('1653918415127', '1652152736343', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_actor` VALUES ('1653918415127', '1653789676790', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_actor` VALUES ('1652323197911', '1652152736343', '2022-05-30 21:48:15', '2022-05-30 21:48:15');
-INSERT INTO `movie_actor` VALUES ('1652323545139', '1652152775219', '2022-05-31 10:34:09', '2022-05-31 10:34:09');
-INSERT INTO `movie_actor` VALUES ('1652323545139', '1652152736343', '2022-05-31 10:34:09', '2022-05-31 10:34:09');
-INSERT INTO `movie_actor` VALUES ('1652323545139', '1652152711455', '2022-05-31 10:34:09', '2022-05-31 10:34:09');
-INSERT INTO `movie_actor` VALUES ('1652323545139', '1652014592779', '2022-05-31 10:34:09', '2022-05-31 10:34:09');
-INSERT INTO `movie_actor` VALUES ('1652323545139', '1652152720292', '2022-05-31 10:34:09', '2022-05-31 10:34:09');
+INSERT INTO `movie_actor` VALUES ('1652238044529', '1652014592779', '2022-06-03 19:33:04', '2022-06-03 19:33:04');
+INSERT INTO `movie_actor` VALUES ('1652238044529', '1652494690386', '2022-06-03 19:33:04', '2022-06-03 19:33:04');
+INSERT INTO `movie_actor` VALUES ('1652322979306', '1652152809362', '2022-06-03 19:46:48', '2022-06-03 19:46:48');
+INSERT INTO `movie_actor` VALUES ('1652322979306', '1652152720292', '2022-06-03 19:46:48', '2022-06-03 19:46:48');
+INSERT INTO `movie_actor` VALUES ('1652322979306', '1652152736343', '2022-06-03 19:46:48', '2022-06-03 19:46:48');
+INSERT INTO `movie_actor` VALUES ('1652323435978', '1652152711455', '2022-06-03 19:47:01', '2022-06-03 19:47:01');
+INSERT INTO `movie_actor` VALUES ('1652323435978', '1652152775219', '2022-06-03 19:47:01', '2022-06-03 19:47:01');
+INSERT INTO `movie_actor` VALUES ('1652323545139', '1652152775219', '2022-06-03 19:47:09', '2022-06-03 19:47:09');
+INSERT INTO `movie_actor` VALUES ('1652323545139', '1652152736343', '2022-06-03 19:47:09', '2022-06-03 19:47:09');
+INSERT INTO `movie_actor` VALUES ('1652323545139', '1652152711455', '2022-06-03 19:47:09', '2022-06-03 19:47:09');
+INSERT INTO `movie_actor` VALUES ('1652323545139', '1652014592779', '2022-06-03 19:47:09', '2022-06-03 19:47:09');
+INSERT INTO `movie_actor` VALUES ('1652323545139', '1652152720292', '2022-06-03 19:47:09', '2022-06-03 19:47:09');
+INSERT INTO `movie_actor` VALUES ('1653918216406', '1652152775219', '2022-06-03 19:47:26', '2022-06-03 19:47:26');
+INSERT INTO `movie_actor` VALUES ('1653918216406', '1652152736343', '2022-06-03 19:47:26', '2022-06-03 19:47:26');
+INSERT INTO `movie_actor` VALUES ('1653093159957', '1652152711455', '2022-06-03 19:47:35', '2022-06-03 19:47:35');
+INSERT INTO `movie_actor` VALUES ('1652323065481', '1652152775219', '2022-06-03 19:47:49', '2022-06-03 19:47:49');
+INSERT INTO `movie_actor` VALUES ('1652323065481', '1652152736343', '2022-06-03 19:47:49', '2022-06-03 19:47:49');
+INSERT INTO `movie_actor` VALUES ('1652323065481', '1652152711455', '2022-06-03 19:47:49', '2022-06-03 19:47:49');
+INSERT INTO `movie_actor` VALUES ('1652323356167', '1652152809362', '2022-06-03 19:55:14', '2022-06-03 19:55:14');
+INSERT INTO `movie_actor` VALUES ('1652323356167', '1652152736343', '2022-06-03 19:55:14', '2022-06-03 19:55:14');
+INSERT INTO `movie_actor` VALUES ('1652323197911', '1652152736343', '2022-06-03 19:55:31', '2022-06-03 19:55:31');
+INSERT INTO `movie_actor` VALUES ('1653489563065', '1653099331792', '2022-06-03 19:55:52', '2022-06-03 19:55:52');
+INSERT INTO `movie_actor` VALUES ('1653489563065', '1652494690386', '2022-06-03 19:55:52', '2022-06-03 19:55:52');
+INSERT INTO `movie_actor` VALUES ('1653489563065', '1652491465151', '2022-06-03 19:55:52', '2022-06-03 19:55:52');
+INSERT INTO `movie_actor` VALUES ('1653489563065', '1652444349475', '2022-06-03 19:55:52', '2022-06-03 19:55:52');
+INSERT INTO `movie_actor` VALUES ('1653093101630', '1652152809362', '2022-06-03 19:56:02', '2022-06-03 19:56:02');
+INSERT INTO `movie_actor` VALUES ('1653228335073', '1652152775219', '2022-06-03 19:56:21', '2022-06-03 19:56:21');
+INSERT INTO `movie_actor` VALUES ('1653228335073', '1652152736343', '2022-06-03 19:56:21', '2022-06-03 19:56:21');
+INSERT INTO `movie_actor` VALUES ('1653093675274', '1652152758674', '2022-06-03 19:56:34', '2022-06-03 19:56:34');
+INSERT INTO `movie_actor` VALUES ('1653093675274', '1652152720292', '2022-06-03 19:56:34', '2022-06-03 19:56:34');
+INSERT INTO `movie_actor` VALUES ('1653093614667', '1652152775219', '2022-06-03 19:56:43', '2022-06-03 19:56:43');
+INSERT INTO `movie_actor` VALUES ('1653093195764', '1652152809362', '2022-06-03 19:56:58', '2022-06-03 19:56:58');
+INSERT INTO `movie_actor` VALUES ('1652323129328', '1652152775219', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_actor` VALUES ('1652323129328', '1652152736343', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_actor` VALUES ('1652323129328', '1652152720292', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_actor` VALUES ('1652323129328', '1652152711455', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_actor` VALUES ('1652237815469', '1652152809362', '2022-06-03 21:27:30', '2022-06-03 21:27:30');
+INSERT INTO `movie_actor` VALUES ('1652237815469', '1652152736343', '2022-06-03 21:27:30', '2022-06-03 21:27:30');
+INSERT INTO `movie_actor` VALUES ('1652322636610', '1652152711455', '2022-06-03 21:27:53', '2022-06-03 21:27:53');
+INSERT INTO `movie_actor` VALUES ('1652322636610', '1652014592779', '2022-06-03 21:27:53', '2022-06-03 21:27:53');
+INSERT INTO `movie_actor` VALUES ('1652322636610', '1652152775219', '2022-06-03 21:27:53', '2022-06-03 21:27:53');
+INSERT INTO `movie_actor` VALUES ('1653918415127', '1652152775219', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_actor` VALUES ('1653918415127', '1652152736343', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_actor` VALUES ('1653918415127', '1653789676790', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_actor` VALUES ('1653918353049', '1653099398251', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_actor` VALUES ('1653918353049', '1653099331792', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_actor` VALUES ('1653918353049', '1652494690386', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_actor` VALUES ('1653918306384', '1652152809362', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_actor` VALUES ('1653918306384', '1652152775219', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_actor` VALUES ('1653918306384', '1652152736343', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_actor` VALUES ('1653918306384', '1652152711455', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_actor` VALUES ('1653918255848', '1652152775219', '2022-06-04 20:19:59', '2022-06-04 20:19:59');
+INSERT INTO `movie_actor` VALUES ('1653918255848', '1652152736343', '2022-06-04 20:19:59', '2022-06-04 20:19:59');
+INSERT INTO `movie_actor` VALUES ('1653918255848', '1652152758674', '2022-06-04 20:19:59', '2022-06-04 20:19:59');
+INSERT INTO `movie_actor` VALUES ('1652323265333', '1652152809362', '2022-06-04 20:41:19', '2022-06-04 20:41:19');
+INSERT INTO `movie_actor` VALUES ('1652323265333', '1652152720292', '2022-06-04 20:41:19', '2022-06-04 20:41:19');
+INSERT INTO `movie_actor` VALUES ('1653092993980', '1652494690386', '2022-06-04 20:41:51', '2022-06-04 20:41:51');
+INSERT INTO `movie_actor` VALUES ('1653092993980', '1652494639677', '2022-06-04 20:41:51', '2022-06-04 20:41:51');
+INSERT INTO `movie_actor` VALUES ('1654346873456', '1652152809362', '2022-06-04 20:47:53', '2022-06-04 20:47:53');
+INSERT INTO `movie_actor` VALUES ('1654346873456', '1652152775219', '2022-06-04 20:47:53', '2022-06-04 20:47:53');
+INSERT INTO `movie_actor` VALUES ('1654346873456', '1652152758674', '2022-06-04 20:47:53', '2022-06-04 20:47:53');
+INSERT INTO `movie_actor` VALUES ('1654346950495', '1652152809362', '2022-06-04 20:49:10', '2022-06-04 20:49:10');
+INSERT INTO `movie_actor` VALUES ('1654346950495', '1652152758674', '2022-06-04 20:49:10', '2022-06-04 20:49:10');
+INSERT INTO `movie_actor` VALUES ('1654347011424', '1652152711455', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_actor` VALUES ('1654347011424', '1652152736343', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_actor` VALUES ('1654347011424', '1652152775219', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_actor` VALUES ('1654347066042', '1652152736343', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_actor` VALUES ('1654347066042', '1652152711455', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_actor` VALUES ('1654347114186', '1652152809362', '2022-06-04 20:51:54', '2022-06-04 20:51:54');
+INSERT INTO `movie_actor` VALUES ('1654347114186', '1652152758674', '2022-06-04 20:51:54', '2022-06-04 20:51:54');
+INSERT INTO `movie_actor` VALUES ('1654347114186', '1652152736343', '2022-06-04 20:51:54', '2022-06-04 20:51:54');
+INSERT INTO `movie_actor` VALUES ('1654347168760', '1652014592779', '2022-06-04 20:52:48', '2022-06-04 20:52:48');
+INSERT INTO `movie_actor` VALUES ('1654347168760', '1652152758674', '2022-06-04 20:52:48', '2022-06-04 20:52:48');
+INSERT INTO `movie_actor` VALUES ('1654347220164', '1652014592779', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_actor` VALUES ('1654347220164', '1653099398251', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_actor` VALUES ('1654347220164', '1653789676790', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_actor` VALUES ('1654347283917', '1652491465151', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
+INSERT INTO `movie_actor` VALUES ('1654347283917', '1652494639677', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
+INSERT INTO `movie_actor` VALUES ('1654347779763', '1652014592779', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
+INSERT INTO `movie_actor` VALUES ('1654347779763', '1652152720292', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
+INSERT INTO `movie_actor` VALUES ('1654347779763', '1652152758674', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
 
 -- ----------------------------
 -- Table structure for movie_area
@@ -305,7 +376,7 @@ CREATE TABLE `movie_area`  (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of movie_area
@@ -333,57 +404,77 @@ CREATE TABLE `movie_area_relate`  (
   `aId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  INDEX `mId`(`mId`) USING BTREE,
-  INDEX `aId`(`aId`) USING BTREE,
+  INDEX `mId`(`mId` ASC) USING BTREE,
+  INDEX `aId`(`aId` ASC) USING BTREE,
   CONSTRAINT `movie_area_relate_ibfk_1` FOREIGN KEY (`mId`) REFERENCES `movie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `movie_area_relate_ibfk_2` FOREIGN KEY (`aId`) REFERENCES `movie_area` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of movie_area_relate
 -- ----------------------------
-INSERT INTO `movie_area_relate` VALUES ('1652238044529', '1652189733153', '2022-05-21 14:19:46', '2022-05-21 14:19:46');
-INSERT INTO `movie_area_relate` VALUES ('1652238044529', '1652189745734', '2022-05-21 14:19:46', '2022-05-21 14:19:46');
-INSERT INTO `movie_area_relate` VALUES ('1652238044529', '1652189767862', '2022-05-21 14:19:46', '2022-05-21 14:19:46');
-INSERT INTO `movie_area_relate` VALUES ('1653092993980', '1652189733153', '2022-05-21 18:17:33', '2022-05-21 18:17:33');
-INSERT INTO `movie_area_relate` VALUES ('1653092993980', '1652189738937', '2022-05-21 18:17:33', '2022-05-21 18:17:33');
-INSERT INTO `movie_area_relate` VALUES ('1653228335073', '1652189738937', '2022-05-22 22:05:35', '2022-05-22 22:05:35');
-INSERT INTO `movie_area_relate` VALUES ('1653228335073', '1652189726243', '2022-05-22 22:05:35', '2022-05-22 22:05:35');
-INSERT INTO `movie_area_relate` VALUES ('1652322979306', '1652189738937', '2022-05-25 22:11:06', '2022-05-25 22:11:06');
-INSERT INTO `movie_area_relate` VALUES ('1652322979306', '1652189774756', '2022-05-25 22:11:06', '2022-05-25 22:11:06');
-INSERT INTO `movie_area_relate` VALUES ('1652237815469', '1652189767862', '2022-05-25 22:27:38', '2022-05-25 22:27:38');
-INSERT INTO `movie_area_relate` VALUES ('1652322636610', '1652189738937', '2022-05-25 22:28:03', '2022-05-25 22:28:03');
-INSERT INTO `movie_area_relate` VALUES ('1653093675274', '1652189781103', '2022-05-25 22:28:23', '2022-05-25 22:28:23');
-INSERT INTO `movie_area_relate` VALUES ('1653093675274', '1652189767862', '2022-05-25 22:28:23', '2022-05-25 22:28:23');
-INSERT INTO `movie_area_relate` VALUES ('1653093195764', '1652189774756', '2022-05-25 22:28:36', '2022-05-25 22:28:36');
-INSERT INTO `movie_area_relate` VALUES ('1653093101630', '1652189774756', '2022-05-25 22:28:48', '2022-05-25 22:28:48');
-INSERT INTO `movie_area_relate` VALUES ('1653093159957', '1652189774756', '2022-05-25 22:29:00', '2022-05-25 22:29:00');
-INSERT INTO `movie_area_relate` VALUES ('1653093159957', '1652189767862', '2022-05-25 22:29:00', '2022-05-25 22:29:00');
-INSERT INTO `movie_area_relate` VALUES ('1653489563065', '1652189767862', '2022-05-25 22:39:23', '2022-05-25 22:39:23');
-INSERT INTO `movie_area_relate` VALUES ('1652323065481', '1652189738937', '2022-05-30 20:47:52', '2022-05-30 20:47:52');
-INSERT INTO `movie_area_relate` VALUES ('1652323065481', '1652189789100', '2022-05-30 20:47:52', '2022-05-30 20:47:52');
-INSERT INTO `movie_area_relate` VALUES ('1652323129328', '1652189733153', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_area_relate` VALUES ('1652323129328', '1652189738937', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_area_relate` VALUES ('1652323129328', '1652189745734', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_area_relate` VALUES ('1652323129328', '1652189762304', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_area_relate` VALUES ('1652323435978', '1652189781103', '2022-05-30 20:52:03', '2022-05-30 20:52:03');
-INSERT INTO `movie_area_relate` VALUES ('1652323435978', '1652189815366', '2022-05-30 20:52:03', '2022-05-30 20:52:03');
-INSERT INTO `movie_area_relate` VALUES ('1652323265333', '1652189767862', '2022-05-30 21:26:29', '2022-05-30 21:26:29');
-INSERT INTO `movie_area_relate` VALUES ('1652323265333', '1652189774756', '2022-05-30 21:26:29', '2022-05-30 21:26:29');
-INSERT INTO `movie_area_relate` VALUES ('1653093614667', '1652189774756', '2022-05-30 21:26:58', '2022-05-30 21:26:58');
-INSERT INTO `movie_area_relate` VALUES ('1652323356167', '1652189815366', '2022-05-30 21:33:19', '2022-05-30 21:33:19');
-INSERT INTO `movie_area_relate` VALUES ('1653918216406', '1652189726243', '2022-05-30 21:43:36', '2022-05-30 21:43:36');
-INSERT INTO `movie_area_relate` VALUES ('1653918255848', '1652189733153', '2022-05-30 21:44:15', '2022-05-30 21:44:15');
-INSERT INTO `movie_area_relate` VALUES ('1653918306384', '1652189738937', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_area_relate` VALUES ('1653918306384', '1652189762304', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_area_relate` VALUES ('1653918353049', '1652189745734', '2022-05-30 21:45:53', '2022-05-30 21:45:53');
-INSERT INTO `movie_area_relate` VALUES ('1653918353049', '1652189738937', '2022-05-30 21:45:53', '2022-05-30 21:45:53');
-INSERT INTO `movie_area_relate` VALUES ('1653918415127', '1652189745734', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_area_relate` VALUES ('1653918415127', '1652189767862', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_area_relate` VALUES ('1653918415127', '1652189774756', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_area_relate` VALUES ('1652323197911', '1652189733153', '2022-05-30 21:48:15', '2022-05-30 21:48:15');
-INSERT INTO `movie_area_relate` VALUES ('1652323545139', '1652189733153', '2022-05-31 10:34:09', '2022-05-31 10:34:09');
-INSERT INTO `movie_area_relate` VALUES ('1652323545139', '1652189738937', '2022-05-31 10:34:09', '2022-05-31 10:34:09');
+INSERT INTO `movie_area_relate` VALUES ('1652238044529', '1652189733153', '2022-06-03 19:33:04', '2022-06-03 19:33:04');
+INSERT INTO `movie_area_relate` VALUES ('1652238044529', '1652189745734', '2022-06-03 19:33:04', '2022-06-03 19:33:04');
+INSERT INTO `movie_area_relate` VALUES ('1652238044529', '1652189767862', '2022-06-03 19:33:04', '2022-06-03 19:33:04');
+INSERT INTO `movie_area_relate` VALUES ('1652322979306', '1652189738937', '2022-06-03 19:46:48', '2022-06-03 19:46:48');
+INSERT INTO `movie_area_relate` VALUES ('1652322979306', '1652189774756', '2022-06-03 19:46:48', '2022-06-03 19:46:48');
+INSERT INTO `movie_area_relate` VALUES ('1652323435978', '1652189781103', '2022-06-03 19:47:01', '2022-06-03 19:47:01');
+INSERT INTO `movie_area_relate` VALUES ('1652323435978', '1652189815366', '2022-06-03 19:47:01', '2022-06-03 19:47:01');
+INSERT INTO `movie_area_relate` VALUES ('1652323545139', '1652189733153', '2022-06-03 19:47:09', '2022-06-03 19:47:09');
+INSERT INTO `movie_area_relate` VALUES ('1652323545139', '1652189738937', '2022-06-03 19:47:09', '2022-06-03 19:47:09');
+INSERT INTO `movie_area_relate` VALUES ('1653918216406', '1652189726243', '2022-06-03 19:47:26', '2022-06-03 19:47:26');
+INSERT INTO `movie_area_relate` VALUES ('1653093159957', '1652189774756', '2022-06-03 19:47:35', '2022-06-03 19:47:35');
+INSERT INTO `movie_area_relate` VALUES ('1653093159957', '1652189767862', '2022-06-03 19:47:35', '2022-06-03 19:47:35');
+INSERT INTO `movie_area_relate` VALUES ('1652323065481', '1652189738937', '2022-06-03 19:47:49', '2022-06-03 19:47:49');
+INSERT INTO `movie_area_relate` VALUES ('1652323065481', '1652189789100', '2022-06-03 19:47:49', '2022-06-03 19:47:49');
+INSERT INTO `movie_area_relate` VALUES ('1652323356167', '1652189815366', '2022-06-03 19:55:14', '2022-06-03 19:55:14');
+INSERT INTO `movie_area_relate` VALUES ('1652323197911', '1652189733153', '2022-06-03 19:55:31', '2022-06-03 19:55:31');
+INSERT INTO `movie_area_relate` VALUES ('1653489563065', '1652189767862', '2022-06-03 19:55:52', '2022-06-03 19:55:52');
+INSERT INTO `movie_area_relate` VALUES ('1653093101630', '1652189774756', '2022-06-03 19:56:02', '2022-06-03 19:56:02');
+INSERT INTO `movie_area_relate` VALUES ('1653228335073', '1652189738937', '2022-06-03 19:56:21', '2022-06-03 19:56:21');
+INSERT INTO `movie_area_relate` VALUES ('1653228335073', '1652189726243', '2022-06-03 19:56:21', '2022-06-03 19:56:21');
+INSERT INTO `movie_area_relate` VALUES ('1653093675274', '1652189781103', '2022-06-03 19:56:34', '2022-06-03 19:56:34');
+INSERT INTO `movie_area_relate` VALUES ('1653093675274', '1652189767862', '2022-06-03 19:56:34', '2022-06-03 19:56:34');
+INSERT INTO `movie_area_relate` VALUES ('1653093614667', '1652189774756', '2022-06-03 19:56:43', '2022-06-03 19:56:43');
+INSERT INTO `movie_area_relate` VALUES ('1653093195764', '1652189774756', '2022-06-03 19:56:58', '2022-06-03 19:56:58');
+INSERT INTO `movie_area_relate` VALUES ('1652323129328', '1652189733153', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_area_relate` VALUES ('1652323129328', '1652189738937', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_area_relate` VALUES ('1652323129328', '1652189745734', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_area_relate` VALUES ('1652323129328', '1652189762304', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_area_relate` VALUES ('1652237815469', '1652189738937', '2022-06-03 21:27:30', '2022-06-03 21:27:30');
+INSERT INTO `movie_area_relate` VALUES ('1652322636610', '1652189738937', '2022-06-03 21:27:53', '2022-06-03 21:27:53');
+INSERT INTO `movie_area_relate` VALUES ('1653918415127', '1652189767862', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_area_relate` VALUES ('1653918415127', '1652189774756', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_area_relate` VALUES ('1653918415127', '1652189733153', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_area_relate` VALUES ('1653918415127', '1652189726243', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_area_relate` VALUES ('1653918353049', '1652189745734', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_area_relate` VALUES ('1653918353049', '1652189738937', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_area_relate` VALUES ('1653918353049', '1652189726243', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_area_relate` VALUES ('1653918306384', '1652189738937', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_area_relate` VALUES ('1653918306384', '1652189762304', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_area_relate` VALUES ('1653918306384', '1652189726243', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_area_relate` VALUES ('1653918255848', '1652189733153', '2022-06-04 20:19:59', '2022-06-04 20:19:59');
+INSERT INTO `movie_area_relate` VALUES ('1653918255848', '1652189726243', '2022-06-04 20:19:59', '2022-06-04 20:19:59');
+INSERT INTO `movie_area_relate` VALUES ('1652323265333', '1652189767862', '2022-06-04 20:41:19', '2022-06-04 20:41:19');
+INSERT INTO `movie_area_relate` VALUES ('1652323265333', '1652189774756', '2022-06-04 20:41:19', '2022-06-04 20:41:19');
+INSERT INTO `movie_area_relate` VALUES ('1652323265333', '1652189738937', '2022-06-04 20:41:19', '2022-06-04 20:41:19');
+INSERT INTO `movie_area_relate` VALUES ('1653092993980', '1652189733153', '2022-06-04 20:41:51', '2022-06-04 20:41:51');
+INSERT INTO `movie_area_relate` VALUES ('1653092993980', '1652189738937', '2022-06-04 20:41:51', '2022-06-04 20:41:51');
+INSERT INTO `movie_area_relate` VALUES ('1654346873456', '1652189726243', '2022-06-04 20:47:53', '2022-06-04 20:47:53');
+INSERT INTO `movie_area_relate` VALUES ('1654346950495', '1652189726243', '2022-06-04 20:49:10', '2022-06-04 20:49:10');
+INSERT INTO `movie_area_relate` VALUES ('1654347011424', '1652189726243', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_area_relate` VALUES ('1654347011424', '1652189733153', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_area_relate` VALUES ('1654347011424', '1652189745734', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_area_relate` VALUES ('1654347066042', '1652189726243', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_area_relate` VALUES ('1654347066042', '1652189733153', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_area_relate` VALUES ('1654347114186', '1652189726243', '2022-06-04 20:51:54', '2022-06-04 20:51:54');
+INSERT INTO `movie_area_relate` VALUES ('1654347114186', '1652189733153', '2022-06-04 20:51:54', '2022-06-04 20:51:54');
+INSERT INTO `movie_area_relate` VALUES ('1654347168760', '1652189726243', '2022-06-04 20:52:48', '2022-06-04 20:52:48');
+INSERT INTO `movie_area_relate` VALUES ('1654347220164', '1652189726243', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_area_relate` VALUES ('1654347220164', '1652189762304', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_area_relate` VALUES ('1654347283917', '1652189726243', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
+INSERT INTO `movie_area_relate` VALUES ('1654347283917', '1652189774756', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
+INSERT INTO `movie_area_relate` VALUES ('1654347779763', '1652189726243', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
 
 -- ----------------------------
 -- Table structure for movie_cate
@@ -395,7 +486,7 @@ CREATE TABLE `movie_cate`  (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of movie_cate
@@ -429,65 +520,85 @@ CREATE TABLE `movie_cate_relate`  (
   `cId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  INDEX `mId`(`mId`) USING BTREE,
-  INDEX `cId`(`cId`) USING BTREE,
+  INDEX `mId`(`mId` ASC) USING BTREE,
+  INDEX `cId`(`cId` ASC) USING BTREE,
   CONSTRAINT `movie_cate_relate_ibfk_1` FOREIGN KEY (`mId`) REFERENCES `movie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `movie_cate_relate_ibfk_2` FOREIGN KEY (`cId`) REFERENCES `movie_cate` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of movie_cate_relate
 -- ----------------------------
-INSERT INTO `movie_cate_relate` VALUES ('1652238044529', '1652190067124', '2022-05-21 14:19:46', '2022-05-21 14:19:46');
-INSERT INTO `movie_cate_relate` VALUES ('1652238044529', '1652190106859', '2022-05-21 14:19:46', '2022-05-21 14:19:46');
-INSERT INTO `movie_cate_relate` VALUES ('1653092993980', '1652190087259', '2022-05-21 18:17:33', '2022-05-21 18:17:33');
-INSERT INTO `movie_cate_relate` VALUES ('1653092993980', '1652190079476', '2022-05-21 18:17:33', '2022-05-21 18:17:33');
-INSERT INTO `movie_cate_relate` VALUES ('1653228335073', '1652190067124', '2022-05-22 22:05:35', '2022-05-22 22:05:35');
-INSERT INTO `movie_cate_relate` VALUES ('1653228335073', '1652190048721', '2022-05-22 22:05:35', '2022-05-22 22:05:35');
-INSERT INTO `movie_cate_relate` VALUES ('1652322979306', '1652190148322', '2022-05-25 22:11:06', '2022-05-25 22:11:06');
-INSERT INTO `movie_cate_relate` VALUES ('1652322979306', '1652190067124', '2022-05-25 22:11:06', '2022-05-25 22:11:06');
-INSERT INTO `movie_cate_relate` VALUES ('1652322979306', '1652190054769', '2022-05-25 22:11:06', '2022-05-25 22:11:06');
-INSERT INTO `movie_cate_relate` VALUES ('1652237815469', '1652190067124', '2022-05-25 22:27:38', '2022-05-25 22:27:38');
-INSERT INTO `movie_cate_relate` VALUES ('1652322636610', '1652190054769', '2022-05-25 22:28:03', '2022-05-25 22:28:03');
-INSERT INTO `movie_cate_relate` VALUES ('1652322636610', '1652190067124', '2022-05-25 22:28:03', '2022-05-25 22:28:03');
-INSERT INTO `movie_cate_relate` VALUES ('1653093675274', '1652190072644', '2022-05-25 22:28:23', '2022-05-25 22:28:23');
-INSERT INTO `movie_cate_relate` VALUES ('1653093675274', '1652190054769', '2022-05-25 22:28:23', '2022-05-25 22:28:23');
-INSERT INTO `movie_cate_relate` VALUES ('1653093195764', '1652190072644', '2022-05-25 22:28:36', '2022-05-25 22:28:36');
-INSERT INTO `movie_cate_relate` VALUES ('1653093101630', '1652190060642', '2022-05-25 22:28:48', '2022-05-25 22:28:48');
-INSERT INTO `movie_cate_relate` VALUES ('1653093159957', '1652190067124', '2022-05-25 22:29:00', '2022-05-25 22:29:00');
-INSERT INTO `movie_cate_relate` VALUES ('1653489563065', '1652190060642', '2022-05-25 22:39:23', '2022-05-25 22:39:23');
-INSERT INTO `movie_cate_relate` VALUES ('1653489563065', '1652190028186', '2022-05-25 22:39:23', '2022-05-25 22:39:23');
-INSERT INTO `movie_cate_relate` VALUES ('1652323065481', '1652190067124', '2022-05-30 20:47:52', '2022-05-30 20:47:52');
-INSERT INTO `movie_cate_relate` VALUES ('1652323065481', '1652190054769', '2022-05-30 20:47:52', '2022-05-30 20:47:52');
-INSERT INTO `movie_cate_relate` VALUES ('1652323129328', '1652190079476', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_cate_relate` VALUES ('1652323129328', '1652190087259', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_cate_relate` VALUES ('1652323435978', '1652190135212', '2022-05-30 20:52:03', '2022-05-30 20:52:03');
-INSERT INTO `movie_cate_relate` VALUES ('1652323435978', '1652190141232', '2022-05-30 20:52:03', '2022-05-30 20:52:03');
-INSERT INTO `movie_cate_relate` VALUES ('1652323435978', '1652190164468', '2022-05-30 20:52:03', '2022-05-30 20:52:03');
-INSERT INTO `movie_cate_relate` VALUES ('1652323265333', '1652190087259', '2022-05-30 21:26:29', '2022-05-30 21:26:29');
-INSERT INTO `movie_cate_relate` VALUES ('1652323265333', '1652190072644', '2022-05-30 21:26:29', '2022-05-30 21:26:29');
-INSERT INTO `movie_cate_relate` VALUES ('1652323265333', '1652190067124', '2022-05-30 21:26:29', '2022-05-30 21:26:29');
-INSERT INTO `movie_cate_relate` VALUES ('1653093614667', '1652190072644', '2022-05-30 21:26:58', '2022-05-30 21:26:58');
-INSERT INTO `movie_cate_relate` VALUES ('1652323356167', '1652190141232', '2022-05-30 21:33:19', '2022-05-30 21:33:19');
-INSERT INTO `movie_cate_relate` VALUES ('1652323356167', '1652190135212', '2022-05-30 21:33:19', '2022-05-30 21:33:19');
-INSERT INTO `movie_cate_relate` VALUES ('1652323356167', '1652190130069', '2022-05-30 21:33:19', '2022-05-30 21:33:19');
-INSERT INTO `movie_cate_relate` VALUES ('1653918216406', '1652190079476', '2022-05-30 21:43:36', '2022-05-30 21:43:36');
-INSERT INTO `movie_cate_relate` VALUES ('1653918216406', '1652190060642', '2022-05-30 21:43:36', '2022-05-30 21:43:36');
-INSERT INTO `movie_cate_relate` VALUES ('1653918255848', '1652190158982', '2022-05-30 21:44:15', '2022-05-30 21:44:15');
-INSERT INTO `movie_cate_relate` VALUES ('1653918306384', '1652190067124', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_cate_relate` VALUES ('1653918306384', '1652190054769', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_cate_relate` VALUES ('1653918306384', '1652190048721', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_cate_relate` VALUES ('1653918306384', '1652190028186', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_cate_relate` VALUES ('1653918353049', '1652190072644', '2022-05-30 21:45:53', '2022-05-30 21:45:53');
-INSERT INTO `movie_cate_relate` VALUES ('1653918353049', '1652190067124', '2022-05-30 21:45:53', '2022-05-30 21:45:53');
-INSERT INTO `movie_cate_relate` VALUES ('1653918415127', '1652190054769', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_cate_relate` VALUES ('1653918415127', '1652190067124', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_cate_relate` VALUES ('1653918415127', '1652190087259', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_cate_relate` VALUES ('1652323197911', '1652190079476', '2022-05-30 21:48:15', '2022-05-30 21:48:15');
-INSERT INTO `movie_cate_relate` VALUES ('1652323197911', '1652190067124', '2022-05-30 21:48:15', '2022-05-30 21:48:15');
-INSERT INTO `movie_cate_relate` VALUES ('1652323197911', '1652190054769', '2022-05-30 21:48:15', '2022-05-30 21:48:15');
-INSERT INTO `movie_cate_relate` VALUES ('1652323197911', '1652190093028', '2022-05-30 21:48:15', '2022-05-30 21:48:15');
-INSERT INTO `movie_cate_relate` VALUES ('1652323545139', '1652190087259', '2022-05-31 10:34:09', '2022-05-31 10:34:09');
+INSERT INTO `movie_cate_relate` VALUES ('1652238044529', '1652190067124', '2022-06-03 19:33:04', '2022-06-03 19:33:04');
+INSERT INTO `movie_cate_relate` VALUES ('1652238044529', '1652190106859', '2022-06-03 19:33:04', '2022-06-03 19:33:04');
+INSERT INTO `movie_cate_relate` VALUES ('1652322979306', '1652190148322', '2022-06-03 19:46:48', '2022-06-03 19:46:48');
+INSERT INTO `movie_cate_relate` VALUES ('1652322979306', '1652190067124', '2022-06-03 19:46:48', '2022-06-03 19:46:48');
+INSERT INTO `movie_cate_relate` VALUES ('1652322979306', '1652190054769', '2022-06-03 19:46:48', '2022-06-03 19:46:48');
+INSERT INTO `movie_cate_relate` VALUES ('1652323435978', '1652190135212', '2022-06-03 19:47:01', '2022-06-03 19:47:01');
+INSERT INTO `movie_cate_relate` VALUES ('1652323435978', '1652190141232', '2022-06-03 19:47:01', '2022-06-03 19:47:01');
+INSERT INTO `movie_cate_relate` VALUES ('1652323435978', '1652190164468', '2022-06-03 19:47:01', '2022-06-03 19:47:01');
+INSERT INTO `movie_cate_relate` VALUES ('1652323545139', '1652190087259', '2022-06-03 19:47:09', '2022-06-03 19:47:09');
+INSERT INTO `movie_cate_relate` VALUES ('1653918216406', '1652190079476', '2022-06-03 19:47:26', '2022-06-03 19:47:26');
+INSERT INTO `movie_cate_relate` VALUES ('1653918216406', '1652190060642', '2022-06-03 19:47:26', '2022-06-03 19:47:26');
+INSERT INTO `movie_cate_relate` VALUES ('1653093159957', '1652190067124', '2022-06-03 19:47:35', '2022-06-03 19:47:35');
+INSERT INTO `movie_cate_relate` VALUES ('1652323065481', '1652190067124', '2022-06-03 19:47:49', '2022-06-03 19:47:49');
+INSERT INTO `movie_cate_relate` VALUES ('1652323065481', '1652190054769', '2022-06-03 19:47:49', '2022-06-03 19:47:49');
+INSERT INTO `movie_cate_relate` VALUES ('1652323356167', '1652190141232', '2022-06-03 19:55:14', '2022-06-03 19:55:14');
+INSERT INTO `movie_cate_relate` VALUES ('1652323356167', '1652190135212', '2022-06-03 19:55:14', '2022-06-03 19:55:14');
+INSERT INTO `movie_cate_relate` VALUES ('1652323356167', '1652190130069', '2022-06-03 19:55:14', '2022-06-03 19:55:14');
+INSERT INTO `movie_cate_relate` VALUES ('1652323197911', '1652190079476', '2022-06-03 19:55:31', '2022-06-03 19:55:31');
+INSERT INTO `movie_cate_relate` VALUES ('1652323197911', '1652190067124', '2022-06-03 19:55:31', '2022-06-03 19:55:31');
+INSERT INTO `movie_cate_relate` VALUES ('1652323197911', '1652190054769', '2022-06-03 19:55:31', '2022-06-03 19:55:31');
+INSERT INTO `movie_cate_relate` VALUES ('1652323197911', '1652190093028', '2022-06-03 19:55:31', '2022-06-03 19:55:31');
+INSERT INTO `movie_cate_relate` VALUES ('1653489563065', '1652190060642', '2022-06-03 19:55:52', '2022-06-03 19:55:52');
+INSERT INTO `movie_cate_relate` VALUES ('1653489563065', '1652190028186', '2022-06-03 19:55:52', '2022-06-03 19:55:52');
+INSERT INTO `movie_cate_relate` VALUES ('1653093101630', '1652190060642', '2022-06-03 19:56:02', '2022-06-03 19:56:02');
+INSERT INTO `movie_cate_relate` VALUES ('1653228335073', '1652190067124', '2022-06-03 19:56:21', '2022-06-03 19:56:21');
+INSERT INTO `movie_cate_relate` VALUES ('1653228335073', '1652190048721', '2022-06-03 19:56:21', '2022-06-03 19:56:21');
+INSERT INTO `movie_cate_relate` VALUES ('1653093675274', '1652190072644', '2022-06-03 19:56:34', '2022-06-03 19:56:34');
+INSERT INTO `movie_cate_relate` VALUES ('1653093675274', '1652190054769', '2022-06-03 19:56:34', '2022-06-03 19:56:34');
+INSERT INTO `movie_cate_relate` VALUES ('1653093614667', '1652190072644', '2022-06-03 19:56:43', '2022-06-03 19:56:43');
+INSERT INTO `movie_cate_relate` VALUES ('1653093195764', '1652190072644', '2022-06-03 19:56:58', '2022-06-03 19:56:58');
+INSERT INTO `movie_cate_relate` VALUES ('1652323129328', '1652190079476', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_cate_relate` VALUES ('1652323129328', '1652190087259', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_cate_relate` VALUES ('1652237815469', '1652190067124', '2022-06-03 21:27:30', '2022-06-03 21:27:30');
+INSERT INTO `movie_cate_relate` VALUES ('1652322636610', '1652190054769', '2022-06-03 21:27:53', '2022-06-03 21:27:53');
+INSERT INTO `movie_cate_relate` VALUES ('1652322636610', '1652190067124', '2022-06-03 21:27:53', '2022-06-03 21:27:53');
+INSERT INTO `movie_cate_relate` VALUES ('1653918415127', '1652190054769', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_cate_relate` VALUES ('1653918415127', '1652190067124', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_cate_relate` VALUES ('1653918415127', '1652190087259', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_cate_relate` VALUES ('1653918353049', '1652190072644', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_cate_relate` VALUES ('1653918353049', '1652190067124', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_cate_relate` VALUES ('1653918306384', '1652190067124', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_cate_relate` VALUES ('1653918306384', '1652190054769', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_cate_relate` VALUES ('1653918306384', '1652190048721', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_cate_relate` VALUES ('1653918306384', '1652190028186', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_cate_relate` VALUES ('1653918255848', '1652190158982', '2022-06-04 20:19:59', '2022-06-04 20:19:59');
+INSERT INTO `movie_cate_relate` VALUES ('1652323265333', '1652190087259', '2022-06-04 20:41:20', '2022-06-04 20:41:20');
+INSERT INTO `movie_cate_relate` VALUES ('1652323265333', '1652190072644', '2022-06-04 20:41:20', '2022-06-04 20:41:20');
+INSERT INTO `movie_cate_relate` VALUES ('1652323265333', '1652190067124', '2022-06-04 20:41:20', '2022-06-04 20:41:20');
+INSERT INTO `movie_cate_relate` VALUES ('1653092993980', '1652190087259', '2022-06-04 20:41:51', '2022-06-04 20:41:51');
+INSERT INTO `movie_cate_relate` VALUES ('1653092993980', '1652190079476', '2022-06-04 20:41:51', '2022-06-04 20:41:51');
+INSERT INTO `movie_cate_relate` VALUES ('1654346873456', '1652190054769', '2022-06-04 20:47:53', '2022-06-04 20:47:53');
+INSERT INTO `movie_cate_relate` VALUES ('1654346873456', '1652190028186', '2022-06-04 20:47:53', '2022-06-04 20:47:53');
+INSERT INTO `movie_cate_relate` VALUES ('1654346950495', '1652190060642', '2022-06-04 20:49:10', '2022-06-04 20:49:10');
+INSERT INTO `movie_cate_relate` VALUES ('1654346950495', '1652190067124', '2022-06-04 20:49:10', '2022-06-04 20:49:10');
+INSERT INTO `movie_cate_relate` VALUES ('1654347011424', '1652190087259', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_cate_relate` VALUES ('1654347011424', '1652190079476', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_cate_relate` VALUES ('1654347066042', '1652190079476', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_cate_relate` VALUES ('1654347066042', '1652190054769', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_cate_relate` VALUES ('1654347114186', '1652190048721', '2022-06-04 20:51:54', '2022-06-04 20:51:54');
+INSERT INTO `movie_cate_relate` VALUES ('1654347114186', '1652190072644', '2022-06-04 20:51:54', '2022-06-04 20:51:54');
+INSERT INTO `movie_cate_relate` VALUES ('1654347168760', '1652190048721', '2022-06-04 20:52:48', '2022-06-04 20:52:48');
+INSERT INTO `movie_cate_relate` VALUES ('1654347168760', '1652190060642', '2022-06-04 20:52:48', '2022-06-04 20:52:48');
+INSERT INTO `movie_cate_relate` VALUES ('1654347220164', '1652190072644', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_cate_relate` VALUES ('1654347220164', '1652190060642', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_cate_relate` VALUES ('1654347220164', '1652190106859', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_cate_relate` VALUES ('1654347220164', '1652190113629', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_cate_relate` VALUES ('1654347283917', '1652190079476', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
+INSERT INTO `movie_cate_relate` VALUES ('1654347283917', '1652190060642', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
+INSERT INTO `movie_cate_relate` VALUES ('1654347779763', '1652190072644', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
+INSERT INTO `movie_cate_relate` VALUES ('1654347779763', '1652190054769', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
 
 -- ----------------------------
 -- Table structure for movie_director
@@ -498,72 +609,95 @@ CREATE TABLE `movie_director`  (
   `dId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  INDEX `mId`(`mId`) USING BTREE,
-  INDEX `dId`(`dId`) USING BTREE,
+  INDEX `mId`(`mId` ASC) USING BTREE,
+  INDEX `dId`(`dId` ASC) USING BTREE,
   CONSTRAINT `movie_director_ibfk_1` FOREIGN KEY (`mId`) REFERENCES `movie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `movie_director_ibfk_2` FOREIGN KEY (`dId`) REFERENCES `director` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of movie_director
 -- ----------------------------
-INSERT INTO `movie_director` VALUES ('1652238044529', '1652109786913', '2022-05-21 14:19:46', '2022-05-21 14:19:46');
-INSERT INTO `movie_director` VALUES ('1652238044529', '1652105949804', '2022-05-21 14:19:46', '2022-05-21 14:19:46');
-INSERT INTO `movie_director` VALUES ('1653092993980', '1652368056784', '2022-05-21 18:17:33', '2022-05-21 18:17:33');
-INSERT INTO `movie_director` VALUES ('1653092993980', '1652105949804', '2022-05-21 18:17:33', '2022-05-21 18:17:33');
-INSERT INTO `movie_director` VALUES ('1653228335073', '1652109629705', '2022-05-22 22:05:35', '2022-05-22 22:05:35');
-INSERT INTO `movie_director` VALUES ('1653228335073', '1652105949804', '2022-05-22 22:05:35', '2022-05-22 22:05:35');
-INSERT INTO `movie_director` VALUES ('1653228335073', '1652109714661', '2022-05-22 22:05:35', '2022-05-22 22:05:35');
-INSERT INTO `movie_director` VALUES ('1652322979306', '1652109714661', '2022-05-25 22:11:06', '2022-05-25 22:11:06');
-INSERT INTO `movie_director` VALUES ('1652322979306', '1652147682816', '2022-05-25 22:11:06', '2022-05-25 22:11:06');
-INSERT INTO `movie_director` VALUES ('1652322979306', '1652105949804', '2022-05-25 22:11:06', '2022-05-25 22:11:06');
-INSERT INTO `movie_director` VALUES ('1652237815469', '1652105949804', '2022-05-25 22:27:38', '2022-05-25 22:27:38');
-INSERT INTO `movie_director` VALUES ('1652322636610', '1652097604414', '2022-05-25 22:28:03', '2022-05-25 22:28:03');
-INSERT INTO `movie_director` VALUES ('1652322636610', '1652105949804', '2022-05-25 22:28:03', '2022-05-25 22:28:03');
-INSERT INTO `movie_director` VALUES ('1653093675274', '1652109714661', '2022-05-25 22:28:23', '2022-05-25 22:28:23');
-INSERT INTO `movie_director` VALUES ('1653093675274', '1652105870601', '2022-05-25 22:28:23', '2022-05-25 22:28:23');
-INSERT INTO `movie_director` VALUES ('1653093675274', '1652105949804', '2022-05-25 22:28:23', '2022-05-25 22:28:23');
-INSERT INTO `movie_director` VALUES ('1653093195764', '1652109786913', '2022-05-25 22:28:36', '2022-05-25 22:28:36');
-INSERT INTO `movie_director` VALUES ('1653093195764', '1652368056784', '2022-05-25 22:28:36', '2022-05-25 22:28:36');
-INSERT INTO `movie_director` VALUES ('1653093101630', '1652105949804', '2022-05-25 22:28:48', '2022-05-25 22:28:48');
-INSERT INTO `movie_director` VALUES ('1653093159957', '1652105949804', '2022-05-25 22:29:00', '2022-05-25 22:29:00');
-INSERT INTO `movie_director` VALUES ('1653489563065', '1652148133473', '2022-05-25 22:39:23', '2022-05-25 22:39:23');
-INSERT INTO `movie_director` VALUES ('1653489563065', '1652109629705', '2022-05-25 22:39:23', '2022-05-25 22:39:23');
-INSERT INTO `movie_director` VALUES ('1652323065481', '1652148383742', '2022-05-30 20:47:52', '2022-05-30 20:47:52');
-INSERT INTO `movie_director` VALUES ('1652323065481', '1652148133473', '2022-05-30 20:47:52', '2022-05-30 20:47:52');
-INSERT INTO `movie_director` VALUES ('1652323065481', '1652147804701', '2022-05-30 20:47:52', '2022-05-30 20:47:52');
-INSERT INTO `movie_director` VALUES ('1652323065481', '1652105949804', '2022-05-30 20:47:52', '2022-05-30 20:47:52');
-INSERT INTO `movie_director` VALUES ('1652323129328', '1652109714661', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_director` VALUES ('1652323129328', '1652105870601', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_director` VALUES ('1652323129328', '1652097707616', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_director` VALUES ('1652323435978', '1652148133473', '2022-05-30 20:52:03', '2022-05-30 20:52:03');
-INSERT INTO `movie_director` VALUES ('1652323435978', '1652109629705', '2022-05-30 20:52:03', '2022-05-30 20:52:03');
-INSERT INTO `movie_director` VALUES ('1652323265333', '1652109714661', '2022-05-30 21:26:29', '2022-05-30 21:26:29');
-INSERT INTO `movie_director` VALUES ('1652323265333', '1652105949804', '2022-05-30 21:26:29', '2022-05-30 21:26:29');
-INSERT INTO `movie_director` VALUES ('1652323265333', '1652097604414', '2022-05-30 21:26:29', '2022-05-30 21:26:29');
-INSERT INTO `movie_director` VALUES ('1653093614667', '1652109714661', '2022-05-30 21:26:58', '2022-05-30 21:26:58');
-INSERT INTO `movie_director` VALUES ('1653093614667', '1652097604414', '2022-05-30 21:26:58', '2022-05-30 21:26:58');
-INSERT INTO `movie_director` VALUES ('1652323356167', '1652147682816', '2022-05-30 21:33:19', '2022-05-30 21:33:19');
-INSERT INTO `movie_director` VALUES ('1652323356167', '1652109714661', '2022-05-30 21:33:19', '2022-05-30 21:33:19');
-INSERT INTO `movie_director` VALUES ('1652323356167', '1652105949804', '2022-05-30 21:33:19', '2022-05-30 21:33:19');
-INSERT INTO `movie_director` VALUES ('1653918216406', '1652109629705', '2022-05-30 21:43:36', '2022-05-30 21:43:36');
-INSERT INTO `movie_director` VALUES ('1653918216406', '1652097707616', '2022-05-30 21:43:36', '2022-05-30 21:43:36');
-INSERT INTO `movie_director` VALUES ('1653918255848', '1652109714661', '2022-05-30 21:44:15', '2022-05-30 21:44:15');
-INSERT INTO `movie_director` VALUES ('1653918255848', '1652105870601', '2022-05-30 21:44:15', '2022-05-30 21:44:15');
-INSERT INTO `movie_director` VALUES ('1653918306384', '1652109786913', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_director` VALUES ('1653918306384', '1652105949804', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_director` VALUES ('1653918306384', '1652105870601', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_director` VALUES ('1653918306384', '1652097707616', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_director` VALUES ('1653918353049', '1652148383742', '2022-05-30 21:45:53', '2022-05-30 21:45:53');
-INSERT INTO `movie_director` VALUES ('1653918353049', '1652147804701', '2022-05-30 21:45:53', '2022-05-30 21:45:53');
-INSERT INTO `movie_director` VALUES ('1653918415127', '1652109629705', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_director` VALUES ('1653918415127', '1652105949804', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_director` VALUES ('1653918415127', '1652097707616', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_director` VALUES ('1652323197911', '1652148383742', '2022-05-30 21:48:15', '2022-05-30 21:48:15');
-INSERT INTO `movie_director` VALUES ('1652323197911', '1652148516616', '2022-05-30 21:48:15', '2022-05-30 21:48:15');
-INSERT INTO `movie_director` VALUES ('1652323197911', '1652097604414', '2022-05-30 21:48:15', '2022-05-30 21:48:15');
-INSERT INTO `movie_director` VALUES ('1652323545139', '1652109786913', '2022-05-31 10:34:09', '2022-05-31 10:34:09');
-INSERT INTO `movie_director` VALUES ('1652323545139', '1652105949804', '2022-05-31 10:34:09', '2022-05-31 10:34:09');
+INSERT INTO `movie_director` VALUES ('1652238044529', '1652109786913', '2022-06-03 19:33:04', '2022-06-03 19:33:04');
+INSERT INTO `movie_director` VALUES ('1652238044529', '1652105949804', '2022-06-03 19:33:04', '2022-06-03 19:33:04');
+INSERT INTO `movie_director` VALUES ('1652322979306', '1652109714661', '2022-06-03 19:46:48', '2022-06-03 19:46:48');
+INSERT INTO `movie_director` VALUES ('1652322979306', '1652147682816', '2022-06-03 19:46:48', '2022-06-03 19:46:48');
+INSERT INTO `movie_director` VALUES ('1652322979306', '1652105949804', '2022-06-03 19:46:48', '2022-06-03 19:46:48');
+INSERT INTO `movie_director` VALUES ('1652323435978', '1652148133473', '2022-06-03 19:47:01', '2022-06-03 19:47:01');
+INSERT INTO `movie_director` VALUES ('1652323435978', '1652109629705', '2022-06-03 19:47:01', '2022-06-03 19:47:01');
+INSERT INTO `movie_director` VALUES ('1652323545139', '1652109786913', '2022-06-03 19:47:09', '2022-06-03 19:47:09');
+INSERT INTO `movie_director` VALUES ('1652323545139', '1652105949804', '2022-06-03 19:47:09', '2022-06-03 19:47:09');
+INSERT INTO `movie_director` VALUES ('1653918216406', '1652109629705', '2022-06-03 19:47:26', '2022-06-03 19:47:26');
+INSERT INTO `movie_director` VALUES ('1653918216406', '1652097707616', '2022-06-03 19:47:26', '2022-06-03 19:47:26');
+INSERT INTO `movie_director` VALUES ('1653093159957', '1652105949804', '2022-06-03 19:47:35', '2022-06-03 19:47:35');
+INSERT INTO `movie_director` VALUES ('1652323065481', '1652148383742', '2022-06-03 19:47:49', '2022-06-03 19:47:49');
+INSERT INTO `movie_director` VALUES ('1652323065481', '1652148133473', '2022-06-03 19:47:49', '2022-06-03 19:47:49');
+INSERT INTO `movie_director` VALUES ('1652323065481', '1652147804701', '2022-06-03 19:47:49', '2022-06-03 19:47:49');
+INSERT INTO `movie_director` VALUES ('1652323065481', '1652105949804', '2022-06-03 19:47:49', '2022-06-03 19:47:49');
+INSERT INTO `movie_director` VALUES ('1652323356167', '1652147682816', '2022-06-03 19:55:14', '2022-06-03 19:55:14');
+INSERT INTO `movie_director` VALUES ('1652323356167', '1652109714661', '2022-06-03 19:55:14', '2022-06-03 19:55:14');
+INSERT INTO `movie_director` VALUES ('1652323356167', '1652105949804', '2022-06-03 19:55:14', '2022-06-03 19:55:14');
+INSERT INTO `movie_director` VALUES ('1652323197911', '1652148383742', '2022-06-03 19:55:31', '2022-06-03 19:55:31');
+INSERT INTO `movie_director` VALUES ('1652323197911', '1652148516616', '2022-06-03 19:55:31', '2022-06-03 19:55:31');
+INSERT INTO `movie_director` VALUES ('1652323197911', '1652097604414', '2022-06-03 19:55:31', '2022-06-03 19:55:31');
+INSERT INTO `movie_director` VALUES ('1653489563065', '1652148133473', '2022-06-03 19:55:52', '2022-06-03 19:55:52');
+INSERT INTO `movie_director` VALUES ('1653489563065', '1652109629705', '2022-06-03 19:55:52', '2022-06-03 19:55:52');
+INSERT INTO `movie_director` VALUES ('1653093101630', '1652105949804', '2022-06-03 19:56:02', '2022-06-03 19:56:02');
+INSERT INTO `movie_director` VALUES ('1653228335073', '1652109629705', '2022-06-03 19:56:21', '2022-06-03 19:56:21');
+INSERT INTO `movie_director` VALUES ('1653228335073', '1652105949804', '2022-06-03 19:56:21', '2022-06-03 19:56:21');
+INSERT INTO `movie_director` VALUES ('1653228335073', '1652109714661', '2022-06-03 19:56:21', '2022-06-03 19:56:21');
+INSERT INTO `movie_director` VALUES ('1653093675274', '1652109714661', '2022-06-03 19:56:34', '2022-06-03 19:56:34');
+INSERT INTO `movie_director` VALUES ('1653093675274', '1652105870601', '2022-06-03 19:56:34', '2022-06-03 19:56:34');
+INSERT INTO `movie_director` VALUES ('1653093675274', '1652105949804', '2022-06-03 19:56:34', '2022-06-03 19:56:34');
+INSERT INTO `movie_director` VALUES ('1653093614667', '1652109714661', '2022-06-03 19:56:43', '2022-06-03 19:56:43');
+INSERT INTO `movie_director` VALUES ('1653093614667', '1652097604414', '2022-06-03 19:56:43', '2022-06-03 19:56:43');
+INSERT INTO `movie_director` VALUES ('1653093195764', '1652109786913', '2022-06-03 19:56:58', '2022-06-03 19:56:58');
+INSERT INTO `movie_director` VALUES ('1653093195764', '1652368056784', '2022-06-03 19:56:58', '2022-06-03 19:56:58');
+INSERT INTO `movie_director` VALUES ('1652323129328', '1652109714661', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_director` VALUES ('1652323129328', '1652105870601', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_director` VALUES ('1652323129328', '1652097707616', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_director` VALUES ('1652237815469', '1652105949804', '2022-06-03 21:27:30', '2022-06-03 21:27:30');
+INSERT INTO `movie_director` VALUES ('1652322636610', '1652097604414', '2022-06-03 21:27:53', '2022-06-03 21:27:53');
+INSERT INTO `movie_director` VALUES ('1652322636610', '1652105949804', '2022-06-03 21:27:53', '2022-06-03 21:27:53');
+INSERT INTO `movie_director` VALUES ('1653918415127', '1652109629705', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_director` VALUES ('1653918415127', '1652105949804', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_director` VALUES ('1653918415127', '1652097707616', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_director` VALUES ('1653918353049', '1652148383742', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_director` VALUES ('1653918353049', '1652147804701', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_director` VALUES ('1653918306384', '1652109786913', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_director` VALUES ('1653918306384', '1652105949804', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_director` VALUES ('1653918306384', '1652105870601', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_director` VALUES ('1653918306384', '1652097707616', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_director` VALUES ('1653918255848', '1652109714661', '2022-06-04 20:19:59', '2022-06-04 20:19:59');
+INSERT INTO `movie_director` VALUES ('1653918255848', '1652105870601', '2022-06-04 20:19:59', '2022-06-04 20:19:59');
+INSERT INTO `movie_director` VALUES ('1652323265333', '1652109714661', '2022-06-04 20:41:19', '2022-06-04 20:41:19');
+INSERT INTO `movie_director` VALUES ('1652323265333', '1652105949804', '2022-06-04 20:41:19', '2022-06-04 20:41:19');
+INSERT INTO `movie_director` VALUES ('1652323265333', '1652097604414', '2022-06-04 20:41:19', '2022-06-04 20:41:19');
+INSERT INTO `movie_director` VALUES ('1653092993980', '1652368056784', '2022-06-04 20:41:51', '2022-06-04 20:41:51');
+INSERT INTO `movie_director` VALUES ('1653092993980', '1652105949804', '2022-06-04 20:41:51', '2022-06-04 20:41:51');
+INSERT INTO `movie_director` VALUES ('1654346873456', '1652097707616', '2022-06-04 20:47:53', '2022-06-04 20:47:53');
+INSERT INTO `movie_director` VALUES ('1654346873456', '1652105949804', '2022-06-04 20:47:53', '2022-06-04 20:47:53');
+INSERT INTO `movie_director` VALUES ('1654346950495', '1652109786913', '2022-06-04 20:49:10', '2022-06-04 20:49:10');
+INSERT INTO `movie_director` VALUES ('1654346950495', '1652105870601', '2022-06-04 20:49:10', '2022-06-04 20:49:10');
+INSERT INTO `movie_director` VALUES ('1654346950495', '1652097707616', '2022-06-04 20:49:10', '2022-06-04 20:49:10');
+INSERT INTO `movie_director` VALUES ('1654347011424', '1652105870601', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_director` VALUES ('1654347011424', '1652109629705', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_director` VALUES ('1654347011424', '1652109714661', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_director` VALUES ('1654347066042', '1652097604414', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_director` VALUES ('1654347066042', '1652148516616', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_director` VALUES ('1654347066042', '1652148383742', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_director` VALUES ('1654347066042', '1652368225016', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_director` VALUES ('1654347114186', '1652105949804', '2022-06-04 20:51:54', '2022-06-04 20:51:54');
+INSERT INTO `movie_director` VALUES ('1654347114186', '1652109714661', '2022-06-04 20:51:54', '2022-06-04 20:51:54');
+INSERT INTO `movie_director` VALUES ('1654347168760', '1652097604414', '2022-06-04 20:52:48', '2022-06-04 20:52:48');
+INSERT INTO `movie_director` VALUES ('1654347168760', '1652097707616', '2022-06-04 20:52:48', '2022-06-04 20:52:48');
+INSERT INTO `movie_director` VALUES ('1654347220164', '1652097707616', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_director` VALUES ('1654347220164', '1652148516616', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_director` VALUES ('1654347220164', '1652368056784', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_director` VALUES ('1654347283917', '1652148516616', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
+INSERT INTO `movie_director` VALUES ('1654347283917', '1652148383742', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
+INSERT INTO `movie_director` VALUES ('1654347779763', '1652105870601', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
+INSERT INTO `movie_director` VALUES ('1654347779763', '1652105949804', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
 
 -- ----------------------------
 -- Table structure for movie_form
@@ -575,7 +709,7 @@ CREATE TABLE `movie_form`  (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of movie_form
@@ -596,46 +730,67 @@ CREATE TABLE `movie_screenwriter_relate`  (
   `sId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  INDEX `mId`(`mId`) USING BTREE,
-  INDEX `sId`(`sId`) USING BTREE,
+  INDEX `mId`(`mId` ASC) USING BTREE,
+  INDEX `sId`(`sId` ASC) USING BTREE,
   CONSTRAINT `movie_screenwriter_relate_ibfk_1` FOREIGN KEY (`mId`) REFERENCES `movie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `movie_screenwriter_relate_ibfk_2` FOREIGN KEY (`sId`) REFERENCES `screenwriter` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of movie_screenwriter_relate
 -- ----------------------------
-INSERT INTO `movie_screenwriter_relate` VALUES ('1652238044529', '1652195889420', '2022-05-21 14:19:46', '2022-05-21 14:19:46');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653092993980', '1652195889420', '2022-05-21 18:17:33', '2022-05-21 18:17:33');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653228335073', '1652195889420', '2022-05-22 22:05:35', '2022-05-22 22:05:35');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1652322979306', '1652195889420', '2022-05-25 22:11:06', '2022-05-25 22:11:06');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1652237815469', '1652195889420', '2022-05-25 22:27:38', '2022-05-25 22:27:38');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1652322636610', '1652195889420', '2022-05-25 22:28:03', '2022-05-25 22:28:03');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653093675274', '1652195889420', '2022-05-25 22:28:23', '2022-05-25 22:28:23');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653093195764', '1652195889420', '2022-05-25 22:28:36', '2022-05-25 22:28:36');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653093101630', '1652195889420', '2022-05-25 22:28:48', '2022-05-25 22:28:48');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653093159957', '1652195889420', '2022-05-25 22:29:00', '2022-05-25 22:29:00');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653489563065', '1652195889420', '2022-05-25 22:39:23', '2022-05-25 22:39:23');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1652323065481', '1652195889420', '2022-05-30 20:47:52', '2022-05-30 20:47:52');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1652323129328', '1652195889420', '2022-05-30 20:51:43', '2022-05-30 20:51:43');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1652323435978', '1652195889420', '2022-05-30 20:52:03', '2022-05-30 20:52:03');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1652323265333', '1652195889420', '2022-05-30 21:26:29', '2022-05-30 21:26:29');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653093614667', '1652195889420', '2022-05-30 21:26:58', '2022-05-30 21:26:58');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1652323356167', '1652195889420', '2022-05-30 21:33:19', '2022-05-30 21:33:19');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653918216406', '1653806571714', '2022-05-30 21:43:36', '2022-05-30 21:43:36');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653918216406', '1653808946753', '2022-05-30 21:43:36', '2022-05-30 21:43:36');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653918255848', '1653808925155', '2022-05-30 21:44:15', '2022-05-30 21:44:15');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653918255848', '1653806523028', '2022-05-30 21:44:15', '2022-05-30 21:44:15');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653918306384', '1653808925155', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653918306384', '1653806434280', '2022-05-30 21:45:06', '2022-05-30 21:45:06');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653918353049', '1653813429748', '2022-05-30 21:45:53', '2022-05-30 21:45:53');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653918353049', '1653808958369', '2022-05-30 21:45:53', '2022-05-30 21:45:53');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653918353049', '1653808946753', '2022-05-30 21:45:53', '2022-05-30 21:45:53');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653918415127', '1653806523028', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653918415127', '1653806571714', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1653918415127', '1653806434280', '2022-05-30 21:47:32', '2022-05-30 21:47:32');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1652323197911', '1652195889420', '2022-05-30 21:48:15', '2022-05-30 21:48:15');
-INSERT INTO `movie_screenwriter_relate` VALUES ('1652323545139', '1652195889420', '2022-05-31 10:34:09', '2022-05-31 10:34:09');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652238044529', '1652195889420', '2022-06-03 19:33:04', '2022-06-03 19:33:04');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652322979306', '1652195889420', '2022-06-03 19:46:48', '2022-06-03 19:46:48');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652323435978', '1652195889420', '2022-06-03 19:47:01', '2022-06-03 19:47:01');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652323545139', '1652195889420', '2022-06-03 19:47:09', '2022-06-03 19:47:09');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653918216406', '1653806571714', '2022-06-03 19:47:26', '2022-06-03 19:47:26');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653918216406', '1653808946753', '2022-06-03 19:47:26', '2022-06-03 19:47:26');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653093159957', '1652195889420', '2022-06-03 19:47:35', '2022-06-03 19:47:35');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652323065481', '1652195889420', '2022-06-03 19:47:49', '2022-06-03 19:47:49');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652323356167', '1652195889420', '2022-06-03 19:55:14', '2022-06-03 19:55:14');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652323197911', '1652195889420', '2022-06-03 19:55:31', '2022-06-03 19:55:31');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653489563065', '1652195889420', '2022-06-03 19:55:52', '2022-06-03 19:55:52');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653093101630', '1652195889420', '2022-06-03 19:56:02', '2022-06-03 19:56:02');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653228335073', '1652195889420', '2022-06-03 19:56:21', '2022-06-03 19:56:21');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653093675274', '1652195889420', '2022-06-03 19:56:34', '2022-06-03 19:56:34');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653093614667', '1652195889420', '2022-06-03 19:56:43', '2022-06-03 19:56:43');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653093195764', '1652195889420', '2022-06-03 19:56:58', '2022-06-03 19:56:58');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652323129328', '1652195889420', '2022-06-03 21:25:43', '2022-06-03 21:25:43');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652237815469', '1652195889420', '2022-06-03 21:27:30', '2022-06-03 21:27:30');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652322636610', '1652195889420', '2022-06-03 21:27:53', '2022-06-03 21:27:53');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653918415127', '1653806523028', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653918415127', '1653806571714', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653918415127', '1653806434280', '2022-06-04 20:19:14', '2022-06-04 20:19:14');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653918353049', '1653813429748', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653918353049', '1653808958369', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653918353049', '1653808946753', '2022-06-04 20:19:26', '2022-06-04 20:19:26');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653918306384', '1653808925155', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653918306384', '1653806434280', '2022-06-04 20:19:33', '2022-06-04 20:19:33');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653918255848', '1653808925155', '2022-06-04 20:19:59', '2022-06-04 20:19:59');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653918255848', '1653806523028', '2022-06-04 20:19:59', '2022-06-04 20:19:59');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1652323265333', '1652195889420', '2022-06-04 20:41:19', '2022-06-04 20:41:19');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1653092993980', '1652195889420', '2022-06-04 20:41:51', '2022-06-04 20:41:51');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654346873456', '1652195889420', '2022-06-04 20:47:53', '2022-06-04 20:47:53');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654346873456', '1653806434280', '2022-06-04 20:47:53', '2022-06-04 20:47:53');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654346950495', '1652195889420', '2022-06-04 20:49:10', '2022-06-04 20:49:10');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654346950495', '1653806523028', '2022-06-04 20:49:10', '2022-06-04 20:49:10');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654346950495', '1653806571714', '2022-06-04 20:49:10', '2022-06-04 20:49:10');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347011424', '1652195889420', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347011424', '1653806434280', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347011424', '1653806523028', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347011424', '1653806571714', '2022-06-04 20:50:11', '2022-06-04 20:50:11');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347066042', '1653806434280', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347066042', '1653806523028', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347066042', '1653806571714', '2022-06-04 20:51:06', '2022-06-04 20:51:06');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347114186', '1652195889420', '2022-06-04 20:51:54', '2022-06-04 20:51:54');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347114186', '1653808958369', '2022-06-04 20:51:54', '2022-06-04 20:51:54');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347168760', '1653808958369', '2022-06-04 20:52:48', '2022-06-04 20:52:48');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347168760', '1653808946753', '2022-06-04 20:52:48', '2022-06-04 20:52:48');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347220164', '1653813215148', '2022-06-04 20:53:40', '2022-06-04 20:53:40');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347283917', '1653808958369', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347283917', '1653808925155', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347779763', '1653806571714', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654347779763', '1653806523028', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
 
 -- ----------------------------
 -- Table structure for movie_tag
@@ -647,7 +802,7 @@ CREATE TABLE `movie_tag`  (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of movie_tag
@@ -670,11 +825,11 @@ CREATE TABLE `movie_tag_relate`  (
   `tId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  INDEX `mId`(`mId`) USING BTREE,
-  INDEX `tId`(`tId`) USING BTREE,
+  INDEX `mId`(`mId` ASC) USING BTREE,
+  INDEX `tId`(`tId` ASC) USING BTREE,
   CONSTRAINT `movie_tag_relate_ibfk_1` FOREIGN KEY (`mId`) REFERENCES `movie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `movie_tag_relate_ibfk_2` FOREIGN KEY (`tId`) REFERENCES `movie_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of movie_tag_relate
@@ -690,8 +845,8 @@ CREATE TABLE `occupation`  (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  UNIQUE INDEX `name`(`name` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of occupation
@@ -714,86 +869,21 @@ CREATE TABLE `occupation_relate`  (
   `dId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `sId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `oId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  INDEX `aId`(`aId`) USING BTREE,
-  INDEX `dId`(`dId`) USING BTREE,
-  INDEX `sId`(`sId`) USING BTREE,
-  INDEX `oId`(`oId`) USING BTREE,
+  INDEX `aId`(`aId` ASC) USING BTREE,
+  INDEX `dId`(`dId` ASC) USING BTREE,
+  INDEX `sId`(`sId` ASC) USING BTREE,
+  INDEX `oId`(`oId` ASC) USING BTREE,
   CONSTRAINT `occupation_relate_ibfk_1` FOREIGN KEY (`aId`) REFERENCES `actor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `occupation_relate_ibfk_2` FOREIGN KEY (`dId`) REFERENCES `director` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `occupation_relate_ibfk_3` FOREIGN KEY (`sId`) REFERENCES `screenwriter` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `occupation_relate_ibfk_4` FOREIGN KEY (`oId`) REFERENCES `occupation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of occupation_relate
 -- ----------------------------
-INSERT INTO `occupation_relate` VALUES (NULL, '1652109629705', NULL, '1652100361394');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652109629705', NULL, '1652100330901');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652109714661', NULL, '1652100137884');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652109714661', NULL, '1652100299387');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652109786913', NULL, '1652100137884');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652109786913', NULL, '1652100299387');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652147682816', NULL, '1652100137884');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652147682816', NULL, '1652100299387');
-INSERT INTO `occupation_relate` VALUES ('1652494639677', NULL, NULL, '1652100361394');
-INSERT INTO `occupation_relate` VALUES ('1652494639677', NULL, NULL, '1652100330901');
-INSERT INTO `occupation_relate` VALUES ('1652494690386', NULL, NULL, '1652100299387');
-INSERT INTO `occupation_relate` VALUES ('1652494690386', NULL, NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652368225016', NULL, '1652100137884');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652368225016', NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652105949804', NULL, '1652100361394');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652105949804', NULL, '1652100321467');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652105949804', NULL, '1652100299387');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652105949804', NULL, '1652100137884');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652148383742', NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652148383742', NULL, '1652100137884');
-INSERT INTO `occupation_relate` VALUES ('1653099331792', NULL, NULL, '1652100375330');
-INSERT INTO `occupation_relate` VALUES ('1653099331792', NULL, NULL, '1652100361394');
-INSERT INTO `occupation_relate` VALUES ('1653099398251', NULL, NULL, '1652100361394');
-INSERT INTO `occupation_relate` VALUES ('1653099398251', NULL, NULL, '1652100321467');
-INSERT INTO `occupation_relate` VALUES ('1652152758674', NULL, NULL, '1652100375330');
-INSERT INTO `occupation_relate` VALUES ('1652152758674', NULL, NULL, '1652100361394');
-INSERT INTO `occupation_relate` VALUES ('1652152736343', NULL, NULL, '1652100321467');
-INSERT INTO `occupation_relate` VALUES ('1652152736343', NULL, NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES ('1652152711455', NULL, NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES ('1652152711455', NULL, NULL, '1652100321467');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652368056784', NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652368056784', NULL, '1652100299387');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652368056784', NULL, '1652100137884');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652148516616', NULL, '1652100137884');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652148516616', NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652148516616', NULL, '1652100321467');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652147804701', NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652147804701', NULL, '1652100321467');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652148133473', NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652148133473', NULL, '1652100321467');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652148133473', NULL, '1652100299387');
-INSERT INTO `occupation_relate` VALUES ('1652152809362', NULL, NULL, '1652100330901');
-INSERT INTO `occupation_relate` VALUES ('1652152809362', NULL, NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES ('1652444349475', NULL, NULL, '1652100330901');
-INSERT INTO `occupation_relate` VALUES ('1652444349475', NULL, NULL, '1652100361394');
-INSERT INTO `occupation_relate` VALUES ('1652444349475', NULL, NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES ('1652491465151', NULL, NULL, '1652100137884');
-INSERT INTO `occupation_relate` VALUES ('1652491465151', NULL, NULL, '1652100299387');
-INSERT INTO `occupation_relate` VALUES ('1652491465151', NULL, NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES ('1652152775219', NULL, NULL, '1652100361394');
-INSERT INTO `occupation_relate` VALUES ('1652152775219', NULL, NULL, '1652100321467');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652097604414', NULL, '1652100137884');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652097604414', NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652097604414', NULL, '1652100299387');
-INSERT INTO `occupation_relate` VALUES ('1652014592779', NULL, NULL, '1652100361394');
-INSERT INTO `occupation_relate` VALUES ('1652014592779', NULL, NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652097707616', NULL, '1652100137884');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652097707616', NULL, '1652100299387');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652105870601', NULL, '1652100299387');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652105870601', NULL, '1652100137884');
-INSERT INTO `occupation_relate` VALUES (NULL, '1652105870601', NULL, '1652100321467');
-INSERT INTO `occupation_relate` VALUES ('1653789676790', NULL, NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES ('1653789676790', NULL, NULL, '1652100361394');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1653813429748', '1652100321467');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1653813429748', '1652100361394');
-INSERT INTO `occupation_relate` VALUES ('1652152720292', NULL, NULL, '1652100361394');
-INSERT INTO `occupation_relate` VALUES ('1652152720292', NULL, NULL, '1652100330901');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1652195889420', '1652100321467');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1652195889420', '1652100306026');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1653806434280', '1652100375330');
@@ -818,9 +908,74 @@ INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1653813215148', '1652100321
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1653813215148', '1652100306026');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1653831790650', '1652100321467');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1653831790650', '1652100330901');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652097604414', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652097604414', NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652097604414', NULL, '1652100299387');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652097707616', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652097707616', NULL, '1652100299387');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652105870601', NULL, '1652100299387');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652105870601', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652105870601', NULL, '1652100321467');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652105949804', NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652105949804', NULL, '1652100321467');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652105949804', NULL, '1652100299387');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652105949804', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652109714661', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652109714661', NULL, '1652100299387');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652147682816', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652147682816', NULL, '1652100299387');
 INSERT INTO `occupation_relate` VALUES (NULL, '1653918593878', NULL, '1652100306026');
 INSERT INTO `occupation_relate` VALUES (NULL, '1653918593878', NULL, '1652100299387');
 INSERT INTO `occupation_relate` VALUES (NULL, '1653918593878', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652109629705', NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652109629705', NULL, '1652100330901');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652109786913', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652109786913', NULL, '1652100299387');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652147804701', NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652147804701', NULL, '1652100321467');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652148383742', NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652148383742', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652368056784', NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652368056784', NULL, '1652100299387');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652368056784', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652148133473', NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652148133473', NULL, '1652100321467');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652148133473', NULL, '1652100299387');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652148516616', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652148516616', NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652148516616', NULL, '1652100321467');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652368225016', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1652368225016', NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES ('1652014592779', NULL, NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES ('1652014592779', NULL, NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES ('1652152711455', NULL, NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES ('1652152711455', NULL, NULL, '1652100321467');
+INSERT INTO `occupation_relate` VALUES ('1652152720292', NULL, NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES ('1652152720292', NULL, NULL, '1652100330901');
+INSERT INTO `occupation_relate` VALUES ('1652152736343', NULL, NULL, '1652100321467');
+INSERT INTO `occupation_relate` VALUES ('1652152736343', NULL, NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES ('1652152775219', NULL, NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES ('1652152775219', NULL, NULL, '1652100321467');
+INSERT INTO `occupation_relate` VALUES ('1652491465151', NULL, NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES ('1652491465151', NULL, NULL, '1652100299387');
+INSERT INTO `occupation_relate` VALUES ('1652491465151', NULL, NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES ('1652494639677', NULL, NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES ('1652494639677', NULL, NULL, '1652100330901');
+INSERT INTO `occupation_relate` VALUES ('1652494690386', NULL, NULL, '1652100299387');
+INSERT INTO `occupation_relate` VALUES ('1652494690386', NULL, NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES ('1653099331792', NULL, NULL, '1652100375330');
+INSERT INTO `occupation_relate` VALUES ('1653099331792', NULL, NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES ('1653789676790', NULL, NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES ('1653789676790', NULL, NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES ('1652444349475', NULL, NULL, '1652100330901');
+INSERT INTO `occupation_relate` VALUES ('1652444349475', NULL, NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES ('1652444349475', NULL, NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES ('1653099398251', NULL, NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES ('1653099398251', NULL, NULL, '1652100321467');
+INSERT INTO `occupation_relate` VALUES ('1652152758674', NULL, NULL, '1652100375330');
+INSERT INTO `occupation_relate` VALUES ('1652152758674', NULL, NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES ('1652152809362', NULL, NULL, '1652100330901');
+INSERT INTO `occupation_relate` VALUES ('1652152809362', NULL, NULL, '1652100306026');
 
 -- ----------------------------
 -- Table structure for publish
@@ -844,9 +999,9 @@ CREATE TABLE `publish`  (
   `filename` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `size` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `name`(`name`) USING BTREE,
-  UNIQUE INDEX `foreignName`(`foreignName`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  UNIQUE INDEX `name`(`name` ASC) USING BTREE,
+  UNIQUE INDEX `foreignName`(`foreignName` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of publish
@@ -887,8 +1042,8 @@ CREATE TABLE `screenwriter`  (
   `filename` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `size` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  UNIQUE INDEX `name`(`name` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of screenwriter
@@ -903,6 +1058,25 @@ INSERT INTO `screenwriter` VALUES ('1653808958369', '图拓风2t', 'http://local
 INSERT INTO `screenwriter` VALUES ('1653813215148', 'rfrfefef', 'http://localhost:8888/screenwriter/avatar/1653813215148', '大卫佛', '0', '服务服务', '2022-05-05 16:00:00', '分为氛围', '分威风', '2022-05-29 16:33:35', '2022-05-29 21:42:39', '周慧明.jpeg', 'image/jpeg', './upload/screenwriter/avatar/', '1653831759332.jpeg', 27637);
 INSERT INTO `screenwriter` VALUES ('1653813429748', '么米欸额', 'http://localhost:8888/screenwriter/avatar/1653813429748', '斌', '1', '得得得', '2017-05-16 16:00:00', '得得', '得得', '2022-05-29 16:37:09', '2022-05-29 16:37:09', 'OIP-C.jpg', 'image/jpeg', './upload/screenwriter/avatar/', '1653813429818.jpg', 5780);
 INSERT INTO `screenwriter` VALUES ('1653831790650', '人人', 'http://localhost:8888/screenwriter/avatar/1653831790650', '出对策微软', '1', '如4人', '2022-05-01 16:00:00', '如4 ', '如人', '2022-05-29 21:43:10', '2022-05-29 21:43:10', '周慧明.jpeg', 'image/jpeg', './upload/screenwriter/avatar/', '1653831790690.jpeg', 27637);
+
+-- ----------------------------
+-- Table structure for thumb
+-- ----------------------------
+DROP TABLE IF EXISTS `thumb`;
+CREATE TABLE `thumb`  (
+  `id` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `userId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `cId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '评论ID',
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `cId`(`cId` ASC) USING BTREE,
+  CONSTRAINT `thumb_ibfk_1` FOREIGN KEY (`cId`) REFERENCES `comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of thumb
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for user
@@ -924,16 +1098,17 @@ CREATE TABLE `user`  (
   `filename` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `size` int NULL DEFAULT NULL,
   PRIMARY KEY (`userId`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1651935333133', 'gb', '456', 'http://localhost:8888/user/avatar/1651935333133', '2022-05-07 22:55:33', '2022-05-07 22:55:33', 0, '0000-00-00 00:00:00', 0, 'avatar.jpeg', 'image/jpeg', 'F:\\Rev-Com\\rev-com-server/upload/avatar/', '1651974057794.jpeg', 39383);
+INSERT INTO `user` VALUES ('1651935333133', 'gb', '456', 'http://localhost:8888/user/avatar/1651935333133', '2022-05-07 22:55:33', '2022-06-04 21:14:28', 0, '0000-00-00 00:00:00', 0, 'p1378204929.4.jpg', 'image/jpeg', './upload/avatar/', '1654348468456.jpg', 24950);
 INSERT INTO `user` VALUES ('1651968644534', 'gb1', '456', NULL, '2022-05-08 08:10:44', '2022-05-08 08:10:44', 0, '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user` VALUES ('1651968719179', 'g0b', '456', NULL, '2022-05-08 08:11:59', '2022-05-08 08:11:59', 0, '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user` VALUES ('1651974343667', 'g0b', '456', NULL, '2022-05-08 09:45:43', '2022-05-08 09:45:43', 0, '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user` VALUES ('1651974351804', 'g0brrr', '456', NULL, '2022-05-08 09:45:51', '2022-05-08 09:45:51', 0, '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` VALUES ('1654177694466', '叶子', '456', NULL, '2022-06-02 21:48:14', '2022-06-02 21:48:14', 0, '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for writer
@@ -959,7 +1134,7 @@ CREATE TABLE `writer`  (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of writer
@@ -976,6 +1151,29 @@ INSERT INTO `writer` VALUES ('1653029567250', '王小波', '0', '1996-08-21 16:0
 INSERT INTO `writer` VALUES ('1653029633484', '北岛', '0', '1998-03-09 16:00:00', NULL, '中国,北京', '中国', 'Dao Bei', '赵振开(原名)', '北岛，原名赵振开，1949年生于北京。做过建筑工人、编辑、自由撰稿人。1978年在北京创办文学杂志《今天》，担任主编至今。自1987年起在欧洲和北美居住并任教。获得多种国际文学奖项及荣誉。作品被译成三十多种文字。现与家人定居香港', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-20 14:53:53', '2022-05-20 14:53:53');
 INSERT INTO `writer` VALUES ('1653029685000', '萧红', '0', '1992-04-06 16:00:00', NULL, '中国', '中国', 'Hong Xiao', '张廼莹(本名)', '萧红（1911-1942），中国近现代女作家，民国四大才女之一，被誉为20世纪30年代的文学洛神。乳名荣华，学名张秀环，后由外祖父改名为张廼莹。笔名萧红、悄吟、玲玲、田娣等。1911年，出生于黑龙江省哈尔滨市呼兰区一个封建地主家庭，幼年丧母。', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-20 14:54:45', '2022-05-20 14:54:45');
 INSERT INTO `writer` VALUES ('1653029738888', '鲁迅', '0', '1999-05-03 16:00:00', NULL, '中国,浙江,绍兴', '中国', 'Xun Lu', '周树人 / 周樟寿 / 周豫山 / 周豫才', '周树人（1881年9月25日－1936年10月19日），字豫才，原名樟寿，字豫山、豫亭，以笔名鲁迅闻名于世，浙江绍兴人，为20世纪中国的作家，新文化运动的领导人、文化运动的支持者，中国现代文学的奠基人和开山巨匠，在西方世界享有盛誉的中国现代文学家、思想家。鲁迅的主要成就包括杂文、短中篇小说、文学、思想和社会评论、学术著作、自然科学著作、古代典籍校勘与研究、散文、现代散文诗、旧体诗、外国文学与学术翻译作品和木刻版画的研究，对于五四运动以后的中国社会思想文化发展产', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-20 14:55:38', '2022-05-20 14:55:38');
+
+-- ----------------------------
+-- Function structure for getAllComment
+-- ----------------------------
+DROP FUNCTION IF EXISTS `getAllComment`;
+delimiter ;;
+CREATE FUNCTION `getAllComment`(commendId char(50))
+ RETURNS varchar(4000) CHARSET utf8mb4
+BEGIN
+DECLARE sTemp VARCHAR(4000);
+DECLARE sTempChd VARCHAR(4000);
+SET sTemp='$';
+SET sTempChd = CAST(commendId AS CHAR);
+WHILE sTempChd IS NOT NULL DO
+SET sTemp= CONCAT(sTemp,',',sTempChd);
+
+SELECT GROUP_CONCAT(id) INTO sTempChd FROM `comment` WHERE FIND_IN_SET(replyId,sTempChd)>0;
+
+END WHILE;
+RETURN sTemp;
+END
+;;
+delimiter ;
 
 -- ----------------------------
 -- Triggers structure for table comment

@@ -3,7 +3,10 @@ import {IResponseType} from "../../types/responseType";
 enum CommentApi{
   publishCom="/comment/publish",
   allShortCom="/comment/short/all",
-  allComment="/comment/all"
+  allComment="/comment/all",
+  commentDetail="/comment/detail/",
+  replyComment="/comment/reply",
+  allReply="/comment/reply/all/"
 }
 //发布评论
 /*
@@ -48,6 +51,32 @@ export function getAllComment<T=IResponseType<any>>(page:number,limit:number,key
       limit,
       key,
       relateId
+    }
+  })
+}
+//获取评论详情(影评)
+export function getCommentDetail<T=IResponseType<any>>(id:string){
+  return gbRequest.get<T>({
+    url:CommentApi.commentDetail+id,
+  })
+}
+//回复评论
+export function replyComment<T=IResponseType<any>>(content:string,replyId:string){
+  return gbRequest.post<T>({
+    url:CommentApi.replyComment,
+    data:{
+      content,
+      replyId
+    }
+  })
+}
+//获取影评回复
+export function getAllCommentReply<T=IResponseType<any>>(id:string,page:number,limit:number){
+  return gbRequest.get<T>({
+    url:CommentApi.allReply+id,
+    params:{
+      page,
+      limit
     }
   })
 }

@@ -37,8 +37,22 @@ public class CommentService {
     commentMapper.getAllComment(page,limit,key,relateId);
     return p;
   }
-  //获取所有评论根据电影ID
+  //获取所有评论根据电影ID（计算评分）
   public List<Comment> getCommentList(String id){
     return commentMapper.getCommentList(id);
+  }
+  //获取评论详情根据id
+  public Comment getCommentDetail(String id){
+    return commentMapper.getCommentDetail(id);
+  }
+  //回复评论
+  public int replyComment(CommentDTO commentDTO){
+    return commentMapper.replyComment(commentDTO);
+  }
+  //获取所有评论回复
+  public Page<Comment> getAllCommentReply(Integer page,Integer limit,String id){
+    Page<Comment> p=PageHelper.startPage(page,limit);
+    commentMapper.getCommentReply(page,limit,id);
+    return p;
   }
 }

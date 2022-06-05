@@ -37,7 +37,7 @@ const TopBar:FC=():ReactElement=>{
             }
           </ul>
           <div className="search-outer">
-            <input type="text" placeholder="搜索电影 / 书籍 / 音乐 / 小组"/>
+            <input type="text" placeholder="搜索电影 / 书籍 / 音乐 / 小组" maxLength={40}/>
             <i className="iconfont icon-search"> </i>
           </div>
         </div>

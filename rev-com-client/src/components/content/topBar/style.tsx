@@ -33,7 +33,7 @@ export const CenterContent=styled.div`
       height: 100%;
       &>li{
         height: 100%;
-        padding: 0 30px;
+        padding: 0 20px;
         font-size: 18px;
         display: flex;
         align-items: center;
@@ -49,14 +49,15 @@ export const CenterContent=styled.div`
       background-color: #00aeec;
       border: 1px solid #00aeec;
       margin: 0 0 0 80px;
-      width: 30%;
+      width: 32%;
       display: flex;
       align-items: center;
       border-radius: 4px;
       overflow: hidden;
+      background-clip: content-box;
       input{
         width: 86%;
-        padding:6px 10px;
+        padding:7px 10px;
       }
       i{
         margin: 0 0 0 18px;

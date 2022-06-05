@@ -14,6 +14,10 @@ const HomeRoutes=[
   {
     name:"小组",
     path:"/Home/Group"
+  },
+  {
+    name:"话题广场",
+    path:"/Home/Topic"
   }
 ]
 export default HomeRoutes;

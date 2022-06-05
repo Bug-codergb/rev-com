@@ -6,8 +6,8 @@ const gbRequest = new GBRequest({
     timeout: 10000,
     interceptors: {
         requestInterceptor: (config) => {
-            const token = localCache.getCache("userMsg").token;
-            if (localCache.getCache("userMsg")&&token && config.headers) {
+            if (localCache.getCache("userMsg") && config.headers) {
+                const token = localCache.getCache("userMsg").token;
                 config.headers.Authorization = token
             }
             return config

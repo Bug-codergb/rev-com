@@ -91,7 +91,7 @@ public class CommentController {
     System.out.println(commentPic.getDest());
     return new FilePreview().getFilePreview(System.getProperty("user.dir")+commentPic.getDest()+"/"+commentPic.getFilename(),commentPic.getMimetype());
   }
-  //获取所有评论
+  //获取所有短评
   @LoginAuth
   @GetMapping("/short/all")
   public ResponseType<PageResult<List<Comment>>> getAllShort(@RequestParam("page") Integer page,
@@ -130,5 +130,44 @@ public class CommentController {
               comments);
       return new ResponseType<PageResult<List<Comment>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
     }
+  }
+  //获取影评详情
+  @LoginAuth
+  @GetMapping("/detail/{id}")
+  public ResponseType<Object> getMovieReviewDetail(@PathVariable("id") String id){
+    Comment comment= commentService.getCommentDetail(id);
+    return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), comment);
+  }
+  //回复评论
+  @LoginAuth
+  @PostMapping("/reply")
+  public ResponseType<Object> replyComment(@RequestBody CommentDTO commentDTO,
+                                           @RequestAttribute("userId") String userId){
+    if(new EmptyJudge().judgeEmpty(commentDTO.getReplyId())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"评论ID不能为空",null);
+    }else if (new EmptyJudge().judgeEmpty(commentDTO.getContent())){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"回复内容不能为空",null);
+    }else if (new EmptyJudge().judgeEmpty(userId)){
+      return new ResponseType<Object>(HttpStatus.UNAUTHORIZED.value(),"请登录",null);
+    }else{
+      Long id=new Date().getTime();
+      commentDTO.setId(id.toString());
+      commentDTO.setUserId(userId);
+      commentService.replyComment(commentDTO);
+      return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), null);
+    }
+  }
+  @LoginAuth
+  @GetMapping("/reply/all/{id}")
+  public ResponseType<PageResult<List<Comment>>> getAllCommentReply(@RequestParam("page") Integer page,
+                                                 @RequestParam("limit") Integer limit,
+                                                 @PathVariable("id") String id){
+    Page<Comment> comments=commentService.getAllCommentReply(page,limit,id);
+    PageResult pageResult=new PageResult<List<Comment>>(comments.getPageNum(),
+            comments.getTotal(),
+            comments.getPages(),comments);
+    return new ResponseType<PageResult<List<Comment>>>(HttpStatus.OK.value(),
+                                                       ResponseMessage.SUCCESS.getMESSAGE(),
+                                                      pageResult);
   }
 }

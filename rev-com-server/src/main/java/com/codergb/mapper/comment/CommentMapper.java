@@ -21,10 +21,16 @@ public interface CommentMapper {
   public List<Comment> getAllShortCom(@Param("page")Integer page, @Param("limit") Integer limit,
                                       @Param("key") String key,@Param("relateId") String relateId);
   //获取评论回复
-  public List<Comment> getAllReply(@Param("page") Integer page, @Param("limit") Integer limit,@Param("id") String id);
+  public List<Comment> getCommentReply(@Param("page") Integer page, @Param("limit") Integer limit,@Param("id") String id);
   //获取影评
   public List<Comment> getAllComment(@Param("page")Integer page, @Param("limit") Integer limit,
                                      @Param("key") String key,@Param("relateId") String relateId);
   //获取所有评论(包括短评和影评 根据电影ID)
   public List<Comment> getCommentList(@Param("id") String id);
+  //获取评论详情(根据评论ID)
+  public Comment getCommentDetail(@Param("id") String id);
+  //回复评论
+  public int replyComment(CommentDTO comment);
+  //获取评论来自的评论
+  public Comment getCommentFrom(@Param("id") String id);
 }

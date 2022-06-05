@@ -115,18 +115,21 @@ export const LeftContent=styled.div`
            line-height: 12px;
          }
          .start-value{
-           width: 150px;
+           width: 160px;
            display: flex;
            align-items: center;
+           justify-content: space-between;
            height: 12px;
-         }
-         .ant-progress-steps-item{
-           width:20px!important;
-           margin-right: 5px!important;
-         }
-         .ant-progress-text{
-           font-size: 12px!important;
-           color: #9b9b9b;
+           .ant-progress{
+             width: 115px;
+           }
+           .start-num-tip{
+             font-size: 12px!important;
+             color: #9b9b9b;
+             margin: 0 0 0 2px;
+             display: block;
+             width: 40px!important;
+           }
          }
          .ant-progress-bg{
            border-radius: 0;
@@ -135,7 +138,7 @@ export const LeftContent=styled.div`
            border-radius: 0;
          }
          .ant-progress-outer{
-           padding:0px 35px 0px 5px!important;
+           padding:0 5px!important;
            height: 12px;
            display: flex;
            align-items: center;

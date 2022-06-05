@@ -11,7 +11,16 @@ interface IProps{
   directors?:IDirector[]
 }
 const Actor:FC<IProps>=(props):ReactElement=>{
-  const {actors,directors}=props;
+  let {actors,directors}=props;
+  if(actors && actors.length>3 && directors &&directors.length>3){
+    actors=actors.slice(0,3);
+    directors=directors.slice(0,3)
+  }else if(actors&&directors && (actors.length+directors.length)>6){
+    const sum=actors.length+directors.length;
+    const start=Math.floor((actors.length/sum)*6);
+    actors.slice(0,start);
+    directors.slice(0,6-start);
+  }
   return (
     <ActorWrapper>
       <ul className="actor-list">
