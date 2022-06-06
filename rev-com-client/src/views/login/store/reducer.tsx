@@ -17,7 +17,23 @@ const defaultState=Map<ILogin>({
       userId:"",
       userName:""
     },
-    userDetail:{},
+    userDetail:{
+      auth:0,
+      avatarUrl:"",
+      createTime:"",
+      expireTime:"",
+      filename:"",
+      manage:0,
+      mimetype:"",
+      originalname:"",
+      size:0,
+      token:"",
+      updateTime:"",
+      userId:"",
+      userName:"",
+      thumbList:[],
+      subList:[]
+    },
     loginType:0
   }
 })

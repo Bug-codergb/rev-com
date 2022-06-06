@@ -1,3 +1,6 @@
+import {IThumb} from "./thumb";
+import {ISub} from "./sub";
+
 interface IUserMsg{
   auth:number,
   avatarUrl:string,
@@ -13,8 +16,9 @@ interface IUserMsg{
   userId:string,
   userName:string
 }
-interface IUserDetail{
-
+interface IUserDetail extends IUserMsg{
+  thumbList:IThumb[],
+  subList:ISub[]
 }
 interface ILogin{
  userMsg:IUserMsg,

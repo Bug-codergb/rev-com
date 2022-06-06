@@ -86,12 +86,29 @@ const MovieDetail:FC=():ReactElement=>{
   const handleCancel=()=>{
     setIsModalVisible(false)
   }
-  const commentClickHandle=(id:string,name:string|undefined)=>{
+  const commentClickHandle=(cId:string,name:string|undefined)=>{
     navigate("/Home/Movie/MovieReview",{
       replace:true,
       state:{
-        id:id,
-        name:name
+        cId:cId,
+        name:name,
+        mId:id
+      }
+    })
+  }
+  const shortRouter=()=>{
+    navigate("/Home/Movie/AllShortCom",{
+      replace:true,
+      state:{
+        id:id
+      }
+    })
+  }
+  const reviewRouter=()=>{
+    navigate("/Home/Movie/AllReview",{
+      replace:true,
+      state:{
+        id:id
       }
     })
   }
@@ -297,7 +314,11 @@ const MovieDetail:FC=():ReactElement=>{
         </div>
         <div className="movie-comment">
           {
-            movie&&movie.id&&<MovieCom isShort={true} id={movie?.id} name={movie?.name} key={keyIndex}/>
+            movie&&movie.id&&<MovieCom isShort={true}
+                                       id={movie?.id}
+                                       name={movie?.name}
+                                       key={keyIndex}
+                                       commentRouter={()=>shortRouter()}/>
           }
         </div>
         <div className="movie-comment">
@@ -306,6 +327,8 @@ const MovieDetail:FC=():ReactElement=>{
                                        id={movie?.id}
                                        name={movie?.name}
                                        key={keyIndex}
+                                       commentRouter={()=>reviewRouter()}
+                                       moreClick={()=>reviewRouter()}
                                        commentClick={(id:string)=>commentClickHandle(id,movie?.name)}/>
           }
         </div>

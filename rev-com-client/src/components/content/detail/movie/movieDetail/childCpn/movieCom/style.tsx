@@ -9,6 +9,7 @@ export const MovieComWrapper=styled.div`
     margin: 0 0 5px 0;
     .total-comment{
       color: #667ec4;
+      cursor: pointer;
     }
     .line{
       letter-spacing: 14px;

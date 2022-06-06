@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -29,4 +30,6 @@ public class User {
   private String dest;
   private String filename;
   private Long size;
+  private List<Thumb> thumbList;
+  private List<Subscriber> subList;
 }

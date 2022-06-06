@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.subscriber.SubMapper">
+  <insert id="sub">
+    insert into subscriber(id,userId,${key}) values(#{id},#{userId},#{relateId})
+  </insert>
+  <resultMap id="subResultMap" type="Thumb">
+    <id property="id" column="id"></id>
+    <result property="createTime" column="createTime"></result>
+    <result property="updateTime" column="updateTime"></result>
+    <association property="user"
+                 javaType="User"
+                 select="com.codergb.mapper.user.UserMapper.getUserById"
+                 column="userId"></association>
+    <association property="comment"
+                 javaType="Comment"
+                 select="com.codergb.mapper.comment.CommentMapper.getCommentFrom"
+                 column="{id=cId}"></association>
+  </resultMap>
+  <select id="getUserSub" resultMap="subResultMap">
+    select *
+    from subscriber
+    <where>
+      userId=#{userId}
+      <if test="key!='' and key!=null and relateId!='' and relateId !=null ">
+        and ${key}=#{relateId}
+      </if>
+    </where>
+  </select>
+  <delete id="cancelSub">
+    delete from subscriber where userId=#{userId} and ${key}=#{relateId}
+  </delete>
+</mapper>

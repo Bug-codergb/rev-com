@@ -46,7 +46,7 @@ const Video:FC=():ReactElement=>{
   }
   const movieRouter=(item:IMovie)=>{
     console.log(item);
-    navigate("/Home/Movie/MovieDetail",{
+    navigate("/Home/Movie/movieDetail",{
       replace:true,
       state:{
         id:item.id

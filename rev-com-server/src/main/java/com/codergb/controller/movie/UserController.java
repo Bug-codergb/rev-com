@@ -11,6 +11,7 @@ import com.codergb.utils.EmptyJudge;
 import com.codergb.utils.FilePreview;
 import com.codergb.utils.FileUniqueName;
 import com.codergb.utils.ResponseType;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -56,5 +57,11 @@ public class UserController {
   public ResponseEntity<byte[]> getUserAvatar(@PathVariable("id") String id){
     User user=userService.getUserById(id);
     return new FilePreview().getFilePreview(user.getDest()+"/"+user.getFilename(),user.getMimetype());
+  }
+  @LoginAuth
+  @GetMapping("/detail/{userId}")
+  public ResponseType<User> getUserDetail(@PathVariable("userId") String userId){
+    User user= userService.getUserDetail(userId);
+    return new ResponseType<User>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), user);
   }
 }

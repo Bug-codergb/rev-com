@@ -78,7 +78,7 @@ const CommentEdit:FC<IProps>=(props):ReactElement=>{
           content:"影评发表成功",
           className:"global-tip",
         })
-        navigate("/Home/Movie/MovieDetail",{
+        navigate("/Home/Movie/movieDetail",{
           replace:true,
           state:{
             id:id

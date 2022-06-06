@@ -1,6 +1,6 @@
 import React, {memo, FC, ReactElement, useEffect, useState,ChangeEvent} from "react";
 import {useLocation} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Map} from 'immutable';
 import {Rate,message} from "antd";
 import {LikeOutlined,BookOutlined,BookFilled,LikeFilled} from "@ant-design/icons";
@@ -18,20 +18,34 @@ import TextArea from "antd/es/input/TextArea";
 import Comment from "../../../../common/comment";
 import {IPageResult} from "../../../../../types/pageResult";
 import {ILogin, IUserMsg} from "../../../../../types/login";
+import {useThumb} from "../../../../../hooks/useThumb";
+import {cancelThumb, thumb} from "../../../../../network/thumb";
+import {changeUserDetailAction} from "../../../../../views/login/store/actionCreators";
+import {Dispatch} from "redux";
+import {debounce} from "../../../../../utils/debounce";
+import {useSub} from "../../../../../hooks/useSub";
+import {cancelSub, sub} from "../../../../../network/sub";
+import {getMovieDetail} from "../../../../../network/movie";
+import {IMovie} from "../../../../../types/movie/movie";
 
 const FilmReviewDetail:FC=():ReactElement=>{
   const location=useLocation();
-  const state=location.state as {id:string,name:string|undefined};
-  const [id,setId]=useState<string>(state.id);
+  const state=location.state as {cId:string,mId:string,name:string|undefined};
+  const [id,setId]=useState<string>(state.cId);
   const [movieName,setMovieName]=useState<string>(state.name? state.name:"");
   const [comment,setComment]=useState<IComment>();
   const [commentText,setCommentText]=useState<string>("");
 
   const [reply,setReply]=useState<IComment[]>([]);
   const [total,setTotal]=useState<number>(0);
+  const [movie,setMovie]=useState<IMovie>();
   const login = useSelector<Map<string, ILogin>, ILogin>((state) => {
     return state.getIn(['loginReducer', 'login']) as ILogin
   });
+
+  const isThumb=useThumb(id);
+  const isSub=useSub(id);
+  const dispatch=useDispatch<Dispatch<any>>();
   const getCommentReplyRequest=(id:string,page:number,limit:number)=>{
     getAllCommentReply<IResponseType<IPageResult<IComment[]>>>(id,page,limit).then((data)=>{
       if(data.status===200){
@@ -48,6 +62,13 @@ const FilmReviewDetail:FC=():ReactElement=>{
       }
     })
   },[])
+  useEffect(()=>{
+    getMovieDetail<IResponseType<IMovie>>(state.mId).then((data)=>{
+      if(data.status===200){
+        setMovie(data.data);
+      }
+    })
+  },[state.mId])
   const textChange=(e:ChangeEvent<HTMLTextAreaElement>)=>{
     setCommentText(e.currentTarget.value)
   }
@@ -82,6 +103,32 @@ const FilmReviewDetail:FC=():ReactElement=>{
       getCommentReplyRequest(comment.id,e,10);
     }
   }
+  const thumbHandle=debounce(async ()=>{
+    if(isThumb){
+      const data:IResponseType<any>=await cancelThumb("cId",id);
+      if(data.status===200){
+        dispatch(changeUserDetailAction(login.userMsg.userId));
+      }
+    }else{
+      const data=await thumb("cId",id);
+      if(data.status===200){
+        dispatch(changeUserDetailAction(login.userMsg.userId));
+      }
+    }
+  },500,false);
+  const subHandle=debounce(async()=>{
+    if(isSub){
+      const data=await cancelSub("cId",id);
+      if(data.status===200){
+        dispatch(changeUserDetailAction(login.userMsg.userId));
+      }
+    }else{
+      const data=await sub("cId",id);
+      if(data.status===200){
+        dispatch(changeUserDetailAction(login.userMsg.userId));
+      }
+    }
+  },500,false)
   return (
     <FilmReviewDetailWrapper className="center-auto">
       <LeftContent>
@@ -110,14 +157,14 @@ const FilmReviewDetail:FC=():ReactElement=>{
           comment&&<div className="comment-content" dangerouslySetInnerHTML={{__html:comment?.content}}></div>
         }
         <div className="control">
-          <div className="thumb">
-            <LikeOutlined />
-            <LikeFilled />
+          <div className="thumb" onClick={e=>thumbHandle()}>
+            {!isThumb&&<LikeOutlined />}
+            {isThumb&&<LikeFilled />}
             <span className="count">(45)</span>
           </div>
-          <div className="sub">
-            <BookOutlined />
-            <BookFilled />
+          <div className="sub" onClick={e=>subHandle()}>
+            {!isSub&&<BookOutlined />}
+            {isSub&&<BookFilled />}
             <span className="count">(87)</span>
           </div>
         </div>
@@ -153,7 +200,45 @@ const FilmReviewDetail:FC=():ReactElement=>{
         }
       </LeftContent>
       <RightContent>
-
+        <div className="movie-cover">
+          <img src={movie?.coverUrl} alt={movie?.name}/>
+        </div>
+        <div className="directors">
+          <span>导演</span>
+          {
+            movie?.directors.map((item)=>item.name).join(" / ")
+          }
+        </div>
+        <div className="actors">
+          <span>演员:</span>
+          {
+            movie?.actors.map(item=>item.name).join(" / ")
+          }
+        </div>
+        <div className="cate">
+          <span>类型:</span>
+          {
+            movie?.categories.map(item=>item.name).join(" / ")
+          }
+        </div>
+        <div className="area">
+          <span>地区:</span>
+          {
+            movie?.area.map(item=>item.name).join(" / ")
+          }
+        </div>
+        <div className="dt">
+          <span>片长:</span>
+          {
+            movie?.duration
+          }
+        </div>
+        <div className="releaseTime">
+          <span>上映时间:</span>
+          {
+            formatTime(movie?movie.releaseTime:0,"yyyy-MM-dd")
+          }
+        </div>
       </RightContent>
     </FilmReviewDetailWrapper>
   )

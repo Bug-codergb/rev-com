@@ -30,6 +30,7 @@ public class ThumbController {
       return new ResponseType<Object>(HttpStatus.OK.value(), "点赞项id不能为空",null);
     }else{
       List<Thumb> thumb=thumbService.getUserThumb(key,related,userId);
+      System.out.println(thumb);
       if(thumb.size()>0){
         return new ResponseType<Object>(HttpStatus.FORBIDDEN.value(), "您已经点赞",null);
       }else{

@@ -22,7 +22,7 @@ const Hot:FC<IProps>=(props):ReactElement=>{
     onClick(item.id);
   }
   const movieRouter=(item:IMovie)=>{
-    navigate("/Home/Movie/MovieDetail",{
+    navigate("/Home/Movie/movieDetail",{
       replace:true,
       state:{
         id:item.id,

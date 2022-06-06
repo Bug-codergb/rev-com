@@ -13,10 +13,12 @@ interface IProps{
   id?:string,
   name?:string,
   isShort:boolean,
-  commentClick?:(id:string)=>void
+  commentClick?:(id:string)=>void,
+  commentRouter:()=>void,
+  moreClick?:()=>void
 }
 const MovieCom:FC<IProps>=(props):ReactElement=>{
-  const {id,name,isShort,commentClick}=props;
+  const {id,name,isShort,commentClick,commentRouter,moreClick}=props;
   const [comment,setComment]=useState<IComment[]>([]);
   const [total,setTotal]=useState<number>(0);
   useEffect(()=>{
@@ -41,12 +43,20 @@ const MovieCom:FC<IProps>=(props):ReactElement=>{
       commentClick(id);
     }
   }
+  const commentRouterHandle=()=>{
+    commentRouter();
+  }
+  const moreClickHandle=()=>{
+    if(moreClick){
+      moreClick();
+    }
+  }
   return (
     <MovieComWrapper>
       <div className="comment-name">
         <span>{name}的{isShort?'短评':'影评'}</span>
         <span className="line">....</span>
-        <span className="total-comment">( {total}条评论 )</span>
+        <span className="total-comment" onClick={e=>commentRouterHandle()}>( {total}条评论 )</span>
       </div>
       {
         comment.length>0&&<Comment isShort={isShort}
@@ -64,9 +74,9 @@ const MovieCom:FC<IProps>=(props):ReactElement=>{
         </div>
       }
       {
-        total>0&&<div className="more">
+        total>0&&<div className="more" onClick={e=>moreClickHandle()}>
           <RightOutlined />
-          <span>查看所有{isShort?'短评':'影评'} ( {total}条评论 )</span>
+          <span>查看更多{isShort?'短评':'影评'} ( {total}条评论 )</span>
         </div>
       }
     </MovieComWrapper>

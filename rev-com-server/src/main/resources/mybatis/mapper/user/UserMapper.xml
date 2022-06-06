@@ -23,4 +23,33 @@
   <select id="getUserByName" resultType="User">
     select * from user where userName=#{userName}
   </select>
+  <resultMap id="userResultMap" type="User">
+    <id property="userId" column="userId"/>
+    <result property="userName" column="userName"></result>
+    <result property="token" column="token"></result>
+    <result property="avatarUrl" column="avatarUrl"></result>
+    <result property="createTime" column="createTime"></result>
+    <result property="updateTime" column="updateTime"></result>
+    <result property="auth" column="auth"></result>
+    <result property="manage" column="manage"></result>
+    <result property="expireTime" column="expireTime"></result>
+    <result property="originalname" column="originalname"></result>
+    <result property="mimetype" column="mimetype"></result>
+    <result property="dest" column="dest"></result>
+    <result property="filename" column="filename"></result>
+    <result property="size" column="size"></result>
+    <collection property="thumbList"
+                ofType="Thumb"
+                select="com.codergb.mapper.thumb.ThumbMapper.getUserThumb"
+                column="{userId=userId}"/>
+    <collection property="subList"
+                ofType="Subscriber"
+                select="com.codergb.mapper.subscriber.SubMapper.getUserSub"
+                column="userId"/>
+  </resultMap>
+  <select id="getUserDetail" resultMap="userResultMap">
+    select *
+    from user
+    where userId=#{userId}
+  </select>
 </mapper>

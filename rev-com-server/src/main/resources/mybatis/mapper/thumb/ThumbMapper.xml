@@ -6,10 +6,28 @@
   <insert id="thumb">
     insert into thumb(id,userId,${key}) values(#{id},#{userId},#{relateId})
   </insert>
-  <select id="getUserThumb" resultType="Thumb">
+  <resultMap id="thumbResultMap" type="Thumb">
+    <id property="id" column="id"></id>
+    <result property="createTime" column="createTime"></result>
+    <result property="updateTime" column="updateTime"></result>
+    <association property="user"
+                 javaType="User"
+                 select="com.codergb.mapper.user.UserMapper.getUserById"
+                 column="userId"></association>
+    <association property="comment"
+                 javaType="Comment"
+                 select="com.codergb.mapper.comment.CommentMapper.getCommentFrom"
+                 column="{id=cId}"></association>
+  </resultMap>
+  <select id="getUserThumb" resultMap="thumbResultMap">
     select *
     from thumb
-    where userId=#{userId} and ${key}=#{relateId}
+    <where>
+      userId=#{userId}
+      <if test="key!='' and key!=null and relateId!='' and relateId !=null ">
+        and ${key}=#{relateId}
+      </if>
+    </where>
   </select>
   <delete id="cancelThumb">
     delete from thumb where userId=#{userId} and ${key}=#{relateId}

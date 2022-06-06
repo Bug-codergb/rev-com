@@ -24,4 +24,7 @@ public class UserService {
   public User getUserByName(String userName){
     return userMapper.getUserByName(userName);
   }
+  public User getUserDetail(String userId){
+    return userMapper.getUserDetail(userId);
+  }
 }
