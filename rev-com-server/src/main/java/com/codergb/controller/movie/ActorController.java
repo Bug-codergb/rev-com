@@ -9,10 +9,7 @@ import com.codergb.constant.UploadPath;
 import com.codergb.dto.movie.ActorDTO;
 import com.codergb.service.movie.ActorService;
 import com.codergb.service.movie.OccupationService;
-import com.codergb.utils.EmptyJudge;
-import com.codergb.utils.FilePreview;
-import com.codergb.utils.FileUniqueName;
-import com.codergb.utils.ResponseType;
+import com.codergb.utils.*;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -69,11 +66,13 @@ public class ActorController {
   @GetMapping("/all")
   public ResponseType<PageResult<List<Actor>>> getAllActor(@RequestParam("page") Integer page,
                                               @RequestParam("limit") Integer limit,
-                                              @RequestParam(value="keyword",required = false) String keyword ){
+                                              @RequestParam(value="keyword",required = false) String keyword,
+                                              @RequestParam(value = "c",required = false) String c){
     if(keyword==null){
       keyword="";
     }
-    Page<Actor> actors=actorService.getAllActor(page,limit,keyword);
+    System.out.println(new Spell().changeSpell(keyword));
+    Page<Actor> actors=actorService.getAllActor(page,limit,keyword,c);
     PageResult pageResult=new PageResult<List<Actor>>(actors.getPageNum(),
                                                       actors.getTotal(),
                                                       actors.getPages(),

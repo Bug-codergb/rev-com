@@ -3,11 +3,13 @@ package com.codergb.service.movie;
 import com.codergb.bean.movie.Actor;
 import com.codergb.dto.movie.ActorDTO;
 import com.codergb.mapper.movie.ActorMapper;
+import com.codergb.utils.Spell;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,9 +19,15 @@ public class ActorService {
   public int createActor(Actor actor){
     return actorMapper.createActor(actor);
   }
-  public Page<Actor> getAllActor(Integer page,Integer limit,String keyword){
+  public Page<Actor> getAllActor(Integer page,Integer limit,String keyword,String c){
     Page<Actor> p= PageHelper.startPage(page,limit);
-    List<Actor> actors=actorMapper.getAllActor(page,limit,keyword);
+    List<Actor> actors=actorMapper.getAllActor(page,limit,keyword,c);
+    /*List<Actor> res=new ArrayList<>();
+    for(Actor a:actors) {
+      if(new Spell().changeSpell(a.getName()).equals(c)){
+        res.add(a);
+      }
+    }*/
     return p;
   }
   public int updateActor(ActorDTO actorDTO){

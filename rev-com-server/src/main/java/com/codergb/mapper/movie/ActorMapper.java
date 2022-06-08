@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ActorMapper {
   public int createActor(Actor actor);
-  public List<Actor> getAllActor(int page, int limit, @Param("keyword") String keyword);
+  public List<Actor> getAllActor(int page, int limit, @Param("keyword") String keyword,@Param("c") String c);
   public int updateActor(ActorDTO actorDTO);
   public int deleteActor(@Param("id") String id);
   //上传用户头像

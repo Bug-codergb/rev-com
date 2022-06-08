@@ -33,7 +33,7 @@
     </collection>
   </resultMap>
   <select id="getAllActor" resultMap="actorResultMap">
-    select * ,"aId" as aId from actor
+    select *,"aId" as aId from actor
     <where>
       <if test="keyword!='' and keyword!=null">
         name like "%"#{keyword}"%"
