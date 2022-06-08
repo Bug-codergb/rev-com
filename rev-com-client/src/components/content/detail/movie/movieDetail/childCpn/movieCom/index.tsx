@@ -37,7 +37,7 @@ const MovieCom:FC<IProps>=(props):ReactElement=>{
         }
       })
     }
-  },[])
+  },[id,isShort])
   const commentClickHandle=(id:string)=>{
     if(commentClick){
       commentClick(id);
@@ -66,6 +66,7 @@ const MovieCom:FC<IProps>=(props):ReactElement=>{
                                    total={0}
                                    count={0}
                                    isPage={false}
+                                   isWangEdit={false}
                                    commentClick={(id:string)=>commentClickHandle(id)}/>
       }
       {

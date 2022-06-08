@@ -54,6 +54,7 @@ const CommentEdit:FC<IProps>=(props):ReactElement=>{
       },
     }
   }
+  console.log(editor?.getMenuConfig('fontSize'))
   const titleInp=(e:FormEvent<HTMLInputElement>)=>{
     setTitle(e.currentTarget.value)
   }
@@ -110,7 +111,8 @@ const CommentEdit:FC<IProps>=(props):ReactElement=>{
         onCreated={setEditor}
         onChange={editor => setHtml(editor.getHtml())}
         mode="default"
-        style={{borderBottom: '1px solid #ccc', height: '450px', overflowY: 'hidden',width:"1000px",margin:"0 auto"}}
+        style={{borderBottom: '1px solid #ccc',
+                height: '450px', overflowY: 'hidden',width:"1000px",margin:"0 auto"}}
       />
       <div className="control-btn">
         <button onClick={e=>publish()}>发布</button>

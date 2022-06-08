@@ -11,7 +11,7 @@
  Target Server Version : 80029
  File Encoding         : 65001
 
- Date: 05/06/2022 20:58:46
+ Date: 08/06/2022 16:42:55
 */
 
 SET NAMES utf8mb4;
@@ -135,6 +135,30 @@ INSERT INTO `comment` VALUES ('1654423746078', '遥襟甫畅，逸兴遄飞。�
 INSERT INTO `comment` VALUES ('1654423811183', NULL, 'frff', '1651935333133', NULL, NULL, 0, '1654423746078', '2022-06-05 18:10:11', '2022-06-05 18:10:11');
 INSERT INTO `comment` VALUES ('1654423845174', NULL, 'gtg', '1651935333133', NULL, NULL, 0, '1654423746078', '2022-06-05 18:10:45', '2022-06-05 18:10:45');
 INSERT INTO `comment` VALUES ('1654433823907', NULL, '2502520', '1654177694466', 3, '1652323197911', 0, NULL, '2022-06-05 20:57:03', '2022-06-05 20:57:03');
+INSERT INTO `comment` VALUES ('1654503686610', NULL, 'ghyethb', '1651935333133', NULL, NULL, 0, '1654396616441', '2022-06-06 16:21:26', '2022-06-06 16:21:26');
+INSERT INTO `comment` VALUES ('1654507379380', NULL, 'dgdgd', '1651935333133', 2, '1652323356167', 0, NULL, '2022-06-06 17:22:59', '2022-06-06 17:22:59');
+INSERT INTO `comment` VALUES ('1654507400390', NULL, 'erthyjukijhfd', '1651935333133', NULL, NULL, 0, '1654348831474', '2022-06-06 17:23:20', '2022-06-06 17:23:20');
+INSERT INTO `comment` VALUES ('1654519232659', NULL, 'ftgtgt5h5h35thhthh53', '1651935333133', 3, '1652323356167', 0, NULL, '2022-06-06 20:40:32', '2022-06-06 20:40:32');
+INSERT INTO `comment` VALUES ('1654519291779', NULL, 'gtrhy', '1651935333133', 3, '1654346950495', 0, NULL, '2022-06-06 20:41:31', '2022-06-06 20:41:31');
+INSERT INTO `comment` VALUES ('1654519346650', NULL, 'gegg', '1651935333133', NULL, NULL, 0, '1654349629759', '2022-06-06 20:42:26', '2022-06-06 20:42:26');
+INSERT INTO `comment` VALUES ('1654519399194', 'egegegeg', '<p><strong>frfeggegegeg</strong></p><p><img src=\"http://localhost:8888/comment/picture/1654519412502\" alt=\"\" data-href=\"\" style=\"width: 149.00px;height: 223.49px;\"/></p><p><span style=\"color: rgb(247, 89, 171);\">gergegvgeeveg</span></p>', '1651935333133', 3, '1652322979306', 1, NULL, '2022-06-06 20:43:51', '2022-06-06 20:43:51');
+INSERT INTO `comment` VALUES ('1654600509709', '烟光凝而暮山紫', '<p><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得天人之旧馆</span></p><p><img src=\"http://localhost:8888/comment/picture/1654600521433\" alt=\"\" data-href=\"\" style=\"width: 183.54px;height: 229.43px;\"/></p><p style=\"text-indent: 2em;\"><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；</span><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\"><strong>舸舰弥津</strong></span><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨，雁阵惊寒，声断衡阳之浦。</span></p>', '1654600467038', 3, '1652238044529', 1, NULL, '2022-06-07 19:15:53', '2022-06-07 19:15:53');
+INSERT INTO `comment` VALUES ('1654600664269', NULL, '454545454545454545', '1654600467038', 2, '1654346950495', 0, NULL, '2022-06-07 19:17:44', '2022-06-07 19:17:44');
+INSERT INTO `comment` VALUES ('1654601799956', '睢园绿竹', '<p><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨，雁阵惊寒，声断衡阳之浦。</span></p><p><img src=\"http://localhost:8888/comment/picture/1654601818601\" alt=\"\" data-href=\"\" style=\"width: 175.55px;height: 219.43px;\"/></p><p><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">&nbsp;嗟乎！</span><span style=\"color: rgb(247, 89, 171); background-color: rgb(255, 255, 255);\">时运不齐，命途多舛。冯唐易老，李广难封。屈贾谊于长沙，非无圣主；</span><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">窜梁鸿于海曲，岂乏明时？所赖君子见机，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志。酌贪泉而觉爽，处涸辙以犹欢。北海虽赊，扶摇可接；东隅已逝，桑榆非晚。孟尝高洁，空余报国之情；阮籍猖狂，岂效穷途之哭！</span></p>', '1654600467038', 4, '1652323356167', 1, NULL, '2022-06-07 19:37:17', '2022-06-07 19:37:17');
+INSERT INTO `comment` VALUES ('1654608952671', '看看钩子的规则', '<p><span style=\"background-color: rgb(120, 6, 80);\">useRef</span><span style=\"color: rgb(33, 37, 41); background-color: rgb(255, 255, 255); font-size: 16px;\">钩子。钩子总是需要以相同的顺序调用（因此不允许有条件地添加新钩子）。您的代码违反了此规则，因为您在有条件地返回null之后使用了</span><span style=\"color: rgb(196, 29, 127); background-color: rgb(255, 255, 255); font-size: 16px;\">useRef</span><span style=\"color: rgb(33, 37, 41); background-color: rgb(255, 255, 255); font-size: 16px;\">钩子。</span></p>', '1654600467038', 2, '1652323356167', 1, NULL, '2022-06-07 21:36:23', '2022-06-07 21:36:23');
+INSERT INTO `comment` VALUES ('1654610717379', '非人非', '<p>放热峰发热</p>', '1654600467038', 4, '1652323356167', 1, NULL, '2022-06-07 22:05:24', '2022-06-07 22:05:24');
+INSERT INTO `comment` VALUES ('1654610896854', '放热峰乳房', '<p>1515151515放热峰</p>', '1654600467038', 2, '1652323356167', 1, NULL, '2022-06-07 22:09:18', '2022-06-07 22:09:18');
+INSERT INTO `comment` VALUES ('1654611980279', 'eded', '<p>referfvvrtgtgt</p>', '1654600467038', 3, '1652238044529', 1, NULL, '2022-06-07 22:26:42', '2022-06-07 22:26:42');
+INSERT INTO `comment` VALUES ('1654612042918', '156', '<p>哈哈哈哈哈</p>', '1654600467038', 0, '1654347066042', 1, NULL, '2022-06-07 22:27:39', '2022-06-07 22:27:39');
+INSERT INTO `comment` VALUES ('1654612165428', '得分', '<p>哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈</p>', '1654600467038', 4, '1654347066042', 1, NULL, '2022-06-07 22:29:39', '2022-06-07 22:29:39');
+INSERT INTO `comment` VALUES ('1654669077654', NULL, '时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得天人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，即冈峦之体势。', '1651935333133', NULL, NULL, 0, '1678156156511', '2022-06-08 14:17:57', '2022-06-08 14:17:57');
+INSERT INTO `comment` VALUES ('1654669180523', NULL, '雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，', '1651935333133', 3, '1654669166473', 0, NULL, '2022-06-08 14:19:40', '2022-06-08 14:19:40');
+INSERT INTO `comment` VALUES ('1654669275637', NULL, '东南地区最优秀的人物。都督阎公，享有崇高的名望，远道来到洪州坐镇，宇文州牧，是美德的楷模，赴任途中在此暂留。每逢十日一旬的假期，来了很多的良友，迎接远客，高贵的朋友坐满了席位。文词宗主孟学士', '1651935333133', 3, '1654669257860', 0, NULL, '2022-06-08 14:21:15', '2022-06-08 14:21:15');
+INSERT INTO `comment` VALUES ('1654669342481', NULL, '只是一介书生。虽然和终军年龄相等，却没有报国的机会。像班超那样有投笔从戎的豪情，也有宗悫“乘风破浪”的壮志。如今我抛弃了一生的功名，不远万里去朝夕侍奉父亲。虽然不是谢玄那样的人才', '1651935333133', 4, '1654669327302', 0, NULL, '2022-06-08 14:22:22', '2022-06-08 14:22:22');
+INSERT INTO `comment` VALUES ('1654669442547', NULL, '因做《斗鸡檄》被赶出沛王府。之后，王勃历时三年游览巴蜀山川景物，创作了大量诗文。返回长安后，求补得虢州参军。在参军任上，因私杀官奴二次被贬', '1651935333133', 3, '1654669426224', 0, NULL, '2022-06-08 14:24:02', '2022-06-08 14:24:02');
+INSERT INTO `comment` VALUES ('1654674180747', NULL, '；主要文学成就是骈文，无论是数量还是质量，堪称一时之最，代表作品有《滕王阁序》等。', '1651935333133', 2, '1652323265333', 0, NULL, '2022-06-08 15:43:00', '2022-06-08 15:43:00');
+INSERT INTO `comment` VALUES ('1654674229603', '卢照邻、骆宾王并称为', '<p><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">勃（约650年—约676年），字子安，汉族，唐代文学家。古绛州龙门（今山西河津）人。出身儒学世家，与杨炯、卢照邻、骆宾王并称为“王杨卢骆”、“初唐四杰”。王勃自幼聪敏好学，据《旧唐书》记载，他六岁即能写文章，文笔流畅，被赞为“神童”。九岁时，读颜</span><img src=\"http://localhost:8888/comment/picture/1654674247915\" alt=\"\" data-href=\"\" style=\"\"/></p><p><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;被赶出沛王府。之后，王勃历时三年游览巴蜀山川景物，创作了大量诗文。返回长安后，求补得虢州参军。在参军任上，因私杀官奴二次被贬。</span></p>', '1651935333133', 4, '1654346950495', 1, NULL, '2022-06-08 15:44:22', '2022-06-08 15:44:22');
+INSERT INTO `comment` VALUES ('1654677685803', '绛州龙门今', '<p style=\"text-indent: 2em;\"><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">王勃自幼聪敏好学，据《旧唐书》记载，他六岁即能写文章，文笔流畅，被赞为“神童”。九岁时，读颜师古注《汉书》，作《指瑕》十卷以纠正其错。十六岁时，应幽素科试及第，授职朝散郎。因做《斗鸡檄》被赶出沛王府。之后，</span></p><p style=\"text-indent: 2em;\"><img src=\"http://localhost:8888/comment/picture/1654677726069\" alt=\"\" data-href=\"\" style=\"width: 801.54px;height: 1001.94px;\"></p><p style=\"text-indent: 2em;\"><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">王勃历时三年游览巴蜀山川景物，创作了大量诗文。返回长安后，求补得虢州参军。在参军任上，因私杀官奴二次被贬。676年，南下省父时，渡海溺水卒。王勃在诗歌体裁上擅长五律和五绝，代表作品有《送杜少府之任蜀州》等；主要文学成就是骈文，无论是数量还是质量，堪称一时之最，代表作品有《滕王阁序》等。😇🤣😁</span></p>', '1651935333133', 4, '1653918306384', 1, NULL, '2022-06-08 16:42:12', '2022-06-08 16:42:12');
 INSERT INTO `comment` VALUES ('1675464984912', 'hellO', 'hahaha', '1651935333133', 3, '1652323356167', 0, '1654050213142', '2022-06-01 10:47:08', '2022-06-01 10:47:08');
 INSERT INTO `comment` VALUES ('1678156156511', '发freer', '你好你好', '1651935333133', 2, '1652323356167', 0, '1675464984912', '2022-06-01 11:16:31', '2022-06-01 11:16:31');
 
@@ -162,6 +186,11 @@ INSERT INTO `comment_img` VALUES ('1654072485670', '1654072467495', 'http://loca
 INSERT INTO `comment_img` VALUES ('1654348872596', '1654348831474', 'http://localhost:8888/comment/picture/1654348872596', '2.jpg', 'image/jpeg', './upload/comment/picture/', '1654348872596.jpg', 35135);
 INSERT INTO `comment_img` VALUES ('1654348887839', '1654348831474', 'http://localhost:8888/comment/picture/1654348887839', '1.jpg', 'image/jpeg', './upload/comment/picture/', '1654348887839.jpg', 35671);
 INSERT INTO `comment_img` VALUES ('1654423772218', '1654423746078', 'http://localhost:8888/comment/picture/1654423772218', 'lisa.jpg', 'image/jpeg', './upload/comment/picture/', '1654423772218.jpg', 216978);
+INSERT INTO `comment_img` VALUES ('1654519412502', '1654519399194', 'http://localhost:8888/comment/picture/1654519412502', 'p2677018763.webp', 'image/webp', './upload/comment/picture/', '1654519412502.webp', 92266);
+INSERT INTO `comment_img` VALUES ('1654600521433', '1654600509709', 'http://localhost:8888/comment/picture/1654600521433', 'p2629896175.webp', 'image/webp', './upload/comment/picture/', '1654600521433.webp', 78230);
+INSERT INTO `comment_img` VALUES ('1654601818601', '1654601799956', 'http://localhost:8888/comment/picture/1654601818601', 'p2629896175.webp', 'image/webp', './upload/comment/picture/', '1654601818601.webp', 78230);
+INSERT INTO `comment_img` VALUES ('1654674247915', '1654674229603', 'http://localhost:8888/comment/picture/1654674247915', '2.jpg', 'image/jpeg', './upload/comment/picture/', '1654674247915.jpg', 35135);
+INSERT INTO `comment_img` VALUES ('1654677726069', '1654677685803', 'http://localhost:8888/comment/picture/1654677726069', 'p2629896175.webp', 'image/webp', './upload/comment/picture/', '1654677726069.webp', 78230);
 
 -- ----------------------------
 -- Table structure for director
@@ -204,6 +233,7 @@ INSERT INTO `director` VALUES ('1652148516616', '阿尔弗雷德·希区柯克 '
 INSERT INTO `director` VALUES ('1652368056784', '亚历山大·阿嘉', 'http://localhost:8888/director/avatar/1652368056784', 'Alexandre Aja', '0', '法国,巴黎', '亚历山大·阿嘉，法国著名导演。阿嘉在1999年和2003年拍过《Furia》和《血色月亮》两部法国片之后,接下来的《隔山有眼》《鬼镜》和《食人鱼3D》皆为翻拍版影片(依次翻拍自1977年同名片;2003年韩国片《照出冤灵》;1978年《食人鱼》)。', '2022-05-12 23:07:36', '2022-06-03 19:52:16', 'p2677018763.webp', 'image/webp', './upload/director/avatar/', '1654257136846.webp', 92266);
 INSERT INTO `director` VALUES ('1652368225016', '马特·里夫斯', 'http://localhost:8888/director/avatar/1652368225016', 'Matt Reeves', '0', '美国,纽约,罗克维尔中心', '马特·里夫斯（Matt Reeves），全名马修·乔治·里夫斯（Matthew George Reeves），1966年4月27日出生于美国纽约罗克维尔中心，美国导演、编剧、制片人，毕业于南加利福尼亚大学。', '2022-05-12 23:10:25', '2022-06-03 19:52:43', 'lisa.jpg', 'image/jpeg', './upload/director/avatar/', '1654257163107.jpg', 216978);
 INSERT INTO `director` VALUES ('1653918593878', '皮埃尔', 'http://localhost:8888/director/avatar/1653918593878', 'piaier', '1', 'rthr ', 'fsdsasdfgh', '2022-05-30 21:49:53', '2022-06-03 19:50:30', 'p1386481612.26.jpg', 'image/jpeg', './upload/director/avatar/', '1654257030236.jpg', 73591);
+INSERT INTO `director` VALUES ('1654600299663', '韩信', 'http://localhost:8888/director/avatar/1654600299663', '韩信', '0', '中国武汉', '韩信韩信韩信韩信', '2022-06-07 19:11:39', '2022-06-07 19:11:39', 'p2677018763.webp', 'image/webp', './upload/director/avatar/', '1654600299730.webp', 92266);
 
 -- ----------------------------
 -- Table structure for movie
@@ -233,14 +263,14 @@ CREATE TABLE `movie`  (
 -- Records of movie
 -- ----------------------------
 INSERT INTO `movie` VALUES ('1652237815469', '大话西游记', 'http://localhost:8888/movie/cover/1652237815469', '1652189363945', '英语/德语/俄语', '45', '2022-10-17 16:00:00', 1500, '花花4566', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654255934209.webp', 28686, 6.67);
-INSERT INTO `movie` VALUES ('1652238044529', '复仇者联盟', 'http://localhost:8888/movie/cover/1652238044529', '1652189384380', '华语', '45222', '2022-11-12 00:00:00', 1500, '花花', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654255984879.webp', 28686, 0.00);
+INSERT INTO `movie` VALUES ('1652238044529', '复仇者联盟', 'http://localhost:8888/movie/cover/1652238044529', '1652189384380', '华语', '45222', '2022-11-12 00:00:00', 1500, '花花', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654255984879.webp', 28686, 6.00);
 INSERT INTO `movie` VALUES ('1652322636610', '美国队长2', 'http://localhost:8888/movie/cover/1652322636610', '1652189363945', '法语/俄语/韩语', '渐渐习惯了现代生活的美国队长史蒂夫·罗杰斯（克里斯·埃文斯 Chris Evans 饰），在一次行动后隐隐嗅到神盾局内部所弥漫出来的凶险气味。', '2022-04-19 16:00:00', 1500, 'Captain America: The Winter Soldier ', 'p1378204929.4.jpg', 'image/jpeg', './upload/movie/cover/', '1654256801718.jpg', 24950, 0.00);
-INSERT INTO `movie` VALUES ('1652322979306', 'X战警：逆转未来', 'http://localhost:8888/movie/cover/1652322979306', '1652189363945', '法语/德语/中文', '故事的设定发生在当下，变种人族群遭到了前所未有的毁灭性打击，而这一切的根源是“魔形女”瑞文（詹妮弗·劳伦斯 Jennifer Lawrence 饰）在1973年刺杀了玻利瓦尔·特拉斯克（彼特·丁拉基 ', '2022-05-16 16:00:00', 1500, 'X-Men: Days of Future Past', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654256808437.jpg', 73591, 3.00);
+INSERT INTO `movie` VALUES ('1652322979306', 'X战警：逆转未来', 'http://localhost:8888/movie/cover/1652322979306', '1652189363945', '法语/德语/中文', '故事的设定发生在当下，变种人族群遭到了前所未有的毁灭性打击，而这一切的根源是“魔形女”瑞文（詹妮弗·劳伦斯 Jennifer Lawrence 饰）在1973年刺杀了玻利瓦尔·特拉斯克（彼特·丁拉基 ', '2022-05-16 16:00:00', 1500, 'X-Men: Days of Future Past', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654256808437.jpg', 73591, 4.00);
 INSERT INTO `movie` VALUES ('1652323065481', '明日边缘 ', 'http://localhost:8888/movie/cover/1652323065481', '1652189363945', '英语', '未来世界陷入外星人入侵的恐慌中，军事演说家凯奇少校（汤姆·克鲁斯 Tom Cruise 饰）畏惧上战场，他从没想过将军（布莱丹·格里森 Brendan Gleeson 饰）会让他去指挥即将开始的“诺曼', '2014-05-20 16:00:00', 1500, 'Edge of Tomorrow', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654256869465.jpg', 73591, 4.00);
 INSERT INTO `movie` VALUES ('1652323129328', '源代码 ', 'http://localhost:8888/movie/cover/1652323129328', '1652189363945', '英语', '在阿富汗执行任务的美国空军飞行员科特史蒂文斯上尉（杰克·吉伦哈尔 Jake Gyllenhaal 饰）突然惊醒，发现自己在一辆高速行驶的列车上，而他的身边坐着一个素不相识的女子克里斯蒂安（米歇尔·莫娜', '2022-05-11 16:00:00', 1500, 'Source Code', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654256815588.webp', 28686, 6.00);
 INSERT INTO `movie` VALUES ('1652323197911', '终结者2', 'http://localhost:8888/movie/cover/1652323197911', '1652189363945', '英语 / 西班牙语', '上一部中，超级电脑“天网”阻止人类抵抗领袖约翰·康纳诞生的行动失败，时隔13年后，在“审判日”到来之前，“天网”派出了更加先进的生化机器人T-1000（罗伯特·帕特里克 饰）从公元2029年回到洛杉矶', '2002-05-08 16:00:00', 1500, 'Terminator 2: Judgment Day', '3.webp', 'image/webp', './upload/movie/cover/', '1654257331361.webp', 23850, 6.00);
-INSERT INTO `movie` VALUES ('1652323265333', '阿凡达', 'http://localhost:8888/movie/cover/1652323265333', '1652189363945', '英语', '战斗中负伤而下身瘫痪的前海军战士杰克·萨利（萨姆·沃辛顿 Sam Worthington 饰）决定替死去的同胞哥哥来到潘多拉星操纵格蕾丝博士（西格妮·韦弗 Sigourney Weaver 饰）用人类', '2022-05-11 16:00:00', 1500, 'Avatar ', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654256876916.webp', 28686, 6.00);
-INSERT INTO `movie` VALUES ('1652323356167', '变形金刚 ', 'http://localhost:8888/movie/cover/1652323356167', '1652189371834', '英语 / 西班牙语', '　“霸天虎”的先遣部队旋风和毒蝎袭击了美军位于卡塔尔的军事基地，与此同时，路障帮助他的搭档迷乱潜入了美国总统的座机空中一号，通过电脑获悉，要想找到威震天就必须找到维特维奇家族的那副眼镜，上面有威震天关', '2012-05-23 16:00:00', 1500, 'Transformers', 'p2677018763.webp', 'image/webp', './upload/movie/cover/', '1654257314728.webp', 92266, 6.83);
+INSERT INTO `movie` VALUES ('1652323265333', '阿凡达', 'http://localhost:8888/movie/cover/1652323265333', '1652189363945', '英语', '战斗中负伤而下身瘫痪的前海军战士杰克·萨利（萨姆·沃辛顿 Sam Worthington 饰）决定替死去的同胞哥哥来到潘多拉星操纵格蕾丝博士（西格妮·韦弗 Sigourney Weaver 饰）用人类', '2022-05-11 16:00:00', 1500, 'Avatar ', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654256876916.webp', 28686, 5.00);
+INSERT INTO `movie` VALUES ('1652323356167', '变形金刚 ', 'http://localhost:8888/movie/cover/1652323356167', '1652189371834', '英语 / 西班牙语', '　“霸天虎”的先遣部队旋风和毒蝎袭击了美军位于卡塔尔的军事基地，与此同时，路障帮助他的搭档迷乱潜入了美国总统的座机空中一号，通过电脑获悉，要想找到威震天就必须找到维特维奇家族的那副眼镜，上面有威震天关', '2012-05-23 16:00:00', 1500, 'Transformers', 'p2677018763.webp', 'image/webp', './upload/movie/cover/', '1654257314728.webp', 92266, 6.44);
 INSERT INTO `movie` VALUES ('1652323435978', '蜘蛛侠', 'http://localhost:8888/movie/cover/1652323435978', '1652189403822', '英语', '彼得 帕克（托比•马奎尔 Tobey Maguire 饰）只是美国一个平凡的高中生，当一次他被蜘蛛博物馆偷跑出来的变种蜘蛛咬了一口之后，彼得的生活彻底改变了。他变得和蜘蛛一样，拥有各种蜘蛛特有的超能力', '2008-05-21 16:00:00', 1500, 'Spider-Man', 'p1378204929.4.jpg', 'image/jpeg', './upload/movie/cover/', '1654256821840.jpg', 24950, 0.00);
 INSERT INTO `movie` VALUES ('1652323545139', '金刚狼', 'http://localhost:8888/movie/cover/1652323545139', '1652189371834', '英语', '　　1845年，尚年幼的维克多与詹姆斯兄弟俩在长辈之间一场突如其来争执中唤醒了自身的潜能，詹姆斯情急之下将陌生的生父杀死，自此兄弟两人流落战场', '2008-04-22 16:00:00', 1500, 'Wolverine', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654256829821.jpg', 73591, 0.00);
 INSERT INTO `movie` VALUES ('1653092993980', '致命ID', 'http://localhost:8888/movie/cover/1653092993980', '1652189363945', '英语', 'fefer', '2022-05-14 16:00:00', 1500, '恐吓', 'p1378204929.4.jpg', 'image/jpeg', './upload/movie/cover/', '1654256862898.jpg', 24950, 8.00);
@@ -253,18 +283,22 @@ INSERT INTO `movie` VALUES ('1653228335073', 'w\'s\'w\'s', 'http://localhost:888
 INSERT INTO `movie` VALUES ('1653489563065', '假如爱有天意', 'http://localhost:8888/movie/cover/1653489563065', '1652189363945', '韩语/泰语', '饰）留下的情书，在阅读中她重温着母亲的初恋回忆。1968年的珠喜，是一个清纯可爱的少女，与穷学生俊河（曹承佑饰）一见钟情，由于珠喜显赫的家世，令两人的恋爱陷入俗套的门不当户不对的痛苦纠结中。2003年', '2015-05-03 16:00:00', 1500, '佳佳', 'lisa.jpg', 'image/jpeg', './upload/movie/cover/', '1654257352936.jpg', 216978, 0.00);
 INSERT INTO `movie` VALUES ('1653918216406', '猪头', 'http://localhost:8888/movie/cover/1653918216406', '1652189384380', '德语/韩语', '45太5他太其他七条', '2022-05-17 16:00:00', 1500, '太沟通无果', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654256846908.webp', 28686, 0.00);
 INSERT INTO `movie` VALUES ('1653918255848', '太提高给', 'http://localhost:8888/movie/cover/1653918255848', '1652189371834', '德语/法语', '过他沟通无果', '2022-06-06 16:00:00', 1500, '太他他', 'lisa.jpg', 'image/jpeg', './upload/movie/cover/', '1654256969486.jpg', 216978, 0.00);
-INSERT INTO `movie` VALUES ('1653918306384', '而非热风热风', 'http://localhost:8888/movie/cover/1653918306384', '1652189384380', '英语/俄语', '废人高清版有 ', '2015-05-13 16:00:00', 1500, '风热风热', '3.webp', 'image/webp', './upload/movie/cover/', '1654256979868.webp', 23850, 10.00);
+INSERT INTO `movie` VALUES ('1653918306384', '而非热风热风', 'http://localhost:8888/movie/cover/1653918306384', '1652189384380', '英语/俄语', '废人高清版有 ', '2015-05-13 16:00:00', 1500, '风热风热', '3.webp', 'image/webp', './upload/movie/cover/', '1654256979868.webp', 23850, 9.00);
 INSERT INTO `movie` VALUES ('1653918353049', '给他人外国人沟通', 'http://localhost:8888/movie/cover/1653918353049', '1652189371834', '班巴拉语/白俄罗斯语/巴斯克语', '过歌', '2022-05-09 16:00:00', 1500, '过而且给', '3.webp', 'image/webp', './upload/movie/cover/', '1654256993435.webp', 23850, 0.00);
 INSERT INTO `movie` VALUES ('1653918415127', '罗三炮', 'http://localhost:8888/movie/cover/1653918415127', '1652189371834', '波斯尼亚语/波斯语', '局域居然', '2022-05-23 16:00:00', 1500, '看i看', 'f15887af9.jpg', 'image/jpeg', './upload/movie/cover/', '1654256838288.jpg', 31515, 0.00);
 INSERT INTO `movie` VALUES ('1654346873456', '我i不是腰身', 'http://localhost:8888/movie/cover/1654346873456', '1652189363945', '中文/德语', 'vVS VS v', '2022-06-07 16:00:00', 15000, '我i不是腰身', 'lisa.jpg', 'image/jpeg', './upload/movie/cover/', '1654346873578.jpg', 216978, 4.00);
-INSERT INTO `movie` VALUES ('1654346950495', '发v发v', 'http://localhost:8888/movie/cover/1654346950495', '1652189363945', '中文/英语', '无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。', '2022-05-31 16:00:00', 15000, '李广难封', 'p2677018763.webp', 'image/webp', './upload/movie/cover/', '1654346950576.webp', 92266, 6.00);
+INSERT INTO `movie` VALUES ('1654346950495', '发v发v', 'http://localhost:8888/movie/cover/1654346950495', '1652189363945', '中文/英语', '无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。', '2022-05-31 16:00:00', 15000, '李广难封', 'p2677018763.webp', 'image/webp', './upload/movie/cover/', '1654346950576.webp', 92266, 5.33);
 INSERT INTO `movie` VALUES ('1654347011424', '四美具', 'http://localhost:8888/movie/cover/1654347011424', '1652189363945', '中文/英语', '！时运不齐，命途多舛。冯唐易老，李广难封。屈贾谊于长沙，非无圣主；窜梁鸿于海曲，岂乏明时？', '2022-05-31 16:00:00', 15000, '四美具', '3.webp', 'image/webp', './upload/movie/cover/', '1654347011521.webp', 23850, 6.00);
-INSERT INTO `movie` VALUES ('1654347066042', '闲云潭影日', 'http://localhost:8888/movie/cover/1654347066042', '1652189363945', '中文/英语', '闲云潭影日', '2022-06-06 16:00:00', 15000, '闲云潭影日', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654347066123.webp', 28686, 8.00);
+INSERT INTO `movie` VALUES ('1654347066042', '闲云潭影日', 'http://localhost:8888/movie/cover/1654347066042', '1652189363945', '中文/英语', '闲云潭影日', '2022-06-06 16:00:00', 15000, '闲云潭影日', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654347066123.webp', 28686, 6.40);
 INSERT INTO `movie` VALUES ('1654347114186', '赴任途中', 'http://localhost:8888/movie/cover/1654347114186', '1652189363945', '英语/中文', '赴任途中赴任途中赴任途中赴任途中', '2022-06-13 16:00:00', 15000, '赴任途中', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654347114267.jpg', 73591, 8.00);
 INSERT INTO `movie` VALUES ('1654347168760', '尽是他乡之客', 'http://localhost:8888/movie/cover/1654347168760', '1652189363945', '中文', '尽是他乡之客', '2022-06-05 16:00:00', 15000, '尽是他乡之客', 'f15887af9.jpg', 'image/jpeg', './upload/movie/cover/', '1654347168831.jpg', 31515, 6.00);
 INSERT INTO `movie` VALUES ('1654347220164', '序属三秋', 'http://localhost:8888/movie/cover/1654347220164', '1652189363945', '中文/英语/法语', '序属三秋序属三秋序属三秋序属三秋序属三秋', '2022-06-07 16:00:00', 15000, '序属三秋', 'lisa.jpg', 'image/jpeg', './upload/movie/cover/', '1654347220248.jpg', 216978, 4.00);
 INSERT INTO `movie` VALUES ('1654347283917', '落霞与孤鹜齐飞', 'http://localhost:8888/movie/cover/1654347283917', '1652189363945', '英语/中文', '落霞与孤鹜齐飞落霞与孤鹜齐飞落霞与孤鹜齐飞落霞与孤鹜齐飞', '2022-05-31 16:00:00', 15000, '落霞与孤鹜齐飞', 'p2677018763.webp', 'image/webp', './upload/movie/cover/', '1654347283998.webp', 92266, 6.00);
 INSERT INTO `movie` VALUES ('1654347779763', '潦水尽而寒潭清', 'http://localhost:8888/movie/cover/1654347779763', '1652189371834', '中文/英语', '潦水尽而寒潭清潦水尽而寒潭清潦水尽而寒潭清潦水尽而寒潭清', '2022-05-31 16:00:00', 15000, '潦水尽而寒潭清', 'p2677018763.webp', 'image/webp', './upload/movie/cover/', '1654347779839.webp', 92266, 6.00);
+INSERT INTO `movie` VALUES ('1654669166473', '襟三江而带五湖', 'http://localhost:8888/movie/cover/1654669166473', '1652189371834', '中文/英语/德语', '襟三江而带五湖襟三江而带五湖襟三江而带五湖紫电青霜，王将军之武库', '2022-06-06 16:00:00', 15000, '襟三江而带五湖', 'p2629896175.webp', 'image/webp', './upload/movie/cover/', '1654669166581.webp', 78230, 6.00);
+INSERT INTO `movie` VALUES ('1654669257860', '洪州的都督府', 'http://localhost:8888/movie/cover/1654669257860', '1652189371834', '奥利亚语/爱沙尼亚语', '控制着楚地控制着楚地控制着楚地九月之时，雨后的积水消尽，寒凉的潭水清澈，天空凝结着淡淡的云烟，暮霭中山峦呈现一片紫色。在高高的山路上驾着马车，在崇山峻岭中访求风景。来到昔日帝子的长洲，找到仙人居住过的', '2022-06-04 16:00:00', 15000, '控制着楚地', '3.webp', 'image/webp', './upload/movie/cover/', '1654669257944.webp', 23850, 6.00);
+INSERT INTO `movie` VALUES ('1654669327302', '遭遇穷困而意志更加坚定', 'http://localhost:8888/movie/cover/1654669327302', '1652189371834', '中文/英语/德语', '遭遇穷困而意志更加坚定遭遇穷困而意志更加坚定', '2022-06-12 16:00:00', 15000, '遭遇穷困而意志更加坚定', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654669327390.webp', 28686, 8.00);
+INSERT INTO `movie` VALUES ('1654669426224', '高宗时期，洪州都督阎', 'http://localhost:8888/movie/cover/1654669426224', '1652189371834', '德语/保加利亚语', '高宗时期，洪州都督阎高宗时期，洪州都督阎高宗时期，洪州都督阎高宗时期，洪州都督阎高宗时期，洪州都督阎高宗时期，洪州都督阎高宗时期，洪州都督阎', '2022-05-31 16:00:00', 15000, '高宗时期，洪州都督阎', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654669426306.jpg', 73591, 0.00);
 
 -- ----------------------------
 -- Table structure for movie_actor
@@ -365,6 +399,14 @@ INSERT INTO `movie_actor` VALUES ('1654347283917', '1652494639677', '2022-06-04 
 INSERT INTO `movie_actor` VALUES ('1654347779763', '1652014592779', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
 INSERT INTO `movie_actor` VALUES ('1654347779763', '1652152720292', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
 INSERT INTO `movie_actor` VALUES ('1654347779763', '1652152758674', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
+INSERT INTO `movie_actor` VALUES ('1654669166473', '1652152775219', '2022-06-08 14:19:26', '2022-06-08 14:19:26');
+INSERT INTO `movie_actor` VALUES ('1654669166473', '1652152736343', '2022-06-08 14:19:26', '2022-06-08 14:19:26');
+INSERT INTO `movie_actor` VALUES ('1654669257860', '1652152775219', '2022-06-08 14:20:57', '2022-06-08 14:20:57');
+INSERT INTO `movie_actor` VALUES ('1654669257860', '1652152758674', '2022-06-08 14:20:57', '2022-06-08 14:20:57');
+INSERT INTO `movie_actor` VALUES ('1654669327302', '1652152775219', '2022-06-08 14:22:07', '2022-06-08 14:22:07');
+INSERT INTO `movie_actor` VALUES ('1654669327302', '1652152758674', '2022-06-08 14:22:07', '2022-06-08 14:22:07');
+INSERT INTO `movie_actor` VALUES ('1654669426224', '1652152809362', '2022-06-08 14:23:46', '2022-06-08 14:23:46');
+INSERT INTO `movie_actor` VALUES ('1654669426224', '1652152758674', '2022-06-08 14:23:46', '2022-06-08 14:23:46');
 
 -- ----------------------------
 -- Table structure for movie_area
@@ -475,6 +517,15 @@ INSERT INTO `movie_area_relate` VALUES ('1654347220164', '1652189762304', '2022-
 INSERT INTO `movie_area_relate` VALUES ('1654347283917', '1652189726243', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
 INSERT INTO `movie_area_relate` VALUES ('1654347283917', '1652189774756', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
 INSERT INTO `movie_area_relate` VALUES ('1654347779763', '1652189726243', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
+INSERT INTO `movie_area_relate` VALUES ('1654669166473', '1652189726243', '2022-06-08 14:19:26', '2022-06-08 14:19:26');
+INSERT INTO `movie_area_relate` VALUES ('1654669257860', '1652189726243', '2022-06-08 14:20:57', '2022-06-08 14:20:57');
+INSERT INTO `movie_area_relate` VALUES ('1654669257860', '1652189762304', '2022-06-08 14:20:57', '2022-06-08 14:20:57');
+INSERT INTO `movie_area_relate` VALUES ('1654669257860', '1652189745734', '2022-06-08 14:20:57', '2022-06-08 14:20:57');
+INSERT INTO `movie_area_relate` VALUES ('1654669327302', '1652189726243', '2022-06-08 14:22:07', '2022-06-08 14:22:07');
+INSERT INTO `movie_area_relate` VALUES ('1654669327302', '1652189781103', '2022-06-08 14:22:07', '2022-06-08 14:22:07');
+INSERT INTO `movie_area_relate` VALUES ('1654669426224', '1652189815366', '2022-06-08 14:23:46', '2022-06-08 14:23:46');
+INSERT INTO `movie_area_relate` VALUES ('1654669426224', '1652189823271', '2022-06-08 14:23:46', '2022-06-08 14:23:46');
+INSERT INTO `movie_area_relate` VALUES ('1654669426224', '1652189726243', '2022-06-08 14:23:46', '2022-06-08 14:23:46');
 
 -- ----------------------------
 -- Table structure for movie_cate
@@ -599,6 +650,13 @@ INSERT INTO `movie_cate_relate` VALUES ('1654347283917', '1652190079476', '2022-
 INSERT INTO `movie_cate_relate` VALUES ('1654347283917', '1652190060642', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
 INSERT INTO `movie_cate_relate` VALUES ('1654347779763', '1652190072644', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
 INSERT INTO `movie_cate_relate` VALUES ('1654347779763', '1652190054769', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
+INSERT INTO `movie_cate_relate` VALUES ('1654669166473', '1652190060642', '2022-06-08 14:19:26', '2022-06-08 14:19:26');
+INSERT INTO `movie_cate_relate` VALUES ('1654669166473', '1652190048721', '2022-06-08 14:19:26', '2022-06-08 14:19:26');
+INSERT INTO `movie_cate_relate` VALUES ('1654669257860', '1652190072644', '2022-06-08 14:20:57', '2022-06-08 14:20:57');
+INSERT INTO `movie_cate_relate` VALUES ('1654669327302', '1652190079476', '2022-06-08 14:22:07', '2022-06-08 14:22:07');
+INSERT INTO `movie_cate_relate` VALUES ('1654669327302', '1652190072644', '2022-06-08 14:22:07', '2022-06-08 14:22:07');
+INSERT INTO `movie_cate_relate` VALUES ('1654669426224', '1652190079476', '2022-06-08 14:23:46', '2022-06-08 14:23:46');
+INSERT INTO `movie_cate_relate` VALUES ('1654669426224', '1652190125156', '2022-06-08 14:23:46', '2022-06-08 14:23:46');
 
 -- ----------------------------
 -- Table structure for movie_director
@@ -698,6 +756,15 @@ INSERT INTO `movie_director` VALUES ('1654347283917', '1652148516616', '2022-06-
 INSERT INTO `movie_director` VALUES ('1654347283917', '1652148383742', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
 INSERT INTO `movie_director` VALUES ('1654347779763', '1652105870601', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
 INSERT INTO `movie_director` VALUES ('1654347779763', '1652105949804', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
+INSERT INTO `movie_director` VALUES ('1654669166473', '1652109786913', '2022-06-08 14:19:26', '2022-06-08 14:19:26');
+INSERT INTO `movie_director` VALUES ('1654669166473', '1652109629705', '2022-06-08 14:19:26', '2022-06-08 14:19:26');
+INSERT INTO `movie_director` VALUES ('1654669166473', '1652105949804', '2022-06-08 14:19:26', '2022-06-08 14:19:26');
+INSERT INTO `movie_director` VALUES ('1654669257860', '1652097707616', '2022-06-08 14:20:57', '2022-06-08 14:20:57');
+INSERT INTO `movie_director` VALUES ('1654669257860', '1652105949804', '2022-06-08 14:20:57', '2022-06-08 14:20:57');
+INSERT INTO `movie_director` VALUES ('1654669327302', '1652109786913', '2022-06-08 14:22:07', '2022-06-08 14:22:07');
+INSERT INTO `movie_director` VALUES ('1654669327302', '1652109714661', '2022-06-08 14:22:07', '2022-06-08 14:22:07');
+INSERT INTO `movie_director` VALUES ('1654669426224', '1652109786913', '2022-06-08 14:23:46', '2022-06-08 14:23:46');
+INSERT INTO `movie_director` VALUES ('1654669426224', '1652105949804', '2022-06-08 14:23:46', '2022-06-08 14:23:46');
 
 -- ----------------------------
 -- Table structure for movie_form
@@ -791,6 +858,15 @@ INSERT INTO `movie_screenwriter_relate` VALUES ('1654347283917', '1653808958369'
 INSERT INTO `movie_screenwriter_relate` VALUES ('1654347283917', '1653808925155', '2022-06-04 20:54:43', '2022-06-04 20:54:43');
 INSERT INTO `movie_screenwriter_relate` VALUES ('1654347779763', '1653806571714', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
 INSERT INTO `movie_screenwriter_relate` VALUES ('1654347779763', '1653806523028', '2022-06-04 21:02:59', '2022-06-04 21:02:59');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654669166473', '1652195889420', '2022-06-08 14:19:26', '2022-06-08 14:19:26');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654669166473', '1653806571714', '2022-06-08 14:19:26', '2022-06-08 14:19:26');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654669166473', '1653806523028', '2022-06-08 14:19:26', '2022-06-08 14:19:26');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654669257860', '1653806434280', '2022-06-08 14:20:57', '2022-06-08 14:20:57');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654669257860', '1653808925155', '2022-06-08 14:20:57', '2022-06-08 14:20:57');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654669327302', '1653806523028', '2022-06-08 14:22:07', '2022-06-08 14:22:07');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654669327302', '1653808925155', '2022-06-08 14:22:07', '2022-06-08 14:22:07');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654669426224', '1653808946753', '2022-06-08 14:23:46', '2022-06-08 14:23:46');
+INSERT INTO `movie_screenwriter_relate` VALUES ('1654669426224', '1653806571714', '2022-06-08 14:23:46', '2022-06-08 14:23:46');
 
 -- ----------------------------
 -- Table structure for movie_tag
@@ -976,6 +1052,9 @@ INSERT INTO `occupation_relate` VALUES ('1652152758674', NULL, NULL, '1652100375
 INSERT INTO `occupation_relate` VALUES ('1652152758674', NULL, NULL, '1652100361394');
 INSERT INTO `occupation_relate` VALUES ('1652152809362', NULL, NULL, '1652100330901');
 INSERT INTO `occupation_relate` VALUES ('1652152809362', NULL, NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES (NULL, '1654600299663', NULL, '1652100137884');
+INSERT INTO `occupation_relate` VALUES (NULL, '1654600299663', NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES (NULL, '1654600299663', NULL, '1652100299387');
 
 -- ----------------------------
 -- Table structure for publish
@@ -1060,6 +1139,31 @@ INSERT INTO `screenwriter` VALUES ('1653813429748', '么米欸额', 'http://loca
 INSERT INTO `screenwriter` VALUES ('1653831790650', '人人', 'http://localhost:8888/screenwriter/avatar/1653831790650', '出对策微软', '1', '如4人', '2022-05-01 16:00:00', '如4 ', '如人', '2022-05-29 21:43:10', '2022-05-29 21:43:10', '周慧明.jpeg', 'image/jpeg', './upload/screenwriter/avatar/', '1653831790690.jpeg', 27637);
 
 -- ----------------------------
+-- Table structure for subscriber
+-- ----------------------------
+DROP TABLE IF EXISTS `subscriber`;
+CREATE TABLE `subscriber`  (
+  `id` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `userId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `cId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '评论ID',
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `sub_ibfk_1`(`cId` ASC) USING BTREE,
+  INDEX `sub_ibfk_2`(`userId` ASC) USING BTREE,
+  CONSTRAINT `sub_ibfk_1` FOREIGN KEY (`cId`) REFERENCES `comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `sub_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of subscriber
+-- ----------------------------
+INSERT INTO `subscriber` VALUES ('1654507397797', '1651935333133', '1654348831474', '2022-06-06 17:23:17', '2022-06-06 17:23:17');
+INSERT INTO `subscriber` VALUES ('1654519443306', '1651935333133', '1654519399194', '2022-06-06 20:44:03', '2022-06-06 20:44:03');
+INSERT INTO `subscriber` VALUES ('1654608782758', '1654600467038', '1654050213142', '2022-06-07 21:33:02', '2022-06-07 21:33:02');
+INSERT INTO `subscriber` VALUES ('1654669099437', '1651935333133', '1654050213142', '2022-06-08 14:18:19', '2022-06-08 14:18:19');
+
+-- ----------------------------
 -- Table structure for thumb
 -- ----------------------------
 DROP TABLE IF EXISTS `thumb`;
@@ -1077,6 +1181,25 @@ CREATE TABLE `thumb`  (
 -- ----------------------------
 -- Records of thumb
 -- ----------------------------
+INSERT INTO `thumb` VALUES ('1654500583869', '1651935333133', '1654087494032', '2022-06-06 15:29:43', '2022-06-06 15:29:43');
+INSERT INTO `thumb` VALUES ('1654501996094', '1651935333133', '1654422289323', '2022-06-06 15:53:16', '2022-06-06 15:53:16');
+INSERT INTO `thumb` VALUES ('1654503673765', '1651935333133', '1654348831474', '2022-06-06 16:21:13', '2022-06-06 16:21:13');
+INSERT INTO `thumb` VALUES ('1654519442671', '1651935333133', '1654519399194', '2022-06-06 20:44:02', '2022-06-06 20:44:02');
+INSERT INTO `thumb` VALUES ('1654602654153', '1654600467038', '1654348831474', '2022-06-07 19:50:54', '2022-06-07 19:50:54');
+INSERT INTO `thumb` VALUES ('1654604313582', '1654600467038', '1654050173621', '2022-06-07 20:18:33', '2022-06-07 20:18:33');
+INSERT INTO `thumb` VALUES ('1654604320330', '1654600467038', '1654050199077', '2022-06-07 20:18:40', '2022-06-07 20:18:40');
+INSERT INTO `thumb` VALUES ('1654604321166', '1654600467038', '1654069770817', '2022-06-07 20:18:41', '2022-06-07 20:18:41');
+INSERT INTO `thumb` VALUES ('1654604321881', '1654600467038', '1654069778202', '2022-06-07 20:18:41', '2022-06-07 20:18:41');
+INSERT INTO `thumb` VALUES ('1654604323417', '1654600467038', '1654349629759', '2022-06-07 20:18:43', '2022-06-07 20:18:43');
+INSERT INTO `thumb` VALUES ('1654604324018', '1654600467038', '1654260143914', '2022-06-07 20:18:44', '2022-06-07 20:18:44');
+INSERT INTO `thumb` VALUES ('1654604324584', '1654600467038', '1654087653198', '2022-06-07 20:18:44', '2022-06-07 20:18:44');
+INSERT INTO `thumb` VALUES ('1654605787795', '1654600467038', '1654050213142', '2022-06-07 20:43:07', '2022-06-07 20:43:07');
+INSERT INTO `thumb` VALUES ('1654607659448', '1654600467038', '1654075057117', '2022-06-07 21:14:19', '2022-06-07 21:14:19');
+INSERT INTO `thumb` VALUES ('1654607660254', '1654600467038', '1654075129397', '2022-06-07 21:14:20', '2022-06-07 21:14:20');
+INSERT INTO `thumb` VALUES ('1654608235682', '1654600467038', '1675464984912', '2022-06-07 21:23:55', '2022-06-07 21:23:55');
+INSERT INTO `thumb` VALUES ('1654608707970', '1654600467038', '1678156156511', '2022-06-07 21:31:47', '2022-06-07 21:31:47');
+INSERT INTO `thumb` VALUES ('1654669100388', '1651935333133', '1654050213142', '2022-06-08 14:18:20', '2022-06-08 14:18:20');
+INSERT INTO `thumb` VALUES ('1654674268852', '1651935333133', '1654674229603', '2022-06-08 15:44:28', '2022-06-08 15:44:28');
 
 -- ----------------------------
 -- Table structure for user
@@ -1103,12 +1226,13 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1651935333133', 'gb', '456', 'http://localhost:8888/user/avatar/1651935333133', '2022-05-07 22:55:33', '2022-06-04 21:14:28', 0, '0000-00-00 00:00:00', 0, 'p1378204929.4.jpg', 'image/jpeg', './upload/avatar/', '1654348468456.jpg', 24950);
+INSERT INTO `user` VALUES ('1651935333133', 'gb', '456', 'http://localhost:8888/user/avatar/1651935333133', '2022-05-07 22:55:33', '2022-06-07 19:46:01', 0, '0000-00-00 00:00:00', 0, 'p1386481612.26.jpg', 'image/jpeg', './upload/avatar/', '1654602361934.jpg', 73591);
 INSERT INTO `user` VALUES ('1651968644534', 'gb1', '456', NULL, '2022-05-08 08:10:44', '2022-05-08 08:10:44', 0, '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user` VALUES ('1651968719179', 'g0b', '456', NULL, '2022-05-08 08:11:59', '2022-05-08 08:11:59', 0, '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user` VALUES ('1651974343667', 'g0b', '456', NULL, '2022-05-08 09:45:43', '2022-05-08 09:45:43', 0, '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user` VALUES ('1651974351804', 'g0brrr', '456', NULL, '2022-05-08 09:45:51', '2022-05-08 09:45:51', 0, '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user` VALUES ('1654177694466', '叶子', '456', NULL, '2022-06-02 21:48:14', '2022-06-02 21:48:14', 0, '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` VALUES ('1654600467038', 'bug', '123', 'http://localhost:8888/user/avatar/1654600467038', '2022-06-07 19:14:27', '2022-06-07 19:17:05', 0, '0000-00-00 00:00:00', 0, 'p2629896175.webp', 'image/webp', './upload/avatar/', '1654600625504.webp', 78230);
 
 -- ----------------------------
 -- Table structure for writer

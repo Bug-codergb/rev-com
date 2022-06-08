@@ -16,6 +16,7 @@ import {formatTime} from "../../../../../../utils/formatTime";
 const ShortComDetail:FC=():ReactElement=>{
   const location=useLocation();
   const state=location.state as {id:string};
+  console.log(state)
   const [id,setId]=useState<string>(state.id);
   const [total,setTotal]=useState<number>(0);
   const [comment,setComment]=useState<IComment[]>([]);
@@ -36,7 +37,7 @@ const ShortComDetail:FC=():ReactElement=>{
         setMovie(data.data)
       }
     })
-  },[])
+  },[id])
   const pageClick=(e:number)=>{
     getAllShortCom<IResponseType<IPageResult<IComment[]>>>(e,10,"movieId",id).then((data)=>{
       if(data.status===200){
@@ -56,6 +57,7 @@ const ShortComDetail:FC=():ReactElement=>{
                                                 pageClick={(e)=>pageClick(e)}
                                                 total={total}
                                                 count={10}
+                                                isWangEdit={false}
                                                 isControl={true}
                                                 isShowRate={true}/>
         }

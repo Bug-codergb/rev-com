@@ -4,11 +4,17 @@ import {
 }from "./style";
 import {IComment} from "../../../types/comment";
 import {Empty, Rate, message, Pagination} from "antd";
-import {LikeOutlined,FormOutlined,DeleteOutlined} from "@ant-design/icons"
+import {LikeOutlined, FormOutlined, DeleteOutlined, LikeFilled} from "@ant-design/icons"
 import {formatTime} from "../../../utils/formatTime";
 import TextArea from "antd/es/input/TextArea";
-import {getCommentDetail, replyComment} from "../../../network/comment";
-import {IResponseType} from "../../../types/responseType";
+import {replyComment} from "../../../network/comment";
+import {useThumb} from "../../../hooks/useThumb";
+import {cancelThumb, thumb} from "../../../network/thumb";
+import {useDispatch, useSelector} from "react-redux";
+import {Dispatch} from "redux";
+import {changeUserDetailAction} from "../../../views/login/store/actionCreators";
+import {Map} from "immutable";
+import {ILogin} from "../../../types/login";
 interface IProps{
   isShowRate:boolean,
   comment:IComment[],
@@ -19,13 +25,18 @@ interface IProps{
   isPage:boolean,
   total:number,
   count:number,
-  pageClick?:(e:number)=>void
+  pageClick?:(e:number)=>void,
+  isWangEdit:boolean
 }
 const Comment:FC<IProps>=(props):ReactElement=>{
-  const {comment,isShort,commentClick,isShowRate,isControl,id,isPage,total,count,pageClick}=props;
+  const {comment,isShort,commentClick,isShowRate,isControl,id,isPage,total,count,pageClick,isWangEdit}=props;
+  const isThumbs=useThumb;
   const [commentText,setCommentText]=useState<string>("");
   const [currentIndex,setCurrentIndex]=useState<number>(-1);
-
+  const dispatch=useDispatch<Dispatch<any>>();
+  const login = useSelector<Map<string, ILogin>, ILogin>((state) => {
+    return state.getIn(['loginReducer', 'login']) as ILogin
+  });
   useEffect(()=>{
     document.addEventListener("click",replyFn)
   },[])
@@ -73,15 +84,30 @@ const Comment:FC<IProps>=(props):ReactElement=>{
       pageClick(e)
     }
   }
+  const thumbClick=(isThumbs:boolean,id:string)=>{
+    if(isThumbs){
+      cancelThumb("cId",id).then(data=>{
+        if(data.status===200){
+          dispatch(changeUserDetailAction(login.userMsg.userId));
+        }
+      })
+    }else {
+      thumb("cId",id).then((data)=>{
+        if(data.status===200){
+          dispatch(changeUserDetailAction(login.userMsg.userId))
+        }
+      })
+    }
+  }
   return (
-    <CommentWrapper>
+    <CommentWrapper isWangEdit={isWangEdit}>
       <ul className="comment-list">
         {
           comment&&comment.length!==0&&comment.map((item,index)=>{
             return (
               <li key={item.id}>
                 <div className="left-content">
-                  <img src={item.user.avatarUrl}/>
+                  <img src={item.user.avatarUrl} alt={item.user.userName}/>
                 </div>
                 <div className="right-content">
                   <div className="info">
@@ -99,7 +125,8 @@ const Comment:FC<IProps>=(props):ReactElement=>{
                     </div>
                     {
                       isControl&&<div className="right-info">
-                        <LikeOutlined />
+                        {(!isThumbs(item.id))&&<LikeOutlined onClick={e=>thumbClick(false,item.id)}/>}
+                        {isThumbs(item.id)&&<LikeFilled onClick={e=>thumbClick(true,item.id)}/>}
                         <FormOutlined onClick={(e)=>showReply(e,item,index)}/>
                         <DeleteOutlined />
                       </div>

@@ -119,9 +119,9 @@ public class CommentController {
                                                              @RequestParam("key") String key,
                                                              @RequestParam("relateId") String relateId){
     if(new EmptyJudge().judgeEmpty(key)){
-      return new ResponseType<PageResult<List<Comment>>>(HttpStatus.OK.value(), "key不能为空",null);
+      return new ResponseType<PageResult<List<Comment>>>(HttpStatus.BAD_REQUEST.value(), "key不能为空",null);
     }else if(new EmptyJudge().judgeEmpty(relateId)){
-      return new ResponseType<PageResult<List<Comment>>>(HttpStatus.OK.value(), "relateId不能为空",null);
+      return new ResponseType<PageResult<List<Comment>>>(HttpStatus.BAD_REQUEST.value(), "relateId不能为空",null);
     }else{
       Page<Comment> comments=commentService.getAllComment(page,limit,key,relateId);
       PageResult pageResult=new PageResult<List<Comment>>(comments.getPageNum(),

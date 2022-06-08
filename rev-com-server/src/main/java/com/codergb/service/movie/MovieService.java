@@ -122,4 +122,14 @@ public class MovieService {
   public List<Movie> getRecentHot(String areaId,String form){
     return movieMapper.getMovieByTimeCate(areaId,form);
   }
+  //获取新片排行榜
+  public List<Movie> getMovieNewToplist(){
+    return movieMapper.getNewToplist();
+  }
+  //获取电影top200
+  public Page<Movie> getTopMovie(Integer page,Integer limit){
+    Page<Movie> p=PageHelper.startPage(page,limit);
+    movieMapper.getTopMovie();
+    return p;
+  }
 }

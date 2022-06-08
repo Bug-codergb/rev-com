@@ -6,6 +6,7 @@ const MovieReview=lazy(()=>import("../../../../components/content/detail/movie/f
 
 const AllReviewDetail=lazy(()=>import("../../../../components/content/detail/movie/allComment/reviewDetail/index"));
 const AllShortComDetail=lazy(()=>import("../../../../components/content/detail/movie/allComment/shortComDetail/index"));
+const TopMovie200=lazy(()=>import("../../../../components/content/movieTop/index"));
 const movieDetailRouter:RouteObject={
   path:"movieDetail",
   element:(
@@ -47,10 +48,19 @@ const allShortComRouter:RouteObject={
     </Suspense>
   )
 }
+const topMovieRouter:RouteObject={
+  path:"TopMovie200",
+  element:(
+    <Suspense>
+      <TopMovie200/>
+    </Suspense>
+  )
+}
 export {
   movieDetailRouter,
   movieComEditRouter,
   movieReviewRouter,
   allReviewRouter,
-  allShortComRouter
+  allShortComRouter,
+  topMovieRouter
 }

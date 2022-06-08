@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CommentWrapper = styled.div`
+export const CommentWrapper:any = styled.div`
   width: 100%;
   .comment-list{
     &>li{
@@ -45,7 +45,7 @@ export const CommentWrapper = styled.div`
             svg{
               width: 16px;
               height: 16px;
-              color: #AAA;
+              color: #00aeec;
             }
           }
           &>span{
@@ -93,7 +93,9 @@ export const CommentWrapper = styled.div`
           font-size: 13px;
           color: #666;
           img{
-            display: none;
+            display: ${(props)=>{
+              return (props as any).isWangEdit?"block":"none";
+            }};
           }
         }
         .comment-title{

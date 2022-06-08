@@ -64,4 +64,8 @@ public interface MovieMapper {
   public int updateMovieRate(@Param("id") String id,@Param("rate") Double rate);
   //获取近期热门（电影，电视剧）
   public List<Movie> getMovieByTimeCate(@Param("areaId") String areaId,@Param("form") String form);
+  //获取新片排行榜
+  public List<Movie> getNewToplist();
+  //获取电影top200
+  public List<Movie> getTopMovie();
 }

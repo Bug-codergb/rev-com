@@ -209,4 +209,24 @@
     ORDER BY count desc,m.score*1 desc
     limit 0,50
   </select>
+  <!--获取新片排行榜-->
+  <select id="getNewToplist" resultMap="movieResultMap" >
+    select *,count(com.movieId) as comment
+    from movie as m
+    LEFT JOIN movie_form as mf on mf.id=m.form
+    LEFT JOIN `comment` as com on com.movieId=m.id
+    where m.releaseTime &lt;=CURRENT_TIMESTAMP() and m.releaseTime&gt;= date_sub(CURRENT_TIMESTAMP(), INTERVAL 120 day)
+    GROUP BY m.id
+    ORDER BY m.score*1 desc
+    limit 0,10
+  </select>
+  <!--获取电影top200-->
+  <select id="getTopMovie" resultMap="movieResultMap">
+    select m.id,m.name,coverUrl,form,language,description,releaseTime,duration,alias,originalname,
+           mimetype,filename,dest,size,m.score,count(com.movieId) as comment
+    from movie as m
+    LEFT JOIN `comment` as com on com.movieId=m.id
+    group by m.id
+    order by m.score*1 desc
+  </select>
 </mapper>

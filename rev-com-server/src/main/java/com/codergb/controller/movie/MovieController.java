@@ -14,6 +14,7 @@ import com.codergb.service.movie.MovieService;
 import com.codergb.utils.*;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -334,5 +335,23 @@ public class MovieController {
       List<Movie> movies=movieService.getRecentHot(areaId,form);
       return new ResponseType<Object>(HttpStatus.OK.value(),ResponseMessage.SUCCESS.getMESSAGE(), movies);
     }
+  }
+  //获取新片排行榜
+  @LoginAuth
+  @GetMapping("/new/toplist")
+  public ResponseType<List<Movie>> getMovieNewToplist(){
+    List<Movie> movies=movieService.getMovieNewToplist();
+    return new ResponseType<List<Movie>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), movies);
+  }
+  //获取电影top200
+  @LoginAuth
+  @GetMapping("/top/200")
+  public ResponseType<PageResult<List<Movie>>> getMovieTop(@RequestParam("page") Integer page,
+                                                             @RequestParam("limit") Integer limit){
+    Page<Movie> movies=movieService.getTopMovie(page, limit);
+    PageResult pageResult=new PageResult(movies.getPageNum(),
+            movies.getTotal(),
+            movies.getPages(),movies);
+    return new ResponseType<PageResult<List<Movie>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
   }
 }

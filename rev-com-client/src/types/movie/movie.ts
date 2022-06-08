@@ -17,7 +17,8 @@ interface IMovie{
   releaseTime: string
   duration: number
   alias: string
-  form: IForm
+  form: IForm,
+  comment:number,
   actors: IActor[]
   categories: ICategory[]
   description: string

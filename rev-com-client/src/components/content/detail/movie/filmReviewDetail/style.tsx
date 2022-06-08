@@ -56,6 +56,7 @@ export const FilmReviewDetailWrapper=styled.div`
 `
 export const LeftContent=styled.div`
   width: 68%;
+  padding: 0 20px 0 0;
   .movie-name{
     &>span{
       font-size: 13px;
@@ -66,9 +67,12 @@ export const LeftContent=styled.div`
       }
     }
   }
-  .comment-content{
+  .review-content{
     img{
       max-width: 92%;
+    }
+    p >span{
+      color: #666;
     }
   }
   .control{

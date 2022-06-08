@@ -50,3 +50,8 @@ ul,li{
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
+
+.w-e-text-container {
+  color: #ec4141!important;
+}
+

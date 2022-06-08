@@ -3,7 +3,9 @@ import {IResponseType} from "../../types/responseType";
 enum MovieApi{
   allMovie="/movie/all",
   movieDetail="/movie/detail",
-  recentHot="/movie/hot/recent"
+  recentHot="/movie/hot/recent",
+  newToplist="/movie/new/toplist",
+  movieTop="/movie/top/200"
 }
 export function getAllMovie<T=IResponseType<any>>(form:string,cate:string,area:string,page:number,limit:number){
   return gbRequest.get<T>({
@@ -29,6 +31,21 @@ export function getRecentMovie<T=IResponseType<any>>(areaId:string,form:string){
     params:{
       areaId,
       form
+    }
+  })
+}
+//获取新片榜单
+export function getNewToplist<T=IResponseType<any>>(){
+  return gbRequest.get<T>({
+    url:MovieApi.newToplist
+  })
+}
+export function getMovieTop<T=IResponseType<any>>(page:number,limit:number){
+  return gbRequest.get<T>({
+    url:MovieApi.movieTop,
+    params:{
+      page,
+      limit
     }
   })
 }

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dff19381-3823-456f-9cff-3b5b03d975f8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/assets/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/assets/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/common/comment/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/common/comment/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/common/comment/style.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/common/comment/style.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/detail/movie/allComment/reviewDetail/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/detail/movie/allComment/reviewDetail/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/detail/movie/allComment/reviewDetail/style.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/detail/movie/allComment/reviewDetail/style.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/detail/movie/allComment/shortComDetail/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/detail/movie/allComment/shortComDetail/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/detail/movie/filmReviewDetail/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/detail/movie/filmReviewDetail/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/detail/movie/filmReviewDetail/style.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/detail/movie/filmReviewDetail/style.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/detail/movie/movieDetail/childCpn/movieCom/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/detail/movie/movieDetail/childCpn/movieCom/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/movieCommentEdit/childCpn/commentEdit/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/movieCommentEdit/childCpn/commentEdit/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rev-com-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rev-com-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/bean/movie/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/bean/movie/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/controller/comment/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/controller/comment/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/controller/movie/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/controller/movie/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/movie/MovieMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/movie/MovieMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/service/movie/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/service/movie/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/movie/MovieMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/movie/MovieMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/controller/movie/MovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/controller/movie/MovieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/service/movie/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/service/movie/MovieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\AntSoftware\apache-maven-3.6.3\repo" />
+        <option name="mavenHome" value="D:/AntSoftware/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\AntSoftware\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2ACjo9vdkqmBQmd8mLsWOsQscws" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.1969697" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="rev-com-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.codergb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.codergb.MainApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.MainApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dff19381-3823-456f-9cff-3b5b03d975f8" name="Default Changelist" comment="" />
+      <created>1654520636219</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654520636219</updated>
+      <workItem from="1654520637979" duration="636000" />
+      <workItem from="1654599960889" duration="2187000" />
+      <workItem from="1654668891118" duration="3863000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

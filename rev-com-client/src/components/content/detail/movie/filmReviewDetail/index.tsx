@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Map} from 'immutable';
 import {Rate,message} from "antd";
 import {LikeOutlined,BookOutlined,BookFilled,LikeFilled} from "@ant-design/icons";
+import Comment from "../../../../common/comment";
 import {
   LeftContent,
   RightContent,
@@ -15,9 +16,9 @@ import {IComment} from "../../../../../types/comment";
 
 import {formatTime} from "../../../../../utils/formatTime";
 import TextArea from "antd/es/input/TextArea";
-import Comment from "../../../../common/comment";
+
 import {IPageResult} from "../../../../../types/pageResult";
-import {ILogin, IUserMsg} from "../../../../../types/login";
+import {ILogin} from "../../../../../types/login";
 import {useThumb} from "../../../../../hooks/useThumb";
 import {cancelThumb, thumb} from "../../../../../network/thumb";
 import {changeUserDetailAction} from "../../../../../views/login/store/actionCreators";
@@ -30,22 +31,34 @@ import {IMovie} from "../../../../../types/movie/movie";
 
 const FilmReviewDetail:FC=():ReactElement=>{
   const location=useLocation();
-  const state=location.state as {cId:string,mId:string,name:string|undefined};
+  const state=location.state as {cId:string,mId:string};
   const [id,setId]=useState<string>(state.cId);
-  const [movieName,setMovieName]=useState<string>(state.name? state.name:"");
   const [comment,setComment]=useState<IComment>();
   const [commentText,setCommentText]=useState<string>("");
-
   const [reply,setReply]=useState<IComment[]>([]);
   const [total,setTotal]=useState<number>(0);
   const [movie,setMovie]=useState<IMovie>();
+  const isThumb=useThumb(id);
+  const isSub=useSub(id);
   const login = useSelector<Map<string, ILogin>, ILogin>((state) => {
     return state.getIn(['loginReducer', 'login']) as ILogin
   });
-
-  const isThumb=useThumb(id);
-  const isSub=useSub(id);
   const dispatch=useDispatch<Dispatch<any>>();
+  useEffect(()=>{
+    getCommentDetail<IResponseType<IComment>>(id).then((data)=>{
+      if(data.status===200){
+        setComment(data.data);
+        getCommentReplyRequest(data.data.id,1,10);
+      }
+    })
+  },[id])
+  useEffect(()=>{
+    getMovieDetail<IResponseType<IMovie>>(state.mId).then((data)=>{
+      if(data.status===200){
+        setMovie(data.data);
+      }
+    })
+  },[state.mId])
   const getCommentReplyRequest=(id:string,page:number,limit:number)=>{
     getAllCommentReply<IResponseType<IPageResult<IComment[]>>>(id,page,limit).then((data)=>{
       if(data.status===200){
@@ -54,21 +67,6 @@ const FilmReviewDetail:FC=():ReactElement=>{
       }
     })
   }
-  useEffect(()=>{
-    getCommentDetail<IResponseType<IComment>>(id).then((data)=>{
-      if(data.status===200){
-        setComment(data.data);
-        getCommentReplyRequest(data.data.id,1,10);
-      }
-    })
-  },[])
-  useEffect(()=>{
-    getMovieDetail<IResponseType<IMovie>>(state.mId).then((data)=>{
-      if(data.status===200){
-        setMovie(data.data);
-      }
-    })
-  },[state.mId])
   const textChange=(e:ChangeEvent<HTMLTextAreaElement>)=>{
     setCommentText(e.currentTarget.value)
   }
@@ -129,6 +127,7 @@ const FilmReviewDetail:FC=():ReactElement=>{
       }
     }
   },500,false)
+
   return (
     <FilmReviewDetailWrapper className="center-auto">
       <LeftContent>
@@ -136,13 +135,13 @@ const FilmReviewDetail:FC=():ReactElement=>{
         <div className="comment-info">
           <div className="user-msg">
             <div className="img-container">
-              <img src={comment?.user.avatarUrl}/>
+              <img src={comment?.user.avatarUrl} alt={comment?.user.userName}/>
             </div>
             <div className="user-name">{comment?.user.userName}</div>
           </div>
           <div className="movie-name">
             <span>评论</span>
-            <span>{movieName}</span>
+            <span>{movie?.name}</span>
           </div>
           <div className="rate">
             <Rate value={comment?.score}
@@ -154,7 +153,7 @@ const FilmReviewDetail:FC=():ReactElement=>{
           }
         </div>
         {
-          comment&&<div className="comment-content" dangerouslySetInnerHTML={{__html:comment?.content}}></div>
+          comment&&<div className="review-content" dangerouslySetInnerHTML={{__html:comment?.content}}></div>
         }
         <div className="control">
           <div className="thumb" onClick={e=>thumbHandle()}>
@@ -171,7 +170,7 @@ const FilmReviewDetail:FC=():ReactElement=>{
         {
           comment&&<div className="comment-publish-outer">
             <div className="img-container">
-              <img src={login?.userMsg?.avatarUrl}/>
+              <img src={login?.userMsg?.avatarUrl} alt={login.userMsg.userName}/>
             </div>
             <div className="right-msg">
               <TextArea rows={3}
@@ -185,19 +184,19 @@ const FilmReviewDetail:FC=():ReactElement=>{
             </div>
           </div>
         }
-        {
-          comment&&<div className="comment-list">
-            <Comment isShowRate={false}
-                     id={comment.id}
-                     isShort={true}
-                     comment={reply}
-                     total={total}
-                     count={10}
-                     isPage={true}
-                     pageClick={(e:number)=>pageClick(e)}
-                     isControl={true}/>
-          </div>
-        }
+        <div className="comment-list">
+            {reply&&reply.length!==0&&<Comment isShowRate={false}
+                               id={comment?.id}
+                               isShort={true}
+                               comment={reply}
+                               total={total}
+                               count={10}
+                               isPage={true}
+                               isWangEdit={false}
+                               pageClick={(e:number)=>pageClick(e)}
+                               isControl={true}/>
+            }
+        </div>
       </LeftContent>
       <RightContent>
         <div className="movie-cover">
