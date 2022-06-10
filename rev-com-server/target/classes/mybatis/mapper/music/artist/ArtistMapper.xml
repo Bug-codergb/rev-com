@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.music.artist.ArtistMapper">
+  <insert id="createArtist">
+    insert into music_artist(id,name,description,area,type)
+    values(#{id},#{name},#{description},#{cateId},#{typeId})
+  </insert>
+  <resultMap id="artistResultMap" type="Artist">
+    <id property="id" column="id"></id>
+    <result property="name" column="name"></result>
+    <result property="description" column="description"></result>
+    <result property="avatarUrl" column="avatarUrl"></result>
+    <result property="createTime" column="createTime"></result>
+    <result property="updateTime" column="updateTime"></result>
+    <result property="originalname" column="originalname"></result>
+    <result property="dest" column="dest"></result>
+    <result property="filename" column="filename"></result>
+    <result property="size" column="size"></result>
+    <result property="mimetype" column="mimetype"></result>
+    <association property="area"
+                 javaType="ArtistCate"
+                 select="com.codergb.mapper.music.artist.ArtistCateMapper.getArtistCateById"
+                 column="id=area"/>
+    <association property="type"
+                 javaType="ArtistType"
+                 select="com.codergb.mapper.music.artist.ArtistTypeMapper.getArtistTypeById"
+                 column="id=type"/>
+  </resultMap>
+  <select id="getAllArtist" resultMap="artistResultMap">
+    select *
+    from music_artist
+    <where>
+      <if test="keyword!='' and keyword!=null">
+        name like "%"#{keyword}"%"
+      </if>
+      <if test="area!='' and area !=null">
+        and area=#{area}
+      </if>
+      <if test="type!='' and type!=null">
+        and type=#{type}
+      </if>
+    </where>
+  </select>
+</mapper>

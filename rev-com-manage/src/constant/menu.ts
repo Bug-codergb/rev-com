@@ -56,7 +56,14 @@ const menu = [
   {
     name: "音乐管理",
     icon: "mic",
-    index: "3"
+    index: "3",
+    children: [
+      {
+        index: "3003",
+        name: "歌手信息",
+        path: "/Home/Music/artist"
+      }
+    ]
   },
   {
     name: "用户管理",

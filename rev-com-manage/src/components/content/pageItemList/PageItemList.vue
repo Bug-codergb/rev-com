@@ -70,16 +70,19 @@ export default defineComponent({
       select: []
     })
     const isRotate = ref(false)
-    if (props.keywordList) {
-      for (let item of props.keywordList) {
-        bindParam.keyword.push("")
+    const init = () => {
+      if (props.keywordList) {
+        for (let item of props.keywordList) {
+          bindParam.keyword.push("")
+        }
+      }
+      if (props.selectList) {
+        for (let item of props.selectList) {
+          bindParam.select.push("")
+        }
       }
     }
-    if (props.selectList) {
-      for (let item of props.selectList) {
-        bindParam.select.push("")
-      }
-    }
+    init()
     const keywordInput = () => {
       context.emit("keywordChange", bindParam.keyword)
     }
@@ -89,6 +92,9 @@ export default defineComponent({
     const changeRotate = () => {
       isRotate.value = true
       context.emit("refresh")
+      bindParam.keyword = []
+      bindParam.select = []
+      init()
       setTimeout(() => {
         isRotate.value = false
       }, 2000)

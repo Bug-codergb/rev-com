@@ -11,6 +11,7 @@ const group = () => import("../views/movie/childCpn/group/Group.vue")
 const writer = () => import("../views/book/childCpn/writer/Writer.vue")
 const publish = () => import("../views/book/childCpn/publish/Publish.vue")
 const books = () => import("../views/book/childCpn/book/Book.vue")
+const artist = () => import("../views/music/artist/Artist.vue")
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -71,6 +72,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "Book/books",
         name: "books",
         component: books
+      },
+      {
+        path: "Music/artist",
+        name: "artist",
+        component: artist
       },
       ...detailRoutes
     ]

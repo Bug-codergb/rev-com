@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.music.artist.ArtistTypeMapper">
+  <insert id="createArtistType">
+    insert into music_artist_type(id,name) values(#{id},#{name})
+  </insert>
+  <select id="getArtistTypeById" resultType="ArtistType">
+    select *
+    from music_artist_type
+    where id=#{id}
+  </select>
+  <select id="getAllArtistType" resultType="ArtistType">
+    select *
+    from music_artist_type
+  </select>
+</mapper>
