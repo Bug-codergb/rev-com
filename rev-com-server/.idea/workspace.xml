@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dff19381-3823-456f-9cff-3b5b03d975f8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../rev-com-manage/src/views/music/artist/childCpn/addArtist/AddArtist.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-manage/src/views/music/artist/childCpn/addArtist/AddArtist.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rev-com-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rev-com-server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/constant/UploadPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/constant/UploadPath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/controller/movie/ActorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/controller/movie/ActorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/controller/music/artist/ArtistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/controller/music/artist/ArtistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/music/artist/ArtistMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/music/artist/ArtistMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/service/music/artist/ArtistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/service/music/artist/ArtistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/music/artist/ArtistMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/music/artist/ArtistMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/controller/movie/ActorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/controller/movie/ActorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/controller/music/artist/ArtistController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/controller/music/artist/ArtistController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/service/music/artist/ArtistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/service/music/artist/ArtistService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +115,7 @@
       <workItem from="1655285175714" duration="49000" />
       <workItem from="1655427951488" duration="33000" />
       <workItem from="1655894023188" duration="639000" />
-      <workItem from="1656124239281" duration="7394000" />
+      <workItem from="1656124239281" duration="7706000" />
     </task>
     <servers />
   </component>

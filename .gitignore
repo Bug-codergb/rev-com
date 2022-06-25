@@ -5,9 +5,14 @@
 /.pnp
 .pnp.js
 
-/upload/**/avatar/
-/upload/**/picture/
-/upload/**/cover/
+/upload/avatar/
+/upload/actor/
+/upload/comment/
+/upload/director/
+/upload/music/
+/upload/screenwriter/
+/upload/movie/
+
 */node_modules
 # testing
 /coverage
