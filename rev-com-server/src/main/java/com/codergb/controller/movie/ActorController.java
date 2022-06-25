@@ -162,7 +162,7 @@ public class ActorController {
   public ResponseType<Object> updateAvatar(@PathVariable("id") String id,
                                            @RequestBody MultipartFile avatar){
     if(new EmptyJudge().judgeEmpty(avatar)){
-      return new ResponseType<Object>(HttpStatus.OK.value(), "头像不能为空",null);
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(), "头像不能为空",null);
     }else{
       Actor actor=actorService.getActorById(id);
       File file=new File(System.getProperty("user.dir")+actor.getDest()+actor.getFilename());

@@ -52,18 +52,41 @@
             </template>
           </el-table-column>
           <el-table-column label="操作">
-            <template #default>
+            <template #default="scope">
               <el-button type="text" size="small" class="table-control-btn">查看</el-button>
-              <el-button type="text" size="small" class="table-control-btn">编辑</el-button>
+              <el-button
+                type="text"
+                size="small"
+                class="table-control-btn"
+                @click="editArtist(scope.row)"
+                >编辑</el-button
+              >
               <el-button type="text" size="small" class="table-control-btn">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
       </template>
     </div>
+    <template v-if="total > pageCount">
+      <div class="page">
+        <el-pagination
+          background
+          @current-change="pageChange"
+          layout="prev,pager,next"
+          :total="total"
+          :page-size="pageCount"
+        />
+      </div>
+    </template>
     <g-b-drawer title="添加歌手" v-model="drawer">
       <template #add>
-        <add-artist :type="artistCate.type" :cate="artistCate.cate" />
+        <add-artist
+          :type="artistCate.type"
+          :cate="artistCate.cate"
+          :artist-item="artistItem"
+          @closeDrawer="drawer = false"
+          @refresh="refresh"
+        />
       </template>
     </g-b-drawer>
   </div>
@@ -102,6 +125,10 @@ export default defineComponent({
       cate: [],
       type: []
     })
+    const artistItem = reactive<{ item: IArtist | null }>({
+      item: null
+    })
+    const pageCount = 7
     const keywordList = [{ id: 1, keyword: "", placeholder: "请输入歌手名称" }]
     let selectList = reactive<{ list: ISelect[] }>({
       list: []
@@ -153,12 +180,12 @@ export default defineComponent({
           list: artistCate.type
         }
       ]
-      await getAllArtistRequest(1, 10, keyword.value, area.value, type.value)
+      await getAllArtistRequest(1, pageCount, keyword.value, area.value, type.value)
     })
     const keywordChange = debounce(
       (keywords: string[]) => {
         keyword.value = keywords[0]
-        getAllArtistRequest(1, 10, keyword.value, area.value, type.value)
+        getAllArtistRequest(1, pageCount, keyword.value, area.value, type.value)
       },
       1000,
       false
@@ -166,19 +193,29 @@ export default defineComponent({
     const selectChange = (e: string[]) => {
       area.value = e[0]
       type.value = e[1]
-      getAllArtistRequest(1, 10, keyword.value, area.value, type.value)
+      getAllArtistRequest(1, pageCount, keyword.value, area.value, type.value)
     }
     const refresh = () => {
       keyword.value = ""
       area.value = ""
       type.value = ""
-      getAllArtistRequest(1, 10, keyword.value, area.value, type.value)
+      getAllArtistRequest(1, pageCount, keyword.value, area.value, type.value)
+    }
+    const pageChange = (e: number) => {
+      getAllArtistRequest(e, pageCount, keyword.value, area.value, type.value)
     }
     const showDrawer = () => {
+      drawer.value = true
+      artistItem.item = null
+    }
+    const editArtist = (item: IArtist) => {
+      artistItem.item = item
       drawer.value = true
     }
     return {
       artist,
+      total,
+      pageCount,
       artistCate,
       keywordList,
       selectList,
@@ -186,7 +223,10 @@ export default defineComponent({
       selectChange,
       refresh,
       drawer,
-      showDrawer
+      showDrawer,
+      pageChange,
+      editArtist,
+      artistItem
     }
   }
 })

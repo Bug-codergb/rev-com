@@ -1,15 +1,22 @@
 <template>
   <div>
-    <add-info v-model="formData" :rules="rules" :form-shape="formShape" ref="addArtist" />
+    <add-info
+      v-model:modelValue="formData.artist"
+      :rules="rules"
+      :form-shape="formShape"
+      :prev-u-r-l="prevURL"
+      ref="addArtistRef"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, inject } from "vue"
+import { defineComponent, reactive, ref, toRefs } from "vue"
 import AddInfo from "@/components/content/addInfo/AddInfo.vue"
-import { FormRules } from "element-plus"
+import { FormRules, ElMessage } from "element-plus"
 import emitter from "@/utils/evenBus"
 import { debounce } from "@/utils/debounce"
+import { createArtist, updateArtist, updateAvatar, uploadAvatar } from "@/network/music/artist"
 export default defineComponent({
   name: "AddArtist",
   components: { AddInfo },
@@ -21,16 +28,24 @@ export default defineComponent({
     type: {
       type: Array,
       required: true
+    },
+    artistItem: {
+      type: Object
     }
   },
+  emits: ["closeDrawer", "refresh"],
   setup(props, context) {
     const drawer = ref<boolean>(true)
-    const addArtist = ref<InstanceType<typeof AddInfo>>()
+    const addArtistRef = ref<InstanceType<typeof AddInfo>>()
+    const prevURL = ref("")
+    const isUpdate = ref<boolean>(false)
     const formData = reactive({
-      name: "",
-      description: "",
-      typeId: "",
-      cateId: ""
+      artist: {
+        name: "",
+        description: "",
+        typeId: "",
+        cateId: ""
+      }
     })
     const formShape = reactive({
       row: [
@@ -71,6 +86,13 @@ export default defineComponent({
             span: 24,
             type: "textarea"
           }
+        ],
+        [
+          {
+            field: "avatar",
+            name: "歌手头像",
+            shape: "upload"
+          }
         ]
       ]
     })
@@ -104,15 +126,75 @@ export default defineComponent({
         }
       ]
     })
+
+    if (
+      props.artistItem &&
+      props.artistItem.item &&
+      Reflect.ownKeys(props.artistItem.item).length !== 0 &&
+      props.artistItem.item.id
+    ) {
+      const artist = toRefs(props.artistItem.item)
+      if (artist.avatarUrl.value) {
+        prevURL.value = artist.avatarUrl.value
+      }
+      formData.artist.name = artist.name.value
+      formData.artist.description = artist.description.value
+      formData.artist.typeId = artist.type.value.id
+      formData.artist.cateId = artist.area.value.id
+      isUpdate.value = true
+    }
+
     emitter.on(
       "drawerDefine",
       debounce(
         () => {
-          console.log(1212121)
-          if (addArtist.value && addArtist.value.ruleFormRef) {
-            addArtist.value.ruleFormRef.validate((e: boolean) => {
+          if (addArtistRef.value && addArtistRef.value.ruleFormRef) {
+            addArtistRef.value.ruleFormRef.validate(async (e: boolean) => {
               if (e) {
-                drawer.value = false
+                const { name, description, typeId, cateId } = formData.artist
+                if (!isUpdate.value) {
+                  const data = await createArtist(name, description, typeId, cateId)
+                  if (data.status === 200) {
+                    context.emit("closeDrawer")
+                    ElMessage.success({
+                      message: "歌手添加成功",
+                      duration: 1500
+                    })
+                    const { id } = data.data
+                    if (addArtistRef.value) {
+                      const { avatar } = addArtistRef.value
+                      if (avatar.source instanceof FormData) {
+                        const data = await uploadAvatar(id, avatar.source)
+                      }
+                    }
+                    context.emit("refresh")
+                  }
+                } else {
+                  //更新歌手信息
+                  if (props.artistItem && props.artistItem.item) {
+                    const data = await updateArtist(
+                      props.artistItem.item.id,
+                      name,
+                      description,
+                      typeId,
+                      cateId
+                    )
+                    if (data.status === 200) {
+                      ElMessage.success({
+                        message: "歌手更新成功",
+                        duration: 1500
+                      })
+                      context.emit("refresh")
+                      context.emit("closeDrawer")
+                      if (addArtistRef.value && props.artistItem.item && props.artistItem.item.id) {
+                        const { avatar } = addArtistRef.value
+                        if (avatar.source instanceof FormData) {
+                          const data = await updateAvatar(props.artistItem.item.id, avatar.source)
+                        }
+                      }
+                    }
+                  }
+                }
               }
             })
           }
@@ -126,7 +208,9 @@ export default defineComponent({
       rules,
       formShape,
       drawer,
-      addArtist
+      addArtistRef,
+      prevURL,
+      isUpdate
     }
   }
 })

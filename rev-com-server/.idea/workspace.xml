@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dff19381-3823-456f-9cff-3b5b03d975f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rev-com-manage/src/views/movie/childCpn/group/Group.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-manage/src/views/movie/childCpn/group/Group.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-manage/src/views/music/artist/childCpn/addArtist/AddArtist.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-manage/src/views/music/artist/childCpn/addArtist/AddArtist.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rev-com-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rev-com-server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/bean/FileInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/bean/FileInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/bean/FileInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/bean/FileInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/constant/UploadPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/constant/UploadPath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/controller/movie/ActorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/controller/movie/ActorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/controller/music/artist/ArtistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/controller/music/artist/ArtistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/music/artist/ArtistMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/music/artist/ArtistMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/service/music/artist/ArtistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/service/music/artist/ArtistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/music/artist/ArtistMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/music/artist/ArtistMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/controller/movie/ActorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/controller/movie/ActorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/controller/music/artist/ArtistController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/controller/music/artist/ArtistController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/service/music/artist/ArtistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/service/music/artist/ArtistService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +34,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -59,18 +73,16 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.1969697" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,7 +121,12 @@
       <workItem from="1654694603710" duration="1049000" />
       <workItem from="1654740570149" duration="1381000" />
       <workItem from="1654753711285" duration="5025000" />
-      <workItem from="1654842068536" duration="5384000" />
+      <workItem from="1654842068536" duration="5678000" />
+      <workItem from="1655285056273" duration="108000" />
+      <workItem from="1655285175714" duration="49000" />
+      <workItem from="1655427951488" duration="33000" />
+      <workItem from="1655894023188" duration="639000" />
+      <workItem from="1656124239281" duration="7394000" />
     </task>
     <servers />
   </component>

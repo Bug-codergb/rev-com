@@ -39,6 +39,11 @@
                     }}</el-radio>
                   </el-radio-group>
                 </template>
+                <template v-else-if="it.shape === 'upload'">
+                  <div class="img-prev-container">
+                    <img-prev @onCancel="cancel" @onFileChange="fileChange" :prev-u-r-l="prevURL" />
+                  </div>
+                </template>
               </el-form-item>
             </el-col>
           </template>
@@ -49,10 +54,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from "vue"
+import { defineComponent, reactive, ref, watch } from "vue"
 import { FormInstance } from "element-plus"
+import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue"
 export default defineComponent({
   name: "AddInfo",
+  components: { ImgPrev },
   props: {
     modelValue: {
       type: Object,
@@ -65,26 +72,50 @@ export default defineComponent({
     formShape: {
       type: Object,
       required: true
+    },
+    prevURL: {
+      type: String,
+      default: ""
     }
   },
   emits: ["update:modelValue"],
   setup(props, context) {
     const ruleFormRef = ref<FormInstance>()
     const newFormData = ref(JSON.parse(JSON.stringify(props.modelValue)))
+    const avatar = reactive<{ source: FormData | null }>({
+      source: null
+    })
     watch(
       newFormData,
       (newVal) => {
-        console.log(newVal)
         context.emit("update:modelValue", newVal)
       },
       { deep: true }
     )
+    const fileChange = (file: File) => {
+      let formData = new FormData()
+      formData.append("avatar", file)
+      avatar.source = formData
+    }
+    const cancel = () => {
+      avatar.source = null
+    }
     return {
       newFormData,
-      ruleFormRef
+      ruleFormRef,
+      fileChange,
+      cancel,
+      avatar
     }
   }
 })
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.add-info {
+  .img-prev-container {
+    height: 120px;
+    width: 100%;
+  }
+}
+</style>

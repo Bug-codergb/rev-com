@@ -5,7 +5,9 @@
 /.pnp
 .pnp.js
 
-**/upload/*
+/upload/**/avatar/
+/upload/**/picture/
+/upload/**/cover/
 */node_modules
 # testing
 /coverage

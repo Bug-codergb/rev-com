@@ -71,3 +71,9 @@ html {
 .el-form-item__label {
   text-align: left;
 }
+
+.page {
+  display: flex;
+  padding: 15px 0;
+  justify-content: center;
+}

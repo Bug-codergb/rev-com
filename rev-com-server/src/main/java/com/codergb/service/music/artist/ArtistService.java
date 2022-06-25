@@ -20,4 +20,19 @@ public class ArtistService {
     artistMapper.getAllArtist(keyword, area, type, page, limit);
     return artists;
   }
+  public int uploadAvatar(Artist artist){
+    return artistMapper.uploadAvatar(artist);
+  }
+  public Artist getArtistById(String id){
+    return artistMapper.getArtistById(id);
+  }
+  public int updateArtist(ArtistDTO artist){
+    return artistMapper.updateArtist(artist);
+  }
+  public int deleteArtist(String id){
+    return artistMapper.deleteArtist(id);
+  }
+  public int updateAvatar(Artist artist){
+    return artistMapper.updateAvatar(artist);
+  }
 }

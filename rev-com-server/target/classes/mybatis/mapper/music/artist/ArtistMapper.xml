@@ -43,4 +43,27 @@
       </if>
     </where>
   </select>
+  <update id="uploadAvatar">
+    update music_artist set avatarUrl=#{avatarUrl},originalname=#{originalname},mimetype=#{mimetype},
+                            dest=#{dest},filename=#{filename},size=#{size}
+    where id=#{id}
+  </update>
+  <!--获取歌手通过歌手id-->
+  <select id="getArtistById" resultType="Artist">
+    select *
+    from music_artist
+    where id=#{id}
+  </select>
+  <update id="updateArtist">
+    update music_artist set name=#{name},description=#{description},area=#{cateId},type=#{typeId}
+                        where id=#{id}
+  </update>
+  <delete id="deleteArtist">
+    delete from music_artist where id=#{id}
+  </delete>
+  <!--更新歌手头像信息-->
+  <update id="updateAvatar">
+    update music_artist set originalname=#{originalname},mimetype=#{mimetype},filename=#{filename},
+                            dest=#{dest},size=#{size}
+  </update>
 </mapper>

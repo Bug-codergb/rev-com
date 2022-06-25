@@ -3,7 +3,11 @@ import { IResponseType } from "@/types/responseType"
 enum ArtistApi {
   allArtistCate = "/music/artist/cate/all",
   allArtistType = "/music/artist/type/all",
-  allArtist = "/music/artist/all"
+  allArtist = "/music/artist/all",
+  createArtist = "/music/artist",
+  uploadAvatar = "/music/artist/avatar/upload/",
+  updateArtist = "/music/artist/update",
+  updateAvatar = "/music/artist/avatar/update/"
 }
 //获取所有歌手分类
 export function getAllArtistCate<T = IResponseType<any>>() {
@@ -33,6 +37,62 @@ export function getAllArtist<T = IResponseType<any>>(
       keyword,
       area,
       type
+    }
+  })
+}
+//创建歌手
+export function createArtist<T = IResponseType<any>>(
+  name: string,
+  description: string,
+  typeId: string,
+  cateId: string
+) {
+  return gbRequest.post<T>({
+    url: ArtistApi.createArtist,
+    data: {
+      name,
+      description,
+      typeId,
+      cateId
+    }
+  })
+}
+//上传歌手头像2
+export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormData) {
+  return gbRequest.post<T>({
+    url: ArtistApi.uploadAvatar + id,
+    data: formData,
+    headers: {
+      "Content-type": "multipart/form-data"
+    }
+  })
+}
+//更新歌手信息
+export function updateArtist<T = IResponseType<any>>(
+  id: string,
+  name: string,
+  description: string,
+  typeId: string,
+  cateId: string
+) {
+  return gbRequest.post<T>({
+    url: ArtistApi.updateArtist,
+    data: {
+      id,
+      name,
+      description,
+      typeId,
+      cateId
+    }
+  })
+}
+//更新歌手头像
+export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData) {
+  return gbRequest.post<T>({
+    url: ArtistApi.updateAvatar + id,
+    data: formData,
+    headers: {
+      "Content-type": "multipart/form-data"
     }
   })
 }

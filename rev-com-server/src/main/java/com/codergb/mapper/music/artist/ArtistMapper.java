@@ -12,4 +12,14 @@ public interface ArtistMapper {
   public List<Artist> getAllArtist(@Param("keyword") String keyword, @Param("area") String area,
                                    @Param("type") String type, @Param("page") Integer page,
                                    @Param("limit") Integer limit);
+  //上传歌手头像
+  public int uploadAvatar(Artist artist);
+  //获取歌手
+  public Artist getArtistById(@Param("id") String id);
+  //更新歌手信息
+  public int updateArtist(ArtistDTO artist);
+  //删除歌手信息
+  public int deleteArtist(@Param("id") String id);
+  //更新歌手头像信息
+  public int updateAvatar(Artist artist);
 }
