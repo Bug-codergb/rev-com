@@ -11,7 +11,7 @@
  Target Server Version : 80029
  File Encoding         : 65001
 
- Date: 08/06/2022 16:42:55
+ Date: 25/06/2022 16:39:50
 */
 
 SET NAMES utf8mb4;
@@ -45,7 +45,7 @@ CREATE TABLE `actor`  (
 -- ----------------------------
 -- Records of actor
 -- ----------------------------
-INSERT INTO `actor` VALUES ('1652014592779', '小罗伯特·唐尼', 'http://localhost:8888/actor/avatar/1652014592779', 'Robert Downey Jr.', 'Bob', '双子座', '1997-04-07 16:00:00', '纽约', '克里斯埃文斯', 'ffffff', '2022-05-08 20:56:32', '2022-06-03 19:52:56', '3.webp', 'image/webp', './upload/actor/avatar/', '1654257176253.webp', 23850);
+INSERT INTO `actor` VALUES ('1652014592779', '小罗伯特·唐尼', 'http://localhost:8888/actor/avatar/1652014592779', 'Robert Downey Jr.', 'Bobb', '双子座', '1997-04-07 16:00:00', '纽约', '克里斯埃文斯', 'ffffff', '2022-05-08 20:56:32', '2022-06-09 10:15:08', '3.webp', 'image/webp', './upload/actor/avatar/', '1654257176253.webp', 23850);
 INSERT INTO `actor` VALUES ('1652152711455', '克里斯埃韦是', 'http://localhost:8888/actor/avatar/1652152711455', 'Robert Downey Jr.', 'Bob', '双子座', '2010-07-19 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:18:31', '2022-06-03 19:53:01', 'f15887af9.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257181638.jpg', 31515);
 INSERT INTO `actor` VALUES ('1652152720292', '詹兆隆', 'http://localhost:8888/actor/avatar/1652152720292', 'Robert Downey Jr.', 'Bob', '处女座', '2000-04-21 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:18:40', '2022-06-03 19:53:06', 'lisa.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257186794.jpg', 216978);
 INSERT INTO `actor` VALUES ('1652152736343', '拉伦寺', 'http://localhost:8888/actor/avatar/1652152736343', 'Robert Downey Jr.', 'Bob', '水瓶座', '1990-04-12 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:18:56', '2022-06-03 19:53:12', 'p1378204929.4.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257192636.jpg', 24950);
@@ -912,6 +912,89 @@ CREATE TABLE `movie_tag_relate`  (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for music_artist
+-- ----------------------------
+DROP TABLE IF EXISTS `music_artist`;
+CREATE TABLE `music_artist`  (
+  `id` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `name` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `avatarUrl` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `area` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `type` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `originalname` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `mimetype` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `dest` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `filename` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `size` int NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `name`(`name` ASC) USING BTREE,
+  INDEX `area`(`area` ASC) USING BTREE,
+  INDEX `type`(`type` ASC) USING BTREE,
+  CONSTRAINT `music_artist_ibfk_1` FOREIGN KEY (`area`) REFERENCES `music_artist_cate` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `music_artist_ibfk_2` FOREIGN KEY (`type`) REFERENCES `music_artist_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of music_artist
+-- ----------------------------
+INSERT INTO `music_artist` VALUES ('+', '赵雷', '头顶的太阳燃烧着', NULL, '1654764563766', '1654765194904', '2022-06-25 13:24:17', '2022-06-25 16:39:38', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `music_artist` VALUES ('1654842220743', '三毛', '牛逼歌手2562548564864', 'http://localhost:8888/music/artist/avatar/1654842220743', '1654764563766', '1654765175396', '2022-06-10 14:23:40', '2022-06-25 16:13:02', 'p2629896175.webp', 'image/webp', './upload/music/artist/avatar/', '1656144782896.webp', 78230);
+INSERT INTO `music_artist` VALUES ('1654844872646', '邓紫棋', '哈哈哈哈哈哈', 'http://localhost:8888/music/artist/avatar/1654844872646', '1654764533815', '1654765175396', '2022-06-10 15:07:52', '2022-06-25 16:13:27', 'lisa.jpg', 'image/jpeg', './upload/music/artist/avatar/', '1656144807418.jpg', 216978);
+INSERT INTO `music_artist` VALUES ('1654844907219', '泰勒斯威夫特', '哈哈哈哈哈哈', NULL, '1654764558847', '1654765175396', '2022-06-10 15:08:27', '2022-06-10 15:08:27', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `music_artist` VALUES ('1656133633070', '胡歌', '今天大华股份热哦附件现价奇侠传', 'http://localhost:8888/music/artist/avatar/1656133633070', '1654764533815', '1654765194904', '2022-06-25 13:07:13', '2022-06-25 16:19:31', 'p1378204929.4.jpg', 'image/jpeg', './upload/music/artist/avatar/', '1656145171145.jpg', 24950);
+INSERT INTO `music_artist` VALUES ('1656133886786', '陈慧娴', '附件为u哦i符号位u哦凤凰网', NULL, '1654764568890', '1654765194904', '2022-06-25 13:11:26', '2022-06-25 13:11:26', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `music_artist` VALUES ('1656133906600', '郑中基', '的权威的去', NULL, '1654764588901', '1654765175396', '2022-06-25 13:11:46', '2022-06-25 13:11:46', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `music_artist` VALUES ('1656133926043', '贾斯汀比伯', '我师傅温热', NULL, '1654764558847', '1654765194904', '2022-06-25 13:12:06', '2022-06-25 13:12:06', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `music_artist` VALUES ('1656133938974', 'IU', '微风威锋网', NULL, '1654764558847', '1654765194904', '2022-06-25 13:12:18', '2022-06-25 13:12:18', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `music_artist` VALUES ('1656135041059', '郁可唯', '恶气饿我去热饭维尔福服务收费我发给认为我发给我无法为人妇额外服务服务范围范文芳微软犬瘟热热舞微软', 'http://localhost:8888/music/artist/avatar/1656135041059', '1654764568890', '1654765175396', '2022-06-25 13:30:41', '2022-06-25 15:02:16', 'p2629896175.webp', 'image/webp', './upload/music/artist/avatar/', '1656140536407.webp', 78230);
+INSERT INTO `music_artist` VALUES ('1656141521133', '顶布莱克', '哈哈哈哈哈哈', NULL, '1654764558847', '1654765175396', '2022-06-25 15:18:41', '2022-06-25 15:18:41', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `music_artist` VALUES ('1656142171159', '回测微软', '请问得分得分vte因特 一套5儿童', 'http://localhost:8888/music/artist/avatar/1656142171159', '1654764568890', '1654765175396', '2022-06-25 15:29:31', '2022-06-25 15:29:31', 'p2677018763.webp', 'image/webp', './upload/music/artist/avatar/', '1656142171209.webp', 92266);
+INSERT INTO `music_artist` VALUES ('1656142187356', '完全失去', '上千万的气味', NULL, '1654764533815', '1654765194904', '2022-06-25 15:29:47', '2022-06-25 15:29:47', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `music_artist` VALUES ('1656142208752', '企鹅企鹅', 'e2其恶恶55 它 它儿童3他4 4人体23 ', 'http://localhost:8888/music/artist/avatar/1656142208752', '1654764568890', '1654765175396', '2022-06-25 15:30:08', '2022-06-25 15:30:08', 'lisa.jpg', 'image/jpeg', './upload/music/artist/avatar/', '1656142208792.jpg', 216978);
+INSERT INTO `music_artist` VALUES ('1656144398801', '莲花', '牛逼歌手', NULL, '1654764533815', '1654765194904', '2022-06-25 16:06:38', '2022-06-25 16:06:38', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `music_artist` VALUES ('1656144439184', '立案个人提供', '牛逼歌手', NULL, '1654764533815', '1654765194904', '2022-06-25 16:07:19', '2022-06-25 16:07:19', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `music_artist` VALUES ('1656144600713', '5656', '56565', 'http://localhost:8888/music/artist/avatar/1656144600713', '1654764558847', '1654765175396', '2022-06-25 16:10:00', '2022-06-25 16:10:00', 'p1386481612.26.jpg', 'image/jpeg', './upload/music/artist/avatar/', '1656144600755.jpg', 73591);
+
+-- ----------------------------
+-- Table structure for music_artist_cate
+-- ----------------------------
+DROP TABLE IF EXISTS `music_artist_cate`;
+CREATE TABLE `music_artist_cate`  (
+  `id` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `name` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of music_artist_cate
+-- ----------------------------
+INSERT INTO `music_artist_cate` VALUES ('1654764533815', '华语');
+INSERT INTO `music_artist_cate` VALUES ('1654764558847', '欧美');
+INSERT INTO `music_artist_cate` VALUES ('1654764563766', '日本');
+INSERT INTO `music_artist_cate` VALUES ('1654764568890', '韩国');
+INSERT INTO `music_artist_cate` VALUES ('1654764588901', '挪威');
+
+-- ----------------------------
+-- Table structure for music_artist_type
+-- ----------------------------
+DROP TABLE IF EXISTS `music_artist_type`;
+CREATE TABLE `music_artist_type`  (
+  `id` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `name` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of music_artist_type
+-- ----------------------------
+INSERT INTO `music_artist_type` VALUES ('1654765175396', '女歌手');
+INSERT INTO `music_artist_type` VALUES ('1654765194904', '男歌手');
+INSERT INTO `music_artist_type` VALUES ('1654765202503', '乐队组合');
+
+-- ----------------------------
 -- Table structure for occupation
 -- ----------------------------
 DROP TABLE IF EXISTS `occupation`;
@@ -960,8 +1043,6 @@ CREATE TABLE `occupation_relate`  (
 -- ----------------------------
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1653813429748', '1652100321467');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1653813429748', '1652100361394');
-INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1652195889420', '1652100321467');
-INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1652195889420', '1652100306026');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1653806434280', '1652100375330');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1653806434280', '1652100137884');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1653806434280', '1652100299387');
@@ -1022,8 +1103,6 @@ INSERT INTO `occupation_relate` VALUES (NULL, '1652148516616', NULL, '1652100306
 INSERT INTO `occupation_relate` VALUES (NULL, '1652148516616', NULL, '1652100321467');
 INSERT INTO `occupation_relate` VALUES (NULL, '1652368225016', NULL, '1652100137884');
 INSERT INTO `occupation_relate` VALUES (NULL, '1652368225016', NULL, '1652100306026');
-INSERT INTO `occupation_relate` VALUES ('1652014592779', NULL, NULL, '1652100361394');
-INSERT INTO `occupation_relate` VALUES ('1652014592779', NULL, NULL, '1652100306026');
 INSERT INTO `occupation_relate` VALUES ('1652152711455', NULL, NULL, '1652100306026');
 INSERT INTO `occupation_relate` VALUES ('1652152711455', NULL, NULL, '1652100321467');
 INSERT INTO `occupation_relate` VALUES ('1652152720292', NULL, NULL, '1652100361394');
@@ -1055,6 +1134,10 @@ INSERT INTO `occupation_relate` VALUES ('1652152809362', NULL, NULL, '1652100306
 INSERT INTO `occupation_relate` VALUES (NULL, '1654600299663', NULL, '1652100137884');
 INSERT INTO `occupation_relate` VALUES (NULL, '1654600299663', NULL, '1652100306026');
 INSERT INTO `occupation_relate` VALUES (NULL, '1654600299663', NULL, '1652100299387');
+INSERT INTO `occupation_relate` VALUES ('1652014592779', NULL, NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES ('1652014592779', NULL, NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1652195889420', '1652100321467');
+INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1652195889420', '1652100306026');
 
 -- ----------------------------
 -- Table structure for publish
@@ -1127,7 +1210,7 @@ CREATE TABLE `screenwriter`  (
 -- ----------------------------
 -- Records of screenwriter
 -- ----------------------------
-INSERT INTO `screenwriter` VALUES ('1652195889420', '兰晓龙', 'http://localhost:8888/screenwriter/avatar/1652195889420', 'Xiaolong Lan', '0', '中国，湖南邵阳', '2022-04-04 00:00:00', '　兰晓龙，湖南邵阳人，1973年5月26日出生。1997年毕业于中央戏剧学院，后进入北京军区战友话剧团成为一名职业编剧。曾创作了话剧《红星照耀中国》，电视剧《石磊大夫》、《步兵团长》、《士兵突击》、《我的团长我的团》、《生死线》。', '兰图', '2022-05-10 23:18:09', '2022-05-29 20:57:51', '希区柯克.jpg', 'image/jpeg', './upload/screenwriter/avatar/', '1653829071171.jpg', 20576);
+INSERT INTO `screenwriter` VALUES ('1652195889420', '兰晓龙', 'http://localhost:8888/screenwriter/avatar/1652195889420', 'Xiaolong Lan', '0', '中国，湖南邵阳', '2022-04-04 00:00:00', '　兰晓龙，湖南邵阳人，1973年5月26日出生。1997年毕业于中央戏剧学院，后进入北京军区战友话剧团成为一名职业编剧。曾创作了话剧《红星照耀中国》，电视剧《石磊大夫》、《步兵团长》、《士兵突击》、《我的团长我的团》、《生死线》。', '兰图', '2022-05-10 23:18:09', '2022-06-25 14:11:40', '3.webp', 'image/webp', './upload/screenwriter/avatar/', '1656137500622.webp', 23850);
 INSERT INTO `screenwriter` VALUES ('1653806434280', '伦琴', 'http://localhost:8888/screenwriter/avatar/1653806434280', 'lunqin', '0', '中国，烧心', '2022-04-04 00:00:00', '伦琴射线', '兰图222', '2022-05-29 14:40:34', '2022-05-29 20:58:13', '周慧明.jpeg', 'image/jpeg', './upload/screenwriter/avatar/', '1653829093162.jpeg', 27637);
 INSERT INTO `screenwriter` VALUES ('1653806523028', '放放 ', 'http://localhost:8888/screenwriter/avatar/1653806523028', '放我', '0', '放无法', '2022-05-02 16:00:00', '分为4发', '放发', '2022-05-29 14:42:03', '2022-05-29 20:58:46', 'OIP-C.jpg', 'image/jpeg', './upload/screenwriter/avatar/', '1653829126025.jpg', 5780);
 INSERT INTO `screenwriter` VALUES ('1653806571714', '服务服务', 'http://localhost:8888/screenwriter/avatar/1653806571714', '分威风', '0', '服务服务', '2022-04-25 16:00:00', '分威风无法', '分威风', '2022-05-29 14:42:51', '2022-05-29 20:58:56', '希区柯克.jpg', 'image/jpeg', './upload/screenwriter/avatar/', '1653829136853.jpg', 20576);
@@ -1277,6 +1360,25 @@ INSERT INTO `writer` VALUES ('1653029685000', '萧红', '0', '1992-04-06 16:00:0
 INSERT INTO `writer` VALUES ('1653029738888', '鲁迅', '0', '1999-05-03 16:00:00', NULL, '中国,浙江,绍兴', '中国', 'Xun Lu', '周树人 / 周樟寿 / 周豫山 / 周豫才', '周树人（1881年9月25日－1936年10月19日），字豫才，原名樟寿，字豫山、豫亭，以笔名鲁迅闻名于世，浙江绍兴人，为20世纪中国的作家，新文化运动的领导人、文化运动的支持者，中国现代文学的奠基人和开山巨匠，在西方世界享有盛誉的中国现代文学家、思想家。鲁迅的主要成就包括杂文、短中篇小说、文学、思想和社会评论、学术著作、自然科学著作、古代典籍校勘与研究、散文、现代散文诗、旧体诗、外国文学与学术翻译作品和木刻版画的研究，对于五四运动以后的中国社会思想文化发展产', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-20 14:55:38', '2022-05-20 14:55:38');
 
 -- ----------------------------
+-- Function structure for fristPinyin
+-- ----------------------------
+DROP FUNCTION IF EXISTS `fristPinyin`;
+delimiter ;;
+CREATE FUNCTION `fristPinyin`(P_NAME VARCHAR(255))
+ RETURNS varchar(255) CHARSET utf8mb3
+BEGIN
+    DECLARE V_RETURN VARCHAR(255);
+    SET V_RETURN = ELT(INTERVAL(CONV(HEX(left(CONVERT(P_NAME USING gbk),1)),16,10), 
+        0xB0A1,0xB0C5,0xB2C1,0xB4EE,0xB6EA,0xB7A2,0xB8C1,0xB9FE,0xBBF7, 
+        0xBFA6,0xC0AC,0xC2E8,0xC4C3,0xC5B6,0xC5BE,0xC6DA,0xC8BB,
+        0xC8F6,0xCBFA,0xCDDA,0xCEF4,0xD1B9,0xD4D1),    
+    'A','B','C','D','E','F','G','H','J','K','L','M','N','O','P','Q','R','S','T','W','X','Y','Z');
+    RETURN V_RETURN;
+End
+;;
+delimiter ;
+
+-- ----------------------------
 -- Function structure for getAllComment
 -- ----------------------------
 DROP FUNCTION IF EXISTS `getAllComment`;
@@ -1295,6 +1397,36 @@ SELECT GROUP_CONCAT(id) INTO sTempChd FROM `comment` WHERE FIND_IN_SET(replyId,s
 
 END WHILE;
 RETURN sTemp;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Function structure for pinyin
+-- ----------------------------
+DROP FUNCTION IF EXISTS `pinyin`;
+delimiter ;;
+CREATE FUNCTION `pinyin`(P_NAME VARCHAR(255))
+ RETURNS varchar(255) CHARSET utf8mb3
+BEGIN
+    DECLARE V_COMPARE VARCHAR(255);
+    DECLARE V_RETURN VARCHAR(255);
+    DECLARE I INT;
+    SET I = 1;
+    SET V_RETURN = '';
+    while I < LENGTH(P_NAME) do
+        SET V_COMPARE = SUBSTR(P_NAME, I, 1);
+        IF (V_COMPARE != '') THEN
+            #SET V_RETURN = CONCAT(V_RETURN, ',', V_COMPARE);
+            SET V_RETURN = CONCAT(V_RETURN, fristPinyin(V_COMPARE));
+            #SET V_RETURN = fristPinyin(V_COMPARE);
+        END IF;
+        SET I = I + 1;
+    end while;
+    IF (ISNULL(V_RETURN) or V_RETURN = '') THEN
+        SET V_RETURN = P_NAME;
+    END IF;
+    RETURN V_RETURN;
 END
 ;;
 delimiter ;
