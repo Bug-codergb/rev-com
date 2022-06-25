@@ -5,13 +5,13 @@
 /.pnp
 .pnp.js
 
-/upload/avatar/
-/upload/actor/
-/upload/comment/
-/upload/director/
-/upload/music/
-/upload/screenwriter/
-/upload/movie/
+/upload/avatar/*
+/upload/actor/*
+/upload/comment/*
+/upload/director/*
+/upload/music/*
+/upload/screenwriter/*
+/upload/movie/*
 
 */node_modules
 # testing
