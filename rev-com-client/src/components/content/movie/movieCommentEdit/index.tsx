@@ -4,10 +4,10 @@ import {message} from "antd";
 import {
   MovieCommentEditWrapper
 }from "./style";
-import {IMovie} from "../../../types/movie/movie";
-import {getMovieDetail} from "../../../network/movie";
-import {IResponseType} from "../../../types/responseType";
-import {IScreenwriter} from "../../../types/movie/screenwriter";
+import {IMovie} from "../../../../types/movie/movie";
+import {getMovieDetail} from "../../../../network/movie";
+import {IResponseType} from "../../../../types/responseType";
+import {IScreenwriter} from "../../../../types/movie/screenwriter";
 import CommentEdit from "./childCpn/commentEdit";
 
 const MovieCommentEdit:FC=():ReactElement=>{

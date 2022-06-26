@@ -2,7 +2,9 @@ import React, {memo, FC, ReactElement, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Empty, Image} from "antd";
 import {
-  VideoWrapper
+  VideoWrapper,
+  LeftContent,
+  RightContent
 }from "./style";
 import Filter from "./childCpn/filter";
 import {IMovie} from "../../../../types/movie/movie";
@@ -55,42 +57,47 @@ const Video:FC=():ReactElement=>{
   }
   return (
     <VideoWrapper className="center-auto">
-      <Filter areaClick={(id:string)=>areaClick(id)}
-              cateClick={(id:string)=>cateClick(id)}
-              formClick={(id:string)=>formClick(id)}/>
-      <ul className="movie-list">
-        {
-          movies && movies.length!==0 && movies.map((item,index)=>{
-            return (
-              <li key={item.id}>
-                <MsgItem img={<Image width={150}
-                                     onClick={e=>movieRouter(item)}
-                                     preview={false}
-                                     src={item.coverUrl}
-                                     placeholder={<Image width={150}
-                                                         height={200}
-                                                         src={movieHolder}
-                                                         preview={false}/>} />}
-                         name={<span>{item.name}</span>}
-                         itemWidth={150}
-                         scale={1.3}
-                         isFlex={true}
-                         creator={<span className="score">{item.score.toFixed(1)}</span>}/>
-              </li>
-            )
-          })
-        }
-        {
-          total<1&&<div className="empty-status">
-            <Empty description="暂无影视"/>
-          </div>
-        }
-        {
-          holder(total,8).map((item)=>{
-            return (<li> </li>)
-          })
-        }
-      </ul>
+      <LeftContent>
+        <Filter areaClick={(id:string)=>areaClick(id)}
+                cateClick={(id:string)=>cateClick(id)}
+                formClick={(id:string)=>formClick(id)}/>
+        <ul className="movie-list">
+          {
+            movies && movies.length!==0 && movies.map((item,index)=>{
+              return (
+                <li key={item.id}>
+                  <MsgItem img={<Image width={120}
+                                       onClick={e=>movieRouter(item)}
+                                       preview={false}
+                                       src={item.coverUrl}
+                                       placeholder={<Image width={120}
+                                                           height={175}
+                                                           src={movieHolder}
+                                                           preview={false}/>} />}
+                           name={<span className="movie-name text-nowrap">{item.name}</span>}
+                           itemWidth={120}
+                           scale={1.3}
+                           isFlex={true}
+                           creator={<span className="score">{item.score.toFixed(1)}</span>}/>
+                </li>
+              )
+            })
+          }
+          {
+            total<1&&<div className="empty-status">
+              <Empty description="暂无影视"/>
+            </div>
+          }
+          {
+            holder(total,8).map((item)=>{
+              return (<li> </li>)
+            })
+          }
+        </ul>
+      </LeftContent>
+      <RightContent>
+
+      </RightContent>
     </VideoWrapper>
   )
 }

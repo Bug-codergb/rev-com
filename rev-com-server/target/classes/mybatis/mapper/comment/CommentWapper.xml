@@ -71,4 +71,21 @@
   <insert id="replyComment">
     insert into comment (id,content,userId,replyId) values (#{id},#{content},#{userId},#{replyId})
   </insert>
+  <!--电影评论resultMap-->
+  <resultMap id="movieCommentResultMap" type="Comment" extends="commentResultMap">
+    <association property="movie"
+                 select="com.codergb.mapper.movie.MovieMapper.getMovieDetail"
+                 javaType="movie"
+                 column="{id=movieId}"/>
+  </resultMap>
+  <!--获取热门影评-->
+  <select id="getHotReview" resultMap="movieCommentResultMap">
+    select c.id,c.title,content,c.userId,c.score,c.movieId,c.isShort,c.replyId,
+           c.createTime,c.updateTime,count(t.userId) as count
+    from comment as c
+    LEFT JOIN thumb as t on t.cId=c.id
+    where c.isShort=1
+    GROUP BY c.Id
+    ORDER BY count desc
+  </select>
 </mapper>

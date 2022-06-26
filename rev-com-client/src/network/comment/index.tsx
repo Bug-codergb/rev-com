@@ -6,7 +6,8 @@ enum CommentApi{
   allComment="/comment/all",
   commentDetail="/comment/detail/",
   replyComment="/comment/reply",
-  allReply="/comment/reply/all/"
+  allReply="/comment/reply/all/",
+  hotReview="/comment/movie/review/hot" //受欢迎的影评（电影首页）
 }
 //发布评论
 /*
@@ -74,6 +75,16 @@ export function replyComment<T=IResponseType<any>>(content:string,replyId:string
 export function getAllCommentReply<T=IResponseType<any>>(id:string,page:number,limit:number){
   return gbRequest.get<T>({
     url:CommentApi.allReply+id,
+    params:{
+      page,
+      limit
+    }
+  })
+}
+//获取受欢迎的影评
+export function getHotReview<T=IResponseType<any>>(page:number,limit:number){
+  return gbRequest.get<T>({
+    url:CommentApi.hotReview,
     params:{
       page,
       limit

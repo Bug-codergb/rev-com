@@ -55,4 +55,10 @@ public class CommentService {
     commentMapper.getCommentReply(page,limit,id);
     return p;
   }
+  //获取热门影评
+  public Page<Comment> getHotReview(Integer page,Integer limit){
+    Page<Comment> p=PageHelper.startPage(page,limit);
+    commentMapper.getHotReview(page,limit);
+    return  p;
+  }
 }

@@ -33,4 +33,6 @@ public interface CommentMapper {
   public int replyComment(CommentDTO comment);
   //获取评论来自的评论
   public Comment getCommentFrom(@Param("id") String id);
+  //获取热门影评
+  public List<Comment> getHotReview(@Param("page") Integer page,@Param("limit") Integer limit);
 }

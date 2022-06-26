@@ -5,7 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dff19381-3823-456f-9cff-3b5b03d975f8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/assets/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/assets/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/movieCommentEdit/childCpn/commentEdit/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/movie/movieCommentEdit/childCpn/commentEdit/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/movieCommentEdit/childCpn/commentEdit/style.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/movie/movieCommentEdit/childCpn/commentEdit/style.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/movieCommentEdit/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/movie/movieCommentEdit/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/movieCommentEdit/style.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/movie/movieCommentEdit/style.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/movieTop/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/movie/movieTop/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/components/content/movieTop/style.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/components/content/movie/movieTop/style.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/network/comment/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/network/comment/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/router/homeRoutes/movieRoutes/detail/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/router/homeRoutes/movieRoutes/detail/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/router/homeRoutes/movieRoutes/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/router/homeRoutes/movieRoutes/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/types/comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/types/comment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-client/src/views/movie/childCpn/hotMovie/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-client/src/views/movie/childCpn/hotMovie/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rev-com-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rev-com-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/bean/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/bean/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/constant/UploadPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/constant/UploadPath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/controller/comment/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/controller/comment/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/comment/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/comment/CommentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/service/comment/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/service/comment/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/comment/CommentWapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/comment/CommentWapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/bean/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/bean/Comment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/controller/comment/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/controller/comment/CommentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/mapper/comment/CommentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/mapper/comment/CommentMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/service/comment/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/service/comment/CommentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/comment/CommentWapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/comment/CommentWapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +139,9 @@
       <workItem from="1655285175714" duration="49000" />
       <workItem from="1655427951488" duration="33000" />
       <workItem from="1655894023188" duration="639000" />
-      <workItem from="1656124239281" duration="7706000" />
+      <workItem from="1656124239281" duration="8579000" />
+      <workItem from="1656154632600" duration="719000" />
+      <workItem from="1656216216914" duration="7001000" />
     </task>
     <servers />
   </component>

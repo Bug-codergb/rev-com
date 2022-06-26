@@ -7,7 +7,7 @@ export const FilterWrapper=styled.div`
     flex-wrap: wrap;
     &>li{
       margin: 0 10px 0 0;
-      padding: 4px 10px;
+      padding: 3px 10px;
       font-size: 13px;
       cursor: pointer;
       &:nth-child(1){

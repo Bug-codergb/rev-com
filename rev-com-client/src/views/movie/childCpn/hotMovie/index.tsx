@@ -7,6 +7,7 @@ import {
 
 import HotTV from "./childCpn/hotTv";
 import  HotRecentMovie from "./childCpn/hotMovie";
+import HotReview from "./childCpn/hotReview";
 const HotMovie:FC=():ReactElement=>{
   return (
     <HotMovieWrapper className="center-auto">
@@ -14,6 +15,8 @@ const HotMovie:FC=():ReactElement=>{
         <HotRecentMovie/>
         <div className="line"> </div>
         <HotTV/>
+        <div className="line"> </div>
+        <HotReview/>
       </LeftContent>
       <RightContent>
 

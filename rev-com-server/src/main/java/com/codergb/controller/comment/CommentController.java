@@ -170,4 +170,15 @@ public class CommentController {
                                                        ResponseMessage.SUCCESS.getMESSAGE(),
                                                       pageResult);
   }
+  //获取所有热门影评(电影)
+  @LoginAuth
+  @GetMapping("/movie/review/hot")
+  public ResponseType<PageResult<List<Comment>>> getHotReview(@RequestParam("page") Integer page,
+                                                              @RequestParam("limit") Integer limit){
+    Page<Comment> comments=commentService.getHotReview(page, limit);
+    PageResult pageResult=new PageResult<List<Comment>>(comments.getPageNum(),
+            comments.getTotal(),
+            comments.getPages(),comments);
+    return new ResponseType<PageResult<List<Comment>>>(HttpStatus.OK.value(),ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
+  }
 }

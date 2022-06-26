@@ -1,12 +1,13 @@
 import {lazy,Suspense} from "react"
 import {RouteObject} from "react-router/lib/router";
 const MovieDetail=lazy(()=>import("../../../../components/content/detail/movie/movieDetail/index"));
-const MovieComEdit=lazy(()=>import("../../../../components/content/movieCommentEdit/index"));
+const MovieComEdit=lazy(()=>import("../../../../components/content/movie/movieCommentEdit/index"));
 const MovieReview=lazy(()=>import("../../../../components/content/detail/movie/filmReviewDetail/index"));
 
 const AllReviewDetail=lazy(()=>import("../../../../components/content/detail/movie/allComment/reviewDetail/index"));
 const AllShortComDetail=lazy(()=>import("../../../../components/content/detail/movie/allComment/shortComDetail/index"));
-const TopMovie200=lazy(()=>import("../../../../components/content/movieTop/index"));
+const TopMovie200=lazy(()=>import("../../../../components/content/movie/movieTop/index"));
+const AllHotReview=lazy(()=>import("../../../../components/content/movie/allHotReview/index"));
 const movieDetailRouter:RouteObject={
   path:"movieDetail",
   element:(
@@ -56,11 +57,20 @@ const topMovieRouter:RouteObject={
     </Suspense>
   )
 }
+const allHotReviewRouter:RouteObject={
+  path:"AllHotReview",
+  element:(
+    <Suspense>
+      <AllHotReview/>
+    </Suspense>
+  )
+}
 export {
   movieDetailRouter,
   movieComEditRouter,
   movieReviewRouter,
   allReviewRouter,
   allShortComRouter,
-  topMovieRouter
+  topMovieRouter,
+  allHotReviewRouter
 }

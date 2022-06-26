@@ -5,11 +5,11 @@ import {
   LeftContent,
   RightContent
 } from "./style"
-import {getMovieTop} from "../../../network/movie";
-import {IResponseType} from "../../../types/responseType";
-import {IPageResult} from "../../../types/pageResult";
-import {IMovie} from "../../../types/movie/movie";
-import ToplistItem from "../../../views/movie/childCpn/toplist/chidCpn/toplistItem";
+import {getMovieTop} from "../../../../network/movie";
+import {IResponseType} from "../../../../types/responseType";
+import {IPageResult} from "../../../../types/pageResult";
+import {IMovie} from "../../../../types/movie/movie";
+import ToplistItem from "../../../../views/movie/childCpn/toplist/chidCpn/toplistItem";
 import {Pagination} from "antd";
 const MovieTop:FC=():ReactElement=>{
   const [movie,setMovie]=useState<IMovie[]>();

@@ -7,7 +7,8 @@ public enum UploadPath {
   ACTOR_AVATAR_UPLOAD_PATH("./upload/actor/avatar/"),
   SCREENWRITER_AVATAR_UPLOAD_PATH("./upload/screenwriter/avatar/"),
   COMMENT_PICTURE_UPLOAD_PATH("./upload/comment/picture/"),
-  ARTIST_AVATAR_UPLOAD_PATH("./upload/music/artist/avatar/");
+  ARTIST_AVATAR_UPLOAD_PATH("./upload/music/artist/avatar/"),
+  FILMLIST_COVER_UPLOAD_PATH("./upload/movie/filmList/");
   private final String UPLOADPATH;
   UploadPath(String UPLOADPATH) {
     this.UPLOADPATH = UPLOADPATH;

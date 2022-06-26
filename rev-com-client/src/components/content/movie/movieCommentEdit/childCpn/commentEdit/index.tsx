@@ -8,9 +8,9 @@ import {
   CommentEditWrapper
 }from "./style";
 
-import {HOST_NAME} from "../../../../../constant/host";
-import localCache from "../../../../../utils/cache"
-import {publishComment} from "../../../../../network/comment";
+import {HOST_NAME} from "../../../../../../constant/host";
+import localCache from "../../../../../../utils/cache"
+import {publishComment} from "../../../../../../network/comment";
 interface IProps{
   id:string
 }

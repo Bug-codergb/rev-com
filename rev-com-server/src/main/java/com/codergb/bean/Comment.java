@@ -1,12 +1,12 @@
 package com.codergb.bean;
 
+import com.codergb.bean.movie.Movie;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 @ToString
@@ -22,4 +22,5 @@ public class Comment {
   private Comment reply;
   private Date createTime;
   private Date updateTime;
+  private Movie movie;
 }

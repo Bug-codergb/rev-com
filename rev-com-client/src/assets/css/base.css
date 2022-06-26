@@ -54,4 +54,9 @@ ul,li{
 .w-e-text-container {
   color: #ec4141!important;
 }
+.review-content *{
+  font-size: 13px!important;
+  line-height: 22px;
+  color: #666666!important;
+}
 
