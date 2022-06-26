@@ -11,7 +11,7 @@
  Target Server Version : 80029
  File Encoding         : 65001
 
- Date: 25/06/2022 16:39:50
+ Date: 26/06/2022 15:14:55
 */
 
 SET NAMES utf8mb4;
@@ -159,6 +159,8 @@ INSERT INTO `comment` VALUES ('1654669442547', NULL, '因做《斗鸡檄》被�
 INSERT INTO `comment` VALUES ('1654674180747', NULL, '；主要文学成就是骈文，无论是数量还是质量，堪称一时之最，代表作品有《滕王阁序》等。', '1651935333133', 2, '1652323265333', 0, NULL, '2022-06-08 15:43:00', '2022-06-08 15:43:00');
 INSERT INTO `comment` VALUES ('1654674229603', '卢照邻、骆宾王并称为', '<p><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">勃（约650年—约676年），字子安，汉族，唐代文学家。古绛州龙门（今山西河津）人。出身儒学世家，与杨炯、卢照邻、骆宾王并称为“王杨卢骆”、“初唐四杰”。王勃自幼聪敏好学，据《旧唐书》记载，他六岁即能写文章，文笔流畅，被赞为“神童”。九岁时，读颜</span><img src=\"http://localhost:8888/comment/picture/1654674247915\" alt=\"\" data-href=\"\" style=\"\"/></p><p><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;被赶出沛王府。之后，王勃历时三年游览巴蜀山川景物，创作了大量诗文。返回长安后，求补得虢州参军。在参军任上，因私杀官奴二次被贬。</span></p>', '1651935333133', 4, '1654346950495', 1, NULL, '2022-06-08 15:44:22', '2022-06-08 15:44:22');
 INSERT INTO `comment` VALUES ('1654677685803', '绛州龙门今', '<p style=\"text-indent: 2em;\"><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">王勃自幼聪敏好学，据《旧唐书》记载，他六岁即能写文章，文笔流畅，被赞为“神童”。九岁时，读颜师古注《汉书》，作《指瑕》十卷以纠正其错。十六岁时，应幽素科试及第，授职朝散郎。因做《斗鸡檄》被赶出沛王府。之后，</span></p><p style=\"text-indent: 2em;\"><img src=\"http://localhost:8888/comment/picture/1654677726069\" alt=\"\" data-href=\"\" style=\"width: 801.54px;height: 1001.94px;\"></p><p style=\"text-indent: 2em;\"><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">王勃历时三年游览巴蜀山川景物，创作了大量诗文。返回长安后，求补得虢州参军。在参军任上，因私杀官奴二次被贬。676年，南下省父时，渡海溺水卒。王勃在诗歌体裁上擅长五律和五绝，代表作品有《送杜少府之任蜀州》等；主要文学成就是骈文，无论是数量还是质量，堪称一时之最，代表作品有《滕王阁序》等。😇🤣😁</span></p>', '1651935333133', 4, '1653918306384', 1, NULL, '2022-06-08 16:42:12', '2022-06-08 16:42:12');
+INSERT INTO `comment` VALUES ('1656227561953', NULL, 'wqdwfefwefe', '1651935333133', NULL, NULL, 0, '1654050213142', '2022-06-26 15:12:41', '2022-06-26 15:12:41');
+INSERT INTO `comment` VALUES ('1656227574485', NULL, 'gdgdg', '1651935333133', NULL, NULL, 0, '1654050213142', '2022-06-26 15:12:54', '2022-06-26 15:12:54');
 INSERT INTO `comment` VALUES ('1675464984912', 'hellO', 'hahaha', '1651935333133', 3, '1652323356167', 0, '1654050213142', '2022-06-01 10:47:08', '2022-06-01 10:47:08');
 INSERT INTO `comment` VALUES ('1678156156511', '发freer', '你好你好', '1651935333133', 2, '1652323356167', 0, '1675464984912', '2022-06-01 11:16:31', '2022-06-01 11:16:31');
 
@@ -789,6 +791,34 @@ INSERT INTO `movie_form` VALUES ('1652189395431', '纪录片', '2022-05-10 21:29
 INSERT INTO `movie_form` VALUES ('1652189403822', '短片', '2022-05-10 21:30:03', '2022-05-10 21:30:03');
 
 -- ----------------------------
+-- Table structure for movie_list
+-- ----------------------------
+DROP TABLE IF EXISTS `movie_list`;
+CREATE TABLE `movie_list`  (
+  `id` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `name` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `coverUrl` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `userId` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `originalname` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `mimetype` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `dest` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `filename` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `size` int NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `name`(`name` ASC) USING BTREE,
+  INDEX `userId`(`userId` ASC) USING BTREE,
+  CONSTRAINT `movie_list_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of movie_list
+-- ----------------------------
+INSERT INTO `movie_list` VALUES ('1656225560665', '恐怖屋', 'http://localhost:8888/movie/filmList/cover/1656225560665', '哈哈哈哈哈哈哈', '1651935333133', '2022-06-26 14:39:20', '2022-06-26 15:01:06', 'p1378204929.4.jpg', 'image/jpeg', './upload/movie/filmList/', '1656226866386.jpg', 24950);
+
+-- ----------------------------
 -- Table structure for movie_screenwriter_relate
 -- ----------------------------
 DROP TABLE IF EXISTS `movie_screenwriter_relate`;
@@ -1245,6 +1275,7 @@ INSERT INTO `subscriber` VALUES ('1654507397797', '1651935333133', '165434883147
 INSERT INTO `subscriber` VALUES ('1654519443306', '1651935333133', '1654519399194', '2022-06-06 20:44:03', '2022-06-06 20:44:03');
 INSERT INTO `subscriber` VALUES ('1654608782758', '1654600467038', '1654050213142', '2022-06-07 21:33:02', '2022-06-07 21:33:02');
 INSERT INTO `subscriber` VALUES ('1654669099437', '1651935333133', '1654050213142', '2022-06-08 14:18:19', '2022-06-08 14:18:19');
+INSERT INTO `subscriber` VALUES ('1656221620816', '1651935333133', '1654072467495', '2022-06-26 13:33:40', '2022-06-26 13:33:40');
 
 -- ----------------------------
 -- Table structure for thumb
@@ -1283,6 +1314,11 @@ INSERT INTO `thumb` VALUES ('1654608235682', '1654600467038', '1675464984912', '
 INSERT INTO `thumb` VALUES ('1654608707970', '1654600467038', '1678156156511', '2022-06-07 21:31:47', '2022-06-07 21:31:47');
 INSERT INTO `thumb` VALUES ('1654669100388', '1651935333133', '1654050213142', '2022-06-08 14:18:20', '2022-06-08 14:18:20');
 INSERT INTO `thumb` VALUES ('1654674268852', '1651935333133', '1654674229603', '2022-06-08 15:44:28', '2022-06-08 15:44:28');
+INSERT INTO `thumb` VALUES ('1656216566927', '1651935333133', '1654072467495', '2022-06-26 12:09:26', '2022-06-26 12:09:26');
+INSERT INTO `thumb` VALUES ('1656216569905', '1651935333133', '1654608952671', '2022-06-26 12:09:29', '2022-06-26 12:09:29');
+INSERT INTO `thumb` VALUES ('1656216571361', '1651935333133', '1654610717379', '2022-06-26 12:09:31', '2022-06-26 12:09:31');
+INSERT INTO `thumb` VALUES ('1656216576246', '1651935333133', '1654610896854', '2022-06-26 12:09:36', '2022-06-26 12:09:36');
+INSERT INTO `thumb` VALUES ('1656221809070', '1651935333133', '1654087653198', '2022-06-26 13:36:49', '2022-06-26 13:36:49');
 
 -- ----------------------------
 -- Table structure for user
