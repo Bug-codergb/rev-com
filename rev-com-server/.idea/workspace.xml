@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dff19381-3823-456f-9cff-3b5b03d975f8" name="Default Changelist" comment="" />
+    <list default="true" id="dff19381-3823-456f-9cff-3b5b03d975f8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../rev-com-manage/src/network/music/artist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-manage/src/network/music/artist.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-manage/src/views/music/artist/Artist.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-manage/src/views/music/artist/Artist.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rev-com-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rev-com-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/music/artist/avatar/1656142208792.jpg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,6 +122,9 @@
       <workItem from="1656124239281" duration="8579000" />
       <workItem from="1656154632600" duration="719000" />
       <workItem from="1656216216914" duration="7374000" />
+      <workItem from="1656898707680" duration="3477000" />
+      <workItem from="1657074613472" duration="3651000" />
+      <workItem from="1657159950785" duration="8309000" />
     </task>
     <servers />
   </component>

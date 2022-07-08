@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.book.BookMapper">
+  <insert id="createBook">
+    insert into book(id,name,writer,publish,publishTime,price,description,pageCount)
+                values (#{id},#{name},#{writerId},#{publishId},#{publishTime},#{price},#{description},#{pageCount})
+  </insert>
+</mapper>
