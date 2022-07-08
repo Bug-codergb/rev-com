@@ -15,7 +15,7 @@ export function getAllDirector<T = IResponseType<any>>(
   page: number,
   limit: number,
   keyword: string
-) {
+): Promise<T> {
   return gbRequest.get<T>({
     url: DirectorApi.allDirector,
     params: {
@@ -31,7 +31,7 @@ export function addDirectorRequest<T = IResponseType<any>>(
   gender: string,
   birthPlace: string,
   description: string
-) {
+): Promise<T> {
   return gbRequest.post<T>({
     url: DirectorApi.addDirector,
     method: "post",
@@ -45,7 +45,7 @@ export function addDirectorRequest<T = IResponseType<any>>(
   })
 }
 //上传头像
-export function uploadAvatar<T = IResponseType<any>>(formData: FormData, id: string) {
+export function uploadAvatar<T = IResponseType<any>>(formData: FormData, id: string): Promise<T> {
   return gbRequest.post<T>({
     url: DirectorApi.uploadAvatar + `${id}`,
     method: "post",
@@ -64,7 +64,7 @@ export function updateDirector<T = IResponseType<any>>(
   occupationList: string[],
   description: string,
   birthPlace: string
-) {
+): Promise<T> {
   return gbRequest.post<T>({
     url: DirectorApi.updateDirector,
     data: {
@@ -79,7 +79,7 @@ export function updateDirector<T = IResponseType<any>>(
   })
 }
 //删除导演信息
-export function deleteDirector<T = IResponseType<any>>(id: string) {
+export function deleteDirector<T = IResponseType<any>>(id: string): Promise<T> {
   return gbRequest.post<T>({
     url: DirectorApi.deleteDirector,
     params: {
@@ -88,7 +88,7 @@ export function deleteDirector<T = IResponseType<any>>(id: string) {
   })
 }
 //更新头像信息
-export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData) {
+export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
   return gbRequest.post<T>({
     url: DirectorApi.updateAvatar + `/${id}`,
     data: formData,
@@ -102,7 +102,7 @@ export function getDirectorCooperate<T = IResponseType<any>>(
   id: string,
   page: number,
   limit: number
-) {
+): Promise<T> {
   return gbRequest.get<T>({
     url: DirectorApi.directorCooperate,
     params: {
@@ -113,7 +113,11 @@ export function getDirectorCooperate<T = IResponseType<any>>(
   })
 }
 //获取演员合作导演
-export function getDirectorActor<T = IResponseType<any>>(id: string, page: number, limit: number) {
+export function getDirectorActor<T = IResponseType<any>>(
+  id: string,
+  page: number,
+  limit: number
+): Promise<T> {
   return gbRequest.get<T>({
     url: DirectorApi.directorActor,
     params: {

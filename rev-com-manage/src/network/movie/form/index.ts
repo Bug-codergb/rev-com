@@ -4,7 +4,7 @@ enum MovieForm {
   allForm = "/movie/form/all"
 }
 //获取所有形式
-export function getAllForm<T = IResponseType<any>>() {
+export function getAllForm<T = IResponseType<any>>(): Promise<T> {
   return gbRequest.get<T>({
     url: MovieForm.allForm
   })

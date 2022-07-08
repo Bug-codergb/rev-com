@@ -61,7 +61,13 @@
                 @click="editArtist(scope.row)"
                 >编辑</el-button
               >
-              <el-button type="text" size="small" class="table-control-btn">删除</el-button>
+              <el-button
+                type="text"
+                size="small"
+                class="table-control-btn"
+                @click="deleteArtistHandle(scope.row)"
+                >删除</el-button
+              >
             </template>
           </el-table-column>
         </el-table>
@@ -95,7 +101,12 @@
 <script lang="ts">
 import { defineComponent, onMounted, reactive, ref } from "vue"
 import PageItemList from "@/components/content/pageItemList/PageItemList.vue"
-import { getAllArtist, getAllArtistCate, getAllArtistType } from "@/network/music/artist"
+import {
+  deleteArtist,
+  getAllArtist,
+  getAllArtistCate,
+  getAllArtistType
+} from "@/network/music/artist"
 import { ICategory } from "@/types/music/artist/category"
 import { IArtistType } from "@/types/music/artist/type"
 import { ISelect } from "@/views/music/artist/types/types"
@@ -105,7 +116,7 @@ import { IArtist } from "@/types/music/artist/artist"
 import { IPageResult } from "@/types/pageResult"
 import AddArtist from "@/views/music/artist/childCpn/addArtist/AddArtist.vue"
 import GBDrawer from "@/components/common/gbDrawer/GBDrawer.vue"
-
+import { ElMessageBox, ElMessage } from "element-plus"
 export default defineComponent({
   name: "Artist",
   components: { GBDrawer, AddArtist, PageItemList },
@@ -212,6 +223,25 @@ export default defineComponent({
       artistItem.item = item
       drawer.value = true
     }
+    //删除歌手信息
+    const deleteArtistHandle = (item: IArtist) => {
+      ElMessageBox.confirm("确定要删除么?", "警告", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(async () => {
+          const data = await deleteArtist<IResponseType<any>>(item.id)
+          if (data.status === 200) {
+            ElMessage.success({
+              message: "歌手删除成功",
+              duration: 1500
+            })
+            refresh()
+          }
+        })
+        .catch(() => {})
+    }
     return {
       artist,
       total,
@@ -226,7 +256,8 @@ export default defineComponent({
       showDrawer,
       pageChange,
       editArtist,
-      artistItem
+      artistItem,
+      deleteArtistHandle
     }
   }
 })

@@ -15,7 +15,7 @@ export function createPublish<T = IResponseType<any>>(
   organizer: string,
   description: string,
   type: string
-) {
+): Promise<T> {
   return gbRequest.post<T>({
     url: PublishApi.createPublish,
     data: {
@@ -35,7 +35,7 @@ export function getAllPublish<T = IResponseType<any>>(
   page: number,
   limit: number,
   keyword: string
-) {
+): Promise<T> {
   return gbRequest.get<T>({
     url: PublishApi.allPublish,
     params: {

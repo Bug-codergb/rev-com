@@ -14,7 +14,7 @@ export function createWriter<T = IResponseType<any>>(
   foreignName: string,
   alias: string,
   description: string
-) {
+): Promise<T> {
   return gbRequest.post<T>({
     url: WriterApi.createWriter,
     data: {
@@ -30,7 +30,11 @@ export function createWriter<T = IResponseType<any>>(
   })
 }
 //获取所有作家
-export function getAllWriter<T = IResponseType<any>>(page: number, limit: number, keyword: string) {
+export function getAllWriter<T = IResponseType<any>>(
+  page: number,
+  limit: number,
+  keyword: string
+): Promise<T> {
   return gbRequest.get<T>({
     url: WriterApi.allWriter,
     params: {

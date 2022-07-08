@@ -19,7 +19,7 @@ export function getAllMovie<T = IResponseType<any>>(
   form: string,
   cate: string,
   area: string
-) {
+): Promise<T> {
   return gbRequest.get<T>({
     url: MovieApi.allMovie,
     params: {
@@ -46,7 +46,7 @@ export function addMovie<T = IResponseType<any>>(
   form: string,
   cateList: string[],
   description: string
-) {
+): Promise<T> {
   return gbRequest.post<T>({
     url: MovieApi.addMovie,
     data: {
@@ -80,7 +80,7 @@ export function updateMovie<T = IResponseType<any>>(
   formItem: string,
   cateList: string[],
   description: string
-) {
+): Promise<T> {
   return gbRequest.post<T>({
     url: MovieApi.updateMovie,
     data: {
@@ -101,7 +101,7 @@ export function updateMovie<T = IResponseType<any>>(
   })
 }
 //上传电影封面
-export function uploadCover<T = IResponseType<any>>(id: string, formData: FormData) {
+export function uploadCover<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
   return gbRequest.post<T>({
     url: MovieApi.uploadCover + "/" + id,
     data: formData,
@@ -111,7 +111,7 @@ export function uploadCover<T = IResponseType<any>>(id: string, formData: FormDa
   })
 }
 //更新电影封面
-export function updateCover<T = IResponseType<any>>(id: string, formData: FormData) {
+export function updateCover<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
   return gbRequest.post<T>({
     url: MovieApi.updateCover + `/${id}`,
     data: formData,
@@ -121,13 +121,17 @@ export function updateCover<T = IResponseType<any>>(id: string, formData: FormDa
   })
 }
 //删除电影
-export function deleteMovie<T = IResponseType<any>>(id: string) {
+export function deleteMovie<T = IResponseType<any>>(id: string): Promise<T> {
   return gbRequest.post<T>({
     url: MovieApi.deleteMovie + `${id}`
   })
 }
 //获取电影根据导演
-export function getMovieByDid<T = IResponseType<any>>(id: string, page: number, limit: number) {
+export function getMovieByDid<T = IResponseType<any>>(
+  id: string,
+  page: number,
+  limit: number
+): Promise<T> {
   return gbRequest.get<T>({
     url: MovieApi.movieByDirector + `/${id}`,
     params: {
@@ -137,7 +141,11 @@ export function getMovieByDid<T = IResponseType<any>>(id: string, page: number, 
   })
 }
 //获取电影根据演员
-export function getMovieByAid<T = IResponseType<any>>(id: string, page: number, limit: number) {
+export function getMovieByAid<T = IResponseType<any>>(
+  id: string,
+  page: number,
+  limit: number
+): Promise<T> {
   return gbRequest.get<T>({
     url: MovieApi.movieByActor + `/${id}`,
     params: {
@@ -147,7 +155,7 @@ export function getMovieByAid<T = IResponseType<any>>(id: string, page: number, 
   })
 }
 //获取电影详情
-export function getMovieDetail<T = IResponseType<any>>(id: string) {
+export function getMovieDetail<T = IResponseType<any>>(id: string): Promise<T> {
   return gbRequest.get<T>({
     url: MovieApi.movieDetail + `/${id}`
   })

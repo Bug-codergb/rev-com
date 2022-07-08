@@ -18,7 +18,7 @@ export function addScreenwriter<T = IResponseType<any>>(
   birth: string,
   description: string,
   occupationList: string[]
-) {
+): Promise<T> {
   return gbRequest.post<T>({
     url: ScreenwriterApi.addScreenwriter,
     data: {
@@ -34,7 +34,7 @@ export function addScreenwriter<T = IResponseType<any>>(
   })
 }
 //上传编剧头像
-export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormData) {
+export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
   return gbRequest.post<T>({
     url: ScreenwriterApi.uploadAvatar + "/" + id,
     data: formData,
@@ -48,7 +48,7 @@ export function getAllScreenwriter<T = IResponseType<any>>(
   page: number,
   limit: number,
   keyword: string
-) {
+): Promise<T> {
   return gbRequest.get<T>({
     url: ScreenwriterApi.allScreenwriter,
     params: {
@@ -68,7 +68,7 @@ export function updateScreenwriter<T = IResponseType<any>>(
   birth: string,
   description: string,
   occupationList: string[]
-) {
+): Promise<T> {
   return gbRequest.post<T>({
     url: ScreenwriterApi.updateScreenwriter,
     data: {
@@ -84,14 +84,14 @@ export function updateScreenwriter<T = IResponseType<any>>(
     }
   })
 }
-export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData) {
+export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
   return gbRequest.post<T>({
     url: ScreenwriterApi.updateAvatar + "/" + id,
     data: formData
   })
 }
 //删除编剧
-export function deleteScreenwriter<T = IResponseType<any>>(id: string) {
+export function deleteScreenwriter<T = IResponseType<any>>(id: string): Promise<T> {
   return gbRequest.post<T>({
     url: ScreenwriterApi.deleteScreenwriter + "/" + id
   })

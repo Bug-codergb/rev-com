@@ -11,7 +11,11 @@ enum ActorApi {
   actorCooperate = "/actor/cooperate"
 }
 //获取所有演员
-export function getAllActor<T = IResponseType<any>>(page: number, limit: number, keyword: string) {
+export function getAllActor<T = IResponseType<any>>(
+  page: number,
+  limit: number,
+  keyword: string
+): Promise<T> {
   return gbRequest.get<T>({
     url: ActorApi.allActor,
     params: {
@@ -32,7 +36,7 @@ export function addActor<T = IResponseType<any>>(
   description: string,
   alias: string,
   occupationList: string[]
-) {
+): Promise<T> {
   return gbRequest.post<T>({
     url: ActorApi.addActor,
     data: {
@@ -60,7 +64,7 @@ export function updateActor<T = IResponseType<any>>(
   description: string,
   alias: string,
   occupationList: string[]
-) {
+): Promise<T> {
   return gbRequest.post<T>({
     url: ActorApi.updateActor,
     data: {
@@ -78,7 +82,7 @@ export function updateActor<T = IResponseType<any>>(
   })
 }
 //删除演员
-export function deleteActor<T = IResponseType<any>>(id: string) {
+export function deleteActor<T = IResponseType<any>>(id: string): Promise<T> {
   return gbRequest.post<T>({
     url: ActorApi.deleteActor,
     params: {
@@ -87,7 +91,7 @@ export function deleteActor<T = IResponseType<any>>(id: string) {
   })
 }
 //上传演员头像
-export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormData) {
+export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
   return gbRequest.post<T>({
     url: ActorApi.uploadAvatar + `/${id}`,
     data: formData,
@@ -97,7 +101,7 @@ export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormD
   })
 }
 //更新演员头像
-export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData) {
+export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
   return gbRequest.post<T>({
     url: ActorApi.updateAvatar + `/${id}`,
     data: formData,
@@ -107,7 +111,11 @@ export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormD
   })
 }
 //获取导演合作演员
-export function getDirectorActor<T = IResponseType<any>>(id: string, page: number, limit: number) {
+export function getDirectorActor<T = IResponseType<any>>(
+  id: string,
+  page: number,
+  limit: number
+): Promise<T> {
   return gbRequest.get<T>({
     url: ActorApi.directorActor,
     params: {
@@ -118,7 +126,11 @@ export function getDirectorActor<T = IResponseType<any>>(id: string, page: numbe
   })
 }
 //获取演员合作演员
-export function getActorCooperate<T = IResponseType<any>>(id: string, page: number, limit: number) {
+export function getActorCooperate<T = IResponseType<any>>(
+  id: string,
+  page: number,
+  limit: number
+): Promise<T> {
   return gbRequest.get<T>({
     url: ActorApi.actorCooperate,
     params: {

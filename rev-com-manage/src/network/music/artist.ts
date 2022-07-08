@@ -7,16 +7,17 @@ enum ArtistApi {
   createArtist = "/music/artist",
   uploadAvatar = "/music/artist/avatar/upload/",
   updateArtist = "/music/artist/update",
-  updateAvatar = "/music/artist/avatar/update/"
+  updateAvatar = "/music/artist/avatar/update/",
+  deleteArtist = "/music/artist/delete/"
 }
 //获取所有歌手分类
-export function getAllArtistCate<T = IResponseType<any>>() {
+export function getAllArtistCate<T = IResponseType<any>>(): Promise<T> {
   return gbRequest.get<T>({
     url: ArtistApi.allArtistCate
   })
 }
 //获取所有歌手类型
-export function getAllArtistType<T = IResponseType<any>>() {
+export function getAllArtistType<T = IResponseType<any>>(): Promise<T> {
   return gbRequest.get<T>({
     url: ArtistApi.allArtistType
   })
@@ -28,7 +29,7 @@ export function getAllArtist<T = IResponseType<any>>(
   keyword: string,
   area: string,
   type: string
-) {
+): Promise<T> {
   return gbRequest.get<T>({
     url: ArtistApi.allArtist,
     params: {
@@ -46,7 +47,7 @@ export function createArtist<T = IResponseType<any>>(
   description: string,
   typeId: string,
   cateId: string
-) {
+): Promise<T> {
   return gbRequest.post<T>({
     url: ArtistApi.createArtist,
     data: {
@@ -58,7 +59,7 @@ export function createArtist<T = IResponseType<any>>(
   })
 }
 //上传歌手头像2
-export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormData) {
+export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
   return gbRequest.post<T>({
     url: ArtistApi.uploadAvatar + id,
     data: formData,
@@ -74,7 +75,7 @@ export function updateArtist<T = IResponseType<any>>(
   description: string,
   typeId: string,
   cateId: string
-) {
+): Promise<T> {
   return gbRequest.post<T>({
     url: ArtistApi.updateArtist,
     data: {
@@ -87,12 +88,18 @@ export function updateArtist<T = IResponseType<any>>(
   })
 }
 //更新歌手头像
-export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData) {
+export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
   return gbRequest.post<T>({
     url: ArtistApi.updateAvatar + id,
     data: formData,
     headers: {
       "Content-type": "multipart/form-data"
     }
+  })
+}
+//删除歌手信息
+export function deleteArtist<T = IResponseType<any>>(id: string): Promise<T> {
+  return gbRequest.post<T>({
+    url: ArtistApi.deleteArtist + id
   })
 }
