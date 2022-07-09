@@ -7,4 +7,21 @@
     insert into book(id,name,writer,publish,publishTime,price,description,pageCount)
                 values (#{id},#{name},#{writerId},#{publishId},#{publishTime},#{price},#{description},#{pageCount})
   </insert>
+  <update id="uploadCover">
+    update book set coverUrl=#{coverUrl},originalname=#{originalname},mimetype=#{mimetype},dest=#{dest},
+                    filename=#{filename},size=#{size}
+    where id=#{id}
+  </update>
+  <select id="getBookById" resultType="Book">
+    select * from book where id=#{id}
+  </select>
+  <delete id="deleteBook">
+    delete from book where id=#{id}
+  </delete>
+  <update id="updateBook">
+    update book set name=#{name},writer=#{writerId},publishTime=#{publishTime},
+                    publish=#{publishId},description=#{description},price=#{price},
+                    pageCount=#{pageCount}
+    where id=#{id}
+  </update>
 </mapper>
