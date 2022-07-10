@@ -16,4 +16,9 @@
       </if>
     </where>
   </select>
+  <select id="getWriterById" resultType="Writer">
+    select *
+    from writer
+    where id=#{id}
+  </select>
 </mapper>

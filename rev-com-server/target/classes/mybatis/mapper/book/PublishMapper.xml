@@ -16,4 +16,9 @@
       </if>
     </where>
   </select>
+  <select id="getPublishById" resultType="Publish">
+    select *
+    from publish
+    where id=#{id}
+  </select>
 </mapper>

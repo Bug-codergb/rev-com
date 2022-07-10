@@ -4,6 +4,8 @@ import com.codergb.bean.book.Book;
 import com.codergb.dto.book.BookDTO;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface BookMapper {
   //添加书籍
   public int createBook(BookDTO book);
@@ -15,4 +17,6 @@ public interface BookMapper {
   public int deleteBook(@Param("id") String id);
   //更新书籍信息
   public int updateBook(BookDTO book);
+  //获取所有书籍
+  public List<Book> getAllBook(@Param("page") Integer page,@Param("limit") Integer limit);
 }

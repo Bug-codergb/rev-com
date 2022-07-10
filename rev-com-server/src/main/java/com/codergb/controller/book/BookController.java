@@ -1,6 +1,7 @@
 package com.codergb.controller.book;
 
 import com.codergb.annotation.LoginAuth;
+import com.codergb.bean.PageResult;
 import com.codergb.bean.book.Book;
 import com.codergb.constant.Host;
 import com.codergb.constant.ResponseMessage;
@@ -11,8 +12,10 @@ import com.codergb.utils.EmptyJudge;
 import com.codergb.utils.FilePreview;
 import com.codergb.utils.FileUniqueName;
 import com.codergb.utils.ResponseType;
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.relational.core.mapping.Embedded;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/book")
@@ -116,5 +120,35 @@ public class BookController {
       bookService.updateBook(book);
       return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), null);
     }
+  }
+  //更新封面信息
+  @LoginAuth
+  @PostMapping("/cover/update/{id}")
+  public ResponseType<Object> updateCover(@PathVariable("id") String id,
+                                          @RequestBody MultipartFile cover){
+    if(new EmptyJudge().judgeEmpty(cover)){
+      return new ResponseType<Object>(HttpStatus.BAD_REQUEST.value(),"头像不能为空",null);
+    }else{
+      Book book= bookService.getBookById(id);
+      File file=new File(System.getProperty("user.dir")+book.getDest()+book.getFilename());
+      if(file.exists()){
+        Boolean isDelete=file.delete();
+        this.uploadCover(cover,id);
+      }else{
+        this.uploadCover(cover, id);
+      }
+      return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), null);
+    }
+  }
+  //获取所有书籍
+  @LoginAuth
+  @GetMapping("/all")
+  public ResponseType<PageResult<List<Book>>> getAllBook(@RequestParam("page") Integer page,
+                                                         @RequestParam("limit") Integer limit){
+    Page<Book> books=bookService.getAllPage(page,limit);
+    PageResult pageResult=new PageResult<List<Book>>(books.getPageNum(),
+            books.getTotal(),
+            books.getPages(),books);
+    return new ResponseType<PageResult<List<Book>>>(HttpStatus.OK.value(),ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
   }
 }

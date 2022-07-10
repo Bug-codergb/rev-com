@@ -24,4 +24,28 @@
                     pageCount=#{pageCount}
     where id=#{id}
   </update>
+  <!--书籍resultMap-->
+  <resultMap id="bookResultMap" type="Book">
+    <id property="id" column="id"></id>
+    <result property="name" column="name"></result>
+    <result property="publishTime" column="publishTime"></result>
+    <result property="coverUrl" column="coverUrl"></result>
+    <result property="price" column="price"></result>
+    <result property="description" column="description"></result>
+    <result property="pageCount" column="pageCount"></result>
+    <result property="score" column="score"></result>
+    <association property="writer"
+                 javaType="Writer"
+                 select="com.codergb.mapper.book.WriterMapper.getWriterById"
+                 column="{id=writer}"/>
+    <association property="publish"
+                 javaType="Publish"
+                 select="com.codergb.mapper.book.PublishMapper.getPublishById"
+                 column="{id=publish}"/>
+  </resultMap>
+  <!--获取所有书籍-->
+  <select id="getAllBook" resultMap="bookResultMap">
+    select *
+    from book
+  </select>
 </mapper>

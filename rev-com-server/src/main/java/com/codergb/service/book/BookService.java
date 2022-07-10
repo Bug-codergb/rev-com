@@ -3,6 +3,8 @@ package com.codergb.service.book;
 import com.codergb.bean.book.Book;
 import com.codergb.dto.book.BookDTO;
 import com.codergb.mapper.book.BookMapper;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +29,11 @@ public class BookService {
   //更新下书籍信息
   public int updateBook(BookDTO bookDTO){
     return bookMapper.updateBook(bookDTO);
+  }
+  //获取所有书籍
+  public Page<Book> getAllPage(Integer page,Integer limit){
+    Page<Book> p= PageHelper.startPage(page,limit);
+    bookMapper.getAllBook(page, limit);
+    return p;
   }
 }
