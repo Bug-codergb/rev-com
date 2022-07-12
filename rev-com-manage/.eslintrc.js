@@ -25,4 +25,4 @@ module.exports = {
     " @typescript-eslint/no-this-alias": "off",
     " @typescript-eslint/explicit-module-boundary-types": "off"
   }
-}
+};

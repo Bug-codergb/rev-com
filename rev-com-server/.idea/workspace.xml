@@ -6,15 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dff19381-3823-456f-9cff-3b5b03d975f8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/controller/book/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/controller/book/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/book/BookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/book/BookMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/book/WriterMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/book/WriterMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/service/book/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/service/book/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/book/BookMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/book/BookMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/book/WriterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/book/WriterMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/controller/book/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/controller/book/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/mapper/book/BookMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/mapper/book/BookMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/service/book/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/service/book/BookService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,15 +65,13 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -135,7 +124,9 @@
       <workItem from="1657269214769" duration="484000" />
       <workItem from="1657331688425" duration="158000" />
       <workItem from="1657332578545" duration="4239000" />
-      <workItem from="1657414937180" duration="2688000" />
+      <workItem from="1657414937180" duration="4729000" />
+      <workItem from="1657505229142" duration="1871000" />
+      <workItem from="1657586013765" duration="7972000" />
     </task>
     <servers />
   </component>

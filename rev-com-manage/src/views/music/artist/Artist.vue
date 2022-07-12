@@ -99,51 +99,51 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref } from "vue"
-import PageItemList from "@/components/content/pageItemList/PageItemList.vue"
+import { defineComponent, onMounted, reactive, ref } from "vue";
+import PageItemList from "@/components/content/pageItemList/PageItemList.vue";
 import {
   deleteArtist,
   getAllArtist,
   getAllArtistCate,
   getAllArtistType
-} from "@/network/music/artist"
-import { ICategory } from "@/types/music/artist/category"
-import { IArtistType } from "@/types/music/artist/type"
-import { ISelect } from "@/views/music/artist/types/types"
-import { IResponseType } from "@/types/responseType"
-import { debounce } from "@/utils/debounce"
-import { IArtist } from "@/types/music/artist/artist"
-import { IPageResult } from "@/types/pageResult"
-import AddArtist from "@/views/music/artist/childCpn/addArtist/AddArtist.vue"
-import GBDrawer from "@/components/common/gbDrawer/GBDrawer.vue"
-import { ElMessageBox, ElMessage } from "element-plus"
+} from "@/network/music/artist";
+import { ICategory } from "@/types/music/artist/category";
+import { IArtistType } from "@/types/music/artist/type";
+import { ISelect } from "@/views/music/artist/types/types";
+import { IResponseType } from "@/types/responseType";
+import { debounce } from "@/utils/debounce";
+import { IArtist } from "@/types/music/artist/artist";
+import { IPageResult } from "@/types/pageResult";
+import AddArtist from "@/views/music/artist/childCpn/addArtist/AddArtist.vue";
+import GBDrawer from "@/components/common/gbDrawer/GBDrawer.vue";
+import { ElMessageBox, ElMessage } from "element-plus";
 export default defineComponent({
   name: "Artist",
   components: { GBDrawer, AddArtist, PageItemList },
   setup(props, context) {
-    const total = ref(0)
-    const keyword = ref("")
-    const area = ref("")
-    const type = ref("")
-    const drawer = ref(false)
+    const total = ref(0);
+    const keyword = ref("");
+    const area = ref("");
+    const type = ref("");
+    const drawer = ref(false);
     const artist = reactive<{ list: IArtist[] }>({
       list: []
-    })
+    });
     const artistCate = reactive<{
-      cate: { label: string; value: string }[]
-      type: { label: string; value: string }[]
+      cate: { label: string; value: string }[];
+      type: { label: string; value: string }[];
     }>({
       cate: [],
       type: []
-    })
+    });
     const artistItem = reactive<{ item: IArtist | null }>({
       item: null
-    })
-    const pageCount = 7
-    const keywordList = [{ id: 1, keyword: "", placeholder: "请输入歌手名称" }]
+    });
+    const pageCount = 7;
+    const keywordList = [{ id: 1, keyword: "", placeholder: "请输入歌手名称" }];
     let selectList = reactive<{ list: ISelect[] }>({
       list: []
-    })
+    });
     const getAllArtistRequest = async (
       page: number,
       limit: number,
@@ -157,30 +157,30 @@ export default defineComponent({
         keyword,
         area,
         type
-      )
+      );
       if (data.status === 200) {
-        total.value = data.data.total
-        artist.list = data.data.data
+        total.value = data.data.total;
+        artist.list = data.data.data;
       }
-    }
+    };
     onMounted(async () => {
-      const cateRes = await getAllArtistCate<IResponseType<ICategory[]>>()
+      const cateRes = await getAllArtistCate<IResponseType<ICategory[]>>();
       if (cateRes.status === 200) {
         artistCate.cate = cateRes.data.map((item) => {
           return {
             label: item.name,
             value: item.id
-          }
-        })
+          };
+        });
       }
-      const typeRes = await getAllArtistType<IResponseType<IArtistType[]>>()
+      const typeRes = await getAllArtistType<IResponseType<IArtistType[]>>();
       if (typeRes.status === 200) {
         artistCate.type = typeRes.data.map((item) => {
           return {
             label: item.name,
             value: item.id
-          }
-        })
+          };
+        });
       }
       selectList.list = [
         { id: 1, select: "", placeholder: "请选择歌手分类", list: artistCate.cate },
@@ -190,39 +190,39 @@ export default defineComponent({
           placeholder: "请选择歌手类型",
           list: artistCate.type
         }
-      ]
-      await getAllArtistRequest(1, pageCount, keyword.value, area.value, type.value)
-    })
+      ];
+      await getAllArtistRequest(1, pageCount, keyword.value, area.value, type.value);
+    });
     const keywordChange = debounce(
       (keywords: string[]) => {
-        keyword.value = keywords[0]
-        getAllArtistRequest(1, pageCount, keyword.value, area.value, type.value)
+        keyword.value = keywords[0];
+        getAllArtistRequest(1, pageCount, keyword.value, area.value, type.value);
       },
       1000,
       false
-    )
+    );
     const selectChange = (e: string[]) => {
-      area.value = e[0]
-      type.value = e[1]
-      getAllArtistRequest(1, pageCount, keyword.value, area.value, type.value)
-    }
+      area.value = e[0];
+      type.value = e[1];
+      getAllArtistRequest(1, pageCount, keyword.value, area.value, type.value);
+    };
     const refresh = () => {
-      keyword.value = ""
-      area.value = ""
-      type.value = ""
-      getAllArtistRequest(1, pageCount, keyword.value, area.value, type.value)
-    }
+      keyword.value = "";
+      area.value = "";
+      type.value = "";
+      getAllArtistRequest(1, pageCount, keyword.value, area.value, type.value);
+    };
     const pageChange = (e: number) => {
-      getAllArtistRequest(e, pageCount, keyword.value, area.value, type.value)
-    }
+      getAllArtistRequest(e, pageCount, keyword.value, area.value, type.value);
+    };
     const showDrawer = () => {
-      drawer.value = true
-      artistItem.item = null
-    }
+      drawer.value = true;
+      artistItem.item = null;
+    };
     const editArtist = (item: IArtist) => {
-      artistItem.item = item
-      drawer.value = true
-    }
+      artistItem.item = item;
+      drawer.value = true;
+    };
     //删除歌手信息
     const deleteArtistHandle = (item: IArtist) => {
       ElMessageBox.confirm("确定要删除么?", "警告", {
@@ -231,17 +231,17 @@ export default defineComponent({
         type: "warning"
       })
         .then(async () => {
-          const data = await deleteArtist<IResponseType<any>>(item.id)
+          const data = await deleteArtist<IResponseType<any>>(item.id);
           if (data.status === 200) {
             ElMessage.success({
               message: "歌手删除成功",
               duration: 1500
-            })
-            refresh()
+            });
+            refresh();
           }
         })
-        .catch(() => {})
-    }
+        .catch(() => {});
+    };
     return {
       artist,
       total,
@@ -258,9 +258,9 @@ export default defineComponent({
       editArtist,
       artistItem,
       deleteArtistHandle
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less"></style>

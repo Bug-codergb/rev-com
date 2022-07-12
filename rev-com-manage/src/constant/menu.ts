@@ -42,6 +42,11 @@ const menu = [
         path: "/Home/Book/books"
       },
       {
+        index: "2004",
+        name: "图书分类",
+        path: "/Home/Book/bookCate"
+      },
+      {
         index: "2002",
         name: "作家信息",
         path: "/Home/Book/writer"
@@ -75,5 +80,5 @@ const menu = [
     icon: "setting",
     index: "5"
   }
-]
-export { menu }
+];
+export { menu };

@@ -42,8 +42,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue"
-import { Refresh } from "@element-plus/icons-vue"
+import { defineComponent, reactive, ref } from "vue";
+import { Refresh } from "@element-plus/icons-vue";
 export default defineComponent({
   name: "PageItemList",
   components: { Refresh },
@@ -68,40 +68,40 @@ export default defineComponent({
     const bindParam = reactive<{ keyword: string[]; select: string[] }>({
       keyword: [],
       select: []
-    })
-    const isRotate = ref(false)
+    });
+    const isRotate = ref(false);
     const init = () => {
       if (props.keywordList) {
         for (let item of props.keywordList) {
-          bindParam.keyword.push("")
+          bindParam.keyword.push("");
         }
       }
       if (props.selectList) {
         for (let item of props.selectList) {
-          bindParam.select.push("")
+          bindParam.select.push("");
         }
       }
-    }
-    init()
+    };
+    init();
     const keywordInput = () => {
-      context.emit("keywordChange", bindParam.keyword)
-    }
+      context.emit("keywordChange", bindParam.keyword);
+    };
     const changeSelect = () => {
-      context.emit("selectChange", bindParam.select)
-    }
+      context.emit("selectChange", bindParam.select);
+    };
     const changeRotate = () => {
-      isRotate.value = true
-      context.emit("refresh")
-      bindParam.keyword = []
-      bindParam.select = []
-      init()
+      isRotate.value = true;
+      context.emit("refresh");
+      bindParam.keyword = [];
+      bindParam.select = [];
+      init();
       setTimeout(() => {
-        isRotate.value = false
-      }, 2000)
-    }
+        isRotate.value = false;
+      }, 2000);
+    };
     const showDrawer = () => {
-      context.emit("showDrawer")
-    }
+      context.emit("showDrawer");
+    };
     return {
       keywordInput,
       changeSelect,
@@ -109,9 +109,9 @@ export default defineComponent({
       isRotate,
       changeRotate,
       showDrawer
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

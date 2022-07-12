@@ -1,5 +1,5 @@
-import { ElMessage, ElMessageBox } from "element-plus/lib/components"
-import { IResponseType } from "@/types/responseType"
+import { ElMessage, ElMessageBox } from "element-plus/lib/components";
+import { IResponseType } from "@/types/responseType";
 export function useDeleteHook(
   id: string,
   page: number,
@@ -14,14 +14,14 @@ export function useDeleteHook(
     type: "warning"
   })
     .then(async () => {
-      const data = await deleteFn(id)
+      const data = await deleteFn(id);
       if (data.status === 200) {
-        getAll(page, limit, keyword)
+        getAll(page, limit, keyword);
         ElMessage({
           type: "success",
           message: "删除成功"
-        })
+        });
       }
     })
-    .catch(() => {})
+    .catch(() => {});
 }

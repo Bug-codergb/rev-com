@@ -14,9 +14,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue"
-import { ElMessage } from "element-plus/lib/components"
-import { Picture, DeleteFilled } from "@element-plus/icons-vue"
+import { defineComponent, ref } from "vue";
+import { ElMessage } from "element-plus/lib/components";
+import { Picture, DeleteFilled } from "@element-plus/icons-vue";
 export default defineComponent({
   name: "ImgPrev",
   components: {
@@ -31,41 +31,41 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    const imgURL = ref("")
-    const isShowPrev = ref(false)
-    const isShowMask = ref(false)
+    const imgURL = ref("");
+    const isShowPrev = ref(false);
+    const isShowMask = ref(false);
     if (props.prevURL.trim().length !== 0) {
-      let prevURLTmp = ref(props.prevURL)
-      imgURL.value = prevURLTmp.value
-      isShowPrev.value = true
+      let prevURLTmp = ref(props.prevURL);
+      imgURL.value = prevURLTmp.value;
+      isShowPrev.value = true;
     }
     const fileChange = (e: Event) => {
-      const tar = e.target as HTMLInputElement
+      const tar = e.target as HTMLInputElement;
       if (tar.files) {
         if (!tar.files[0].type.includes("image")) {
           ElMessage({
             message: "请选择图片",
             type: "warning"
-          })
+          });
         } else {
-          imgURL.value = URL.createObjectURL(tar.files[0])
-          isShowPrev.value = true
-          context.emit("onFileChange", tar.files[0])
+          imgURL.value = URL.createObjectURL(tar.files[0]);
+          isShowPrev.value = true;
+          context.emit("onFileChange", tar.files[0]);
         }
       }
-    }
+    };
     const maskLeave = () => {
-      isShowMask.value = false
-    }
+      isShowMask.value = false;
+    };
     const maskEnter = () => {
-      isShowMask.value = true
-    }
+      isShowMask.value = true;
+    };
     const maskClick = () => {
-      isShowMask.value = false
-      isShowPrev.value = false
-      imgURL.value = ""
-      context.emit("onCancel")
-    }
+      isShowMask.value = false;
+      isShowPrev.value = false;
+      imgURL.value = "";
+      context.emit("onCancel");
+    };
     return {
       imgURL,
       fileChange,
@@ -74,9 +74,9 @@ export default defineComponent({
       maskEnter,
       maskLeave,
       maskClick
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

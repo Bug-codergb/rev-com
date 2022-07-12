@@ -1,8 +1,8 @@
-import { RouteRecordRaw } from "vue-router"
+import { RouteRecordRaw } from "vue-router";
 const directorDetail = () =>
-  import("../components/content/detail/directorDetail/DirectorDetail.vue")
-const actorDetail = () => import("../components/content/detail/actorDetail/ActorDetail.vue")
-const movieDetail = () => import("../components/content/detail/movieDetail/MovieDetail.vue")
+  import("../components/content/detail/directorDetail/DirectorDetail.vue");
+const actorDetail = () => import("../components/content/detail/actorDetail/ActorDetail.vue");
+const movieDetail = () => import("../components/content/detail/movieDetail/MovieDetail.vue");
 const routes: Array<RouteRecordRaw> = [
   {
     path: "director/directorDetail",
@@ -19,5 +19,5 @@ const routes: Array<RouteRecordRaw> = [
     name: "movieDetail",
     component: movieDetail
   }
-]
-export default routes
+];
+export default routes;

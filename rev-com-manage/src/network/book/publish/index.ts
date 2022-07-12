@@ -1,5 +1,5 @@
-import gbRequest from "@/network"
-import { IResponseType } from "@/types/responseType"
+import gbRequest from "@/network";
+import { IResponseType } from "@/types/responseType";
 enum PublishApi {
   createPublish = "/publish",
   allPublish = "/publish/all"
@@ -29,7 +29,7 @@ export function createPublish<T = IResponseType<any>>(
       description,
       type
     }
-  })
+  });
 }
 export function getAllPublish<T = IResponseType<any>>(
   page: number,
@@ -43,5 +43,5 @@ export function getAllPublish<T = IResponseType<any>>(
       limit,
       keyword
     }
-  })
+  });
 }

@@ -11,5 +11,5 @@ const arr = [
   "摩羯座",
   "水瓶座",
   "双鱼座"
-]
-export default arr
+];
+export default arr;

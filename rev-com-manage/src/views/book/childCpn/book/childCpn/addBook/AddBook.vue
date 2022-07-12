@@ -1,17 +1,28 @@
 <template>
   <div class="add-book">
-    <add-info :form-shape="formShape" v-model="formData.book" :rules="rules" />
+    <add-info :form-shape="formShape" v-model="formData.book" :rules="rules" ref="addBookRef" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from "vue"
-import AddInfo from "@/components/content/addInfo/AddInfo.vue"
-import { FormRules } from "element-plus"
-
+import { defineComponent, reactive, ref } from "vue";
+import AddInfo from "@/components/content/addInfo/AddInfo.vue";
+import { FormRules } from "element-plus";
+import emitter from "@/utils/evenBus";
+import { debounce } from "@/utils/debounce";
 export default defineComponent({
   name: "AddBook",
   components: { AddInfo },
+  props: {
+    writer: {
+      type: Object,
+      required: true
+    },
+    publish: {
+      type: Object,
+      required: true
+    }
+  },
   setup(props, context) {
     const formData = reactive({
       book: {
@@ -23,7 +34,8 @@ export default defineComponent({
         price: "",
         pageCount: ""
       }
-    })
+    });
+    const addBookRef = ref<InstanceType<typeof AddInfo>>();
     const formShape = {
       row: [
         [
@@ -40,14 +52,15 @@ export default defineComponent({
             name: "作家名称",
             shape: "select",
             placeholder: "请选择作家名称",
-            span: 12
+            span: 12,
+            selectList: props.writer.list
           }
         ],
         [
           {
             field: "publishTime",
             name: "出版时间",
-            shape: "select",
+            shape: "time",
             placeholder: "请选择出版时间",
             span: 12
           },
@@ -65,7 +78,8 @@ export default defineComponent({
             name: "出版社",
             shape: "select",
             placeholder: "请选择出版社",
-            span: 12
+            span: 12,
+            selectList: props.publish.list
           },
           {
             field: "pageCount",
@@ -84,9 +98,16 @@ export default defineComponent({
             span: 24,
             type: "textarea"
           }
+        ],
+        [
+          {
+            field: "avatar",
+            name: "书籍封面",
+            shape: "upload"
+          }
         ]
       ]
-    }
+    };
     const rules = reactive<FormRules>({
       name: [
         {
@@ -137,14 +158,31 @@ export default defineComponent({
           trigger: "blur"
         }
       ]
-    })
+    });
+    emitter.on(
+      "drawerDefine",
+      debounce(
+        () => {
+          if (addBookRef.value && addBookRef.value.ruleFormRef) {
+            addBookRef.value.ruleFormRef.validate((e: boolean) => {
+              if (e) {
+                console.log(formData.book);
+              }
+            });
+          }
+        },
+        500,
+        false
+      )
+    );
     return {
       formShape,
       formData,
-      rules
-    }
+      rules,
+      addBookRef
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less"></style>

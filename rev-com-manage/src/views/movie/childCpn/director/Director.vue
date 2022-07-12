@@ -37,8 +37,8 @@
 </template>
 
 <script lang="ts">
-import { useRouter } from "vue-router"
-import { defineComponent, ref, reactive } from "vue"
+import { useRouter } from "vue-router";
+import { defineComponent, ref, reactive } from "vue";
 import {
   addDirectorRequest,
   deleteDirector,
@@ -46,15 +46,15 @@ import {
   updateAvatar,
   updateDirector,
   uploadAvatar
-} from "@/network/director"
-import { IResponseType } from "@/types/responseType"
-import { IPageResult } from "@/types/pageResult"
-import { IDirector } from "@/types/director"
-import AddDirector from "./childCpn/addDirector/AddDirector.vue"
-import { ElMessage, ElMessageBox } from "element-plus/lib/components"
-import { setOccupation } from "@/network/occupation"
-import { debounce } from "@/utils/debounce"
-import DirectorTable from "@/components/content/directorTable/DirectorTable.vue"
+} from "@/network/director";
+import { IResponseType } from "@/types/responseType";
+import { IPageResult } from "@/types/pageResult";
+import { IDirector } from "@/types/director";
+import AddDirector from "./childCpn/addDirector/AddDirector.vue";
+import { ElMessage, ElMessageBox } from "element-plus/lib/components";
+import { setOccupation } from "@/network/occupation";
+import { debounce } from "@/utils/debounce";
+import DirectorTable from "@/components/content/directorTable/DirectorTable.vue";
 
 export default defineComponent({
   name: "Director",
@@ -63,11 +63,11 @@ export default defineComponent({
     DirectorTable
   },
   setup() {
-    const router = useRouter()
-    const keyword = ref<string>("")
-    const drawer = ref(false)
-    const direction = ref("rtl")
-    const addDirectRef = ref<InstanceType<typeof AddDirector>>()
+    const router = useRouter();
+    const keyword = ref<string>("");
+    const drawer = ref(false);
+    const direction = ref("rtl");
+    const addDirectRef = ref<InstanceType<typeof AddDirector>>();
     const directorItem = reactive<{ item: IDirector | null }>({
       item: {
         alias: "",
@@ -85,53 +85,53 @@ export default defineComponent({
         size: 0,
         updateTime: ""
       }
-    })
+    });
     let directList = reactive<{ list: IDirector[] }>({
       list: []
-    })
-    const total = ref(0)
+    });
+    const total = ref(0);
 
     const getAllDirectorRequest = () => {
       getAllDirector<IResponseType<IPageResult<IDirector[]>>>(1, 7, keyword.value).then((res) => {
         if (res.status === 200) {
-          directList.list = res.data.data
-          total.value = res.data.total
+          directList.list = res.data.data;
+          total.value = res.data.total;
         }
-      })
-    }
-    getAllDirectorRequest()
+      });
+    };
+    getAllDirectorRequest();
     const pageChange = (e: number) => {
       getAllDirector<IResponseType<IPageResult<IDirector[]>>>(e, 7, keyword.value).then((res) => {
         if (res.status === 200) {
-          directList.list = res.data.data
-          total.value = res.data.total
+          directList.list = res.data.data;
+          total.value = res.data.total;
         }
-      })
-    }
+      });
+    };
     const addDirector = () => {
-      drawer.value = true
-    }
+      drawer.value = true;
+    };
     const keywordChange = debounce(
       () => {
-        getAllDirectorRequest()
+        getAllDirectorRequest();
       },
       1000,
       false
-    )
+    );
     const editDirector = (item: IDirector) => {
-      directorItem.item = item
-      drawer.value = true
-    }
+      directorItem.item = item;
+      drawer.value = true;
+    };
     const drawerClose = () => {
-      directorItem.item = null
-    }
+      directorItem.item = null;
+    };
     const define = () => {
       addDirectRef.value?.ruleFormRef?.validate((e: boolean) => {
         if (e) {
           if (addDirectRef.value) {
             const { name, alias, gender, birthPlace, description, occupation } =
-              addDirectRef.value.director
-            console.log(addDirectRef.value.isUpdate)
+              addDirectRef.value.director;
+            console.log(addDirectRef.value.isUpdate);
             if (!addDirectRef.value.isUpdate) {
               //添加
               addDirectorRequest(name, alias, gender, birthPlace, description).then((data) => {
@@ -139,26 +139,26 @@ export default defineComponent({
                   ElMessage({
                     message: "导演信息添加成功",
                     type: "success"
-                  })
+                  });
                   //上传头像
                   if (addDirectRef.value) {
-                    const { avatar } = addDirectRef.value
+                    const { avatar } = addDirectRef.value;
                     if (avatar.source instanceof FormData) {
-                      uploadAvatar(avatar.source, data.data.id).then(() => {})
+                      uploadAvatar(avatar.source, data.data.id).then(() => {});
                     }
                   }
                   if (occupation.length !== 0) {
                     for (let item of occupation) {
                       setOccupation("dId", data.data.id, item).then(() => {
-                        getAllDirectorRequest()
-                      })
+                        getAllDirectorRequest();
+                      });
                     }
                   } else {
-                    getAllDirectorRequest()
+                    getAllDirectorRequest();
                   }
-                  drawer.value = false
+                  drawer.value = false;
                 }
-              })
+              });
             } else {
               //更新
               if (directorItem.item) {
@@ -175,26 +175,26 @@ export default defineComponent({
                     ElMessage({
                       message: "导演信息更新成功",
                       type: "success"
-                    })
+                    });
                     if (addDirectRef.value) {
-                      const { avatar } = addDirectRef.value
+                      const { avatar } = addDirectRef.value;
                       if (directorItem.item && avatar.source instanceof FormData) {
                         updateAvatar(directorItem.item.id, avatar.source).then(() => {
-                          getAllDirectorRequest()
-                        })
+                          getAllDirectorRequest();
+                        });
                       }
                     }
 
-                    getAllDirectorRequest()
-                    drawer.value = false
+                    getAllDirectorRequest();
+                    drawer.value = false;
                   }
-                })
+                });
               }
             }
           }
         }
-      })
-    }
+      });
+    };
     const deleteDirectorHandle = (item: IDirector) => {
       ElMessageBox.confirm("确定要删除该导演么?", "警告", {
         confirmButtonText: "确定",
@@ -204,27 +204,27 @@ export default defineComponent({
         .then(() => {
           deleteDirector(item.id).then((data) => {
             if (data.status === 200) {
-              getAllDirectorRequest()
+              getAllDirectorRequest();
               ElMessage({
                 type: "success",
                 message: "删除成功"
-              })
+              });
             }
-          })
+          });
         })
-        .catch(() => {})
-    }
+        .catch(() => {});
+    };
     const directorRouter = (item: IDirector) => {
       if ("movies" in item) {
-        delete item.movies
+        delete item.movies;
       }
       router.push({
         path: "/Home/director/directorDetail",
         query: {
           detail: window.btoa(encodeURIComponent(JSON.stringify(item)))
         }
-      })
-    }
+      });
+    };
     return {
       directList,
       pageChange,
@@ -241,9 +241,9 @@ export default defineComponent({
       drawerClose,
       deleteDirectorHandle,
       directorRouter
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

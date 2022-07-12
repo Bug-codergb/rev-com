@@ -78,20 +78,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref } from "vue"
-import { Refresh } from "@element-plus/icons-vue"
-import { ElMessage } from "element-plus"
-import { addMovie, updateCover, updateMovie, uploadCover } from "@/network/movie"
-import { IResponseType } from "@/types/responseType"
-import { getAllArea } from "@/network/movie/area"
-import { IArea } from "@/types/area"
-import { getAllForm } from "@/network/movie/form"
-import { IForm } from "@/types/form"
-import { getAllCate } from "@/network/movie/cate"
-import { ICategory } from "@/types/category"
-import MovieList from "./childCpn/movie/Movie.vue"
-import AddMovie from "./childCpn/movie/childCpn/addMovie/AddMovie.vue"
-import { IMovie } from "@/types/movie"
+import { defineComponent, onMounted, reactive, ref } from "vue";
+import { Refresh } from "@element-plus/icons-vue";
+import { ElMessage } from "element-plus";
+import { addMovie, updateCover, updateMovie, uploadCover } from "@/network/movie";
+import { IResponseType } from "@/types/responseType";
+import { getAllArea } from "@/network/movie/area";
+import { IArea } from "@/types/area";
+import { getAllForm } from "@/network/movie/form";
+import { IForm } from "@/types/form";
+import { getAllCate } from "@/network/movie/cate";
+import { ICategory } from "@/types/category";
+import MovieList from "./childCpn/movie/Movie.vue";
+import AddMovie from "./childCpn/movie/childCpn/addMovie/AddMovie.vue";
+import { IMovie } from "@/types/movie";
 export default defineComponent({
   name: "Movie",
   components: {
@@ -100,55 +100,55 @@ export default defineComponent({
     Refresh
   },
   setup() {
-    const isRotate = ref(false)
-    const keyIndex = ref(0)
-    const keyword = ref("")
-    const area = ref("")
-    const cate = ref("")
-    const form = ref("")
-    const drawer = ref(false)
-    const direction = ref("rtl")
-    const addMovieRef = ref<InstanceType<typeof AddMovie>>()
+    const isRotate = ref(false);
+    const keyIndex = ref(0);
+    const keyword = ref("");
+    const area = ref("");
+    const cate = ref("");
+    const form = ref("");
+    const drawer = ref(false);
+    const direction = ref("rtl");
+    const addMovieRef = ref<InstanceType<typeof AddMovie>>();
     const movieItem = reactive<{ item: null | IMovie }>({
       item: null
-    })
+    });
     const areaList = reactive<{ list: IArea[] }>({
       list: []
-    })
+    });
     const cateList = reactive<{ list: ICategory[] }>({
       list: []
-    })
+    });
     const formList = reactive<{ list: IForm[] }>({
       list: []
-    })
+    });
     onMounted(() => {
       getAllArea<IResponseType<IArea[]>>().then((data) => {
         if (data.status === 200) {
-          areaList.list = data.data
+          areaList.list = data.data;
         }
-      })
+      });
       getAllForm<IResponseType<IForm[]>>().then((data) => {
         if (data.status === 200) {
-          formList.list = data.data
+          formList.list = data.data;
         }
-      })
+      });
       getAllCate<IResponseType<ICategory[]>>().then((data) => {
         if (data.status === 200) {
-          cateList.list = data.data
+          cateList.list = data.data;
         }
-      })
-    })
+      });
+    });
     const changeRotate = () => {
-      isRotate.value = true
-      keyword.value = ""
-      area.value = ""
-      form.value = ""
-      cate.value = ""
+      isRotate.value = true;
+      keyword.value = "";
+      area.value = "";
+      form.value = "";
+      cate.value = "";
       setTimeout(() => {
-        isRotate.value = false
-      }, 2000)
-    }
-    const keywordChange = () => {}
+        isRotate.value = false;
+      }, 2000);
+    };
+    const keywordChange = () => {};
     const define = () => {
       addMovieRef.value?.ruleFormRef?.validate(async (e) => {
         if (e) {
@@ -165,7 +165,7 @@ export default defineComponent({
               form,
               releaseTime,
               screenwriter
-            } = addMovieRef.value.movie
+            } = addMovieRef.value.movie;
             if (!addMovieRef.value.isUpdate) {
               //创建电影
               const data = await addMovie(
@@ -181,20 +181,20 @@ export default defineComponent({
                 form,
                 cate,
                 desc
-              )
+              );
               if (data.status === 200) {
-                keyIndex.value += 1
+                keyIndex.value += 1;
                 ElMessage({
                   message: "电影添加成功",
                   type: "success"
-                })
-                drawer.value = false
+                });
+                drawer.value = false;
               }
               if (addMovieRef.value.cover && addMovieRef.value.cover.source) {
-                const { cover } = addMovieRef.value
+                const { cover } = addMovieRef.value;
                 if (cover.source instanceof FormData) {
-                  const res = await uploadCover(data.data.id, cover.source)
-                  console.log(res)
+                  const res = await uploadCover(data.data.id, cover.source);
+                  console.log(res);
                 }
               }
             } else {
@@ -214,38 +214,38 @@ export default defineComponent({
                   form,
                   cate,
                   desc
-                )
+                );
                 if (data.status === 200) {
                   ElMessage({
                     message: "电影信息更新成功",
                     type: "success"
-                  })
+                  });
                   if (addMovieRef.value && addMovieRef.value.cover.source) {
-                    const { cover } = addMovieRef.value
+                    const { cover } = addMovieRef.value;
                     if (cover.source instanceof FormData) {
-                      const res = await updateCover(movieItem.item.id, cover.source)
+                      const res = await updateCover(movieItem.item.id, cover.source);
                       if (res.status === 200) {
-                        drawer.value = false
-                        keyIndex.value += 1
+                        drawer.value = false;
+                        keyIndex.value += 1;
                       }
                     }
                   }
-                  drawer.value = false
-                  keyIndex.value += 1
+                  drawer.value = false;
+                  keyIndex.value += 1;
                 }
               }
             }
           }
         }
-      })
-    }
+      });
+    };
     const editMovie = (item: IMovie) => {
-      drawer.value = true
-      movieItem.item = item
-    }
+      drawer.value = true;
+      movieItem.item = item;
+    };
     const drawerClose = () => {
-      movieItem.item = null
-    }
+      movieItem.item = null;
+    };
     return {
       isRotate,
       changeRotate,
@@ -265,9 +265,9 @@ export default defineComponent({
       editMovie,
       movieItem,
       drawerClose
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

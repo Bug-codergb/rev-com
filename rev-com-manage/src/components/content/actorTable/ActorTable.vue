@@ -108,8 +108,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue"
-import { IActor } from "@/types/actor"
+import { defineComponent } from "vue";
+import { IActor } from "@/types/actor";
 
 export default defineComponent({
   name: "ActorTable",
@@ -137,25 +137,25 @@ export default defineComponent({
   emits: ["actorRouter", "editActor", "deleteActorHandle", "pageChange"],
   setup(props, context) {
     const actorRouter = (item: IActor) => {
-      context.emit("actorRouter", item)
-    }
+      context.emit("actorRouter", item);
+    };
     const editActor = (item: IActor) => {
-      context.emit("editActor", item)
-    }
+      context.emit("editActor", item);
+    };
     const deleteActorHandle = (item: IActor) => {
-      context.emit("deleteActorHandle", item)
-    }
+      context.emit("deleteActorHandle", item);
+    };
     const pageChange = (e: number) => {
-      context.emit("pageChange", e)
-    }
+      context.emit("pageChange", e);
+    };
     return {
       actorRouter,
       editActor,
       deleteActorHandle,
       pageChange
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

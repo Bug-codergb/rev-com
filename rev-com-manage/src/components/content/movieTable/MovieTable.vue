@@ -102,8 +102,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue"
-import { IMovie } from "@/types/movie"
+import { defineComponent } from "vue";
+import { IMovie } from "@/types/movie";
 
 export default defineComponent({
   name: "MovieTable",
@@ -130,25 +130,25 @@ export default defineComponent({
   emits: ["editMovie", "deleteMovieHandle", "pageChange", "movieRouter"],
   setup(props, context) {
     const editMovie = (item: IMovie) => {
-      context.emit("editMovie", item)
-    }
+      context.emit("editMovie", item);
+    };
     const deleteMovieHandle = (item: IMovie) => {
-      context.emit("deleteMovieHandle", item)
-    }
+      context.emit("deleteMovieHandle", item);
+    };
     const pageChange = (item: IMovie) => {
-      context.emit("pageChange", item)
-    }
+      context.emit("pageChange", item);
+    };
     const movieRouter = (item: IMovie) => {
-      context.emit("movieRouter", item)
-    }
+      context.emit("movieRouter", item);
+    };
     return {
       editMovie,
       deleteMovieHandle,
       pageChange,
       movieRouter
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

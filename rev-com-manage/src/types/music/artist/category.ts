@@ -1,5 +1,5 @@
 interface ICategory {
-  id: string
-  name: string
+  id: string;
+  name: string;
 }
-export type { ICategory }
+export type { ICategory };

@@ -1,17 +1,18 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
-import detailRoutes from "./detail"
-const login = () => import("../views/login/Login.vue")
-const home = () => import("../views/home/Home.vue")
-const movie = () => import("../views/movie/Movie.vue")
-const director = () => import("../views/movie/childCpn/director/Director.vue")
-const actor = () => import("../views/movie/childCpn/actor/Actor.vue")
-const screenwriter = () => import("../views/movie/childCpn/screenwriter/Screenwriter.vue")
-const group = () => import("../views/movie/childCpn/group/Group.vue")
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import detailRoutes from "./detail";
+const login = () => import("../views/login/Login.vue");
+const home = () => import("../views/home/Home.vue");
+const movie = () => import("../views/movie/Movie.vue");
+const director = () => import("../views/movie/childCpn/director/Director.vue");
+const actor = () => import("../views/movie/childCpn/actor/Actor.vue");
+const screenwriter = () => import("../views/movie/childCpn/screenwriter/Screenwriter.vue");
+const group = () => import("../views/movie/childCpn/group/Group.vue");
 
-const writer = () => import("../views/book/childCpn/writer/Writer.vue")
-const publish = () => import("../views/book/childCpn/publish/Publish.vue")
-const books = () => import("../views/book/childCpn/book/Book.vue")
-const artist = () => import("../views/music/artist/Artist.vue")
+const writer = () => import("../views/book/childCpn/writer/Writer.vue");
+const publish = () => import("../views/book/childCpn/publish/Publish.vue");
+const books = () => import("../views/book/childCpn/book/Book.vue");
+const bookCate = () => import("../views/book/childCpn/bookCate/BookCate.vue");
+const artist = () => import("../views/music/artist/Artist.vue");
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -30,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "/Home",
         redirect: () => {
-          return "/Home/Movie/video"
+          return "/Home/Movie/video";
         }
       },
       {
@@ -74,6 +75,11 @@ const routes: Array<RouteRecordRaw> = [
         component: books
       },
       {
+        path: "Book/bookCate",
+        name: "bookCate",
+        component: bookCate
+      },
+      {
         path: "Music/artist",
         name: "artist",
         component: artist
@@ -81,11 +87,11 @@ const routes: Array<RouteRecordRaw> = [
       ...detailRoutes
     ]
   }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-})
+});
 
-export default router
+export default router;

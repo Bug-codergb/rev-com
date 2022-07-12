@@ -17,35 +17,35 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from "vue"
+import { defineComponent, reactive } from "vue";
 
-import { useRouter } from "vue-router"
-import { ElMessage } from "element-plus"
-import { useStore } from "vuex"
-import Bgc from "@/views/login/childCpn/bgc/Bgc.vue"
+import { useRouter } from "vue-router";
+import { ElMessage } from "element-plus";
+import { useStore } from "vuex";
+import Bgc from "@/views/login/childCpn/bgc/Bgc.vue";
 export default defineComponent({
   name: "Login",
   components: {
     Bgc
   },
   setup() {
-    const router = useRouter()
-    const store = useStore()
+    const router = useRouter();
+    const store = useStore();
     const account = reactive({
       userName: "",
       password: ""
-    })
+    });
     const homeRouter = () => {
       if (account.userName.trim().length === 0) {
         ElMessage({
           message: "请输入用户名",
           type: "warning"
-        })
+        });
       } else if (account.password.trim().length === 0) {
         ElMessage({
           message: "请输入密码",
           type: "warning"
-        })
+        });
       } else {
         store
           .dispatch({
@@ -56,16 +56,16 @@ export default defineComponent({
           .then(() => {
             router.push({
               path: "/Home"
-            })
-          })
+            });
+          });
       }
-    }
+    };
     return {
       account,
       homeRouter
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

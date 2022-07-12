@@ -119,13 +119,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref, toRefs } from "vue"
-import { IOccupation } from "@/types/occupation"
-import { getAllOccupation } from "@/network/occupation"
-import { IResponseType } from "@/types/responseType"
-import type { FormInstance, FormRules } from "element-plus"
-import constellation from "../../../../../constant/constellation"
-import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue"
+import { defineComponent, onMounted, reactive, ref, toRefs } from "vue";
+import { IOccupation } from "@/types/occupation";
+import { getAllOccupation } from "@/network/occupation";
+import { IResponseType } from "@/types/responseType";
+import type { FormInstance, FormRules } from "element-plus";
+import constellation from "../../../../../constant/constellation";
+import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue";
 export default defineComponent({
   name: "AddActor",
   components: {
@@ -137,7 +137,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    const ruleFormRef = ref<FormInstance>()
+    const ruleFormRef = ref<FormInstance>();
     const actor = reactive({
       name: "",
       alias: "",
@@ -148,35 +148,35 @@ export default defineComponent({
       foreignName: "",
       occupations: [],
       constellation: ""
-    })
-    const isUpdate = ref<boolean>(false)
-    const prevURL = ref("")
+    });
+    const isUpdate = ref<boolean>(false);
+    const prevURL = ref("");
     const avatar = reactive<{ source: FormData | null }>({
       source: null
-    })
+    });
     const occupation = reactive<{ list: IOccupation[] }>({
       list: []
-    })
+    });
     if (props.actorItem) {
       if (
         props.actorItem.item &&
         Object.keys(props.actorItem.item).length !== 0 &&
         props.actorItem.item.id !== ""
       ) {
-        let actorTmp = toRefs(props.actorItem.item)
+        let actorTmp = toRefs(props.actorItem.item);
         if (actorTmp.avatarUrl.value) {
-          prevURL.value = actorTmp.avatarUrl.value
+          prevURL.value = actorTmp.avatarUrl.value;
         }
-        actor.name = actorTmp.name.value
-        actor.alias = actorTmp.alias.value
-        actor.birth = actorTmp.birth.value
-        actor.birthPlace = actorTmp.birthPlace.value
-        actor.description = actorTmp.description.value
-        actor.occupations = actorTmp.occupations.value.map((item: IOccupation) => item.id)
-        actor.family = actorTmp.family.value
-        actor.foreignName = actorTmp.foreignName.value
-        actor.constellation = actorTmp.constellation.value
-        isUpdate.value = true
+        actor.name = actorTmp.name.value;
+        actor.alias = actorTmp.alias.value;
+        actor.birth = actorTmp.birth.value;
+        actor.birthPlace = actorTmp.birthPlace.value;
+        actor.description = actorTmp.description.value;
+        actor.occupations = actorTmp.occupations.value.map((item: IOccupation) => item.id);
+        actor.family = actorTmp.family.value;
+        actor.foreignName = actorTmp.foreignName.value;
+        actor.constellation = actorTmp.constellation.value;
+        isUpdate.value = true;
       }
     }
     const rules = reactive<FormRules>({
@@ -243,22 +243,22 @@ export default defineComponent({
           trigger: "change"
         }
       ]
-    })
+    });
 
     onMounted(async () => {
-      const data = await getAllOccupation<IResponseType<IOccupation[]>>()
+      const data = await getAllOccupation<IResponseType<IOccupation[]>>();
       if (data.status === 200) {
-        occupation.list = data.data
+        occupation.list = data.data;
       }
-    })
+    });
     const cancel = () => {
-      avatar.source = null
-    }
+      avatar.source = null;
+    };
     const fileChange = (file: File) => {
-      let formData = new FormData()
-      formData.append("avatar", file)
-      avatar.source = formData
-    }
+      let formData = new FormData();
+      formData.append("avatar", file);
+      avatar.source = formData;
+    };
     return {
       actor,
       rules,
@@ -270,9 +270,9 @@ export default defineComponent({
       isUpdate,
       constellation,
       prevURL
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

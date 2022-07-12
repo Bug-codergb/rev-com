@@ -78,12 +78,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from "vue"
-import { useRoute } from "vue-router"
-import { IDirector } from "@/types/director"
-import MovieList from "@/components/content/detail/directorDetail/childCpn/movieList/MovieList.vue"
-import ActorList from "@/components/content/detail/directorDetail/childCpn/actorList/ActorList.vue"
-import DirectorList from "@/components/content/detail/directorDetail/childCpn/directorList/DirectorList.vue"
+import { defineComponent, reactive } from "vue";
+import { useRoute } from "vue-router";
+import { IDirector } from "@/types/director";
+import MovieList from "@/components/content/detail/directorDetail/childCpn/movieList/MovieList.vue";
+import ActorList from "@/components/content/detail/directorDetail/childCpn/actorList/ActorList.vue";
+import DirectorList from "@/components/content/detail/directorDetail/childCpn/directorList/DirectorList.vue";
 export default defineComponent({
   name: "DirectorDetail",
   components: {
@@ -92,19 +92,19 @@ export default defineComponent({
     DirectorList
   },
   setup(props, context) {
-    const route = useRoute()
+    const route = useRoute();
     const directorDetail = reactive<{ detail: IDirector | null }>({
       detail: null
-    })
+    });
     directorDetail.detail = JSON.parse(
       decodeURIComponent(window.atob(`${route.query.detail}` ?? ""))
-    )
-    console.log(directorDetail.detail)
+    );
+    console.log(directorDetail.detail);
     return {
       directorDetail
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

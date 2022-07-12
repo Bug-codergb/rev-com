@@ -1,5 +1,5 @@
-import gbRequest from "@/network"
-import { IResponseType } from "@/types/responseType"
+import gbRequest from "@/network";
+import { IResponseType } from "@/types/responseType";
 enum MovieApi {
   allMovie = "/movie/all",
   addMovie = "/movie/",
@@ -30,7 +30,7 @@ export function getAllMovie<T = IResponseType<any>>(
       cate,
       area
     }
-  })
+  });
 }
 //添加电影
 export function addMovie<T = IResponseType<any>>(
@@ -63,7 +63,7 @@ export function addMovie<T = IResponseType<any>>(
       cateList,
       description
     }
-  })
+  });
 }
 //更新电影信息
 export function updateMovie<T = IResponseType<any>>(
@@ -98,7 +98,7 @@ export function updateMovie<T = IResponseType<any>>(
       cateList,
       description
     }
-  })
+  });
 }
 //上传电影封面
 export function uploadCover<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
@@ -108,7 +108,7 @@ export function uploadCover<T = IResponseType<any>>(id: string, formData: FormDa
     headers: {
       "Content-type": "multipart/form-data"
     }
-  })
+  });
 }
 //更新电影封面
 export function updateCover<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
@@ -118,13 +118,13 @@ export function updateCover<T = IResponseType<any>>(id: string, formData: FormDa
     headers: {
       "Content-type": "multipart/form-data"
     }
-  })
+  });
 }
 //删除电影
 export function deleteMovie<T = IResponseType<any>>(id: string): Promise<T> {
   return gbRequest.post<T>({
     url: MovieApi.deleteMovie + `${id}`
-  })
+  });
 }
 //获取电影根据导演
 export function getMovieByDid<T = IResponseType<any>>(
@@ -138,7 +138,7 @@ export function getMovieByDid<T = IResponseType<any>>(
       page,
       limit
     }
-  })
+  });
 }
 //获取电影根据演员
 export function getMovieByAid<T = IResponseType<any>>(
@@ -152,11 +152,11 @@ export function getMovieByAid<T = IResponseType<any>>(
       page,
       limit
     }
-  })
+  });
 }
 //获取电影详情
 export function getMovieDetail<T = IResponseType<any>>(id: string): Promise<T> {
   return gbRequest.get<T>({
     url: MovieApi.movieDetail + `/${id}`
-  })
+  });
 }

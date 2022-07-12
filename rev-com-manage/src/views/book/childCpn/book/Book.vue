@@ -53,47 +53,85 @@
     </div>
     <g-b-drawer title="添加书籍" v-model="drawer">
       <template #add>
-        <add-book @closeDrawer="drawer = false" @refresh="refresh" />
+        <add-book
+          @closeDrawer="drawer = false"
+          @refresh="refresh"
+          :writer="writer"
+          :publish="publish"
+        />
       </template>
     </g-b-drawer>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref } from "vue"
-import { getAllBook } from "@/network/book/book"
-import { IPageResult } from "@/types/pageResult"
-import { IResponseType } from "@/types/responseType"
-import { IBook } from "@/types/book/book"
-import PageItemList from "@/components/content/pageItemList/PageItemList.vue"
-import GBDrawer from "@/components/common/gbDrawer/GBDrawer.vue"
-import AddBook from "@/views/book/childCpn/book/childCpn/addBook/AddBook.vue"
+import { defineComponent, onMounted, reactive, ref } from "vue";
+import { getAllBook } from "@/network/book/book";
+import { IPageResult } from "@/types/pageResult";
+import { IResponseType } from "@/types/responseType";
+import { IBook } from "@/types/book/book";
+import PageItemList from "@/components/content/pageItemList/PageItemList.vue";
+import GBDrawer from "@/components/common/gbDrawer/GBDrawer.vue";
+import AddBook from "@/views/book/childCpn/book/childCpn/addBook/AddBook.vue";
+import { getAllWriter } from "@/network/book/writer";
+import { IWriter } from "@/types/book/writer";
+import { getAllPublish } from "@/network/book/publish";
+import { IPublish } from "@/types/book/publish";
 export default defineComponent({
   name: "Book",
   components: { AddBook, GBDrawer, PageItemList },
   setup(props, context) {
-    const drawer = ref(false)
+    const drawer = ref(false);
     const book = reactive<{ list: IBook[] }>({
       list: []
-    })
-    const total = ref(0)
+    });
+    const writer = reactive<{ list: { label: string; value: string }[] }>({
+      list: []
+    });
+    const publish = reactive<{ list: { label: string; value: string }[] }>({
+      list: []
+    });
+    const total = ref(0);
     onMounted(async () => {
-      const data = await getAllBook<IResponseType<IPageResult<IBook[]>>>(1, 10)
+      const data = await getAllBook<IResponseType<IPageResult<IBook[]>>>(1, 10);
       if (data.status === 200) {
-        book.list = data.data.data
-        total.value = data.data.total
+        book.list = data.data.data;
+        total.value = data.data.total;
       }
-    })
+    });
+    onMounted(async () => {
+      //获取所有作家
+      const data = await getAllWriter(1, 1000000, "");
+      if (data.status === 200) {
+        writer.list = data.data.data.map((item: IWriter) => {
+          return {
+            label: item.name,
+            value: item.id
+          };
+        });
+      }
+      //获取所有出版社
+      const res = await getAllPublish(1, 1000000, "");
+      if (res.status === 200) {
+        publish.list = res.data.data.map((item: IPublish) => {
+          return {
+            label: item.name,
+            value: item.id
+          };
+        });
+      }
+    });
+
     const keywordList = [
       { id: 1, keyword: "", placeholder: "请输入歌手名称" },
       { id: 2, keyword: "", placeholder: "请输入出版社名称" },
       { id: 3, keyword: "", placeholder: "请输入作家名称" }
-    ]
-    const keywordChange = () => {}
-    const refresh = () => {}
+    ];
+    const keywordChange = () => {};
+    const refresh = () => {};
     const showDrawer = () => {
-      drawer.value = true
-    }
+      drawer.value = true;
+    };
     return {
       book,
       total,
@@ -101,10 +139,12 @@ export default defineComponent({
       keywordChange,
       refresh,
       showDrawer,
-      drawer
-    }
+      drawer,
+      writer,
+      publish
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less"></style>

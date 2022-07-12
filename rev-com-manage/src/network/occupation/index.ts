@@ -1,5 +1,5 @@
-import gbRequest from "@/network"
-import { IResponseType } from "@/types/responseType"
+import gbRequest from "@/network";
+import { IResponseType } from "@/types/responseType";
 enum OccupationApi {
   allOccupation = "/occupation/all",
   setOccupation = `/occupation`
@@ -7,7 +7,7 @@ enum OccupationApi {
 export function getAllOccupation<T = IResponseType<any>>(): Promise<T> {
   return gbRequest.get<T>({
     url: OccupationApi.allOccupation
-  })
+  });
 }
 export function setOccupation<T = IResponseType<any>>(
   key: string,
@@ -16,5 +16,5 @@ export function setOccupation<T = IResponseType<any>>(
 ): Promise<T> {
   return gbRequest.post<T>({
     url: OccupationApi.setOccupation + "/" + key + "/" + id + "/" + oId
-  })
+  });
 }

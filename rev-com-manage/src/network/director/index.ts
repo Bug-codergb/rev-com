@@ -1,5 +1,5 @@
-import gbRequest from "@/network"
-import { IResponseType } from "@/types/responseType"
+import gbRequest from "@/network";
+import { IResponseType } from "@/types/responseType";
 
 enum DirectorApi {
   allDirector = "/director/all",
@@ -23,7 +23,7 @@ export function getAllDirector<T = IResponseType<any>>(
       limit: limit,
       keyword
     }
-  })
+  });
 }
 export function addDirectorRequest<T = IResponseType<any>>(
   name: string,
@@ -42,7 +42,7 @@ export function addDirectorRequest<T = IResponseType<any>>(
       birthPlace,
       description
     }
-  })
+  });
 }
 //上传头像
 export function uploadAvatar<T = IResponseType<any>>(formData: FormData, id: string): Promise<T> {
@@ -53,7 +53,7 @@ export function uploadAvatar<T = IResponseType<any>>(formData: FormData, id: str
     headers: {
       "Content-type": "multipart/form-data"
     }
-  })
+  });
 }
 //更新导演信息
 export function updateDirector<T = IResponseType<any>>(
@@ -76,7 +76,7 @@ export function updateDirector<T = IResponseType<any>>(
       description,
       birthPlace
     }
-  })
+  });
 }
 //删除导演信息
 export function deleteDirector<T = IResponseType<any>>(id: string): Promise<T> {
@@ -85,7 +85,7 @@ export function deleteDirector<T = IResponseType<any>>(id: string): Promise<T> {
     params: {
       id
     }
-  })
+  });
 }
 //更新头像信息
 export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
@@ -95,7 +95,7 @@ export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormD
     headers: {
       "Content-type": "multipart/form-data"
     }
-  })
+  });
 }
 //获取导演合作导演
 export function getDirectorCooperate<T = IResponseType<any>>(
@@ -110,7 +110,7 @@ export function getDirectorCooperate<T = IResponseType<any>>(
       page,
       limit
     }
-  })
+  });
 }
 //获取演员合作导演
 export function getDirectorActor<T = IResponseType<any>>(
@@ -125,5 +125,5 @@ export function getDirectorActor<T = IResponseType<any>>(
       page,
       limit
     }
-  })
+  });
 }

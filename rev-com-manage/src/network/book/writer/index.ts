@@ -1,5 +1,5 @@
-import gbRequest from "@/network"
-import { IResponseType } from "@/types/responseType"
+import gbRequest from "@/network";
+import { IResponseType } from "@/types/responseType";
 enum WriterApi {
   createWriter = "/writer",
   allWriter = "/writer/all"
@@ -27,7 +27,7 @@ export function createWriter<T = IResponseType<any>>(
       alias,
       description
     }
-  })
+  });
 }
 //获取所有作家
 export function getAllWriter<T = IResponseType<any>>(
@@ -42,5 +42,5 @@ export function getAllWriter<T = IResponseType<any>>(
       limit,
       keyword
     }
-  })
+  });
 }

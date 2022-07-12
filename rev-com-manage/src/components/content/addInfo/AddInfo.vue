@@ -32,6 +32,9 @@
                     ></el-option>
                   </el-select>
                 </template>
+                <template v-else-if="it.shape === 'time'">
+                  <el-date-picker v-model="newFormData[it.field]" :placeholder="it.placeholder" />
+                </template>
                 <template v-else-if="it.shape === 'radio'">
                   <el-radio-group v-model="newFormData[it.field]" style="width: 100%">
                     <el-radio v-for="item in it.radioList" :key="item.value" :label="item.value">{{
@@ -54,9 +57,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, watch } from "vue"
-import { FormInstance } from "element-plus"
-import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue"
+import { defineComponent, reactive, ref, watch } from "vue";
+import { FormInstance } from "element-plus";
+import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue";
 export default defineComponent({
   name: "AddInfo",
   components: { ImgPrev },
@@ -80,35 +83,35 @@ export default defineComponent({
   },
   emits: ["update:modelValue"],
   setup(props, context) {
-    const ruleFormRef = ref<FormInstance>()
-    const newFormData = ref(JSON.parse(JSON.stringify(props.modelValue)))
+    const ruleFormRef = ref<FormInstance>();
+    const newFormData = ref(JSON.parse(JSON.stringify(props.modelValue)));
     const avatar = reactive<{ source: FormData | null }>({
       source: null
-    })
+    });
     watch(
       newFormData,
       (newVal) => {
-        context.emit("update:modelValue", newVal)
+        context.emit("update:modelValue", newVal);
       },
       { deep: true }
-    )
+    );
     const fileChange = (file: File) => {
-      let formData = new FormData()
-      formData.append("avatar", file)
-      avatar.source = formData
-    }
+      let formData = new FormData();
+      formData.append("avatar", file);
+      avatar.source = formData;
+    };
     const cancel = () => {
-      avatar.source = null
-    }
+      avatar.source = null;
+    };
     return {
       newFormData,
       ruleFormRef,
       fileChange,
       cancel,
       avatar
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

@@ -96,8 +96,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue"
-import { IScreenwriter } from "@/types/screenwriter"
+import { defineComponent } from "vue";
+import { IScreenwriter } from "@/types/screenwriter";
 
 export default defineComponent({
   name: "ScreenwriterTable",
@@ -125,25 +125,25 @@ export default defineComponent({
   emits: ["directorRouter", "editScreenwriter", "deleteScreenwriterHandle", "pageChange"],
   setup(props, context) {
     const directorRouter = (item: IScreenwriter) => {
-      context.emit("directorRouter", item)
-    }
+      context.emit("directorRouter", item);
+    };
     const editScreenwriter = (item: IScreenwriter) => {
-      context.emit("editScreenwriter", item)
-    }
+      context.emit("editScreenwriter", item);
+    };
     const deleteScreenwriterHandle = (item: IScreenwriter) => {
-      context.emit("deleteScreenwriterHandle", item)
-    }
+      context.emit("deleteScreenwriterHandle", item);
+    };
     const pageChange = (e: number) => {
-      context.emit("pageChange", e)
-    }
+      context.emit("pageChange", e);
+    };
     return {
       directorRouter,
       editScreenwriter,
       deleteScreenwriterHandle,
       pageChange
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

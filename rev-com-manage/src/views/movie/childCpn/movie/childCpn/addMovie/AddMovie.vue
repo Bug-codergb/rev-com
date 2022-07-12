@@ -202,28 +202,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref, toRefs } from "vue"
-import { FormInstance, FormRules } from "element-plus"
+import { defineComponent, onMounted, reactive, ref, toRefs } from "vue";
+import { FormInstance, FormRules } from "element-plus";
 
-import { IResponseType } from "@/types/responseType"
-import { IForm } from "@/types/form"
-import { getAllForm } from "@/network/movie/form"
-import { IArea } from "@/types/area"
-import { getAllArea } from "@/network/movie/area"
-import { ICategory } from "@/types/category"
-import { getAllCate } from "@/network/movie/cate"
-import { IActor } from "@/types/actor"
-import { getAllActor } from "@/network/actor"
-import { IPageResult } from "@/types/pageResult"
-import { IDirector } from "@/types/director"
-import { getAllDirector } from "@/network/director"
-import { IScreenwriter } from "@/types/screenwriter"
-import { getAllScreenwriter } from "@/network/screenwriter"
-import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue"
-import languages from "@/constant/language"
-import { createLogger } from "vuex"
-import { IMovie } from "@/types/movie"
-import { IFormMovie } from "@/views/movie/childCpn/movie/childCpn/addMovie/types/IFormMovie"
+import { IResponseType } from "@/types/responseType";
+import { IForm } from "@/types/form";
+import { getAllForm } from "@/network/movie/form";
+import { IArea } from "@/types/area";
+import { getAllArea } from "@/network/movie/area";
+import { ICategory } from "@/types/category";
+import { getAllCate } from "@/network/movie/cate";
+import { IActor } from "@/types/actor";
+import { getAllActor } from "@/network/actor";
+import { IPageResult } from "@/types/pageResult";
+import { IDirector } from "@/types/director";
+import { getAllDirector } from "@/network/director";
+import { IScreenwriter } from "@/types/screenwriter";
+import { getAllScreenwriter } from "@/network/screenwriter";
+import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue";
+import languages from "@/constant/language";
+import { createLogger } from "vuex";
+import { IMovie } from "@/types/movie";
+import { IFormMovie } from "@/views/movie/childCpn/movie/childCpn/addMovie/types/IFormMovie";
 export default defineComponent({
   name: "AddMovie",
   components: {
@@ -235,8 +235,8 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    const isUpdate = ref(false)
-    const ruleFormRef = ref<FormInstance>()
+    const isUpdate = ref(false);
+    const ruleFormRef = ref<FormInstance>();
     const movie = reactive<IFormMovie>({
       name: "",
       alias: "",
@@ -249,30 +249,30 @@ export default defineComponent({
       director: [],
       screenwriter: [],
       desc: ""
-    })
+    });
     const cover = reactive<{ source: FormData | null }>({
       source: null
-    })
+    });
     const formList = reactive<{ list: IForm[] }>({
       list: []
-    })
+    });
     const areaList = reactive<{ list: IArea[] }>({
       list: []
-    })
+    });
     const cateList = reactive<{ list: ICategory[] }>({
       list: []
-    })
+    });
     const actorList = reactive<{ list: IActor[] }>({
       list: []
-    })
+    });
     const directorList = reactive<{ list: IDirector[] }>({
       list: []
-    })
+    });
     const screenwriterList = reactive<{ list: IScreenwriter[] }>({
       list: []
-    })
-    const desc = ref("")
-    const prevURL = ref("")
+    });
+    const desc = ref("");
+    const prevURL = ref("");
     const rules = reactive<FormRules>({
       name: [
         {
@@ -351,71 +351,71 @@ export default defineComponent({
           trigger: "blur"
         }
       ]
-    })
+    });
 
     onMounted(async () => {
       getAllForm<IResponseType<IForm[]>>().then((data) => {
         if (data.status === 200) {
-          formList.list = data.data
+          formList.list = data.data;
         }
-      })
+      });
       getAllArea<IResponseType<IArea[]>>().then((data) => {
         if (data.status === 200) {
-          areaList.list = data.data
+          areaList.list = data.data;
         }
-      })
+      });
       getAllCate<IResponseType<ICategory[]>>().then((data) => {
         if (data.status === 200) {
-          cateList.list = data.data
+          cateList.list = data.data;
         }
-      })
+      });
       getAllActor<IResponseType<IPageResult<IActor[]>>>(1, 50000, "").then((data) => {
         if (data.status === 200) {
-          actorList.list = data.data.data
+          actorList.list = data.data.data;
         }
-      })
+      });
       getAllDirector<IResponseType<IPageResult<IDirector[]>>>(1, 5000, "").then((data) => {
         if (data.status === 200) {
-          directorList.list = data.data.data
+          directorList.list = data.data.data;
         }
-      })
+      });
       getAllScreenwriter<IResponseType<IPageResult<IScreenwriter[]>>>(1, 5000, "").then((data) => {
         if (data.status === 200) {
-          screenwriterList.list = data.data.data
+          screenwriterList.list = data.data.data;
         }
-      })
-    })
+      });
+    });
     if (props.movieItem && props.movieItem.item && props.movieItem.item.id) {
-      let movieTmp = toRefs(props.movieItem.item)
+      let movieTmp = toRefs(props.movieItem.item);
       if (movieTmp.coverUrl.value) {
-        prevURL.value = movieTmp.coverUrl.value
+        prevURL.value = movieTmp.coverUrl.value;
       }
       if (movieTmp.language.value.split("/").length > 0) {
         for (const item of movieTmp.language.value.split("/")) {
-          movie.language.push(item)
+          movie.language.push(item);
         }
       }
-      movie.name = movieTmp.name.value
-      movie.alias = movieTmp.alias.value
+      movie.name = movieTmp.name.value;
+      movie.alias = movieTmp.alias.value;
 
-      movie.releaseTime = movieTmp.releaseTime.value
-      movie.form = movieTmp.form.value.id
-      movie.area = movieTmp.area.value.map((item: IArea) => item.id)
-      movie.cate = movieTmp.categories.value.map((item: ICategory) => item.id)
-      movie.actor = movieTmp.actors.value.map((item: IActor) => item.id)
-      movie.director = movieTmp.directors.value.map((item: IDirector) => item.id)
-      movie.screenwriter = movieTmp.screenwriters.value.map((item: IDirector) => item.id)
-      movie.desc = movieTmp.description.value
-      isUpdate.value = true
+      movie.releaseTime = movieTmp.releaseTime.value;
+      movie.form = movieTmp.form.value.id;
+      movie.area = movieTmp.area.value.map((item: IArea) => item.id);
+      movie.cate = movieTmp.categories.value.map((item: ICategory) => item.id);
+      movie.actor = movieTmp.actors.value.map((item: IActor) => item.id);
+      movie.director = movieTmp.directors.value.map((item: IDirector) => item.id);
+      movie.screenwriter = movieTmp.screenwriters.value.map((item: IDirector) => item.id);
+      movie.desc = movieTmp.description.value;
+      isUpdate.value = true;
     }
     const cancel = () => {
-      cover.source = null
-    }
+      cover.source = null;
+    };
     const fileChange = (file: File) => {
-      let formData = new FormData()
-      formData.append("cover", file)
-      cover.source = formData
-    }
+      let formData = new FormData();
+      formData.append("cover", file);
+      cover.source = formData;
+    };
     return {
       movie,
       rules,
@@ -433,9 +433,9 @@ export default defineComponent({
       isUpdate,
       prevURL,
       languages
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

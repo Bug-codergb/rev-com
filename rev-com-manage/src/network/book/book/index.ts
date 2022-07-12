@@ -1,5 +1,5 @@
-import gbRequest from "@/network"
-import { IResponseType } from "@/types/responseType"
+import gbRequest from "@/network";
+import { IResponseType } from "@/types/responseType";
 enum BookApi {
   allBook = "/book/all"
 }
@@ -11,5 +11,5 @@ export function getAllBook<T = IResponseType<any>>(page: number, limit: number):
       page,
       limit
     }
-  })
+  });
 }

@@ -19,8 +19,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, onBeforeUnmount } from "vue"
-import emitter from "@/utils/evenBus"
+import { defineComponent, computed, onBeforeUnmount } from "vue";
+import emitter from "@/utils/evenBus";
 export default defineComponent({
   name: "GBDrawer",
   props: {
@@ -37,24 +37,24 @@ export default defineComponent({
   setup(props, context) {
     const drawer = computed({
       get() {
-        return props.modelValue
+        return props.modelValue;
       },
       set(newVal: any) {
-        context.emit("update:modelValue", newVal)
+        context.emit("update:modelValue", newVal);
       }
-    })
+    });
     const define = () => {
-      emitter.emit("drawerDefine")
-    }
+      emitter.emit("drawerDefine");
+    };
     onBeforeUnmount(() => {
-      emitter.off("drawerDefine")
-    })
+      emitter.off("drawerDefine");
+    });
     return {
       define,
       drawer
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less"></style>

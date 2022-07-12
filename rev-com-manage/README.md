@@ -51,13 +51,13 @@ npm run lint
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/登录
@@ -87,13 +87,13 @@ npm run lint
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/登录/登录
@@ -130,14 +130,14 @@ npm run lint
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-const res = response.json
-apt.globals.set("token", res.data.token)
+const res = response.json;
+apt.globals.set("token", res.data.token);
 ```
 
 ## /rev-com/登录/注册
@@ -174,13 +174,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/用户
@@ -210,13 +210,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/用户/上传头像
@@ -250,13 +250,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/用户/获取用户头像
@@ -290,13 +290,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/导演
@@ -326,13 +326,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/导演/添加导演
@@ -372,13 +372,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/导演/获取所有导演
@@ -420,13 +420,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/导演/上传导演头像
@@ -460,13 +460,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/导演/更新导演信息
@@ -508,13 +508,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/导演/删除导演信息
@@ -554,13 +554,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/导演/更新导演头像
@@ -594,13 +594,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/演员
@@ -630,13 +630,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/演员/添加演员
@@ -680,13 +680,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/演员/获取所有演员
@@ -728,13 +728,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/演员/更新演员信息
@@ -779,13 +779,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/演员/删除演员
@@ -825,13 +825,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/演员/上传演员头像
@@ -865,13 +865,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/演员/获取演员头像
@@ -905,13 +905,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/演员/更新演员头像
@@ -945,13 +945,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/演员/获取导演合作演员
@@ -993,13 +993,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/演员/获取导演合作导演
@@ -1041,13 +1041,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/演员/获取演员合作演员
@@ -1089,13 +1089,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/演员/获取演员合作导演
@@ -1137,13 +1137,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/职业
@@ -1173,13 +1173,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/职业/新建职业
@@ -1215,13 +1215,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/职业/为导演演员添加职业
@@ -1255,13 +1255,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/职业/获取所有职业
@@ -1295,13 +1295,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影
@@ -1331,13 +1331,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/形式
@@ -1367,13 +1367,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/形式/添加影视形式
@@ -1409,13 +1409,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/形式/获取所有形式
@@ -1449,13 +1449,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/地区
@@ -1485,13 +1485,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/地区/新建地区
@@ -1527,13 +1527,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/地区/获取所有地区
@@ -1567,13 +1567,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/类型
@@ -1603,13 +1603,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/类型/标签
@@ -1639,13 +1639,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/类型/新建类型
@@ -1681,13 +1681,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/类型/新建标签
@@ -1723,13 +1723,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/类型/获取所有分类
@@ -1763,13 +1763,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/添加电影
@@ -1816,13 +1816,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/获取所有电影
@@ -1865,13 +1865,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/更新电影信息
@@ -1919,13 +1919,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/上传电影封面
@@ -1959,13 +1959,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/获取封面
@@ -1999,13 +1999,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/跟新电影信息
@@ -2039,13 +2039,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/更新电影封面
@@ -2079,13 +2079,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/删除电影
@@ -2119,13 +2119,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/根据导演获取电影
@@ -2166,13 +2166,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/电影/获取电影根据演员
@@ -2213,13 +2213,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/编剧
@@ -2249,13 +2249,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/编剧/新建编剧
@@ -2298,13 +2298,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/编剧/获取所有编剧
@@ -2345,13 +2345,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/读书
@@ -2381,13 +2381,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/读书/作家
@@ -2417,13 +2417,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/读书/作家/添加作家
@@ -2466,13 +2466,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/读书/作家/获取所有作家
@@ -2514,13 +2514,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/读书/出版社
@@ -2550,13 +2550,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/读书/出版社/添加出版社
@@ -2600,13 +2600,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ## /rev-com/读书/出版社/获取所有出版社
@@ -2648,13 +2648,13 @@ apt.globals.set("token", res.data.token)
 #### 预执行脚本
 
 ```javascript
-暂无预执行脚本
+暂无预执行脚本;
 ```
 
 #### 后执行脚本
 
 ```javascript
-暂无后执行脚本
+暂无后执行脚本;
 ```
 
 ### Customize configuration

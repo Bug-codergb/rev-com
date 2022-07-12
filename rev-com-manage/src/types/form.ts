@@ -1,7 +1,7 @@
 interface IForm {
-  id: string
-  name: string
-  createTime: string
-  updateTime: string
+  id: string;
+  name: string;
+  createTime: string;
+  updateTime: string;
 }
-export type { IForm }
+export type { IForm };

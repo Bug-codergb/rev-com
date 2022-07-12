@@ -111,8 +111,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue"
-import { IDirector } from "@/types/director"
+import { defineComponent } from "vue";
+import { IDirector } from "@/types/director";
 
 export default defineComponent({
   name: "DirectorTable",
@@ -140,25 +140,25 @@ export default defineComponent({
   emits: ["directorRouter", "editDirector", "deleteDirectorHandle", "pageChange"],
   setup(props, context) {
     const directorRouter = (item: IDirector) => {
-      context.emit("directorRouter", item)
-    }
+      context.emit("directorRouter", item);
+    };
     const editDirector = (item: IDirector) => {
-      context.emit("editDirector", item)
-    }
+      context.emit("editDirector", item);
+    };
     const deleteDirectorHandle = (item: IDirector) => {
-      context.emit("deleteDirectorHandle", item)
-    }
+      context.emit("deleteDirectorHandle", item);
+    };
     const pageChange = (e: number) => {
-      context.emit("pageChange", e)
-    }
+      context.emit("pageChange", e);
+    };
     return {
       directorRouter,
       editDirector,
       deleteDirectorHandle,
       pageChange
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

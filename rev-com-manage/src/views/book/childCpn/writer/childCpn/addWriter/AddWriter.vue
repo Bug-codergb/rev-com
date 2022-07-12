@@ -81,11 +81,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref, toRefs } from "vue"
-import { IOccupation } from "@/types/occupation"
-import { getAllOccupation } from "@/network/occupation"
-import { IResponseType } from "@/types/responseType"
-import type { FormInstance, FormRules } from "element-plus"
+import { defineComponent, onMounted, reactive, ref, toRefs } from "vue";
+import { IOccupation } from "@/types/occupation";
+import { getAllOccupation } from "@/network/occupation";
+import { IResponseType } from "@/types/responseType";
+import type { FormInstance, FormRules } from "element-plus";
 
 export default defineComponent({
   name: "AddWriter",
@@ -95,7 +95,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    const ruleFormRef = ref<FormInstance>()
+    const ruleFormRef = ref<FormInstance>();
     const writer = reactive({
       name: "",
       gender: "0",
@@ -105,14 +105,14 @@ export default defineComponent({
       description: "",
       area: "",
       foreignName: ""
-    })
-    const isUpdate = ref<boolean>(false)
+    });
+    const isUpdate = ref<boolean>(false);
     const avatar = reactive<{ source: FormData | null }>({
       source: null
-    })
+    });
     const occupation = reactive<{ list: IOccupation[] }>({
       list: []
-    })
+    });
     /* if (props.actorItem) {
       if (
         props.actorItem.item &&
@@ -192,22 +192,22 @@ export default defineComponent({
           trigger: "blur"
         }
       ]
-    })
+    });
 
     onMounted(async () => {
-      const data = await getAllOccupation<IResponseType<IOccupation[]>>()
+      const data = await getAllOccupation<IResponseType<IOccupation[]>>();
       if (data.status === 200) {
-        occupation.list = data.data
+        occupation.list = data.data;
       }
-    })
+    });
     const cancel = () => {
-      avatar.source = null
-    }
+      avatar.source = null;
+    };
     const fileChange = (file: File) => {
-      let formData = new FormData()
-      formData.append("avatar", file)
-      avatar.source = formData
-    }
+      let formData = new FormData();
+      formData.append("avatar", file);
+      avatar.source = formData;
+    };
     return {
       writer,
       rules,
@@ -216,9 +216,9 @@ export default defineComponent({
       fileChange,
       avatar,
       isUpdate
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less"></style>

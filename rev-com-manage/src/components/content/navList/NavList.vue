@@ -31,11 +31,11 @@
 </template>
 
 <script lang="ts">
-import { useRouter } from "vue-router"
-import { defineComponent, ref } from "vue"
-import { menu } from "@/constant/menu"
-import pathMapMenu from "@/utils/pathMapMenu"
-import { Film, Notebook, User, Setting, Mic } from "@element-plus/icons-vue"
+import { useRouter } from "vue-router";
+import { defineComponent, ref } from "vue";
+import { menu } from "@/constant/menu";
+import pathMapMenu from "@/utils/pathMapMenu";
+import { Film, Notebook, User, Setting, Mic } from "@element-plus/icons-vue";
 export default defineComponent({
   name: "NavList",
   components: {
@@ -52,21 +52,21 @@ export default defineComponent({
     }
   },
   setup() {
-    const router = useRouter()
-    const menuItem = pathMapMenu(menu, router.currentRoute.value.path)
-    const defaultActive = ref(menuItem ? menuItem.index : "1001")
+    const router = useRouter();
+    const menuItem = pathMapMenu(menu, router.currentRoute.value.path);
+    const defaultActive = ref(menuItem ? menuItem.index : "1001");
     const navRouter = (path: string) => {
       router.push({
         path: path
-      })
-    }
+      });
+    };
     return {
       menu,
       navRouter,
       defaultActive
-    }
+    };
   }
-})
+});
 </script>
 <style lang="less">
 .nav-list {

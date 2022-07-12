@@ -1,5 +1,5 @@
-import gbRequest from "@/network"
-import { IResponseType } from "@/types/responseType"
+import gbRequest from "@/network";
+import { IResponseType } from "@/types/responseType";
 enum ScreenwriterApi {
   addScreenwriter = "/screenwriter/",
   allScreenwriter = "/screenwriter/all",
@@ -31,7 +31,7 @@ export function addScreenwriter<T = IResponseType<any>>(
       description,
       occupationList
     }
-  })
+  });
 }
 //上传编剧头像
 export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
@@ -41,7 +41,7 @@ export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormD
     headers: {
       "Content-type": "multipart/form-data"
     }
-  })
+  });
 }
 //获取所有编剧
 export function getAllScreenwriter<T = IResponseType<any>>(
@@ -56,7 +56,7 @@ export function getAllScreenwriter<T = IResponseType<any>>(
       limit,
       keyword
     }
-  })
+  });
 }
 export function updateScreenwriter<T = IResponseType<any>>(
   id: string,
@@ -82,17 +82,17 @@ export function updateScreenwriter<T = IResponseType<any>>(
       description,
       occupationList
     }
-  })
+  });
 }
 export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
   return gbRequest.post<T>({
     url: ScreenwriterApi.updateAvatar + "/" + id,
     data: formData
-  })
+  });
 }
 //删除编剧
 export function deleteScreenwriter<T = IResponseType<any>>(id: string): Promise<T> {
   return gbRequest.post<T>({
     url: ScreenwriterApi.deleteScreenwriter + "/" + id
-  })
+  });
 }

@@ -9,23 +9,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue"
-import AddInfo from "@/components/content/addInfo/AddInfo.vue"
-import { FormRules } from "element-plus"
-import GBDrawer from "@/components/common/gbDrawer/GBDrawer.vue"
+import { defineComponent, reactive, ref } from "vue";
+import AddInfo from "@/components/content/addInfo/AddInfo.vue";
+import { FormRules } from "element-plus";
+import GBDrawer from "@/components/common/gbDrawer/GBDrawer.vue";
 
 export default defineComponent({
   name: "Group",
   components: { GBDrawer, AddInfo },
   setup: function (props, context) {
-    const drawer = ref<boolean>(true)
-    const addGroup = ref<InstanceType<typeof AddInfo>>()
+    const drawer = ref<boolean>(true);
+    const addGroup = ref<InstanceType<typeof AddInfo>>();
     const formData = reactive({
       id: "",
       name: "",
       hobby: "",
       gender: "0"
-    })
+    });
     const formShape = reactive({
       row: [
         [
@@ -60,7 +60,7 @@ export default defineComponent({
           }
         ]
       ]
-    })
+    });
     const rules = reactive<FormRules>({
       id: [
         {
@@ -90,16 +90,16 @@ export default defineComponent({
           trigger: "change"
         }
       ]
-    })
+    });
     const define = () => {
       if (addGroup.value && addGroup.value.ruleFormRef) {
         addGroup.value.ruleFormRef.validate((e: boolean) => {
           if (e) {
-            drawer.value = false
+            drawer.value = false;
           }
-        })
+        });
       }
-    }
+    };
     return {
       formData,
       rules,
@@ -107,9 +107,9 @@ export default defineComponent({
       drawer,
       define,
       addGroup
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less"></style>

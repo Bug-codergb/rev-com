@@ -37,19 +37,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive } from "vue"
-import { useRouter } from "vue-router"
-import { IActor } from "@/types/actor"
-import { deleteActor, getAllActor, updateActor, uploadAvatar } from "@/network/actor"
-import { debounce } from "@/utils/debounce"
-import { IResponseType } from "@/types/responseType"
-import { IPageResult } from "@/types/pageResult"
-import AddActor from "@/views/movie/childCpn/actor/childCpn/AddActor.vue"
-import { addActor as addActorRequest } from "@/network/actor"
-import { ElMessage, ElMessageBox } from "element-plus/lib/components"
-import { updateAvatar } from "@/network/actor"
-import ActorTable from "@/components/content/actorTable/ActorTable.vue"
-import { useDeleteHook } from "@/hook/deleteHook"
+import { defineComponent, ref, reactive } from "vue";
+import { useRouter } from "vue-router";
+import { IActor } from "@/types/actor";
+import { deleteActor, getAllActor, updateActor, uploadAvatar } from "@/network/actor";
+import { debounce } from "@/utils/debounce";
+import { IResponseType } from "@/types/responseType";
+import { IPageResult } from "@/types/pageResult";
+import AddActor from "@/views/movie/childCpn/actor/childCpn/AddActor.vue";
+import { addActor as addActorRequest } from "@/network/actor";
+import { ElMessage, ElMessageBox } from "element-plus/lib/components";
+import { updateAvatar } from "@/network/actor";
+import ActorTable from "@/components/content/actorTable/ActorTable.vue";
+import { useDeleteHook } from "@/hook/deleteHook";
 export default defineComponent({
   name: "Actor",
   components: {
@@ -57,57 +57,57 @@ export default defineComponent({
     ActorTable
   },
   setup() {
-    const router = useRouter()
-    const keyword = ref("")
-    const total = ref(0)
-    const direction = ref("rtl")
-    const drawer = ref(false)
+    const router = useRouter();
+    const keyword = ref("");
+    const total = ref(0);
+    const direction = ref("rtl");
+    const drawer = ref(false);
     const actorItem = reactive<{ item: IActor | null }>({
       item: null
-    })
-    const addActorRef = ref<InstanceType<typeof AddActor>>()
+    });
+    const addActorRef = ref<InstanceType<typeof AddActor>>();
     const actorList = reactive<{ list: IActor[] }>({
       list: []
-    })
+    });
     const getAllActorRequest = (page: number, limit: number, keyword: string) => {
       getAllActor<IResponseType<IPageResult<IActor[]>>>(page, limit, keyword).then((data) => {
         if (data.status === 200) {
-          actorList.list = data.data.data
-          total.value = data.data.total
+          actorList.list = data.data.data;
+          total.value = data.data.total;
         }
-      })
-    }
-    getAllActorRequest(1, 10, keyword.value)
+      });
+    };
+    getAllActorRequest(1, 10, keyword.value);
     const keywordChange = debounce(
       () => {
-        getAllActorRequest(1, 10, keyword.value)
+        getAllActorRequest(1, 10, keyword.value);
       },
       1000,
       false
-    )
+    );
     const addActor = () => {
-      drawer.value = true
-      actorItem.item = null
-    }
+      drawer.value = true;
+      actorItem.item = null;
+    };
     const pageChange = (e: number) => {
-      getAllActorRequest(e, 10, keyword.value)
-    }
+      getAllActorRequest(e, 10, keyword.value);
+    };
     const editActor = (item: IActor) => {
-      drawer.value = true
-      actorItem.item = item
-    }
+      drawer.value = true;
+      actorItem.item = item;
+    };
     const actorRouter = (item: IActor) => {
-      console.log(item)
+      console.log(item);
       router.push({
         path: "/Home/actor/actorDetail",
         query: {
           detail: window.btoa(encodeURIComponent(JSON.stringify(item)))
         }
-      })
-    }
+      });
+    };
     const deleteActorHandle = (item: IActor) => {
-      useDeleteHook(item.id, 1, 10, keyword.value, deleteActor, getAllActorRequest)
-    }
+      useDeleteHook(item.id, 1, 10, keyword.value, deleteActor, getAllActorRequest);
+    };
     const define = () => {
       if (addActorRef.value) {
         const {
@@ -120,8 +120,8 @@ export default defineComponent({
           foreignName,
           name,
           occupations
-        } = addActorRef.value.actor
-        const { isUpdate } = addActorRef.value
+        } = addActorRef.value.actor;
+        const { isUpdate } = addActorRef.value;
         if (addActorRef.value.ruleFormRef) {
           addActorRef.value.ruleFormRef.validate(async (e: boolean) => {
             if (e) {
@@ -136,19 +136,19 @@ export default defineComponent({
                   description,
                   alias,
                   occupations
-                )
+                );
                 if (data.status === 200) {
-                  getAllActorRequest(1, 10, keyword.value)
-                  drawer.value = false
+                  getAllActorRequest(1, 10, keyword.value);
+                  drawer.value = false;
                   ElMessage({
                     message: "演员添加成功",
                     type: "success"
-                  })
-                  const { id } = data.data
+                  });
+                  const { id } = data.data;
                   if (addActorRef.value) {
-                    const { avatar } = addActorRef.value
+                    const { avatar } = addActorRef.value;
                     if (avatar.source instanceof FormData) {
-                      const data = await uploadAvatar(id, avatar.source)
+                      const data = await uploadAvatar(id, avatar.source);
                     }
                   }
                 }
@@ -165,30 +165,30 @@ export default defineComponent({
                     description,
                     alias,
                     occupations
-                  )
+                  );
                   if (data.status === 200) {
                     if (addActorRef.value) {
-                      const { avatar } = addActorRef.value
+                      const { avatar } = addActorRef.value;
                       if (actorItem.item && avatar.source instanceof FormData) {
                         updateAvatar(actorItem.item.id, avatar.source).then(() => {
-                          getAllActorRequest(1, 10, keyword.value)
-                        })
+                          getAllActorRequest(1, 10, keyword.value);
+                        });
                       }
                     }
-                    getAllActorRequest(1, 10, keyword.value)
-                    drawer.value = false
+                    getAllActorRequest(1, 10, keyword.value);
+                    drawer.value = false;
                     ElMessage({
                       message: "演员更新成功",
                       type: "success"
-                    })
+                    });
                   }
                 }
               }
             }
-          })
+          });
         }
       }
-    }
+    };
     return {
       keyword,
       total,
@@ -204,9 +204,9 @@ export default defineComponent({
       editActor,
       deleteActorHandle,
       actorRouter
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

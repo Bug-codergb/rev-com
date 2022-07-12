@@ -1,5 +1,5 @@
-import gbRequest from "@/network"
-import { IResponseType } from "@/types/responseType"
+import gbRequest from "@/network";
+import { IResponseType } from "@/types/responseType";
 enum ArtistApi {
   allArtistCate = "/music/artist/cate/all",
   allArtistType = "/music/artist/type/all",
@@ -14,13 +14,13 @@ enum ArtistApi {
 export function getAllArtistCate<T = IResponseType<any>>(): Promise<T> {
   return gbRequest.get<T>({
     url: ArtistApi.allArtistCate
-  })
+  });
 }
 //获取所有歌手类型
 export function getAllArtistType<T = IResponseType<any>>(): Promise<T> {
   return gbRequest.get<T>({
     url: ArtistApi.allArtistType
-  })
+  });
 }
 //获取所有歌手
 export function getAllArtist<T = IResponseType<any>>(
@@ -39,7 +39,7 @@ export function getAllArtist<T = IResponseType<any>>(
       area,
       type
     }
-  })
+  });
 }
 //创建歌手
 export function createArtist<T = IResponseType<any>>(
@@ -56,7 +56,7 @@ export function createArtist<T = IResponseType<any>>(
       typeId,
       cateId
     }
-  })
+  });
 }
 //上传歌手头像2
 export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
@@ -66,7 +66,7 @@ export function uploadAvatar<T = IResponseType<any>>(id: string, formData: FormD
     headers: {
       "Content-type": "multipart/form-data"
     }
-  })
+  });
 }
 //更新歌手信息
 export function updateArtist<T = IResponseType<any>>(
@@ -85,7 +85,7 @@ export function updateArtist<T = IResponseType<any>>(
       typeId,
       cateId
     }
-  })
+  });
 }
 //更新歌手头像
 export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
@@ -95,11 +95,11 @@ export function updateAvatar<T = IResponseType<any>>(id: string, formData: FormD
     headers: {
       "Content-type": "multipart/form-data"
     }
-  })
+  });
 }
 //删除歌手信息
 export function deleteArtist<T = IResponseType<any>>(id: string): Promise<T> {
   return gbRequest.post<T>({
     url: ArtistApi.deleteArtist + id
-  })
+  });
 }

@@ -58,12 +58,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, onMounted, toRefs } from "vue"
-import type { FormInstance, FormRules } from "element-plus"
-import { getAllOccupation } from "@/network/occupation"
-import { IResponseType } from "@/types/responseType"
-import { IOccupation } from "@/types/occupation"
-import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue"
+import { defineComponent, reactive, ref, onMounted, toRefs } from "vue";
+import type { FormInstance, FormRules } from "element-plus";
+import { getAllOccupation } from "@/network/occupation";
+import { IResponseType } from "@/types/responseType";
+import { IOccupation } from "@/types/occupation";
+import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue";
 
 export default defineComponent({
   name: "AddDirector",
@@ -76,7 +76,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    const ruleFormRef = ref<FormInstance>()
+    const ruleFormRef = ref<FormInstance>();
     const director = reactive({
       name: "",
       alias: "",
@@ -84,32 +84,32 @@ export default defineComponent({
       birthPlace: "",
       description: "",
       occupation: []
-    })
-    const isUpdate = ref<boolean>(false)
+    });
+    const isUpdate = ref<boolean>(false);
     const avatar = reactive<{ source: FormData | null }>({
       source: null
-    })
-    const prevURL = ref("")
+    });
+    const prevURL = ref("");
     const occupation = reactive<{ list: IOccupation[] }>({
       list: []
-    })
+    });
     if (props.directorItem) {
       if (
         props.directorItem.item &&
         Object.keys(props.directorItem.item).length !== 0 &&
         props.directorItem.item.id !== ""
       ) {
-        let directorTmp = toRefs(props.directorItem.item)
+        let directorTmp = toRefs(props.directorItem.item);
         if (directorTmp.avatarUrl.value) {
-          prevURL.value = directorTmp.avatarUrl.value
+          prevURL.value = directorTmp.avatarUrl.value;
         }
-        director.name = directorTmp.name.value
-        director.alias = directorTmp.alias.value
-        director.gender = directorTmp.gender.value
-        director.birthPlace = directorTmp.birthPlace.value
-        director.description = directorTmp.description.value
-        director.occupation = directorTmp.occupations.value.map((item: IOccupation) => item.id)
-        isUpdate.value = true
+        director.name = directorTmp.name.value;
+        director.alias = directorTmp.alias.value;
+        director.gender = directorTmp.gender.value;
+        director.birthPlace = directorTmp.birthPlace.value;
+        director.description = directorTmp.description.value;
+        director.occupation = directorTmp.occupations.value.map((item: IOccupation) => item.id);
+        isUpdate.value = true;
       }
     }
     const rules = reactive<FormRules>({
@@ -148,22 +148,22 @@ export default defineComponent({
           trigger: "blur"
         }
       ]
-    })
+    });
 
     onMounted(async () => {
-      const data = await getAllOccupation<IResponseType<IOccupation[]>>()
+      const data = await getAllOccupation<IResponseType<IOccupation[]>>();
       if (data.status === 200) {
-        occupation.list = data.data
+        occupation.list = data.data;
       }
-    })
+    });
     const cancel = () => {
-      avatar.source = null
-    }
+      avatar.source = null;
+    };
     const fileChange = (file: File) => {
-      let formData = new FormData()
-      formData.append("avatar", file)
-      avatar.source = formData
-    }
+      let formData = new FormData();
+      formData.append("avatar", file);
+      avatar.source = formData;
+    };
     return {
       director,
       rules,
@@ -174,9 +174,9 @@ export default defineComponent({
       avatar,
       isUpdate,
       prevURL
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

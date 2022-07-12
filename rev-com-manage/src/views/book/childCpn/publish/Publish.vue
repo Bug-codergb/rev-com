@@ -112,15 +112,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, onMounted } from "vue"
-import PageItemList from "@/components/content/pageItemList/PageItemList.vue"
-import { debounce } from "@/utils/debounce"
-import AddPublish from "@/views/book/childCpn/publish/childCpn/addPublish/AddPublish.vue"
-import { createPublish, getAllPublish } from "@/network/book/publish"
-import { ElMessage } from "element-plus/lib/components"
-import { IPublish } from "@/types/book/publish"
-import { IResponseType } from "@/types/responseType"
-import { IPageResult } from "@/types/pageResult"
+import { defineComponent, ref, reactive, onMounted } from "vue";
+import PageItemList from "@/components/content/pageItemList/PageItemList.vue";
+import { debounce } from "@/utils/debounce";
+import AddPublish from "@/views/book/childCpn/publish/childCpn/addPublish/AddPublish.vue";
+import { createPublish, getAllPublish } from "@/network/book/publish";
+import { ElMessage } from "element-plus/lib/components";
+import { IPublish } from "@/types/book/publish";
+import { IResponseType } from "@/types/responseType";
+import { IPageResult } from "@/types/pageResult";
 export default defineComponent({
   name: "Publish",
   components: {
@@ -128,39 +128,43 @@ export default defineComponent({
     AddPublish
   },
   setup() {
-    const drawer = ref(false)
-    const direction = ref("rtl")
-    const addPublish = ref<InstanceType<typeof AddPublish>>()
-    const keywordList = [{ id: 1, keyword: "请输入", placeholder: "请输入出版社名称" }]
+    const drawer = ref(false);
+    const direction = ref("rtl");
+    const addPublish = ref<InstanceType<typeof AddPublish>>();
+    const keywordList = [{ id: 1, keyword: "请输入", placeholder: "请输入出版社名称" }];
     const publishList = reactive<{ list: IPublish[] | null }>({
       list: null
-    })
-    const total = ref(0)
-    const keyword = ref("")
+    });
+    const total = ref(0);
+    const keyword = ref("");
     const showDrawer = () => {
-      drawer.value = true
-    }
+      drawer.value = true;
+    };
     const getAllPublishRequest = async (page: number, limit: number, keyword: string) => {
-      const data = await getAllPublish<IResponseType<IPageResult<IPublish[]>>>(page, limit, keyword)
+      const data = await getAllPublish<IResponseType<IPageResult<IPublish[]>>>(
+        page,
+        limit,
+        keyword
+      );
       if (data.status === 200) {
-        total.value = data.data.total
-        publishList.list = data.data.data
+        total.value = data.data.total;
+        publishList.list = data.data.data;
       }
-    }
+    };
     onMounted(async () => {
-      await getAllPublishRequest(1, 10, keyword.value)
-    })
+      await getAllPublishRequest(1, 10, keyword.value);
+    });
     const keywordChange = debounce(
       (keywords: string[]) => {
-        keyword.value = keywords[0]
-        getAllPublishRequest(1, 10, keyword.value)
+        keyword.value = keywords[0];
+        getAllPublishRequest(1, 10, keyword.value);
       },
       1000,
       false
-    )
+    );
     const pageChange = (e: number) => {
-      getAllPublishRequest(e, 10, keyword.value)
-    }
+      getAllPublishRequest(e, 10, keyword.value);
+    };
     const define = () => {
       if (addPublish.value && addPublish.value.ruleFormRef) {
         addPublish.value.ruleFormRef.validate(async (e: boolean) => {
@@ -176,7 +180,7 @@ export default defineComponent({
                 organizer,
                 description,
                 type
-              } = addPublish.value.publish
+              } = addPublish.value.publish;
               const data = await createPublish(
                 name,
                 foreignName,
@@ -187,20 +191,20 @@ export default defineComponent({
                 organizer,
                 description,
                 type
-              )
+              );
               if (data.status === 200) {
                 ElMessage({
                   message: "出版社添加成功",
                   type: "success"
-                })
-                drawer.value = false
-                await getAllPublishRequest(1, 10, keyword.value)
+                });
+                drawer.value = false;
+                await getAllPublishRequest(1, 10, keyword.value);
               }
             }
           }
-        })
+        });
       }
-    }
+    };
     return {
       keywordList,
       drawer,
@@ -212,9 +216,9 @@ export default defineComponent({
       publishList,
       pageChange,
       total
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

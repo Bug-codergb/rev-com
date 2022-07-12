@@ -106,35 +106,35 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, onMounted } from "vue"
-import { useRoute } from "vue-router"
-import { IMovie } from "@/types/movie"
-import { ElCard } from "element-plus"
-import { getMovieDetail } from "@/network/movie"
+import { defineComponent, reactive, ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
+import { IMovie } from "@/types/movie";
+import { ElCard } from "element-plus";
+import { getMovieDetail } from "@/network/movie";
 export default defineComponent({
   name: "MovieDetail",
   components: {
     ElCard
   },
   setup(props, context) {
-    const route = useRoute()
-    const id = ref("")
+    const route = useRoute();
+    const id = ref("");
     const movieDetail = reactive<{ detail: IMovie | null }>({
       detail: null
-    })
-    id.value = `${route.query.id ?? ""}`
+    });
+    id.value = `${route.query.id ?? ""}`;
     onMounted(async () => {
-      const data = await getMovieDetail(id.value)
+      const data = await getMovieDetail(id.value);
       if (data.status === 200) {
-        movieDetail.detail = data.data
+        movieDetail.detail = data.data;
       }
-    })
+    });
 
     return {
       movieDetail
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

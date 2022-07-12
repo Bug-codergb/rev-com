@@ -1,4 +1,4 @@
-import { ICategory } from "@/types/music/artist/category"
+import { ICategory } from "@/types/music/artist/category";
 
-type IArtistType = ICategory
-export type { IArtistType }
+type IArtistType = ICategory;
+export type { IArtistType };

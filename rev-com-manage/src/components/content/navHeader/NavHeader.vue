@@ -25,9 +25,9 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from "vue"
-import { useRouter } from "vue-router"
-import { Expand, Fold, UserFilled } from "@element-plus/icons-vue"
+import { ref, defineComponent } from "vue";
+import { useRouter } from "vue-router";
+import { Expand, Fold, UserFilled } from "@element-plus/icons-vue";
 export default defineComponent({
   name: "NavHeader",
   components: {
@@ -37,26 +37,26 @@ export default defineComponent({
   },
   emits: ["changeFold"],
   setup(props, { emit }) {
-    const isFold = ref(false)
-    const router = useRouter()
+    const isFold = ref(false);
+    const router = useRouter();
     const changeFold = () => {
-      isFold.value = !isFold.value
-      emit("changeFold", isFold.value)
-    }
+      isFold.value = !isFold.value;
+      emit("changeFold", isFold.value);
+    };
     const handleCommand = (e: string) => {
       if (e === "exit") {
         router.push({
           path: "/Login"
-        })
+        });
       }
-    }
+    };
     return {
       isFold,
       changeFold,
       handleCommand
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

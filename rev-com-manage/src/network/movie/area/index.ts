@@ -1,5 +1,5 @@
-import gbRequest from "@/network"
-import { IResponseType } from "@/types/responseType"
+import gbRequest from "@/network";
+import { IResponseType } from "@/types/responseType";
 enum MovieArea {
   allArea = "/movie/area/all"
 }
@@ -7,5 +7,5 @@ enum MovieArea {
 export function getAllArea<T = IResponseType<any>>(): Promise<T> {
   return gbRequest.get<T>({
     url: MovieArea.allArea
-  })
+  });
 }

@@ -96,12 +96,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from "vue"
-import { useRoute } from "vue-router"
-import { IActor } from "@/types/actor"
-import MovieList from "@/components/content/detail/actorDetail/childCpn/movieList/MovieList.vue"
-import ActorList from "@/components/content/detail/actorDetail/childCpn/actorList/ActorList.vue"
-import DirectorList from "@/components/content/detail/actorDetail/childCpn/directorList/DirectorList.vue"
+import { defineComponent, reactive } from "vue";
+import { useRoute } from "vue-router";
+import { IActor } from "@/types/actor";
+import MovieList from "@/components/content/detail/actorDetail/childCpn/movieList/MovieList.vue";
+import ActorList from "@/components/content/detail/actorDetail/childCpn/actorList/ActorList.vue";
+import DirectorList from "@/components/content/detail/actorDetail/childCpn/directorList/DirectorList.vue";
 export default defineComponent({
   name: "ActorDetail",
   components: {
@@ -110,17 +110,17 @@ export default defineComponent({
     ActorList
   },
   setup(props, context) {
-    const route = useRoute()
+    const route = useRoute();
     const actorDetail = reactive<{ detail: IActor | null }>({
       detail: null
-    })
-    actorDetail.detail = JSON.parse(decodeURIComponent(window.atob(`${route.query.detail}` ?? "")))
-    console.log(actorDetail.detail)
+    });
+    actorDetail.detail = JSON.parse(decodeURIComponent(window.atob(`${route.query.detail}` ?? "")));
+    console.log(actorDetail.detail);
     return {
       actorDetail
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

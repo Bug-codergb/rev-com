@@ -110,15 +110,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, reactive } from "vue"
-import PageItemList from "@/components/content/pageItemList/PageItemList.vue"
-import AddWriter from "@/views/book/childCpn/writer/childCpn/addWriter/AddWriter.vue"
-import { createWriter, getAllWriter } from "@/network/book/writer"
-import { ElMessage } from "element-plus/lib/components"
-import { IResponseType } from "@/types/responseType"
-import { IPageResult } from "@/types/pageResult"
-import { IWriter } from "@/types/book/writer"
-import { debounce } from "@/utils/debounce"
+import { defineComponent, ref, onMounted, reactive } from "vue";
+import PageItemList from "@/components/content/pageItemList/PageItemList.vue";
+import AddWriter from "@/views/book/childCpn/writer/childCpn/addWriter/AddWriter.vue";
+import { createWriter, getAllWriter } from "@/network/book/writer";
+import { ElMessage } from "element-plus/lib/components";
+import { IResponseType } from "@/types/responseType";
+import { IPageResult } from "@/types/pageResult";
+import { IWriter } from "@/types/book/writer";
+import { debounce } from "@/utils/debounce";
 export default defineComponent({
   name: "Writer",
   components: {
@@ -126,34 +126,34 @@ export default defineComponent({
     AddWriter
   },
   setup() {
-    const keyword = ref("")
-    const total = ref(0)
+    const keyword = ref("");
+    const total = ref(0);
     const writerList = reactive<{ list: IWriter[] | null }>({
       list: null
-    })
-    const addWriter = ref<InstanceType<typeof AddWriter>>()
-    const drawer = ref(false)
-    const direction = ref("rtl")
-    const keywordList = [{ id: 1, keyword: "请输入人", placeholder: "请输入作家名称" }]
+    });
+    const addWriter = ref<InstanceType<typeof AddWriter>>();
+    const drawer = ref(false);
+    const direction = ref("rtl");
+    const keywordList = [{ id: 1, keyword: "请输入人", placeholder: "请输入作家名称" }];
     const getAllWriterRequest = async (page: number, limit: number, keyword: string) => {
-      const data = await getAllWriter<IResponseType<IPageResult<IWriter[]>>>(page, limit, keyword)
+      const data = await getAllWriter<IResponseType<IPageResult<IWriter[]>>>(page, limit, keyword);
       if (data.status === 200) {
-        total.value = data.data.total
-        writerList.list = data.data.data
+        total.value = data.data.total;
+        writerList.list = data.data.data;
       }
-    }
+    };
     onMounted(async () => {
-      await getAllWriterRequest(1, 10, keyword.value)
-    })
-    const editWriter = () => {}
-    const deleteWriterHandle = () => {}
+      await getAllWriterRequest(1, 10, keyword.value);
+    });
+    const editWriter = () => {};
+    const deleteWriterHandle = () => {};
     const define = () => {
       if (addWriter.value && addWriter.value.ruleFormRef && addWriter.value.writer) {
         addWriter.value.ruleFormRef.validate(async (e: boolean) => {
           if (e) {
             if (addWriter.value) {
               const { alias, area, birth, birthPlace, description, foreignName, gender, name } =
-                addWriter.value.writer
+                addWriter.value.writer;
               const data = await createWriter(
                 name,
                 gender,
@@ -163,34 +163,34 @@ export default defineComponent({
                 foreignName,
                 alias,
                 description
-              )
+              );
               if (data.status === 200) {
                 ElMessage({
                   type: "success",
                   message: "作家添加成功"
-                })
-                drawer.value = false
-                getAllWriterRequest(1, 10, keyword.value)
+                });
+                drawer.value = false;
+                getAllWriterRequest(1, 10, keyword.value);
               }
             }
           }
-        })
+        });
       }
-    }
+    };
     const showDrawer = () => {
-      drawer.value = true
-    }
+      drawer.value = true;
+    };
     const pageChange = async (e: number) => {
-      await getAllWriterRequest(e, 10, keyword.value)
-    }
+      await getAllWriterRequest(e, 10, keyword.value);
+    };
     const keywordChange = debounce(
       (keywords: string[]) => {
-        keyword.value = keywords[0]
-        getAllWriterRequest(1, 10, keyword.value)
+        keyword.value = keywords[0];
+        getAllWriterRequest(1, 10, keyword.value);
       },
       1000,
       false
-    )
+    );
     return {
       keywordList,
       drawer,
@@ -204,9 +204,9 @@ export default defineComponent({
       deleteWriterHandle,
       pageChange,
       keywordChange
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

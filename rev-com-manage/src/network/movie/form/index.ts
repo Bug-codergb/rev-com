@@ -1,5 +1,5 @@
-import gbRequest from "@/network"
-import { IResponseType } from "@/types/responseType"
+import gbRequest from "@/network";
+import { IResponseType } from "@/types/responseType";
 enum MovieForm {
   allForm = "/movie/form/all"
 }
@@ -7,5 +7,5 @@ enum MovieForm {
 export function getAllForm<T = IResponseType<any>>(): Promise<T> {
   return gbRequest.get<T>({
     url: MovieForm.allForm
-  })
+  });
 }

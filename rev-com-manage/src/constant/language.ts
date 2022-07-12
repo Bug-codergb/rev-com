@@ -130,5 +130,5 @@ const language = [
   "约鲁巴语",
   "越南语",
   "宗加语"
-]
-export default language
+];
+export default language;

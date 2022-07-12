@@ -115,12 +115,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref, toRefs } from "vue"
-import { FormInstance, FormRules } from "element-plus"
-import { IOccupation } from "@/types/occupation"
-import { getAllOccupation } from "@/network/occupation"
-import { IResponseType } from "@/types/responseType"
-import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue"
+import { defineComponent, onMounted, reactive, ref, toRefs } from "vue";
+import { FormInstance, FormRules } from "element-plus";
+import { IOccupation } from "@/types/occupation";
+import { getAllOccupation } from "@/network/occupation";
+import { IResponseType } from "@/types/responseType";
+import ImgPrev from "@/components/common/imgPrev/ImgPrev.vue";
 
 export default defineComponent({
   name: "AddScreenwriter",
@@ -133,7 +133,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    const ruleFormRef = ref<FormInstance>()
+    const ruleFormRef = ref<FormInstance>();
     const screenwriter = reactive({
       name: "",
       alias: "",
@@ -143,36 +143,36 @@ export default defineComponent({
       description: "",
       family: "",
       occupations: []
-    })
-    const isUpdate = ref<boolean>(false)
-    const prevURL = ref("")
+    });
+    const isUpdate = ref<boolean>(false);
+    const prevURL = ref("");
     const avatar = reactive<{ source: FormData | null }>({
       source: null
-    })
+    });
     const occupation = reactive<{ list: IOccupation[] }>({
       list: []
-    })
+    });
     if (props.screenItem) {
       if (
         props.screenItem.item &&
         Object.keys(props.screenItem.item).length !== 0 &&
         props.screenItem.item.id !== ""
       ) {
-        let screenwriterTmp = toRefs(props.screenItem.item)
+        let screenwriterTmp = toRefs(props.screenItem.item);
         if (screenwriterTmp.avatarUrl.value) {
-          prevURL.value = screenwriterTmp.avatarUrl.value
+          prevURL.value = screenwriterTmp.avatarUrl.value;
         }
-        screenwriter.name = screenwriterTmp.name.value
-        screenwriter.alias = screenwriterTmp.alias.value
-        screenwriter.birth = screenwriterTmp.birth.value
-        screenwriter.birthPlace = screenwriterTmp.birthPlace.value
-        screenwriter.description = screenwriterTmp.description.value
+        screenwriter.name = screenwriterTmp.name.value;
+        screenwriter.alias = screenwriterTmp.alias.value;
+        screenwriter.birth = screenwriterTmp.birth.value;
+        screenwriter.birthPlace = screenwriterTmp.birthPlace.value;
+        screenwriter.description = screenwriterTmp.description.value;
         screenwriter.occupations = screenwriterTmp.occupations.value.map(
           (item: IOccupation) => item.id
-        )
-        screenwriter.family = screenwriterTmp.family.value
+        );
+        screenwriter.family = screenwriterTmp.family.value;
 
-        isUpdate.value = true
+        isUpdate.value = true;
       }
     }
     const rules = reactive<FormRules>({
@@ -232,22 +232,22 @@ export default defineComponent({
           trigger: "change"
         }
       ]
-    })
+    });
 
     onMounted(async () => {
-      const data = await getAllOccupation<IResponseType<IOccupation[]>>()
+      const data = await getAllOccupation<IResponseType<IOccupation[]>>();
       if (data.status === 200) {
-        occupation.list = data.data
+        occupation.list = data.data;
       }
-    })
+    });
     const cancel = () => {
-      avatar.source = null
-    }
+      avatar.source = null;
+    };
     const fileChange = (file: File) => {
-      let formData = new FormData()
-      formData.append("avatar", file)
-      avatar.source = formData
-    }
+      let formData = new FormData();
+      formData.append("avatar", file);
+      avatar.source = formData;
+    };
     return {
       screenwriter,
       rules,
@@ -258,9 +258,9 @@ export default defineComponent({
       avatar,
       isUpdate,
       prevURL
-    }
+    };
   }
-})
+});
 </script>
 
 <style scoped lang="less">

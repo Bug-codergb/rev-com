@@ -17,23 +17,23 @@
 </template>
 
 <script lang="ts">
-import NavList from "@/components/content/navList/NavList.vue"
-import NavHeader from "@/components/content/navHeader/NavHeader.vue"
-import { ref } from "vue"
+import NavList from "@/components/content/navList/NavList.vue";
+import NavHeader from "@/components/content/navHeader/NavHeader.vue";
+import { ref } from "vue";
 export default {
   name: "Home",
   components: { NavHeader, NavList },
   setup() {
-    const isCollapse = ref(false)
+    const isCollapse = ref(false);
     const changeFold = (isFold: boolean) => {
-      isCollapse.value = isFold
-    }
+      isCollapse.value = isFold;
+    };
     return {
       isCollapse,
       changeFold
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped lang="less">
