@@ -1,7 +1,10 @@
 import gbRequest from "@/network";
 import { IResponseType } from "@/types/responseType";
 enum BookApi {
-  allBook = "/book/all"
+  allBook = "/book/all",
+  createBook = "/book",
+  deleteBook = "/book/delete/",
+  uploadCover = "/book/cover/upload/"
 }
 //获取所有书籍
 export function getAllBook<T = IResponseType<any>>(page: number, limit: number): Promise<T> {
@@ -11,5 +14,41 @@ export function getAllBook<T = IResponseType<any>>(page: number, limit: number):
       page,
       limit
     }
+  });
+}
+//创建书籍
+export function createBook<T = IResponseType<any>>(
+  name: string,
+  writerId: string,
+  publishTime: string,
+  publishId: string,
+  description: string,
+  price: string,
+  pageCount: string
+): Promise<T> {
+  return gbRequest.post<T>({
+    url: BookApi.createBook,
+    data: {
+      name,
+      writerId,
+      publishTime,
+      publishId,
+      description,
+      price,
+      pageCount
+    }
+  });
+}
+//删除书记信息
+export function deleteBook<T = IResponseType<any>>(id: string): Promise<T> {
+  return gbRequest.post<T>({
+    url: BookApi.deleteBook + id
+  });
+}
+//上传书籍封面
+export function uploadCover<T = IResponseType<any>>(id: string, formData: FormData): Promise<T> {
+  return gbRequest.post<T>({
+    url: BookApi.uploadCover + id,
+    data: formData
   });
 }

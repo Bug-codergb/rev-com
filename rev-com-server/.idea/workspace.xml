@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dff19381-3823-456f-9cff-3b5b03d975f8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../rev-com-manage/src/network/book/book/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-manage/src/network/book/book/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-manage/src/views/book/childCpn/book/Book.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-manage/src/views/book/childCpn/book/Book.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rev-com-manage/src/views/book/childCpn/book/childCpn/addBook/AddBook.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-manage/src/views/book/childCpn/book/childCpn/addBook/AddBook.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +129,9 @@
       <workItem from="1657332578545" duration="4239000" />
       <workItem from="1657414937180" duration="4729000" />
       <workItem from="1657505229142" duration="1871000" />
-      <workItem from="1657586013765" duration="7972000" />
+      <workItem from="1657586013765" duration="8585000" />
+      <workItem from="1658046692991" duration="1361000" />
+      <workItem from="1658052762924" duration="1220000" />
     </task>
     <servers />
   </component>
@@ -144,5 +149,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/rev_com_server$MainApplication.ic" NAME="MainApplication Coverage Results" MODIFIED="1658046724742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.codergb.*</FILTER>
+    </SUITE>
   </component>
 </project>

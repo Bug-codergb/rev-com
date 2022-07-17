@@ -42,15 +42,38 @@
             </template>
           </el-table-column>
           <el-table-column label="操作">
-            <template #default>
-              <el-button type="text" size="small" class="table-control-btn">编辑</el-button>
+            <template #default="scope">
+              <el-button
+                type="text"
+                size="small"
+                class="table-control-btn"
+                @click="editBookHandle(scope.row)"
+                >编辑</el-button
+              >
               <el-button type="text" size="small" class="table-control-btn">查看</el-button>
-              <el-button type="text" size="small" class="table-control-btn">删除</el-button>
+              <el-button
+                type="text"
+                size="small"
+                class="table-control-btn"
+                @click="deleteBookHandle(scope.row)"
+                >删除</el-button
+              >
             </template>
           </el-table-column>
         </el-table>
       </template>
     </div>
+    <template v-if="total > 10">
+      <div class="page">
+        <el-pagination
+          background
+          @current-change="pageChange"
+          layout="prev,pager,next"
+          :total="total"
+          :page-size="pageCount"
+        />
+      </div>
+    </template>
     <g-b-drawer title="添加书籍" v-model="drawer">
       <template #add>
         <add-book
@@ -58,6 +81,7 @@
           @refresh="refresh"
           :writer="writer"
           :publish="publish"
+          :bookItem="bookItem"
         />
       </template>
     </g-b-drawer>
@@ -66,7 +90,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, reactive, ref } from "vue";
-import { getAllBook } from "@/network/book/book";
+import { deleteBook, getAllBook } from "@/network/book/book";
 import { IPageResult } from "@/types/pageResult";
 import { IResponseType } from "@/types/responseType";
 import { IBook } from "@/types/book/book";
@@ -77,6 +101,7 @@ import { getAllWriter } from "@/network/book/writer";
 import { IWriter } from "@/types/book/writer";
 import { getAllPublish } from "@/network/book/publish";
 import { IPublish } from "@/types/book/publish";
+import { useDeleteHook } from "@/hook/deleteHook";
 export default defineComponent({
   name: "Book",
   components: { AddBook, GBDrawer, PageItemList },
@@ -91,13 +116,20 @@ export default defineComponent({
     const publish = reactive<{ list: { label: string; value: string }[] }>({
       list: []
     });
+    const bookItem = reactive<{ item: IBook | null }>({
+      item: null
+    });
     const total = ref(0);
-    onMounted(async () => {
-      const data = await getAllBook<IResponseType<IPageResult<IBook[]>>>(1, 10);
+    const pageCount = 10;
+    const getAllBookRequest = async (page: number, limit: number) => {
+      const data = await getAllBook<IResponseType<IPageResult<IBook[]>>>(page, limit);
       if (data.status === 200) {
         book.list = data.data.data;
         total.value = data.data.total;
       }
+    };
+    onMounted(async () => {
+      await getAllBookRequest(1, 10);
     });
     onMounted(async () => {
       //获取所有作家
@@ -128,9 +160,22 @@ export default defineComponent({
       { id: 3, keyword: "", placeholder: "请输入作家名称" }
     ];
     const keywordChange = () => {};
-    const refresh = () => {};
+    const refresh = async () => {
+      await getAllBookRequest(1, 10);
+      drawer.value = false;
+    };
     const showDrawer = () => {
       drawer.value = true;
+    };
+    const deleteBookHandle = (item: IBook) => {
+      useDeleteHook(item.id, 1, 10, "", deleteBook, getAllBookRequest);
+    };
+    const editBookHandle = (item: IBook) => {
+      bookItem.item = item;
+      drawer.value = true;
+    };
+    const pageChange = async (e: number) => {
+      await getAllBookRequest(e, 10);
     };
     return {
       book,
@@ -141,7 +186,12 @@ export default defineComponent({
       showDrawer,
       drawer,
       writer,
-      publish
+      publish,
+      deleteBookHandle,
+      editBookHandle,
+      pageCount,
+      pageChange,
+      bookItem
     };
   }
 });

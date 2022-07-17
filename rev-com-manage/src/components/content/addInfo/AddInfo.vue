@@ -79,6 +79,10 @@ export default defineComponent({
     prevURL: {
       type: String,
       default: ""
+    },
+    fileName: {
+      type: String,
+      default: "avatar"
     }
   },
   emits: ["update:modelValue"],
@@ -97,7 +101,7 @@ export default defineComponent({
     );
     const fileChange = (file: File) => {
       let formData = new FormData();
-      formData.append("avatar", file);
+      formData.append(props.fileName, file);
       avatar.source = formData;
     };
     const cancel = () => {

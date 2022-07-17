@@ -1,15 +1,26 @@
 <template>
   <div class="add-book">
-    <add-info :form-shape="formShape" v-model="formData.book" :rules="rules" ref="addBookRef" />
+    <add-info
+      :form-shape="formShape"
+      v-model="formData.book"
+      :rules="rules"
+      ref="addBookRef"
+      file-name="cover"
+      :prev-u-r-l="prevURL"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue";
+import { defineComponent, reactive, ref, toRefs } from "vue";
 import AddInfo from "@/components/content/addInfo/AddInfo.vue";
-import { FormRules } from "element-plus";
+import { ElMessage, FormRules } from "element-plus";
 import emitter from "@/utils/evenBus";
 import { debounce } from "@/utils/debounce";
+import { createBook, uploadCover } from "@/network/book/book";
+import { useUpload } from "@/hook/uploadHook";
+import { IBook } from "@/types/book/book";
+import { useUpdate } from "@/hook/updateHok";
 export default defineComponent({
   name: "AddBook",
   components: { AddInfo },
@@ -21,21 +32,27 @@ export default defineComponent({
     publish: {
       type: Object,
       required: true
+    },
+    bookItem: {
+      type: Object
     }
   },
+  emits: ["refresh"],
   setup(props, context) {
+    const isUpdate = ref<boolean>(false);
     const formData = reactive({
       book: {
         name: "",
-        writerId: "",
+        writer: "",
         publishTime: "",
-        publishId: "",
+        publish: "",
         description: "",
         price: "",
         pageCount: ""
       }
     });
     const addBookRef = ref<InstanceType<typeof AddInfo>>();
+    const prevURL = ref("");
     const formShape = {
       row: [
         [
@@ -48,7 +65,7 @@ export default defineComponent({
             type: "text"
           },
           {
-            field: "writerId",
+            field: "writer",
             name: "作家名称",
             shape: "select",
             placeholder: "请选择作家名称",
@@ -74,7 +91,7 @@ export default defineComponent({
         ],
         [
           {
-            field: "publishId",
+            field: "publish",
             name: "出版社",
             shape: "select",
             placeholder: "请选择出版社",
@@ -116,7 +133,7 @@ export default defineComponent({
           trigger: "blur"
         }
       ],
-      writerId: [
+      writer: [
         {
           required: true,
           message: "请选择作家",
@@ -130,7 +147,7 @@ export default defineComponent({
           trigger: "change"
         }
       ],
-      publishId: [
+      publish: [
         {
           required: true,
           message: "请选择出版社",
@@ -159,14 +176,57 @@ export default defineComponent({
         }
       ]
     });
+
+    //更新
+    console.log(props.bookItem);
+    if (props.bookItem && props.bookItem.item && props.bookItem.item.id) {
+      const newBook = toRefs(props.bookItem.item);
+      if (newBook.coverUrl.value) {
+        prevURL.value = newBook.coverUrl.value;
+      }
+      console.log(newBook);
+      formData.book.name = newBook.name.value;
+      formData.book.writer = newBook.writer.value.id;
+      formData.book.publishTime = newBook.publishTime.value;
+      formData.book.publish = newBook.publish.value.id;
+      formData.book.description = newBook.description.value;
+      formData.book.price = newBook.price.value;
+      formData.book.pageCount = newBook.pageCount.value;
+    }
+
     emitter.on(
       "drawerDefine",
       debounce(
         () => {
           if (addBookRef.value && addBookRef.value.ruleFormRef) {
-            addBookRef.value.ruleFormRef.validate((e: boolean) => {
+            addBookRef.value.ruleFormRef.validate(async (e: boolean) => {
               if (e) {
-                console.log(formData.book);
+                const { name, writer, publishTime, publish, description, price, pageCount } =
+                  formData.book;
+                if (!isUpdate.value) {
+                  //上传书籍
+                  const data = await createBook(
+                    name,
+                    writer,
+                    publishTime,
+                    publish,
+                    description,
+                    price,
+                    pageCount
+                  );
+                  if (data.status === 200) {
+                    ElMessage({
+                      type: "success",
+                      message: "书籍添加成功"
+                    });
+                    //上传头象
+                    const { id } = data.data;
+                    await useUpload(id, addBookRef, uploadCover);
+                    context.emit("refresh");
+                  }
+                } else {
+                  //更新书籍信息
+                }
               }
             });
           }
@@ -179,7 +239,8 @@ export default defineComponent({
       formShape,
       formData,
       rules,
-      addBookRef
+      addBookRef,
+      prevURL
     };
   }
 });
