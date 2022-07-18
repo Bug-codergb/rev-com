@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dff19381-3823-456f-9cff-3b5b03d975f8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../rev-com-manage/src/network/book/book/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-manage/src/network/book/book/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rev-com-manage/src/views/book/childCpn/book/Book.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-manage/src/views/book/childCpn/book/Book.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rev-com-manage/src/views/book/childCpn/book/childCpn/addBook/AddBook.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../rev-com-manage/src/views/book/childCpn/book/childCpn/addBook/AddBook.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/controller/movie/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/controller/movie/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/movie/MovieMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/movie/MovieMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/service/movie/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/service/movie/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/movie/MovieMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/movie/MovieMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/controller/movie/MovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/controller/movie/MovieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/service/movie/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/service/movie/MovieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/book/cover/1657334131614.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/book/cover/1658057632016.gif" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,13 +73,15 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -131,7 +138,8 @@
       <workItem from="1657505229142" duration="1871000" />
       <workItem from="1657586013765" duration="8585000" />
       <workItem from="1658046692991" duration="1361000" />
-      <workItem from="1658052762924" duration="1220000" />
+      <workItem from="1658052762924" duration="1949000" />
+      <workItem from="1658142667113" duration="4944000" />
     </task>
     <servers />
   </component>

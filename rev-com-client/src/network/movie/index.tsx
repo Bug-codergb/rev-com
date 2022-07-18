@@ -5,7 +5,8 @@ enum MovieApi{
   movieDetail="/movie/detail",
   recentHot="/movie/hot/recent",
   newToplist="/movie/new/toplist",
-  movieTop="/movie/top/200"
+  movieTop="/movie/top/200",
+  weekToplist="/movie/week"
 }
 export function getAllMovie<T=IResponseType<any>>(form:string,cate:string,area:string,page:number,limit:number){
   return gbRequest.get<T>({
@@ -47,5 +48,11 @@ export function getMovieTop<T=IResponseType<any>>(page:number,limit:number){
       page,
       limit
     }
+  })
+}
+//获取一周榜单
+export function getWeekToplist<T=IResponseType<any>>():Promise<T>{
+  return gbRequest.get<T>({
+    url:MovieApi.weekToplist
   })
 }

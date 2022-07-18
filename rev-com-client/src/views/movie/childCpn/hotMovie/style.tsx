@@ -12,5 +12,6 @@ export const LeftContent=styled.div`
   }
 `
 export const RightContent=styled.div`
-  width: 29px;
+  width: 29%;
+  padding: 0 0 0 20px;
 `

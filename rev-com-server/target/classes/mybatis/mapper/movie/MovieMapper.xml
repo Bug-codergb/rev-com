@@ -229,4 +229,14 @@
     group by m.id
     order by m.score*1 desc
   </select>
+  <!--获取一周口碑榜-->
+  <select id="getWeekToplist" resultMap="movieResultMap">
+    select *,AVG(com.score) as avgScore
+    from movie as m
+    LEFT JOIN `comment` as com on com.movieId=m.id
+    where com.createTime  &lt;=CURRENT_TIMESTAMP() and com.createTime &gt;= date_sub(CURRENT_TIMESTAMP(), INTERVAL 7 day)
+    GROUP BY m.id
+    ORDER BY avgScore desc
+    limit 0,10
+  </select>
 </mapper>

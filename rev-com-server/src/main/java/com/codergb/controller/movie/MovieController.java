@@ -354,4 +354,11 @@ public class MovieController {
             movies.getPages(),movies);
     return new ResponseType<PageResult<List<Movie>>>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), pageResult);
   }
+  //获取一周口碑榜单
+  @LoginAuth
+  @GetMapping("/week")
+  public ResponseType<Object> getWeekToplist(){
+    List<Movie> movies=movieService.getWeekToplist();
+    return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), movies);
+  }
 }

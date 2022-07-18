@@ -68,4 +68,6 @@ public interface MovieMapper {
   public List<Movie> getNewToplist();
   //获取电影top200
   public List<Movie> getTopMovie();
+  //获取一周口碑榜单
+  public List<Movie> getWeekToplist();
 }

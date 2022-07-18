@@ -8,6 +8,7 @@ import {
 import HotTV from "./childCpn/hotTv";
 import  HotRecentMovie from "./childCpn/hotMovie";
 import HotReview from "./childCpn/hotReview";
+import WeekToplist from "./childCpn/weekToplist";
 const HotMovie:FC=():ReactElement=>{
   return (
     <HotMovieWrapper className="center-auto">
@@ -19,7 +20,7 @@ const HotMovie:FC=():ReactElement=>{
         <HotReview/>
       </LeftContent>
       <RightContent>
-
+        <WeekToplist/>
       </RightContent>
     </HotMovieWrapper>
   )

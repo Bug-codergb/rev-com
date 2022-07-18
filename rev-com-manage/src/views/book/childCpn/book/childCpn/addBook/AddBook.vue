@@ -17,7 +17,7 @@ import AddInfo from "@/components/content/addInfo/AddInfo.vue";
 import { ElMessage, FormRules } from "element-plus";
 import emitter from "@/utils/evenBus";
 import { debounce } from "@/utils/debounce";
-import { createBook, uploadCover } from "@/network/book/book";
+import { createBook, updateBook, updateCover, uploadCover } from "@/network/book/book";
 import { useUpload } from "@/hook/uploadHook";
 import { IBook } from "@/types/book/book";
 import { useUpdate } from "@/hook/updateHok";
@@ -178,13 +178,11 @@ export default defineComponent({
     });
 
     //更新
-    console.log(props.bookItem);
     if (props.bookItem && props.bookItem.item && props.bookItem.item.id) {
       const newBook = toRefs(props.bookItem.item);
       if (newBook.coverUrl.value) {
         prevURL.value = newBook.coverUrl.value;
       }
-      console.log(newBook);
       formData.book.name = newBook.name.value;
       formData.book.writer = newBook.writer.value.id;
       formData.book.publishTime = newBook.publishTime.value;
@@ -192,8 +190,8 @@ export default defineComponent({
       formData.book.description = newBook.description.value;
       formData.book.price = newBook.price.value;
       formData.book.pageCount = newBook.pageCount.value;
+      isUpdate.value = true;
     }
-
     emitter.on(
       "drawerDefine",
       debounce(
@@ -226,6 +224,27 @@ export default defineComponent({
                   }
                 } else {
                   //更新书籍信息
+                  if (props.bookItem && props.bookItem.item) {
+                    const data = await updateBook(
+                      props.bookItem.item.id,
+                      name,
+                      writer,
+                      publishTime,
+                      publish,
+                      description,
+                      price,
+                      pageCount
+                    );
+                    if (data.status === 200) {
+                      ElMessage.success({
+                        message: "书籍更新成功"
+                      });
+                      if (addBookRef.value && props.bookItem.item && props.bookItem.item.id) {
+                        useUpload(props.bookItem.item.id, addBookRef, updateCover);
+                      }
+                      context.emit("refresh");
+                    }
+                  }
                 }
               }
             });

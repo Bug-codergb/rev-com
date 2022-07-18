@@ -132,4 +132,8 @@ public class MovieService {
     movieMapper.getTopMovie();
     return p;
   }
+  //获取一周口碑榜
+  public List<Movie> getWeekToplist(){
+    return movieMapper.getWeekToplist();
+  }
 }
