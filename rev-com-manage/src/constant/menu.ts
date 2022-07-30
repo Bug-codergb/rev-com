@@ -28,6 +28,11 @@ const menu = [
         index: "1005",
         name: "小组信息",
         path: "/Home/Movie/group"
+      },
+      {
+        index: "1006",
+        name: "电影数据",
+        path: "/Home/Movie/data"
       }
     ]
   },

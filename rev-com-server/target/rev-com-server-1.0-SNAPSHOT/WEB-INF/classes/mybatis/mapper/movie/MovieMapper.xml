@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.movie.MovieMapper">
+  <insert id="createForm">
+    insert into movie_form (id,name) values(#{id},#{name})
+  </insert>
+  <insert id="createArea">
+    insert into movie_area(id,name) values (#{id},#{name})
+  </insert>
+  <insert id="createCate">
+    insert into movie_cate(id,name) values(#{id},#{name})
+  </insert>
+  <insert id="createTag">
+    insert into movie_tag(id,name) values(#{id},#{name})
+  </insert>
+  <insert id="createMovie">
+    insert into movie(id,name,form,language ,description,releaseTime,duration,alias)
+    values (#{id},#{name},#{formItem},#{language},#{description},#{releaseTime},#{duration},#{alias})
+  </insert>
+  <insert id="setDirectorForMovie">
+    insert into movie_director(mId,dId) values(#{mId},#{dId})
+  </insert>
+  <insert id="setAreaForMovie">
+    insert into movie_area_relate(mId,aId) values (#{mId},#{aId})
+  </insert>
+  <insert id="setScreenwriterForMovie">
+    insert into movie_screenwriter_relate(mId,sId) values(#{mId},#{sId})
+  </insert>
+  <insert id="setActorForMovie">
+    insert into movie_actor(mId,aId) values (#{mId},#{aId})
+  </insert>
+  <insert id="setCateForMovie">
+    insert into movie_cate_relate(mId,cId) values (#{mId},#{cId})
+  </insert>
+
+  <!--获取电影的导演 演员 地区-->
+  <select id="getDirectorByMid" resultType="Director">
+    select * from movie_director as md
+             left join director as d on md.dId=d.id
+    where md.mId=#{mId}
+  </select>
+  <select id="getScreenwriterByMid" resultType="Screenwriter">
+    select * from movie_screenwriter_relate as ms
+             left join screenwriter as s on ms.sId=s.id
+    where ms.mId=#{mId}
+  </select>
+  <select id="getAreaByMid" resultType="Area">
+    select * from movie_area_relate as mar
+             left join movie_area as ma on mar.aId =ma.id
+    where mar.mId=#{mId}
+  </select>
+  <select id="getActorByMid" resultType="Actor">
+    select * from movie_actor as mc
+             left join actor as a on mc.aId=a.id
+    where mc.mId=#{mId}
+  </select>
+  <select id="getCateByMid" resultType="Category">
+    select * from movie_cate_relate as mcr
+             left join movie_cate as mc on mcr.cId=mc.id
+    <where>
+      <if test="mId!='' and mId!=null">
+        mcr.mId=#{mId}
+      </if>
+    </where>
+  </select>
+  <select id="getFormByMid" resultType="Form">
+    select * from movie_form where id=#{id}
+  </select>
+  <resultMap id="movieResultMap" type="Movie">
+    <id property="id" column="id"></id>
+    <result property="name" column="name"></result>
+    <result property="coverUrl" column="coverUrl"></result>
+    <result property="language" column="language"></result>
+    <result property="releaseTime" column="releaseTime"></result>
+    <result property="score" column="score"></result>
+    <result property="duration" column="duration"></result>
+    <result property="alias" column="alias"></result>
+    <result property="description" column="description"></result>
+    <association property="form"
+                 javaType="Form"
+                 select="com.codergb.mapper.movie.MovieMapper.getFormByMid"
+                 column="form"></association>
+    <collection property="directors"
+                ofType="Director"
+                select="com.codergb.mapper.movie.MovieMapper.getDirectorByMid"
+                column="id"></collection>
+    <collection property="screenwriters"
+                ofType="Screenwriter"
+                select="com.codergb.mapper.movie.MovieMapper.getScreenwriterByMid"
+                column="id"></collection>
+    <collection property="area"
+                ofType="Area"
+                select="com.codergb.mapper.movie.MovieMapper.getAreaByMid"
+                column="id"></collection>
+    <collection property="actors"
+                ofType="Actor"
+                select="com.codergb.mapper.movie.MovieMapper.getActorByMid"
+                column="id"></collection>
+    <collection property="categories"
+                ofType="Category"
+                select="com.codergb.mapper.movie.MovieMapper.getCateByMid"
+                column="{mId=id}"></collection>
+  </resultMap>
+  <select id="getAllMovie" resultMap="movieResultMap">
+    select DISTINCT(m.id),m.name,m.coverUrl,m.alias,m.language,m.releaseTime,m.duration,form,m.score,
+    m.description,m.originalname,m.mimetype,m.filename ,m.dest,m.size
+    from movie as m
+    left join movie_actor as ma on ma.mId=m.id left join actor on actor.id=ma.aId
+    LEFT JOIN movie_director as md on md.mId=m.id left join director on director.id=md.did
+    LEFT JOIN movie_area_relate as mar on mar.mId=m.id
+    LEFT JOIN movie_cate_relate as mcr on mcr.mId=m.id
+    LEFT JOIN movie_screenwriter_relate as mccr on mccr.mId=m.id
+    <where>
+      <if test="cateId!='' and cateId !=null">
+        and mcr.cId=#{cateId}
+      </if>
+      <if test="areaId!='' and areaId!=null">
+        and mar.aId=#{areaId}
+      </if>
+      <if test="form!='' and form !=null">
+        and form=#{form}
+      </if>
+      <if test="keyword!='' and keyword!=null">
+        and (m.name like "%"#{keyword}"%" or actor.name like "%"#{keyword}"%" or director.name like "%"#{keyword}"%")
+      </if>
+    </where>
+  </select>
+  <!--获取所有地区-->
+  <select id="getAllArea" resultType="Area">
+    select * from movie_area
+  </select>
+  <!--获取所有类型-->
+  <select id="getAllCate" resultType="Category">
+    select * from movie_cate
+  </select>
+  <!--获取所有形式-->
+  <select id="getAllForm" resultType="Form">
+    select * from movie_form
+  </select>
+  <!--删除电影导演-->
+  <delete id="deleteMovieDirector">
+    delete from movie_director where mId=#{mId}
+  </delete>
+  <!--删除电影编剧-->
+  <delete id="deleteMovieScreen">
+    delete  from movie_screenwriter_relate where mId=#{mId}
+  </delete>
+  <delete id="deleteMovieArea">
+    delete from movie_area_relate where mId=#{mId}
+  </delete>
+  <delete id="deleteMovieActor">
+    delete from movie_actor where mId=#{mId}
+  </delete>
+  <delete id="deleteMovieCate">
+    delete from movie_cate_relate where mId=#{mId}
+  </delete>
+  <!--更新电影信息-->
+  <update id="updateMovie">
+    update movie set name=#{name},language=#{language},releaseTime=#{releaseTime},duration=#{duration},form=#{formItem},
+                     alias=#{alias},description=#{description}
+    where id=#{id}
+  </update>
+  <!--上传电影封面-->
+  <update id="uploadCover">
+    update movie set coverUrl=#{coverUrl},originalname=#{originalname},mimetype=#{mimetype},
+                     filename=#{filename},dest=#{dest},size=#{size}
+   where id=#{id}
+  </update>
+  <select id="getMovieById" resultType="Movie">
+    select * from movie where id=#{id}
+  </select>
+  <delete id="deleteMovie">
+    delete from movie where id=#{id}
+  </delete>
+  <select id="getMovieByDid" resultMap="movieResultMap">
+    select *
+    from movie_director as md
+           LEFT JOIN movie as m on m.id=md.mId
+    where md.did=#{dId}
+  </select>
+  <select id="getMovieByAid" resultMap="movieResultMap">
+    select *
+    from movie_actor as ma
+    left join movie as m on m.id=ma.mId
+    where ma.aId=#{aId}
+  </select>
+  <!--获取电影详情-->
+  <select id="getMovieDetail" resultMap="movieResultMap">
+    select *
+    from movie
+    where id=#{id}
+  </select>
+  <!--更新电影评分-->
+  <update id="updateMovieRate">
+    update movie set score=#{rate} where id=#{id}
+  </update>
+  <!--获取电影，电视剧根据近期时间-->
+  <select id="getMovieByTimeCate" resultMap="movieResultMap">
+    select *,COUNT(com.movieId) as count
+    from movie as m
+    INNER join movie_area_relate as mar on mar.mId=m.id
+    INNER join movie_area as ma on ma.id=mar.aId
+    LEFT JOIN `comment` AS com on com.movieId=m.id
+    where ma.id=#{areaId} and m.form =#{form} AND
+    com.createTime &lt;=CURRENT_TIMESTAMP() and com.createTime&gt;= date_sub(CURRENT_TIMESTAMP(), INTERVAL 90 day)
+    GROUP BY m.id
+    ORDER BY count desc,m.score*1 desc
+    limit 0,50
+  </select>
+  <!--获取新片排行榜-->
+  <select id="getNewToplist" resultMap="movieResultMap" >
+    select *,count(com.movieId) as comment
+    from movie as m
+    LEFT JOIN movie_form as mf on mf.id=m.form
+    LEFT JOIN `comment` as com on com.movieId=m.id
+    where m.releaseTime &lt;=CURRENT_TIMESTAMP() and m.releaseTime&gt;= date_sub(CURRENT_TIMESTAMP(), INTERVAL 120 day)
+    GROUP BY m.id
+    ORDER BY m.score*1 desc
+    limit 0,10
+  </select>
+  <!--获取电影top200-->
+  <select id="getTopMovie" resultMap="movieResultMap">
+    select m.id,m.name,coverUrl,form,language,description,releaseTime,duration,alias,originalname,
+           mimetype,filename,dest,size,m.score,count(com.movieId) as comment
+    from movie as m
+    LEFT JOIN `comment` as com on com.movieId=m.id
+    group by m.id
+    order by m.score*1 desc
+  </select>
+  <!--获取一周口碑榜-->
+  <select id="getWeekToplist" resultMap="movieResultMap">
+    select *,AVG(com.score) as avgScore
+    from movie as m
+    LEFT JOIN `comment` as com on com.movieId=m.id
+    where com.createTime  &lt;=CURRENT_TIMESTAMP() and com.createTime &gt;= date_sub(CURRENT_TIMESTAMP(), INTERVAL 7 day)
+    GROUP BY m.id
+    ORDER BY avgScore desc
+    limit 0,10
+  </select>
+</mapper>

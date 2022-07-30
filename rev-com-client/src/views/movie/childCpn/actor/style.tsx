@@ -10,8 +10,8 @@ export const LeftContent=styled.div`
     justify-content: space-between ;
     flex-wrap: wrap;
     &>li{
-      width: 150px;
-      margin: 0 0 20px 0;
+      width: 120px;
+      margin: 0 10px 20px 0;
     }
   }
   .page{

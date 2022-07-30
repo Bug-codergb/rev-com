@@ -7,6 +7,7 @@ const director = () => import("../views/movie/childCpn/director/Director.vue");
 const actor = () => import("../views/movie/childCpn/actor/Actor.vue");
 const screenwriter = () => import("../views/movie/childCpn/screenwriter/Screenwriter.vue");
 const group = () => import("../views/movie/childCpn/group/Group.vue");
+const movieData = () => import("../views/movie/childCpn/movieData/MovieData.vue");
 
 const writer = () => import("../views/book/childCpn/writer/Writer.vue");
 const publish = () => import("../views/book/childCpn/publish/Publish.vue");
@@ -58,6 +59,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "Movie/group",
         name: "group",
         component: group
+      },
+      {
+        path: "Movie/data",
+        name: "movieData",
+        component: movieData
       },
       {
         path: "Book/writer",

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.user.UserMapper">
+  <insert id="register">
+    insert into user(userId,userName,password)
+    values (#{userId},#{userName},#{password})
+  </insert>
+  <select id="getUserByNamePass" resultType="User">
+    select * from user where userName=#{userName} and password=#{password}
+  </select>
+  <update id="uploadAvatar">
+    update user set originalname=#{originalname},mimetype=#{mimetype},
+                    dest=#{dest},filename=#{filename},size=#{size},avatarUrl=#{avatarUrl}
+    where userId=#{userId}
+  </update>
+
+  <select id="getUserById" resultType="User">
+    select * from user where userId=#{userId}
+  </select>
+
+  <select id="getUserByName" resultType="User">
+    select * from user where userName=#{userName}
+  </select>
+  <resultMap id="userResultMap" type="User">
+    <id property="userId" column="userId"/>
+    <result property="userName" column="userName"></result>
+    <result property="token" column="token"></result>
+    <result property="avatarUrl" column="avatarUrl"></result>
+    <result property="createTime" column="createTime"></result>
+    <result property="updateTime" column="updateTime"></result>
+    <result property="auth" column="auth"></result>
+    <result property="manage" column="manage"></result>
+    <result property="expireTime" column="expireTime"></result>
+    <result property="originalname" column="originalname"></result>
+    <result property="mimetype" column="mimetype"></result>
+    <result property="dest" column="dest"></result>
+    <result property="filename" column="filename"></result>
+    <result property="size" column="size"></result>
+    <collection property="thumbList"
+                ofType="Thumb"
+                select="com.codergb.mapper.thumb.ThumbMapper.getUserThumb"
+                column="{userId=userId}"/>
+    <collection property="subList"
+                ofType="Subscriber"
+                select="com.codergb.mapper.subscriber.SubMapper.getUserSub"
+                column="userId"/>
+  </resultMap>
+  <select id="getUserDetail" resultMap="userResultMap">
+    select *
+    from user
+    where userId=#{userId}
+  </select>
+</mapper>

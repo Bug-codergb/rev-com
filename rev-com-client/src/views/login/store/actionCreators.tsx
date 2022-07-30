@@ -46,6 +46,7 @@ export function changeUserDetailAction(userId:string){
       const data=await getUserDetail<IResponseType<IUserDetail>>(userId);
       if(data.status===200){
         dispatch(changeUserDetail(data.data));
+        localCache.deleteCache("userDetail");
         localCache.setCache("userDetail",data.data);
       }
     }catch (e) {

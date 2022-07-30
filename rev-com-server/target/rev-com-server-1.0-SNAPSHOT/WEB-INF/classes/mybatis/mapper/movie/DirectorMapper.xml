@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.movie.DirectorMapper">
+  <insert id="createDirector">
+    insert into director(id,name,alias,gender,birthPlace,description)
+    values (#{id},#{name},#{alias},#{gender},#{birthPlace},#{description})
+  </insert>
+  <resultMap id="directorResultMap" type="Director">
+    <id property="id" column="id"></id>
+    <result property="name" column="name"></result>
+    <result property="avatarUrl" column="avatarUrl"></result>
+    <result property="alias" column="alias"></result>
+    <result property="gender" column="gender"></result>
+    <result property="birthPlace" column="birthPlace"></result>
+    <result property="description" column="description"></result>
+    <result property="createTime" column="createTime"></result>
+    <result property="updateTime" column="updateTime"></result>
+    <result property="originalname" column="originalname"></result>
+    <result property="dest" column="dest"></result>
+    <result property="filename" column="filename"></result>
+    <result property="size" column="size"></result>
+    <result property="mimetype" column="mimetype"></result>
+    <collection property="occupations"
+                 ofType="Occupation"
+                 select="com.codergb.mapper.movie.OccupationMapper.getOccupationById"
+                 column="{id=id,key=dId}"
+                 ></collection>
+    <collection property="movies"
+                ofType="Movie"
+                select="com.codergb.mapper.movie.MovieMapper.getMovieByDid"
+                column="{dId=id}">
+
+    </collection>
+  </resultMap>
+  <select id="getAllDirect" resultMap="directorResultMap">
+    select * ,"dId" as dId from director
+    <where>
+      <if test="keyword!='' and keyword!=null">
+        name like "%"#{keyword}"%"
+      </if>
+    </where>
+  </select>
+  <update id="uploadAvatar">
+    update director set avatarUrl=#{avatarUrl},originalname=#{originalname},
+                        mimetype=#{mimetype},filename=#{filename},size=#{size},dest=#{dest}
+    where id=#{id}
+  </update>
+  <!--获取导演-->
+  <select id="getDirectorById" resultMap="directorResultMap">
+    select *, "dId" as dId from director
+    where id=#{id}
+  </select>
+  <update id="updateDirector">
+    update director set name=#{name},alias=#{alias},gender=#{gender},birthPlace=#{birthPlace},
+                       description=#{description}
+    where id=#{id}
+  </update>
+  <delete id="deleteDirector">
+    delete from director where id=#{id}
+  </delete>
+  <!--获取导演合作导演-->
+  <select id="getDirectorCooperate" resultMap="directorResultMap">
+    select DISTINCT(dir.id),dir.name,dir.avatarUrl,dir.alias,dir.gender,dir.birthPlace,dir.description,dir.createTime,dir.updateTime,
+                   dir.originalname,dir.mimetype,dir.dest,dir.filename,dir.size, "dId" as dId
+    from director as d
+           LEFT JOIN movie_director as md on md.dId=d.id
+           LEFT JOIN movie as m on m.id=md.mId
+           LEFT JOIN movie_director as mdir on mdir.mId=m.id
+           LEFT JOIN director as dir on dir.id=mdir.dId
+    where d.id=#{dId} and dir.id!=d.id
+  </select>
+  <!--获取演员合作导演-->
+  <select id="getActorCooperateDir" resultMap="directorResultMap">
+    SELECT DISTINCT(d.id),d.name,d.avatarUrl,d.alias,d.gender,d.birthPlace,d.description,d.createTime,
+                   d.updateTime,d.originalname,d.mimetype,d.dest,d.filename,d.size,"dId" as dId
+    from actor as a
+           LEFT JOIN movie_actor as ma on ma.aId=a.id
+           LEFT JOIN movie as m on m.id=ma.mId
+           LEFT JOIN movie_director as md on md.mId=m.id
+           LEFT JOIN director as d on d.id=md.dId
+    where a.id=#{aId}
+  </select>
+</mapper>

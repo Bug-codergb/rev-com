@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.rate.RateMapper">
+  <select id="getMovieRateById" resultType="Rate">
+    select movieId as id ,count(id) as person,((sum(score*2))/count(id)) as score,
+           (select count(com.id) from `comment` as com where com.score=1 and com.movieId=c.movieId) as one,
+           (select count(com.id) from `comment` as com where com.score=2 and com.movieId=c.movieId) as two,
+           (select count(com.id) from `comment` as com where com.score=3 and com.movieId=c.movieId) as three,
+           (select count(com.id) from `comment` as com where com.score=4 and com.movieId=c.movieId) as four,
+           (select count(com.id) from `comment` as com where com.score=5 and com.movieId=c.movieId) as five
+    from `comment` as c
+    where c.movieId= #{id}
+    GROUP BY movieId
+  </select>
+</mapper>

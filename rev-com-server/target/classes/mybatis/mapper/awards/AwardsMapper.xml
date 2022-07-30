@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.awards.AwardsMapper">
+  <insert id="createAwards">
+    insert into movie_awards(id,name,area,established,description,alias)
+    values(#{id},#{name},#{area},#{established},#{description},#{alias})
+  </insert>
+</mapper>

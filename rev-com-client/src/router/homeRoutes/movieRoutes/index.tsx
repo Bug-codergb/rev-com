@@ -9,7 +9,8 @@ import {
   allReviewRouter,
   allShortComRouter,
   topMovieRouter,
-  allHotReviewRouter
+  allHotReviewRouter,
+  actorDetailRouter
 } from "./detail/index"
 
 const HotMovie=lazy(()=>import("../../../views/movie/childCpn/hotMovie/index"));
@@ -71,6 +72,7 @@ const routes:RouteObject[]=[
   allReviewRouter,
   allShortComRouter,
   topMovieRouter,
-  allHotReviewRouter
+  allHotReviewRouter,
+  actorDetailRouter
 ]
 export default routes;

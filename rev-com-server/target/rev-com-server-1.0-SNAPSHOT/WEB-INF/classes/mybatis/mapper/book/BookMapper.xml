@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.book.BookMapper">
+  <insert id="createBook">
+    insert into book(id,name,writer,publish,publishTime,price,description,pageCount)
+                values (#{id},#{name},#{writerId},#{publishId},#{publishTime},#{price},#{description},#{pageCount})
+  </insert>
+  <update id="uploadCover">
+    update book set coverUrl=#{coverUrl},originalname=#{originalname},mimetype=#{mimetype},dest=#{dest},
+                    filename=#{filename},size=#{size}
+    where id=#{id}
+  </update>
+  <select id="getBookById" resultType="Book">
+    select * from book where id=#{id}
+  </select>
+  <delete id="deleteBook">
+    delete from book where id=#{id}
+  </delete>
+  <update id="updateBook">
+    update book set name=#{name},writer=#{writerId},publishTime=#{publishTime},
+                    publish=#{publishId},description=#{description},price=#{price},
+                    pageCount=#{pageCount}
+    where id=#{id}
+  </update>
+  <!--书籍resultMap-->
+  <resultMap id="bookResultMap" type="Book">
+    <id property="id" column="id"></id>
+    <result property="name" column="name"></result>
+    <result property="publishTime" column="publishTime"></result>
+    <result property="coverUrl" column="coverUrl"></result>
+    <result property="price" column="price"></result>
+    <result property="description" column="description"></result>
+    <result property="pageCount" column="pageCount"></result>
+    <result property="score" column="score"></result>
+    <association property="writer"
+                 javaType="Writer"
+                 select="com.codergb.mapper.book.WriterMapper.getWriterById"
+                 column="{id=writer}"/>
+    <association property="publish"
+                 javaType="Publish"
+                 select="com.codergb.mapper.book.PublishMapper.getPublishById"
+                 column="{id=publish}"/>
+  </resultMap>
+  <!--获取所有书籍-->
+  <select id="getAllBook" resultMap="bookResultMap">
+    select *
+    from book
+  </select>
+</mapper>

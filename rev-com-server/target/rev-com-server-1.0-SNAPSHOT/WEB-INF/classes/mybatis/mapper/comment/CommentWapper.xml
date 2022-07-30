@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.comment.CommentMapper">
+  <insert id="addCommentPic">
+    insert into comment_img(id,cId,picUrl,originalname,mimetype,dest,filename,size)
+    values(#{id},#{cId},#{picUrl},#{originalname},#{mimetype},#{dest},#{filename},#{size})
+  </insert>
+  <!--添加评论-->
+  <insert id="addComment">
+    insert into comment(id,content,userId,${key},isShort,title,score)
+    values(#{id},#{content},#{userId},#{relateId},#{isShort},#{title},#{score})
+  </insert>
+  <select id="getCommentPic" resultType="CommentPic">
+    select * from comment_img where id=#{id}
+  </select>
+  <!--回复reply-->
+  <resultMap id="replyResultMap" type="Comment" extends="commentResultMap">
+    <association property="reply" javaType="Comment"
+                                  select="com.codergb.mapper.comment.CommentMapper.getCommentFrom"
+                                  column="replyId"/>
+  </resultMap>
+  <select id="getCommentFrom" resultMap="commentResultMap">
+    select *
+    from comment
+    where id=#{id}
+  </select>
+  <!--评论map-->
+  <resultMap id="commentResultMap" type="Comment">
+    <id property="id" column="id"/>
+    <result property="content" column="content"/>
+    <result property="title" column="title"/>
+    <result property="score" column="score"/>
+    <result property="isShort" column="isShort"/>
+    <result property="createTime" column="createTime"/>
+    <result property="updateTime" column="updateTime"/>
+    <association property="user"
+                 javaType="User"
+                 select="com.codergb.mapper.user.UserMapper.getUserById"
+                 column="userId"></association>
+  </resultMap>
+  <!--获取所有短评-->
+  <select id="getAllShortCom" resultMap="commentResultMap">
+    select *
+    from comment
+    where replyId is null and isShort=0 and ${key}=#{relateId}
+  </select>
+  <!--获取影评回复 传入影评ID-->
+  <select id="getCommentReply" resultMap="replyResultMap">
+    SELECT * FROM `comment` WHERE FIND_IN_SET(id,getAllComment(${id})) and id!=#{id}
+  </select>
+  <!--获取所有影评-->
+  <select id="getAllComment" resultMap="commentResultMap">
+    select *
+    from comment
+    where isShort=1 and replyId is null and ${key}=#{relateId}
+  </select>
+  <!--所有评论 计算评分-->
+  <select id="getCommentList" resultType="Comment">
+    select *
+    from comment
+    where movieId=#{id} and replyId is null
+  </select>
+  <select id="getCommentDetail" resultMap="commentResultMap">
+    select *
+    from comment
+    where id=#{id} and replyId is null and isShort=1
+  </select>
+  <!--回复评论-->
+  <insert id="replyComment">
+    insert into comment (id,content,userId,replyId) values (#{id},#{content},#{userId},#{replyId})
+  </insert>
+  <!--电影评论resultMap-->
+  <resultMap id="movieCommentResultMap" type="Comment" extends="commentResultMap">
+    <association property="movie"
+                 select="com.codergb.mapper.movie.MovieMapper.getMovieDetail"
+                 javaType="movie"
+                 column="{id=movieId}"/>
+  </resultMap>
+  <!--获取热门影评-->
+  <select id="getHotReview" resultMap="movieCommentResultMap">
+    select c.id,c.title,content,c.userId,c.score,c.movieId,c.isShort,c.replyId,
+           c.createTime,c.updateTime,count(t.userId) as count
+    from comment as c
+    LEFT JOIN thumb as t on t.cId=c.id
+    where c.isShort=1
+    GROUP BY c.Id
+    ORDER BY count desc
+  </select>
+</mapper>

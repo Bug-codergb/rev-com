@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.book.PublishMapper">
+  <insert id="createPublish">
+    insert into publish (id,name ,foreignName,representative,industry,establish,online,organizer,description,type)
+    values(#{id},#{name},#{foreignName},#{representative},#{industry},#{establish},#{online},#{organizer},#{description},#{type})
+  </insert>
+  <select id="getAllPublish" resultType="Publish">
+    select *
+    from publish as p
+    <where>
+      <if test="keyword!='' and keyword!=null">
+        and (p.name like "%"#{keyword}"%" or p.foreignName like "%"#{keyword}"%")
+      </if>
+    </where>
+  </select>
+  <select id="getPublishById" resultType="Publish">
+    select *
+    from publish
+    where id=#{id}
+  </select>
+</mapper>

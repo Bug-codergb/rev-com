@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codergb.mapper.movie.FilmListMapper">
+  <insert id="createFilmList">
+    insert into movie_list(id,name,description,userId) values(#{id},#{name},#{description},#{userId})
+  </insert>
+  <!--上传电影封面-->
+  <update id="uploadCover">
+    update movie_list set coverUrl=#{coverUrl},originalname=#{originalname},mimetype=#{mimetype},
+                          dest=#{dest},filename=#{filename},size=#{size}
+    where id=#{id}
+  </update>
+  <!--获取片单-->
+  <select id="getFilmListById" resultType="filmList">
+    select *
+    from movie_list
+    where id=#{id}
+  </select>
+</mapper>

@@ -3,6 +3,7 @@ E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\bean\movie\FilmList.
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\mapper\movie\MovieMapper.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\bean\music\artist\ArtistCate.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\bean\music\artist\Artist.java
+E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\controller\book\BookCateController.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\mapper\music\artist\ArtistTypeMapper.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\mapper\movie\OccupationMapper.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\mapper\movie\DirectorMapper.java
@@ -29,13 +30,16 @@ E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\mapper\movie\FilmLis
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\bean\Comment.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\dto\movie\FilmListDTO.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\constant\UploadPath.java
+E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\bean\book\BookCateCh.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\service\rate\RateService.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\utils\Spell.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\controller\book\BookController.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\bean\movie\Tag.java
+E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\service\book\BookCateService.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\controller\book\PublishController.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\service\movie\UserService.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\mapper\thumb\ThumbMapper.java
+E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\dto\book\BookCateChDTO.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\dto\thumb\ThumbDTO.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\controller\music\artist\ArtistCateController.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\utils\EmptyJudge.java
@@ -64,6 +68,7 @@ E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\service\book\WriterS
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\annotation\LoginAuth.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\bean\book\Publish.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\dto\movie\MovieDTO.java
+E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\mapper\book\BookCateMapper.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\bean\Rate.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\bean\Thumb.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\controller\movie\UserController.java
@@ -99,6 +104,7 @@ E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\constant\Host.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\mapper\music\artist\ArtistCateMapper.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\mapper\movie\ScreenwriterMapper.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\mapper\comment\CommentMapper.java
+E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\bean\book\BookCate.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\mapper\subscriber\SubMapper.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\bean\movie\Area.java
 E:\Project\rev-com\rev-com-server\src\main\java\com\codergb\dto\book\BookDTO.java

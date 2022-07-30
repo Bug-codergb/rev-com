@@ -8,6 +8,9 @@ const AllReviewDetail=lazy(()=>import("../../../../components/content/detail/mov
 const AllShortComDetail=lazy(()=>import("../../../../components/content/detail/movie/allComment/shortComDetail/index"));
 const TopMovie200=lazy(()=>import("../../../../components/content/movie/movieTop/index"));
 const AllHotReview=lazy(()=>import("../../../../components/content/movie/allHotReview/index"));
+
+//演员详情页
+const ActorDetail=lazy(()=>import("../../../../components/content/detail/movie/actorDetail/index"));
 const movieDetailRouter:RouteObject={
   path:"movieDetail",
   element:(
@@ -65,6 +68,14 @@ const allHotReviewRouter:RouteObject={
     </Suspense>
   )
 }
+const actorDetailRouter:RouteObject={
+  path:"ActorDetail",
+  element:(
+    <Suspense>
+      <ActorDetail/>
+    </Suspense>
+  )
+}
 export {
   movieDetailRouter,
   movieComEditRouter,
@@ -72,5 +83,6 @@ export {
   allReviewRouter,
   allShortComRouter,
   topMovieRouter,
-  allHotReviewRouter
+  allHotReviewRouter,
+  actorDetailRouter
 }
