@@ -6,11 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="dff19381-3823-456f-9cff-3b5b03d975f8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rev-com-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rev-com-server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rev-com-server-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/controller/awards/AwardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/controller/awards/AwardsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/awards/AwardsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/awards/AwardsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/service/awards/AwardsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/service/awards/AwardsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/awards/AwardsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/awards/AwardsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/controller/awards/AwardsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/controller/awards/AwardsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/codergb/service/awards/AwardsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codergb/service/awards/AwardsService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,17 +71,6 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="rev-com-server" />
       <extension name="coverage">
@@ -138,7 +128,8 @@
       <workItem from="1658580909167" duration="595000" />
       <workItem from="1658581693911" duration="1052000" />
       <workItem from="1658582840873" duration="650000" />
-      <workItem from="1659159778767" duration="1603000" />
+      <workItem from="1659159778767" duration="2384000" />
+      <workItem from="1659245678612" duration="2738000" />
     </task>
     <servers />
   </component>

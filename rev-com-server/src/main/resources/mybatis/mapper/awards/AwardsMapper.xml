@@ -7,4 +7,18 @@
     insert into movie_awards(id,name,area,established,description,alias)
     values(#{id},#{name},#{area},#{established},#{description},#{alias})
   </insert>
+  <!--获取所有奖项-->
+  <select id="getAllAwards" resultType="Awards">
+    select *
+    from movie_awards as ma
+    <if test="keyword!='' and keyword!=null">
+      where ma.name like "%"#{keyword}"%" or ma.alias like "%"#{keyword}"%"
+    </if>
+  </select>
+  <!--更新奖项信息-->
+  <update id="updateAwards">
+    update movie_awards set name=#{name},area=#{area},established=#{established},alias=#{alias},
+                            description=#{description}
+    where id=#{id}
+  </update>
 </mapper>

@@ -11,7 +11,7 @@
  Target Server Version : 80029
  File Encoding         : 65001
 
- Date: 30/07/2022 17:05:27
+ Date: 31/07/2022 16:14:56
 */
 
 SET NAMES utf8mb4;
@@ -45,7 +45,7 @@ CREATE TABLE `actor`  (
 -- ----------------------------
 -- Records of actor
 -- ----------------------------
-INSERT INTO `actor` VALUES ('1652014592779', '小罗伯特·唐尼', 'http://localhost:8888/actor/avatar/1652014592779', 'Robert Downey Jr.', 'Bobb', '双子座', '1997-04-07 16:00:00', '纽约', '克里斯埃文斯', 'ffffff', '2022-05-08 20:56:32', '2022-06-09 10:15:08', '3.webp', 'image/webp', './upload/actor/avatar/', '1654257176253.webp', 23850);
+INSERT INTO `actor` VALUES ('1652014592779', '小罗伯特·唐尼', 'http://localhost:8888/actor/avatar/1652014592779', 'Robert Downey Jr.', 'Bobb', '双子座', '1997-04-07 16:00:00', '纽约', '克里斯埃文斯', 'ffffffTabs 组件提供了选项卡功能， 默认选中第一个标签页，你也可以通过 value 属性来指定当前选中的标签页。Tabs 组件提供了选项卡功能， 默认选中第一个标签页，你也可以通过 value 属性来指定当前选中的标签页。', '2022-05-08 20:56:32', '2022-07-30 17:12:28', '3.webp', 'image/webp', './upload/actor/avatar/', '1654257176253.webp', 23850);
 INSERT INTO `actor` VALUES ('1652152711455', '克里斯埃韦是', 'http://localhost:8888/actor/avatar/1652152711455', 'Robert Downey Jr.', 'Bob', '双子座', '2010-07-19 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:18:31', '2022-06-03 19:53:01', 'f15887af9.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257181638.jpg', 31515);
 INSERT INTO `actor` VALUES ('1652152720292', '詹兆隆', 'http://localhost:8888/actor/avatar/1652152720292', 'Robert Downey Jr.', 'Bob', '处女座', '2000-04-21 16:00:00', '纽约', '莎拉·杰西卡', '　时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得天人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，即冈峦之体势。\n　　披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨，雁阵惊寒，声断衡阳之浦。', '2022-05-10 11:18:40', '2022-07-30 15:56:17', 'lisa.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257186794.jpg', 216978);
 INSERT INTO `actor` VALUES ('1652152736343', '拉伦寺', 'http://localhost:8888/actor/avatar/1652152736343', 'Robert Downey Jr.', 'Bob', '水瓶座', '1990-04-12 16:00:00', '纽约', '莎拉·杰西卡', 'ffffff', '2022-05-10 11:18:56', '2022-06-03 19:53:12', 'p1378204929.4.jpg', 'image/jpeg', './upload/actor/avatar/', '1654257192636.jpg', 24950);
@@ -300,6 +300,7 @@ INSERT INTO `comment` VALUES ('1659168144746', NULL, '懿范，襜帷暂驻。�
 INSERT INTO `comment` VALUES ('1659168160519', NULL, '光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得天人之旧馆。层峦耸翠，上出重', '1651935333133', 3, '1654347283917', 0, NULL, '2022-07-30 16:02:40', '2022-07-30 16:02:40');
 INSERT INTO `comment` VALUES ('1659168178227', NULL, '盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，彩彻区明', '1651935333133', 5, '1652323265333', 0, NULL, '2022-07-30 16:02:58', '2022-07-30 16:02:58');
 INSERT INTO `comment` VALUES ('1659168531880', NULL, '盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，彩彻区明', '1654177694466', 3, '1652238044529', 0, NULL, '2022-07-30 16:08:51', '2022-07-30 16:08:51');
+INSERT INTO `comment` VALUES ('1659172412179', '8王将军之武库', '<p><span style=\"color: rgb(18, 18, 18); background-color: rgb(255, 255, 255);\">杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨戟遥临；宇文新州之懿范，襜帷暂驻。十旬休假，胜友如云；千里逢迎，高朋满座。腾蛟起凤</span></p>', '1654177694466', 5, '1652323265333', 1, NULL, '2022-07-30 17:13:56', '2022-07-30 17:13:56');
 INSERT INTO `comment` VALUES ('1675464984912', 'hellO', 'hahaha', '1651935333133', 3, '1652323356167', 0, '1654050213142', '2022-06-01 10:47:08', '2022-06-01 10:47:08');
 INSERT INTO `comment` VALUES ('1678156156511', '发freer', '你好你好', '1651935333133', 2, '1652323356167', 0, '1675464984912', '2022-06-01 11:16:31', '2022-06-01 11:16:31');
 
@@ -411,7 +412,7 @@ INSERT INTO `movie` VALUES ('1652322979306', 'X战警：逆转未来', 'http://l
 INSERT INTO `movie` VALUES ('1652323065481', '明日边缘 ', 'http://localhost:8888/movie/cover/1652323065481', '1652189363945', '英语', '未来世界陷入外星人入侵的恐慌中，军事演说家凯奇少校（汤姆·克鲁斯 Tom Cruise 饰）畏惧上战场，他从没想过将军（布莱丹·格里森 Brendan Gleeson 饰）会让他去指挥即将开始的“诺曼', '2014-05-20 16:00:00', 1500, 'Edge of Tomorrow', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654256869465.jpg', 73591, 4.00);
 INSERT INTO `movie` VALUES ('1652323129328', '源代码 ', 'http://localhost:8888/movie/cover/1652323129328', '1652189363945', '英语', '在阿富汗执行任务的美国空军飞行员科特史蒂文斯上尉（杰克·吉伦哈尔 Jake Gyllenhaal 饰）突然惊醒，发现自己在一辆高速行驶的列车上，而他的身边坐着一个素不相识的女子克里斯蒂安（米歇尔·莫娜', '2022-05-11 16:00:00', 1500, 'Source Code', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654256815588.webp', 28686, 6.00);
 INSERT INTO `movie` VALUES ('1652323197911', '终结者2', 'http://localhost:8888/movie/cover/1652323197911', '1652189363945', '英语 / 西班牙语', '上一部中，超级电脑“天网”阻止人类抵抗领袖约翰·康纳诞生的行动失败，时隔13年后，在“审判日”到来之前，“天网”派出了更加先进的生化机器人T-1000（罗伯特·帕特里克 饰）从公元2029年回到洛杉矶', '2002-05-08 16:00:00', 1500, 'Terminator 2: Judgment Day', '3.webp', 'image/webp', './upload/movie/cover/', '1654257331361.webp', 23850, 6.00);
-INSERT INTO `movie` VALUES ('1652323265333', '阿凡达', 'http://localhost:8888/movie/cover/1652323265333', '1652189363945', '英语', '战斗中负伤而下身瘫痪的前海军战士杰克·萨利（萨姆·沃辛顿 Sam Worthington 饰）决定替死去的同胞哥哥来到潘多拉星操纵格蕾丝博士（西格妮·韦弗 Sigourney Weaver 饰）用人类', '2022-05-11 16:00:00', 1500, 'Avatar ', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654256876916.webp', 28686, 6.67);
+INSERT INTO `movie` VALUES ('1652323265333', '阿凡达', 'http://localhost:8888/movie/cover/1652323265333', '1652189363945', '英语', '战斗中负伤而下身瘫痪的前海军战士杰克·萨利（萨姆·沃辛顿 Sam Worthington 饰）决定替死去的同胞哥哥来到潘多拉星操纵格蕾丝博士（西格妮·韦弗 Sigourney Weaver 饰）用人类', '2022-05-11 16:00:00', 1500, 'Avatar ', 'p2185073849.webp', 'image/webp', './upload/movie/cover/', '1654256876916.webp', 28686, 7.50);
 INSERT INTO `movie` VALUES ('1652323356167', '变形金刚 ', 'http://localhost:8888/movie/cover/1652323356167', '1652189371834', '英语 / 西班牙语', '　“霸天虎”的先遣部队旋风和毒蝎袭击了美军位于卡塔尔的军事基地，与此同时，路障帮助他的搭档迷乱潜入了美国总统的座机空中一号，通过电脑获悉，要想找到威震天就必须找到维特维奇家族的那副眼镜，上面有威震天关', '2012-05-23 16:00:00', 1500, 'Transformers', 'p2677018763.webp', 'image/webp', './upload/movie/cover/', '1654257314728.webp', 92266, 6.44);
 INSERT INTO `movie` VALUES ('1652323435978', '蜘蛛侠', 'http://localhost:8888/movie/cover/1652323435978', '1652189403822', '英语', '彼得 帕克（托比•马奎尔 Tobey Maguire 饰）只是美国一个平凡的高中生，当一次他被蜘蛛博物馆偷跑出来的变种蜘蛛咬了一口之后，彼得的生活彻底改变了。他变得和蜘蛛一样，拥有各种蜘蛛特有的超能力', '2008-05-21 16:00:00', 1500, 'Spider-Man', 'p1378204929.4.jpg', 'image/jpeg', './upload/movie/cover/', '1654256821840.jpg', 24950, 0.00);
 INSERT INTO `movie` VALUES ('1652323545139', '金刚狼', 'http://localhost:8888/movie/cover/1652323545139', '1652189371834', '英语', '　　1845年，尚年幼的维克多与詹姆斯兄弟俩在长辈之间一场突如其来争执中唤醒了自身的潜能，詹姆斯情急之下将陌生的生父杀死，自此兄弟两人流落战场', '2008-04-22 16:00:00', 1500, 'Wolverine', 'p1386481612.26.jpg', 'image/jpeg', './upload/movie/cover/', '1654256829821.jpg', 73591, 0.00);
@@ -693,7 +694,18 @@ CREATE TABLE `movie_awards`  (
 -- ----------------------------
 -- Records of movie_awards
 -- ----------------------------
-INSERT INTO `movie_awards` VALUES ('1659171835945', '奥斯卡金像奖', NULL, '美国好莱坞', '1998-05-15 00:00:00', '影视界最高奖项', 'Ascor', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie_awards` VALUES ('1659171835945', '奥斯卡金像奖11', NULL, '英国伦敦lao', '2002-02-04 16:00:00', '影视界最高奖项11', 'Awards11', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie_awards` VALUES ('1659245825951', '青龙奖', NULL, '韩国首尔', '2022-05-15 00:00:00', '影视界最高奖项', 'Ascor', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie_awards` VALUES ('1659245864290', '最佳男演员', NULL, '中国香港', '2015-05-15 00:00:00', '影视界最高奖项', 'Ascor', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie_awards` VALUES ('1659245876427', '金鸡奖', NULL, '中国香港', '2013-05-06 16:00:00', '影视界最高奖项145', 'Ascor8989', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie_awards` VALUES ('1659245899653', '金扫帚将', NULL, '中国台湾', '2010-05-15 00:00:00', '影视界最高奖项', 'Ascor', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie_awards` VALUES ('1659245972239', '金酸梅将', NULL, '法国', '2010-05-15 00:00:00', '影视界最高奖项', 'Ascor', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie_awards` VALUES ('1659246006528', '金马将', NULL, '中国台湾', '2011-05-15 00:00:00', '影视界最高奖项', 'Ascor', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie_awards` VALUES ('1659252634596', '第52届金球奖', NULL, '美国', '2022-07-14 16:00:00', 'The 48th BAFTA Awards (1995)', '23213', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie_awards` VALUES ('1659252676556', '第19届日本电影学院奖', NULL, '第19届日本电影学院奖', '2022-07-04 16:00:00', '第19届日本电影学院奖第19届日本电影学院奖第19届日本电影学院奖第19届日本电影学院奖', '第19届日本电影学院奖', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie_awards` VALUES ('1659252708019', '第6届豆瓣电影年度榜单 ', NULL, '第6届豆瓣电影年度榜单 第6届豆瓣电影年度榜单 ', '2022-07-01 16:00:00', '第19届日本电影学院奖第19届日本电影学院奖第19届日本电影学院奖第19届日本电影学院奖', '第6届豆瓣电影年度榜单 ', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie_awards` VALUES ('1659252734480', '金马奖', NULL, '中国台湾', '2011-05-15 00:00:00', '华语影视最高奖项', 'glod horse awards', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `movie_awards` VALUES ('1659252904018', '金球奖', NULL, '葡萄牙', '2022-07-22 16:00:00', '金旋奖金旋奖金旋奖金旋奖金旋奖金旋奖', '金旋奖', NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for movie_cate
@@ -1138,7 +1150,7 @@ CREATE TABLE `music_artist`  (
 -- ----------------------------
 INSERT INTO `music_artist` VALUES ('1654842220743', '三毛', '牛逼歌手2562548564864', 'http://localhost:8888/music/artist/avatar/1654842220743', '1654764563766', '1654765175396', '2022-06-10 14:23:40', '2022-06-25 16:13:02', 'p2629896175.webp', 'image/webp', './upload/music/artist/avatar/', '1656144782896.webp', 78230);
 INSERT INTO `music_artist` VALUES ('1654844872646', '邓紫棋', '哈哈哈哈哈哈', 'http://localhost:8888/music/artist/avatar/1654844872646', '1654764533815', '1654765175396', '2022-06-10 15:07:52', '2022-06-25 16:13:27', 'lisa.jpg', 'image/jpeg', './upload/music/artist/avatar/', '1656144807418.jpg', 216978);
-INSERT INTO `music_artist` VALUES ('1654844907219', '泰勒斯威夫特', '哈哈哈哈哈哈', NULL, '1654764558847', '1654765175396', '2022-06-10 15:08:27', '2022-06-10 15:08:27', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `music_artist` VALUES ('1654844907219', '泰勒斯威夫特', '哈哈哈哈哈哈', 'http://localhost:8888/music/artist/avatar/1654844907219', '1654764558847', '1654765175396', '2022-06-10 15:08:27', '2022-07-30 17:12:57', 'lisa.jpg', 'image/jpeg', './upload/music/artist/avatar/', '1659172377879.jpg', 216978);
 INSERT INTO `music_artist` VALUES ('1656133633070', '胡歌', '今天大华股份热哦附件现价奇侠传', 'http://localhost:8888/music/artist/avatar/1656133633070', '1654764533815', '1654765194904', '2022-06-25 13:07:13', '2022-06-25 16:19:31', 'p1378204929.4.jpg', 'image/jpeg', './upload/music/artist/avatar/', '1656145171145.jpg', 24950);
 INSERT INTO `music_artist` VALUES ('1656133886786', '陈慧娴', '附件为u哦i符号位u哦凤凰网', NULL, '1654764568890', '1654765194904', '2022-06-25 13:11:26', '2022-06-25 13:11:26', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `music_artist` VALUES ('1656133906600', '郑中基', '的权威的去', NULL, '1654764588901', '1654765175396', '2022-06-25 13:11:46', '2022-06-25 13:11:46', NULL, NULL, NULL, NULL, NULL);
@@ -1322,8 +1334,6 @@ INSERT INTO `occupation_relate` VALUES ('1652152809362', NULL, NULL, '1652100306
 INSERT INTO `occupation_relate` VALUES (NULL, '1654600299663', NULL, '1652100137884');
 INSERT INTO `occupation_relate` VALUES (NULL, '1654600299663', NULL, '1652100306026');
 INSERT INTO `occupation_relate` VALUES (NULL, '1654600299663', NULL, '1652100299387');
-INSERT INTO `occupation_relate` VALUES ('1652014592779', NULL, NULL, '1652100361394');
-INSERT INTO `occupation_relate` VALUES ('1652014592779', NULL, NULL, '1652100306026');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1652195889420', '1652100321467');
 INSERT INTO `occupation_relate` VALUES (NULL, NULL, '1652195889420', '1652100306026');
 INSERT INTO `occupation_relate` VALUES ('1652152720292', NULL, NULL, '1652100361394');
@@ -1332,6 +1342,8 @@ INSERT INTO `occupation_relate` VALUES ('1652152775219', NULL, NULL, '1652100361
 INSERT INTO `occupation_relate` VALUES ('1652152775219', NULL, NULL, '1652100321467');
 INSERT INTO `occupation_relate` VALUES ('1653831630847', NULL, NULL, '1652100361394');
 INSERT INTO `occupation_relate` VALUES ('1653831630847', NULL, NULL, '1652100306026');
+INSERT INTO `occupation_relate` VALUES ('1652014592779', NULL, NULL, '1652100361394');
+INSERT INTO `occupation_relate` VALUES ('1652014592779', NULL, NULL, '1652100306026');
 
 -- ----------------------------
 -- Table structure for publish
