@@ -1,5 +1,5 @@
 <template>
-  <template v-if="props.awards && props.awards.list.length">
+  <template v-if="props.awards && props.awards.list && props.awards.list.length">
     <el-table :data="props.awards.list" row-key="id" :height="410">
       <el-table-column prop="id" label="奖项id" show-overflow-tooltip width="160" />
       <el-table-column prop="name" label="奖项名称" show-overflow-tooltip width="160" />

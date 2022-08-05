@@ -26,4 +26,11 @@ public class AwardsService {
   public int updateAwards(Awards awards){
     return awardsMapper.updateAwards(awards);
   }
+  //上传奖项封面信息
+  public int uploadCover(Awards awards){
+    return awardsMapper.uploadCover(awards);
+  }
+  public Awards getAwardsById(String id){
+    return awardsMapper.getAwardsById(id);
+  }
 }

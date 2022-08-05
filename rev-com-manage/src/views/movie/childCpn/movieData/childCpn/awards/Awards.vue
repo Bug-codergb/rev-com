@@ -30,8 +30,8 @@
 import { reactive, ref, onMounted } from "vue";
 import PageItemList from "@/components/content/pageItemList/PageItemList.vue";
 import AwardsTable from "./childCpn/awardsTable/AwardsTable.vue";
-import AddAwards from "./childCpn/addAwards/AddAwards";
 import GBDrawer from "@/components/common/gbDrawer/GBDrawer.vue";
+import AddAwards from "./childCpn/addAwards/AddAwards.vue";
 
 import { IAwards } from "@/types/awards";
 import { getAllAwards } from "@/network/awards";
@@ -39,10 +39,10 @@ import { IResponseType } from "@/types/responseType";
 import { IPageResult } from "@/types/pageResult";
 import { debounce } from "@/utils/debounce";
 
-let awardsList = reactive({
+let awardsList = reactive<{ list: IAwards[] }>({
   list: []
 });
-const awards = reactive({
+const awards = reactive<{ item: IAwards | null }>({
   item: null
 });
 const total = ref<number>(0);
@@ -77,7 +77,7 @@ const awardsEdit = (item: IAwards) => {
 };
 const showDrawer = () => {
   drawer.value = true;
-  awards.item = {};
+  awards.item = null;
 };
 const closeDrawer = () => {
   drawer.value = false;

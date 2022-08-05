@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dff19381-3823-456f-9cff-3b5b03d975f8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/constant/UploadPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/constant/UploadPath.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/controller/awards/AwardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/controller/awards/AwardsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/awards/AwardsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/mapper/awards/AwardsMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codergb/service/awards/AwardsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codergb/service/awards/AwardsService.java" afterDir="false" />
@@ -71,6 +72,17 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="rev-com-server" />
       <extension name="coverage">
@@ -129,7 +141,8 @@
       <workItem from="1658581693911" duration="1052000" />
       <workItem from="1658582840873" duration="650000" />
       <workItem from="1659159778767" duration="2384000" />
-      <workItem from="1659245678612" duration="2738000" />
+      <workItem from="1659245678612" duration="3744000" />
+      <workItem from="1659701877529" duration="3290000" />
     </task>
     <servers />
   </component>

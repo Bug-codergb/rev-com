@@ -21,4 +21,16 @@
                             description=#{description}
     where id=#{id}
   </update>
+  <!--上传奖项封面信息-->
+  <update id="uploadCover">
+    update movie_awards set coverUrl=#{coverUrl},originalname=#{originalname},mimetype=#{mimetype},
+                            dest=#{dest},filename=#{filename},size=#{size}
+    where id=#{id}
+  </update>
+  <!-- 获取awards通过id -->
+  <select id="getAwardsById" resultType="Awards">
+    select *
+    from movie_awards
+    where id=#{id}
+  </select>
 </mapper>

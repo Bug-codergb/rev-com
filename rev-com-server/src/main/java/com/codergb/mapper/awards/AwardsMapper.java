@@ -11,4 +11,8 @@ public interface AwardsMapper {
                                    @Param("limit") Integer limit,
                                    @Param("keyword") String keyword);
   public int updateAwards(Awards awards);
+  //上传奖项封面
+  public int uploadCover(Awards awards);
+  //获取awards
+  public Awards getAwardsById(@Param("id") String id);
 }
