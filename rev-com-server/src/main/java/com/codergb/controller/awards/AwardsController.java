@@ -138,4 +138,16 @@ public class AwardsController {
       return new ResponseType<Object>(HttpStatus.OK.value(),ResponseMessage.SUCCESS.getMESSAGE(), null);
     }
   }
+  //删除奖项信息
+  @LoginAuth
+  @PostMapping("/delete/{id}")
+  public ResponseType<Object> deleteAwards(@PathVariable("id") String id){
+    Awards awards=awardsService.getAwardsById(id);
+    File file=new File(System.getProperty("user.dir")+awards.getDest()+awards.getFilename());
+    if(file.exists()){
+      boolean isDelete=file.delete();
+    }
+    awardsService.deleteAwards(id);
+    return new ResponseType<Object>(HttpStatus.OK.value(), ResponseMessage.SUCCESS.getMESSAGE(), null);
+  }
 }

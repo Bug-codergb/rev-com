@@ -6,7 +6,7 @@
     @showDrawer="showDrawer"
   />
   <template v-if="awardsList.list.length">
-    <AwardsTable :awards="awardsList" @awards-edit="awardsEdit" />
+    <AwardsTable :awards="awardsList" @awards-edit="awardsEdit" @awards-delete="awardsDelete" />
   </template>
   <template v-if="total > pageCount">
     <div class="page">
@@ -74,6 +74,9 @@ const keywordChange = debounce(
 const awardsEdit = (item: IAwards) => {
   awards.item = item;
   drawer.value = true;
+};
+const awardsDelete = () => {
+  getAllAwardsRequest(1, 10, "");
 };
 const showDrawer = () => {
   drawer.value = true;

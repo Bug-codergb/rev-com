@@ -197,7 +197,17 @@
           </el-form-item>
         </el-col>
       </el-row>
+      <el-col :gutter="24">
+        <el-col>
+          <el-form-item>
+            <el-button type="primary" @click="addAwardsHandle">添加奖项</el-button>
+          </el-form-item>
+        </el-col>
+      </el-col>
     </el-form>
+    <el-dialog v-model="isShowAwards" title="奖项列表" width="75%">
+      <AwardsList />
+    </el-dialog>
   </div>
 </template>
 
@@ -224,9 +234,11 @@ import languages from "@/constant/language";
 import { createLogger } from "vuex";
 import { IMovie } from "@/types/movie";
 import { IFormMovie } from "@/views/movie/childCpn/movie/childCpn/addMovie/types/IFormMovie";
+import AwardsList from "@/views/movie/childCpn/movie/childCpn/addMovie/childCpn/awardList/AwardsList.vue";
 export default defineComponent({
   name: "AddMovie",
   components: {
+    AwardsList,
     ImgPrev
   },
   props: {
@@ -236,6 +248,7 @@ export default defineComponent({
   },
   setup(props, context) {
     const isUpdate = ref(false);
+    const isShowAwards = ref(false);
     const ruleFormRef = ref<FormInstance>();
     const movie = reactive<IFormMovie>({
       name: "",
@@ -416,6 +429,9 @@ export default defineComponent({
       formData.append("cover", file);
       cover.source = formData;
     };
+    const addAwardsHandle = () => {
+      isShowAwards.value = true;
+    };
     return {
       movie,
       rules,
@@ -432,7 +448,9 @@ export default defineComponent({
       cover,
       isUpdate,
       prevURL,
-      languages
+      languages,
+      isShowAwards,
+      addAwardsHandle
     };
   }
 });

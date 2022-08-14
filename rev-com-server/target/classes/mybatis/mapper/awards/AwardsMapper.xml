@@ -33,4 +33,9 @@
     from movie_awards
     where id=#{id}
   </select>
+  <!--删除奖项信息-->
+  <delete id="deleteAwards">
+    delete from movie_awards
+    where id=#{id}
+  </delete>
 </mapper>

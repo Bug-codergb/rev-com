@@ -33,4 +33,8 @@ public class AwardsService {
   public Awards getAwardsById(String id){
     return awardsMapper.getAwardsById(id);
   }
+  //删除奖项信息
+  public int deleteAwards(String id){
+    return awardsMapper.deleteAwards(id);
+  }
 }

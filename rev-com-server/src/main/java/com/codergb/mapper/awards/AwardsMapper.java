@@ -15,4 +15,6 @@ public interface AwardsMapper {
   public int uploadCover(Awards awards);
   //获取awards
   public Awards getAwardsById(@Param("id") String id);
+  //删除奖项信息
+  public int deleteAwards(@Param("id") String id);
 }

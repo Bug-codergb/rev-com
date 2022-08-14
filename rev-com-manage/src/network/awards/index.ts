@@ -5,7 +5,8 @@ enum AwardsApi {
   createAwards = "/awards",
   updateAwards = "/awards/update/",
   uploadCover = "/awards/cover/upload/",
-  updateCover = "/awards/cover/update/"
+  updateCover = "/awards/cover/update/",
+  deleteAwards = "/awards/delete/"
 }
 //获取所有奖项
 export function getAllAwards<T = IResponseType<any>>(
@@ -80,5 +81,11 @@ export function updateCover<T = IResponseType<any>>(id: string, formData: FormDa
     headers: {
       "Content-type": "multipart/form-data"
     }
+  });
+}
+//删除奖项信息
+export function deleteAwards<T = IResponseType<any>>(id: string): Promise<T> {
+  return gbRequest.post<T>({
+    url: AwardsApi.deleteAwards + id
   });
 }

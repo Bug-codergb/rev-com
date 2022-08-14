@@ -23,7 +23,9 @@
         <template #default="scope">
           <el-button type="text" size="small">查看</el-button>
           <el-button type="text" size="small" @click="editHandle(scope.row)">编辑</el-button>
-          <el-button type="text" size="small">删除</el-button>
+          <el-button type="text" size="small" @click="deleteAwardsHandle(scope.row)"
+            >删除</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -33,6 +35,8 @@
 <script lang="ts" setup>
 import { defineProps, defineEmits } from "vue";
 import { IAwards } from "@/types/awards";
+import { ElMessage, ElMessageBox } from "element-plus";
+import { deleteAwards } from "@/network/awards";
 const props = defineProps({
   awards: {
     type: Array,
@@ -41,9 +45,23 @@ const props = defineProps({
     }
   }
 });
-const emit = defineEmits(["awards-edit"]);
+const emit = defineEmits(["awards-edit", "awards-delete"]);
 const editHandle = (item: IAwards) => {
   emit("awards-edit", item);
+};
+const deleteAwardsHandle = (item: IAwards) => {
+  ElMessageBox.confirm(`确定要删除${item.name}吗?`, "提示", {
+    confirmButtonText: "确定",
+    cancelButtonText: "取消",
+    type: "warning"
+  })
+    .then(() => {
+      deleteAwards(item.id).then(() => {
+        emit("awards-delete");
+        ElMessage.success("删除成功");
+      });
+    })
+    .catch(() => {});
 };
 </script>
 
